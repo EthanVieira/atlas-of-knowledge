@@ -1,0 +1,64 @@
+# ============================================================================
+#  CODEOWNERS — field stewards
+# ----------------------------------------------------------------------------
+#  When someone opens a pull request touching a file listed here, GitHub
+#  automatically requests a review from that file's owner(s). This is how we
+#  give domain experts stewardship over the field(s) they know: they review the
+#  data changes in their area for accuracy.
+#
+#  Format:  <path>   @github-handle [@another-handle ...]
+#  Later matches win, so the field-specific lines below override the defaults.
+#
+#  To become a field steward: open a PR adding your handle next to a field and
+#  introduce yourself (see CONTRIBUTING.md → Governance & credit). Remove the
+#  leading "# " to activate a line once an owner exists.
+#
+#  NOTE: every handle here must have write/triage access to the repo, or GitHub
+#  will silently ignore it. Until you add real owners, keep the lines commented.
+# ============================================================================
+
+# --- Default: everything is owned by the maintainers -------------------------
+# * @your-handle
+
+# --- Engine & tooling (code review, not data review) -------------------------
+# /js/layout.js         @your-handle
+# /js/graph.js          @your-handle
+# /js/app.js            @your-handle
+# /scripts/             @your-handle
+# /.github/             @your-handle
+
+# --- Field data: one line per discipline; assign the expert who stewards it --
+#     (paths match the per-field data files under js/data/)
+
+# Natural & formal sciences
+# /js/data/mathematics.js            @math-steward
+# /js/data/physics.js                @physics-steward
+# /js/data/chemistry.js              @chemistry-steward
+# /js/data/biology.js                @biology-steward
+# /js/data/cs.js                     @cs-steward
+
+# Engineering
+# /js/data/materials-engineering.js  @matsci-steward
+# /js/data/mechanical.js             @mecheng-steward
+# /js/data/electrical.js             @eleceng-steward
+# /js/data/civil.js                  @civileng-steward
+# /js/data/chemical-eng.js           @chemeng-steward
+# /js/data/aerospace.js              @aeroeng-steward
+# /js/data/biomedical.js             @bioeng-steward
+
+# Social sciences
+# /js/data/economics.js              @economics-steward
+# /js/data/psychology.js             @psychology-steward
+# /js/data/sociology.js              @sociology-steward
+# /js/data/political-science.js      @polisci-steward
+# /js/data/anthropology.js           @anthropology-steward
+# /js/data/linguistics.js            @linguistics-steward
+
+# Humanities
+# /js/data/philosophy.js             @philosophy-steward
+# /js/data/history.js                @history-steward
+# /js/data/literary-studies.js       @litstudies-steward
+# /js/data/theology.js               @theology-steward
+# /js/data/law.js                    @law-steward
+# /js/data/performing-arts.js        @performingarts-steward
+# /js/data/visual-arts.js            @visualarts-steward
