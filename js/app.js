@@ -96,6 +96,29 @@
     }
   });
 
+  // ---- Field filter ------------------------------------------------------
+  // "All fields" shows the big picture; picking a field shows only that field's
+  // courses plus their full prerequisite chains. Options are grouped by family.
+  const filterSelect = $("#field-filter");
+  {
+    const fams = window.KNOWLEDGE_MAP.FAMILIES || [];
+    let html = `<option value="">✦ All fields</option>`;
+    for (const fam of fams) {
+      const fields = Object.entries(FIELDS).filter(([, f]) => f.family === fam.key);
+      if (!fields.length) continue;
+      html += `<optgroup label="${fam.label}">`
+        + fields.map(([k, f]) => `<option value="${k}">${f.label}</option>`).join("")
+        + `</optgroup>`;
+    }
+    filterSelect.innerHTML = html;
+  }
+  function applyFilter(fieldKey) {
+    filterSelect.value = fieldKey || "";
+    filterSelect.classList.toggle("km-active", !!fieldKey);
+    graph.setFilter(fieldKey || null);
+  }
+  filterSelect.addEventListener("change", () => applyFilter(filterSelect.value || null));
+
   // Discover: jump to a random course whose prerequisites are all satisfied.
   $("#random-course").addEventListener("click", () => {
     const ready = COURSES.filter(c => !completed.has(c.id) && isReady(c.id));
@@ -107,6 +130,7 @@
       return;
     }
     const pick = ready[Math.floor(Math.random() * ready.length)];
+    if (graph.getFilter()) applyFilter(null);  // jump out of a field filter
     graph.focusNode(pick.id, true);
     toast(`Suggested: ${pick.title}`);
   });
@@ -139,6 +163,7 @@
   }
 
   function goTo(id) {
+    if (graph.getFilter()) applyFilter(null);  // search jumps across the whole atlas
     graph.focusNode(id, true);
     searchInput.value = "";
     results.hidden = true;

@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Atlas of Knowledge — a dependency map of human learning</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -23,6 +24,12 @@
     <div class="km-search">
       <input id="search" type="text" placeholder="Search subjects…  ( / )" autocomplete="off" />
       <ul id="search-results" hidden></ul>
+    </div>
+
+    <div class="km-filter">
+      <select id="field-filter" title="Show only one field and its prerequisites">
+        <option value="">✦ All fields</option>
+      </select>
     </div>
 
     <div class="progress">

@@ -288,6 +288,27 @@ details[open] summary::before { content: "▾ "; }
 }
 
 /* Search */
+/* Field filter dropdown (matches the search field styling). */
+.km-filter { position: relative; }
+#field-filter {
+  font-family: var(--font-serif); font-size: 13px; color: #f0e6cf;
+  padding: 7px 30px 7px 12px; border-radius: 18px; outline: none; cursor: pointer;
+  background: rgba(40,40,54,.7); border: 1px solid rgba(200,180,120,.3);
+  -webkit-appearance: none; appearance: none; max-width: 190px;
+  /* gold chevron */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%23c9a83f' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 10px center;
+}
+#field-filter:focus { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold-glow); }
+#field-filter:hover { border-color: rgba(200,180,120,.55); }
+/* highlight when a filter is active (not "All fields") */
+#field-filter.km-active { border-color: var(--gold); color: #fff2cf;
+  box-shadow: 0 0 8px var(--gold-glow); }
+#field-filter option, #field-filter optgroup {
+  background: #26273a; color: #e6dcc0;
+}
+#field-filter optgroup { font-style: normal; font-weight: 700; color: #c2a865; }
+
 .km-search { position: relative; margin-left: 6px; }
 #search {
   width: 230px; padding: 7px 12px; font-family: var(--font-serif);
@@ -444,6 +465,7 @@ details[open] summary::before { content: "▾ "; }
 
 @media (max-width: 720px) {
   #minimap-wrap, #legend { display: none; }
-  #search { width: 150px; }
+  #search { width: 130px; }
+  #field-filter { max-width: 130px; }
   .brand .sub { display: none; }
 }

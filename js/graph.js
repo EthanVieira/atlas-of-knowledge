@@ -40,6 +40,8 @@ const Graph = (() => {
     const elements = new Map(); // id -> element (only visible / expanded ones)
     let expandedId = null;
     let highlightSet = null;    // Set of ids to highlight (prereq chain), or null
+    let visibleSet = null;      // Set of ids to show (field filter), or null = all
+    let currentFilter = null;   // active field key, or null
 
     const { nodes, edges, byId, bounds } = model;
 
@@ -92,13 +94,14 @@ const Graph = (() => {
       // When zoomed far out, individual cards are illegible; we still render
       // them (as tiny colored stars via CSS) but skip building expanded cards.
       for (const n of nodeArr) {
+        if (visibleSet && !visibleSet.has(n.id)) continue;   // field filter
         if (n.x + n.w < vr.x0 || n.x > vr.x1 || n.y + n.h < vr.y0 || n.y > vr.y1)
           continue;
         needed.add(n.id);
         if (!elements.has(n.id)) mountNode(n);
       }
       // Always keep the expanded node mounted even if scrolled slightly away.
-      if (expandedId) needed.add(expandedId);
+      if (expandedId && (!visibleSet || visibleSet.has(expandedId))) needed.add(expandedId);
 
       // Unmount nodes no longer needed.
       for (const [id, el] of elements) {
@@ -316,6 +319,7 @@ const Graph = (() => {
       for (const e of edges) {
         const a = byId.get(e.from), b = byId.get(e.to);
         if (!a || !b) continue;
+        if (visibleSet && (!visibleSet.has(a.id) || !visibleSet.has(b.id))) continue;
         // endpoints in screen space (bottom-center of prereq -> top-center of course)
         const ax = (a.x + a.w / 2) * scale + offsetX;
         const ay = (a.y + a.h) * scale + offsetY;
@@ -381,6 +385,7 @@ const Graph = (() => {
       miniCtx.lineWidth = 0.4;
       for (const e of edges) {
         const a = byId.get(e.from), b = byId.get(e.to);
+        if (visibleSet && (!visibleSet.has(a.id) || !visibleSet.has(b.id))) continue;
         miniCtx.beginPath();
         miniCtx.moveTo((a.x + a.w / 2) * s + ox, (a.y + a.h) * s + oy);
         miniCtx.lineTo((b.x + b.w / 2) * s + ox, b.y * s + oy);
@@ -388,6 +393,7 @@ const Graph = (() => {
       }
       // nodes as dots colored by status
       for (const n of nodeArr) {
+        if (visibleSet && !visibleSet.has(n.id)) continue;
         const st = nodeStatus(n);
         miniCtx.fillStyle = st === "complete" ? "rgba(214,178,94,0.95)"
           : st === "available" ? "rgba(196,182,150,0.8)" : "rgba(120,110,88,0.5)";
@@ -483,14 +489,40 @@ const Graph = (() => {
 
       fit(pad = 80) {
         const w = root.clientWidth, h = root.clientHeight;
+        const b = activeBounds();                 // whole graph, or the filtered subset
         const s = clampScale(Math.min(
-          (w - pad * 2) / bounds.w,
-          (h - pad * 2) / bounds.h));
+          (w - pad * 2) / b.w,
+          (h - pad * 2) / b.h));
         scale = s;
-        offsetX = (w - bounds.w * s) / 2 - bounds.minX * s;
-        offsetY = (h - bounds.h * s) / 2 - bounds.minY * s;
+        offsetX = (w - b.w * s) / 2 - b.minX * s;
+        offsetY = (h - b.h * s) / 2 - b.minY * s;
         scheduleRender();
       },
+
+      // Field filter: null = show everything; a field key = show that field's
+      // courses PLUS their full prerequisite chains (across fields), hide the rest.
+      setFilter(fieldKey) {
+        currentFilter = fieldKey || null;
+        if (!currentFilter) {
+          visibleSet = null;
+        } else {
+          const set = new Set();
+          for (const n of nodeArr) {
+            if (n.field !== currentFilter) continue;
+            for (const id of ancestorsOf(n.id)) set.add(id); // node + its prereqs
+          }
+          visibleSet = set;
+          if (expandedId && !visibleSet.has(expandedId)) {
+            expandedId = null; onSelect && onSelect(null);
+          }
+        }
+        highlightSet = null;
+        // Drop any mounted nodes that are now hidden.
+        for (const [id, el] of elements)
+          if (visibleSet && !visibleSet.has(id)) { el.remove(); elements.delete(id); }
+        api.fit();
+      },
+      getFilter() { return currentFilter; },
 
       centerOn(gx, gy, targetScale) {
         const w = root.clientWidth, h = root.clientHeight;
@@ -551,6 +583,19 @@ const Graph = (() => {
         for (const r of cur.requires) if (!seen.has(r)) { seen.add(r); stack.push(r); }
       }
       return seen;
+    }
+
+    // Bounding box to fit: the whole graph, or just the filtered subset.
+    function activeBounds() {
+      if (!visibleSet) return bounds;
+      let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+      for (const n of nodeArr) {
+        if (!visibleSet.has(n.id)) continue;
+        minX = Math.min(minX, n.x);       minY = Math.min(minY, n.y);
+        maxX = Math.max(maxX, n.x + n.w); maxY = Math.max(maxY, n.y + n.h);
+      }
+      if (minX === Infinity) return bounds;
+      return { minX, minY, maxX, maxY, w: maxX - minX, h: maxY - minY };
     }
 
     // ---- init -------------------------------------------------------------
