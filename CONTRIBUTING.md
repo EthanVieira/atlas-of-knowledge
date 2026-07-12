@@ -49,7 +49,7 @@ GitHub will run the validator on your change automatically.
 
 ### 3. Work locally (best for larger contributions)
 ```bash
-git clone https://github.com/<owner>/<repo>.git
+git clone https://github.com/EthanVieira/atlas-of-knowledge.git
 cd <repo>
 # edit files under js/data/ ...
 node scripts/validate.js      # check your work (needs Node.js; no install step)
@@ -67,8 +67,7 @@ Everything is in [`js/data/`](js/data/):
 ```
 js/data/_config.js     fields (label, abbr, family, hue) + the R() helper
 js/data/mathematics.js one file per field — the data you edit
-js/data/physics.js
-js/data/...            (25 fields today)
+js/data/...
 ```
 
 Each field file registers a list of courses:
