@@ -420,30 +420,84 @@ const Graph = (() => {
     //  Interaction: pan & zoom
     // ---------------------------------------------------------------------
     let dragging = false, dragMoved = false, lastX = 0, lastY = 0;
+    const pointers = new Map();  // active pointerId -> {x, y} in client px
+    let pinchPrev = null;        // { dist, cx, cy } (cx/cy root-relative), or null
+
+    // Midpoint & finger distance of the first two active pointers.
+    function pinchState() {
+      const [a, b] = [...pointers.values()];
+      const r = root.getBoundingClientRect();
+      return {
+        dist: Math.hypot(a.x - b.x, a.y - b.y),
+        cx: (a.x + b.x) / 2 - r.left,
+        cy: (a.y + b.y) / 2 - r.top,
+      };
+    }
 
     root.addEventListener("pointerdown", (e) => {
       if (e.target.closest(".km-node")) return; // let node handle clicks
-      dragging = true; dragMoved = false;
-      lastX = e.clientX; lastY = e.clientY;
-      root.setPointerCapture(e.pointerId);
-      root.classList.add("km-grabbing");
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      try { root.setPointerCapture(e.pointerId); } catch {}
+      dragMoved = false;
+      if (pointers.size === 1) {
+        dragging = true;
+        lastX = e.clientX; lastY = e.clientY;
+        root.classList.add("km-grabbing");
+      } else if (pointers.size === 2) {
+        dragging = false;            // second finger down → start pinch
+        pinchPrev = pinchState();
+      }
     });
+
     root.addEventListener("pointermove", (e) => {
-      if (!dragging) return;
-      const dx = e.clientX - lastX, dy = e.clientY - lastY;
-      if (Math.abs(dx) + Math.abs(dy) > 2) dragMoved = true;
-      offsetX += dx; offsetY += dy;
-      lastX = e.clientX; lastY = e.clientY;
-      scheduleRender();
+      if (!pointers.has(e.pointerId)) return;
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+      if (pointers.size >= 2) {
+        // Two-finger pinch-zoom, anchored on the moving midpoint (pans too).
+        const cur = pinchState();
+        if (pinchPrev && pinchPrev.dist > 0) {
+          const factor = cur.dist / pinchPrev.dist;
+          const gx = (pinchPrev.cx - offsetX) / scale;   // graph pt under old midpoint
+          const gy = (pinchPrev.cy - offsetY) / scale;
+          const next = clampScale(scale * factor);
+          offsetX = cur.cx - gx * next;
+          offsetY = cur.cy - gy * next;
+          scale = next;
+          dragMoved = true;
+          scheduleRender();
+        }
+        pinchPrev = cur;
+      } else if (dragging) {
+        // Single-finger / mouse pan.
+        const dx = e.clientX - lastX, dy = e.clientY - lastY;
+        if (Math.abs(dx) + Math.abs(dy) > 2) dragMoved = true;
+        offsetX += dx; offsetY += dy;
+        lastX = e.clientX; lastY = e.clientY;
+        scheduleRender();
+      }
     });
-    const endDrag = (e) => {
-      if (!dragging) return;
-      dragging = false;
-      root.classList.remove("km-grabbing");
+
+    const endPointer = (e) => {
+      if (!pointers.has(e.pointerId)) return;
+      pointers.delete(e.pointerId);
       try { root.releasePointerCapture(e.pointerId); } catch {}
+      if (pointers.size >= 2) {
+        pinchPrev = pinchState();
+      } else if (pointers.size === 1) {
+        // One finger remains → resume panning from it (no jump).
+        const p = [...pointers.values()][0];
+        lastX = p.x; lastY = p.y;
+        dragging = true;
+        pinchPrev = null;
+      } else {
+        dragging = false;
+        pinchPrev = null;
+        root.classList.remove("km-grabbing");
+      }
     };
-    root.addEventListener("pointerup", endDrag);
-    root.addEventListener("pointercancel", endDrag);
+    root.addEventListener("pointerup", endPointer);
+    root.addEventListener("pointercancel", endPointer);
 
     // Clicking empty space clears highlight & closes expansion.
     root.addEventListener("click", (e) => {
