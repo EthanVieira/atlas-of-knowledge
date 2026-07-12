@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 Discussions
+    url: ../../discussions
+    about: Questions, ideas, or proposing a new field's structure before you build it.

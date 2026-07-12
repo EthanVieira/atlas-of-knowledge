@@ -1,0 +1,47 @@
+name: "📚 Suggest a resource or subject"
+description: "Propose a learning resource, a new course, or a fix — no coding needed."
+title: "[content]: "
+labels: ["content"]
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for helping improve the atlas! Fill in whatever you can — a maintainer will fold it in, or you can open a PR yourself (see CONTRIBUTING.md)."
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of contribution is this?
+      options:
+        - Add/improve a learning resource
+        - Add a new course/subject
+        - Add a new field/discipline
+        - Fix a prerequisite
+        - Correct a description or topics
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: field
+    attributes:
+      label: Field
+      placeholder: "e.g. Physics, Linguistics"
+    validations:
+      required: true
+  - type: input
+    id: subject
+    attributes:
+      label: Subject / course
+      placeholder: "e.g. Quantum Mechanics"
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: "Resource title + author + link, or the course + its prerequisites, or the correction."
+      placeholder: "e.g. Free: 'Quantum Physics I', MIT OCW 8.04, https://ocw.mit.edu/..."
+    validations:
+      required: true
+  - type: input
+    id: expertise
+    attributes:
+      label: Your background (optional)
+      description: "Helps reviewers weigh domain expertise. Totally optional."
+      placeholder: "e.g. PhD student in condensed matter"
