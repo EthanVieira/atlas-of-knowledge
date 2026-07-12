@@ -1,0 +1,27 @@
+# Normalize line endings across platforms.
+# Text files are stored with LF in the repository; Git converts to the native
+# ending on checkout. This keeps diffs clean regardless of contributor OS.
+
+* text=auto eol=lf
+
+# Explicitly treat the project's source/text types as text.
+*.html   text
+*.css    text
+*.js     text
+*.json   text
+*.md     text
+*.yml    text
+*.yaml   text
+CODEOWNERS   text
+LICENSE      text
+
+# Binary types (none today, but future-proofing so Git never munges them).
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.webp   binary
+*.ico    binary
+*.woff   binary
+*.woff2  binary
+*.ttf    binary
