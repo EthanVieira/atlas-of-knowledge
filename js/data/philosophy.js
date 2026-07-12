@@ -157,8 +157,9 @@ registerCourses([
     desc: "Hegel's heirs and critics — Marx, Kierkegaard, Nietzsche and the roots of modern thought.",
     requires: ["kant"],
     topics: ["Hegelian dialectic", "Marx & materialism", "Kierkegaard", "Nietzsche", "Utilitarianism (Mill)", "Pragmatism"],
-    free: [R("19th-century philosophy notes", "Various")],
-    paid: [R("Nietzsche: A Very Short Introduction", "Michael Tanner")] },
+    free: [R("SEP — 19th Century Romantic Aesthetics & Hegel", "Stanford Encyclopedia of Philosophy", "https://plato.stanford.edu/entries/hegel/")],
+    paid: [R("Nietzsche: A Very Short Introduction", "Michael Tanner"),
+           R("A History of Western Philosophy", "Bertrand Russell")] },
 
   { id: "analytic-philosophy", title: "Analytic Philosophy", field: "philosophy",
     desc: "The tradition of Frege, Russell, Wittgenstein and Quine — logic and language at the center.",
