@@ -1,0 +1,29 @@
+name: Validate data
+
+# Runs the catalog validator on every pull request and push, so no change
+# that breaks the atlas (bad fields, dangling prereqs, dependency cycles, …)
+# can be merged.
+
+on:
+  pull_request:
+    paths:
+      - "js/**"
+      - "index.html"
+      - "scripts/**"
+  push:
+    branches: [main]
+    paths:
+      - "js/**"
+      - "index.html"
+      - "scripts/**"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Validate the course catalog
+        run: node scripts/validate.js

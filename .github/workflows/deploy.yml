@@ -1,0 +1,57 @@
+name: Deploy to GitHub Pages
+
+# Publishes the static site to GitHub Pages on every push to main — but only
+# after the course catalog passes validation, so a broken data change can never
+# reach the live site.
+#
+# One-time setup: in the repo, go to Settings → Pages → "Build and deployment"
+# and set the Source to "GitHub Actions".
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # allow manual redeploys from the Actions tab
+
+# Permissions needed by the Pages deployment.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one Pages deployment at a time; newer pushes cancel in-flight ones.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate the course catalog
+        run: node scripts/validate.js
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # The whole repo is a static site (no build step); serve it as-is.
+          path: "."
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
