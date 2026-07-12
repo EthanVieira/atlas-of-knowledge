@@ -1,24 +1,16 @@
 /* ============================================================================
  *  KNOWLEDGE MAP — SHARED CONFIG
  * ----------------------------------------------------------------------------
- *  Loaded FIRST, before the per-field course files. Defines the fields, the
- *  resource helper R(), and the registry that each field file appends to.
- *
  *  To add a whole new discipline: add a key here (label + an HSL hue for its
  *  accent color + border), then create js/data/<field>.js and list it in
- *  index.html.  To add a subject: edit the relevant js/data/<field>.js file.
- *
- *  (These use `var`/`function` on purpose so the symbols are shared across the
- *   separate <script> files without a bundler.)
+ *  index.html. To add a subject: edit the relevant js/data/<field>.js file.
  * ==========================================================================*/
 
 // Fields belong to families (natural sciences, engineering, social sciences,
-// humanities). Their order here sets the left→right lane order in the graph, so
-// related disciplines sit next to each other — and each family is given its own
-// hue arc so members look visually related: sciences read green→cyan,
-// engineering blue, social sciences violet, humanities warm red→orange. Each
-// field needs a label, a short `abbr` for the node badge, an HSL `hue`, and its
-// `family` (used to section the legend).
+// humanities). Their order here sets the left to right lane order in the graph, so
+// related disciplines sit next to each other, and each family is given its own
+// hue arc so members look visually related. Each field needs a label, a short 
+// `abbr` for the node badge, an HSL `hue`, and its `family`.
 var FIELDS = {
   // --- Natural & formal sciences — greens & teals ---
   mathematics:      { label: "Mathematics",           abbr: "MATH",  family: "sciences",    hue: 96  },
@@ -62,7 +54,6 @@ var FAMILIES = [
   { key: "humanities",  label: "Humanities" },
 ];
 
-// Resource helper — keeps the data files terse.  url is optional.
 function R(t, by, url) { return { t: t, by: by, url: url || null }; }
 
 // The global registry. Each field file calls registerCourses([...]).

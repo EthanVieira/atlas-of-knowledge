@@ -7,9 +7,6 @@
  *       -> depth becomes a horizontal level (a row) in the graph.
  *    3. Order nodes within each level to (a) keep same-field subjects together
  *       and (b) minimise edge crossings, via iterated barycenter sweeps.
- *
- *  Pure functions only — no DOM. Runs once at startup for thousands of nodes
- *  in a few milliseconds.
  * ==========================================================================*/
 
 const Layout = (() => {

@@ -2,19 +2,14 @@
 /* ============================================================================
  *  DATA VALIDATOR  —  node scripts/validate.js
  * ----------------------------------------------------------------------------
- *  Loads every js/data/*.js file the way the browser does and checks the whole
- *  course catalog for the mistakes that would break the atlas:
- *
+ *  Checks for:
  *    • missing / malformed required fields on a course
  *    • duplicate course ids
  *    • prerequisites that point at a non-existent course
- *    • dependency CYCLES (A needs B needs A) — these make the graph unrankable
+ *    • dependency cycles
  *    • a course assigned to a field that isn't defined
  *    • fields missing label / abbr / family / hue, or an unknown family
  *    • resources missing a title
- *
- *  Exits 0 when the catalog is clean, 1 (with a report) when it isn't.
- *  No dependencies — just Node. This is what CI runs on every pull request.
  * ==========================================================================*/
 
 const fs = require("fs");

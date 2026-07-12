@@ -6,9 +6,6 @@
  *    - DOM nodes that are VIRTUALIZED (only those near the viewport exist),
  *    - constellation edges drawn on a canvas with off-screen culling,
  *    - a minimap for whole-atlas overview.
- *
- *  This keeps the DOM small (a few hundred elements) no matter how many
- *  thousands of courses are configured.
  * ==========================================================================*/
 
 const Graph = (() => {

@@ -25,5 +25,5 @@ desktop.ini
 .env
 .env.*
 
-# Claude Code local settings (machine-specific)
+# Claude Code local settings
 .claude/settings.local.json

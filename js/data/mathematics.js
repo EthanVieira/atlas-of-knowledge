@@ -1,10 +1,8 @@
 /* ============================================================================
- *  MATHEMATICS — the deep tree (foundations → beyond graduate level)
- *  Add a subject by appending an object to the array below. See _config.js for
- *  the schema.  Depth/position/edges are all computed automatically.
+ *  MATHEMATICS
  * ==========================================================================*/
 registerCourses([
-
+  
   // --- Foundations -------------------------------------------------------
   { id: "arithmetic", title: "Arithmetic", field: "mathematics",
     desc: "The number line, the four operations, fractions, ratios and place value — the bedrock of all quantitative reasoning.",
