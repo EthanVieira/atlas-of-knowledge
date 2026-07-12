@@ -1,0 +1,29 @@
+# Dependencies (the site itself needs none; this is only for tooling)
+node_modules/
+package-lock.json
+npm-debug.log*
+yarn-error.log*
+.pnp.*
+
+# Build / deploy output
+dist/
+.cache/
+.vercel/
+.netlify/
+
+# Editor & OS cruft
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs & env
+*.log
+.env
+.env.*
+
+# Claude Code local settings (machine-specific)
+.claude/settings.local.json
