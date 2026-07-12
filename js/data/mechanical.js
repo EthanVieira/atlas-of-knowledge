@@ -1,0 +1,69 @@
+/* ============================================================================
+ *  MECHANICAL ENGINEERING
+ * ==========================================================================*/
+registerCourses([
+
+  { id: "statics", title: "Engineering Statics", field: "mecheng",
+    desc: "Forces and moments on bodies in equilibrium — the starting point of structural and mechanical design.",
+    requires: ["classical-mechanics", "calculus-3"],
+    topics: ["Force systems", "Equilibrium", "Trusses & frames", "Centroids", "Friction", "Moments of inertia"],
+    free: [R("Engineering Mechanics: Statics", "Various OER")],
+    paid: [R("Engineering Mechanics: Statics", "Hibbeler")] },
+
+  { id: "engineering-dynamics", title: "Engineering Dynamics", field: "mecheng",
+    desc: "The motion of bodies under forces — kinematics and kinetics for machines and mechanisms.",
+    requires: ["statics", "ode"],
+    topics: ["Kinematics of particles", "Kinetics & Newton–Euler", "Work & energy", "Impulse & momentum", "Rigid-body dynamics", "Vibrations"],
+    free: [R("Engineering Dynamics", "MIT OCW 2.003", "https://ocw.mit.edu/courses/2-003sc-engineering-dynamics-fall-2011/")],
+    paid: [R("Engineering Mechanics: Dynamics", "Hibbeler")] },
+
+  { id: "mechanics-of-materials", title: "Mechanics of Materials", field: "mecheng",
+    desc: "How solids deform and fail under load — stress, strain and the design of load-bearing members.",
+    requires: ["statics"],
+    topics: ["Stress & strain", "Axial, torsion & bending", "Beam deflection", "Combined loading", "Buckling", "Failure criteria"],
+    free: [R("Mechanics of materials notes", "Various")],
+    paid: [R("Mechanics of Materials", "Beer, Johnston et al.")] },
+
+  { id: "engineering-thermodynamics", title: "Engineering Thermodynamics", field: "mecheng",
+    desc: "Energy conversion in engineering systems — engines, refrigerators and power cycles.",
+    requires: ["thermodynamics"],
+    topics: ["Properties of pure substances", "First & second laws for systems", "Power cycles", "Refrigeration cycles", "Psychrometrics", "Combustion"],
+    free: [R("Thermodynamics", "MIT OCW 2.005", "https://ocw.mit.edu/courses/2-005-thermal-fluids-engineering-i-fall-2000/")],
+    paid: [R("Fundamentals of Engineering Thermodynamics", "Moran et al.")] },
+
+  { id: "fluid-mechanics-eng", title: "Fluid Mechanics (Engineering)", field: "mecheng",
+    desc: "The engineering analysis of fluids at rest and in motion — pipes, pumps and flows.",
+    requires: ["engineering-dynamics", "calculus-3"],
+    topics: ["Fluid statics", "Continuity & Bernoulli", "Momentum analysis", "Pipe flow & losses", "Dimensional analysis", "Boundary layers"],
+    free: [R("Fluid mechanics notes", "Various")],
+    paid: [R("Fluid Mechanics", "Frank White")] },
+
+  { id: "heat-transfer", title: "Heat Transfer", field: "mecheng",
+    desc: "The engineering of thermal energy transport by conduction, convection and radiation.",
+    requires: ["engineering-thermodynamics", "fluid-mechanics-eng"],
+    topics: ["Conduction", "Convection", "Radiation", "Heat exchangers", "Boiling & condensation", "Transient conduction"],
+    free: [R("Heat transfer notes", "Various")],
+    paid: [R("Fundamentals of Heat and Mass Transfer", "Incropera et al.")] },
+
+  { id: "machine-design", title: "Machine Design", field: "mecheng",
+    desc: "Designing mechanical components and systems for strength, reliability and function.",
+    requires: ["mechanics-of-materials", "engineering-dynamics"],
+    topics: ["Failure theories", "Fatigue", "Shafts & bearings", "Gears", "Fasteners & welds", "Design process"],
+    free: [R("Machine design notes", "Various")],
+    paid: [R("Shigley's Mechanical Engineering Design", "Budynas & Nisbett")] },
+
+  { id: "manufacturing", title: "Manufacturing Processes", field: "mecheng",
+    desc: "How parts are made — the processes that turn materials into products.",
+    requires: ["mechanics-of-materials", "materials-science-intro"],
+    topics: ["Casting", "Forming & machining", "Joining", "Additive manufacturing", "Tolerances & metrology", "Process selection"],
+    free: [R("Manufacturing processes notes", "Various")],
+    paid: [R("Manufacturing Engineering and Technology", "Kalpakjian & Schmid")] },
+
+  { id: "mechatronics", title: "Mechatronics", field: "mecheng",
+    desc: "The integration of mechanics, electronics and control into smart machines.",
+    requires: ["engineering-dynamics", "control-systems", "electronics"],
+    topics: ["Sensors & actuators", "Microcontrollers", "Signal conditioning", "Feedback control", "System integration", "Real-time systems"],
+    free: [R("Mechatronics notes", "Various")],
+    paid: [R("Introduction to Mechatronics and Measurement Systems", "Alciatore & Histand")] },
+
+]);
