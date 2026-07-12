@@ -7,10 +7,7 @@ subject sits), colored by your **completion** status, and expand on click to sho
 a description, requirements, free & paid resources, and a list of the
 topics covered.
 
-## Run it
-
-Just open `index.html` in any modern browser — **no build step, no server, no
-dependencies**. Progress is saved automatically in your browser (`localStorage`).
+https://ethanvieira.github.io/atlas-of-knowledge/
 
 ## Contributing
 
