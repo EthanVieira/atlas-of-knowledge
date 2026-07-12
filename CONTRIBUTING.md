@@ -50,7 +50,7 @@ GitHub will run the validator on your change automatically.
 ### 3. Work locally (best for larger contributions)
 ```bash
 git clone https://github.com/EthanVieira/atlas-of-knowledge.git
-cd <repo>
+cd atlas-of-knowledge
 # edit files under js/data/ ...
 node scripts/validate.js      # check your work (needs Node.js; no install step)
 # then open index.html in a browser to see it live
