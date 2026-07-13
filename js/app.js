@@ -97,40 +97,91 @@
   });
 
   // ---- Field filter ------------------------------------------------------
-  // "All fields" shows the big picture; picking a field shows only that field's
-  // courses plus their full prerequisite chains. Options are grouped by family.
-  const filterSelect = $("#field-filter");
+  // A checkbox for every field (grouped by family) plus an "All fields" master
+  // toggle. All checked = the big picture (no filter); a subset shows only those
+  // fields' courses plus their full prerequisite chains (across fields).
+  const filterBtn = $("#field-filter");
+  const filterPanel = $("#field-filter-panel");
+  const filterLabel = $("#field-filter-label");
+  const allFieldKeys = Object.keys(FIELDS);
+  const selected = new Set(allFieldKeys);          // start showing everything
   {
     const fams = window.KNOWLEDGE_MAP.FAMILIES || [];
-    let html = `<option value="">✦ All fields</option>`;
+    let html = `<label class="km-filter-all">`
+      + `<input type="checkbox" id="km-filter-master" checked /><span>✦ All fields</span></label>`
+      + `<div class="km-filter-groups">`;
     for (const fam of fams) {
       const fields = Object.entries(FIELDS).filter(([, f]) => f.family === fam.key);
       if (!fields.length) continue;
-      html += `<optgroup label="${fam.label}">`
-        + fields.map(([k, f]) => `<option value="${k}">${f.label}</option>`).join("")
-        + `</optgroup>`;
+      html += `<div class="km-filter-group"><div class="km-filter-group-title">${fam.label}</div>`
+        + fields.map(([k, f]) =>
+            `<label class="km-filter-opt"><input type="checkbox" data-field="${k}" checked />`
+            + `<span class="swatch" style="--field-hue:${f.hue}"></span>${f.label}</label>`).join("")
+        + `</div>`;
     }
-    filterSelect.innerHTML = html;
+    filterPanel.innerHTML = html + `</div>`;
   }
-  function applyFilter(fieldKey) {
-    filterSelect.value = fieldKey || "";
-    filterSelect.classList.toggle("km-active", !!fieldKey);
-    graph.setFilter(fieldKey || null);
+  const masterBox = $("#km-filter-master");
+  const fieldBoxes = [...filterPanel.querySelectorAll("input[data-field]")];
+
+  // Reflect the `selected` set into the checkboxes, button label and graph.
+  function syncFilter() {
+    const n = selected.size, total = allFieldKeys.length;
+    for (const box of fieldBoxes) box.checked = selected.has(box.dataset.field);
+    masterBox.checked = n === total;
+    masterBox.indeterminate = n > 0 && n < total;
+    filterLabel.textContent =
+      n === total ? "✦ All fields"
+      : n === 0   ? "No fields"
+      : n === 1   ? (FIELDS[[...selected][0]]?.label ?? "1 field")
+      :             `${n} fields`;
+    filterBtn.classList.toggle("km-active", n !== total);
+    // All selected → no filter (whole atlas); otherwise the chosen subset.
+    graph.setFilter(n === total ? null : [...selected]);
   }
-  filterSelect.addEventListener("change", () => applyFilter(filterSelect.value || null));
+  function showAllFields() { allFieldKeys.forEach(k => selected.add(k)); syncFilter(); }
+
+  filterPanel.addEventListener("change", (e) => {
+    const t = e.target;
+    if (t === masterBox) {
+      if (masterBox.checked) allFieldKeys.forEach(k => selected.add(k));
+      else selected.clear();
+    } else if (t.dataset && t.dataset.field) {
+      if (t.checked) selected.add(t.dataset.field);
+      else selected.delete(t.dataset.field);
+    }
+    syncFilter();
+  });
+
+  // Open/close the dropdown panel.
+  function setFilterOpen(open) {
+    filterPanel.hidden = !open;
+    filterBtn.setAttribute("aria-expanded", String(open));
+  }
+  filterBtn.addEventListener("click", (e) => { e.stopPropagation(); setFilterOpen(filterPanel.hidden); });
+  filterPanel.addEventListener("click", (e) => e.stopPropagation());
+  document.addEventListener("click", () => setFilterOpen(false));
 
   // Discover: jump to a random course whose prerequisites are all satisfied.
+  // When fields are filtered, only discover from the selected fields' courses.
   $("#random-course").addEventListener("click", () => {
-    const ready = COURSES.filter(c => !completed.has(c.id) && isReady(c.id));
+    const fields = graph.getFilter();            // null = whole atlas, else array
+    if (fields && !fields.length) { toast("No fields are selected to discover from."); return; }
+    const pool = fields ? COURSES.filter(c => fields.includes(c.field)) : COURSES;
+    const ready = pool.filter(c => !completed.has(c.id) && isReady(c.id));
     if (!ready.length) {
-      const anyLeft = COURSES.some(c => !completed.has(c.id));
+      const anyLeft = pool.some(c => !completed.has(c.id));
+      const scope = !fields ? "the atlas"
+        : fields.length === 1 ? (FIELDS[fields[0]]?.label ?? "this field")
+        : "the selected fields";
       toast(anyLeft
-        ? "No courses are unlocked yet — complete a starting subject first."
-        : "You've completed the entire atlas. Bravo! ✦");
+        ? `No courses are unlocked in ${scope} yet — complete a prerequisite first.`
+        : fields
+          ? `You've completed all of ${scope}. Bravo! ✦`
+          : "You've completed the entire atlas. Bravo! ✦");
       return;
     }
     const pick = ready[Math.floor(Math.random() * ready.length)];
-    if (graph.getFilter()) applyFilter(null);  // jump out of a field filter
     graph.focusNode(pick.id, true);
     toast(`Suggested: ${pick.title}`);
   });
@@ -163,7 +214,7 @@
   }
 
   function goTo(id) {
-    if (graph.getFilter()) applyFilter(null);  // search jumps across the whole atlas
+    if (graph.getFilter()) showAllFields();  // search jumps across the whole atlas
     graph.focusNode(id, true);
     searchInput.value = "";
     results.hidden = true;

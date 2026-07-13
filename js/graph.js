@@ -41,7 +41,7 @@ const Graph = (() => {
     let expandedId = null;
     let highlightSet = null;    // Set of ids to highlight (prereq chain), or null
     let visibleSet = null;      // Set of ids to show (field filter), or null = all
-    let currentFilter = null;   // active field key, or null
+    let currentFilter = null;   // active field keys (array), or null = all
 
     const { nodes, edges, byId, bounds } = model;
 
@@ -553,16 +553,21 @@ const Graph = (() => {
         scheduleRender();
       },
 
-      // Field filter: null = show everything; a field key = show that field's
-      // courses PLUS their full prerequisite chains (across fields), hide the rest.
-      setFilter(fieldKey) {
-        currentFilter = fieldKey || null;
-        if (!currentFilter) {
+      // Field filter: null = show everything; an array of field keys = show
+      // those fields' courses PLUS their full prerequisite chains (across
+      // fields), hide the rest. An empty array shows nothing.
+      setFilter(fields) {
+        const list = fields == null
+          ? null
+          : (Array.isArray(fields) ? fields.slice() : [fields]);
+        currentFilter = list;
+        if (!list) {
           visibleSet = null;
         } else {
+          const wanted = new Set(list);
           const set = new Set();
           for (const n of nodeArr) {
-            if (n.field !== currentFilter) continue;
+            if (!wanted.has(n.field)) continue;
             for (const id of ancestorsOf(n.id)) set.add(id); // node + its prereqs
           }
           visibleSet = set;
