@@ -1,0 +1,26 @@
+registerDetail({
+  cover: cover(96, "Homotopy Type Theory", "network", "Mathematics"),
+  long: "Homotopy type theory reinterprets Martin-Löf dependent type theory through the lens of homotopy, viewing types as spaces, terms as points, and identity types as paths. Under this correspondence a type carries the structure of an ∞-groupoid, and iterated identity types recover higher homotopies. Voevodsky's univalence axiom asserts that equivalent types are equal, turning the informal practice of identifying isomorphic structures into a formal principle. Higher inductive types allow spaces such as the circle and spheres to be defined by generators for both points and paths, enabling synthetic homotopy theory in which classical results like π₁ of the circle are proved type-theoretically. Cubical type theory gives univalence a computational interpretation, and the whole framework is designed for machine-checked formalization in proof assistants, offering a univalent foundation for mathematics.",
+  topics: [
+    "Dependent type theory",
+    "Martin-Löf type theory",
+    "Identity types as paths",
+    "The groupoid interpretation",
+    "The ∞-groupoid interpretation",
+    "The univalence axiom",
+    "Equivalences",
+    "Higher inductive types",
+    "Truncation levels (h-levels)",
+    "Propositions & sets",
+    "Synthetic homotopy theory",
+    "The fundamental group of the circle",
+    "Cubical type theory",
+    "Formalization in proof assistants",
+    "Univalent foundations",
+  ],
+  recommended: [
+    res("Homotopy Type Theory: Univalent Foundations", "The Univalent Foundations Program", { type: "textbook", free: true, url: "https://homotopytypetheory.org/book/" }),
+    res("Introduction to Homotopy Type Theory", "Egbert Rijke", { type: "textbook", free: true, url: "https://arxiv.org/abs/2212.11082" }),
+  ],
+  supplementary: [],
+});

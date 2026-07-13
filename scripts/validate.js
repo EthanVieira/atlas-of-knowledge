@@ -10,6 +10,12 @@
  *    • a course assigned to a field that isn't defined
  *    • fields missing label / abbr / family / hue, or an unknown family
  *    • resources missing a title
+ *    • detail:true courses: a well-formed detail file exists (cover, long,
+ *      topics, recommended/supplementary), and no orphan detail files
+ *
+ *  Two course formats are accepted during the field-by-field migration to
+ *  detail files: legacy (desc/topics/free/paid inline) and migrated
+ *  (detail:true + js/data/details/<field>/<id>.js). See CONTRIBUTING.md.
  * ==========================================================================*/
 
 const fs = require("fs");
@@ -23,6 +29,7 @@ const warn = m => warnings.push(m);
 
 // --- Load the data files (config first), sharing globals like the browser --
 global.window = {};
+global.document = { currentScript: null };  // detail files read this for their id
 let fileList;
 try {
   fileList = fs.readdirSync(dataDir).filter(f => f.endsWith(".js"));
@@ -68,15 +75,23 @@ for (const [key, f] of Object.entries(FIELDS)) {
 }
 
 // --- Courses --------------------------------------------------------------
+// A course is stored in one of two formats:
+//   • legacy  — card content (desc/topics/free/paid) lives inline on the course.
+//   • migrated — `detail: true`; card content lives in a lazily-loaded detail
+//     file at js/data/details/<field>/<id>.js (validated in the detail pass).
+// Both are accepted while the atlas migrates field-by-field to the detail-file
+// format (mathematics is done; the other fields are being converted).
 const ids = new Set();
 const byId = new Map();
-const REQUIRED = ["id", "title", "field", "desc", "requires", "topics", "free", "paid"];
+const detailCourses = [];
+const BASE_REQUIRED = ["id", "title", "field", "requires"];
+const LEGACY_REQUIRED = ["desc", "topics", "free", "paid"];
 
 for (const c of COURSES) {
   if (!c || typeof c !== "object") { err(`a course entry is not an object`); continue; }
   const label = c.id || c.title || "(unnamed course)";
 
-  for (const k of REQUIRED)
+  for (const k of BASE_REQUIRED)
     if (!(k in c)) err(`"${label}" is missing required key "${k}"`);
 
   if (typeof c.id !== "string" || !/^[a-z0-9-]+$/.test(c.id || ""))
@@ -87,16 +102,23 @@ for (const c of COURSES) {
 
   if (c.field && !FIELDS[c.field]) err(`"${label}" uses undefined field "${c.field}"`);
   if (!Array.isArray(c.requires)) err(`"${label}".requires must be an array`);
-  if (!Array.isArray(c.topics)) err(`"${label}".topics must be an array`);
-  if (typeof c.desc === "string" && c.desc.length < 15)
-    warn(`"${label}" has a very short description`);
 
-  for (const kind of ["free", "paid"]) {
-    if (!Array.isArray(c[kind])) { err(`"${label}".${kind} must be an array`); continue; }
-    for (const r of c[kind]) {
-      if (!r || !r.t) err(`"${label}" has a ${kind} resource with no title`);
-      if (r && r.url && !/^https?:\/\//.test(r.url))
-        warn(`"${label}" resource "${r && r.t}" has a URL that isn't http(s)`);
+  if (c.detail) {
+    detailCourses.push(c);                 // rich content checked in the detail pass
+  } else {
+    for (const k of LEGACY_REQUIRED)
+      if (!(k in c)) err(`"${label}" is missing required key "${k}" (or set detail:true and add a detail file)`);
+    if ("topics" in c && !Array.isArray(c.topics)) err(`"${label}".topics must be an array`);
+    if (typeof c.desc === "string" && c.desc.length < 15)
+      warn(`"${label}" has a very short description`);
+    for (const kind of ["free", "paid"]) {
+      if (!(kind in c)) continue;
+      if (!Array.isArray(c[kind])) { err(`"${label}".${kind} must be an array`); continue; }
+      for (const r of c[kind]) {
+        if (!r || !r.t) err(`"${label}" has a ${kind} resource with no title`);
+        if (r && r.url && !/^https?:\/\//.test(r.url))
+          warn(`"${label}" resource "${r && r.t}" has a URL that isn't http(s)`);
+      }
     }
   }
 }
@@ -122,6 +144,55 @@ function dfs(id, stack) {
 }
 for (const c of COURSES) if (!state[c.id]) dfs(c.id, []);
 for (const cy of cycles) err(`dependency cycle: ${cy}`);
+
+// --- Detail files (migrated card content) ---------------------------------
+// Every `detail: true` course must have a well-formed detail file that
+// registers a cover, long description, topics and split/tagged references.
+if (detailCourses.length) {
+  const runtime = path.join(dataDir, "details", "_detail.js");
+  if (!fs.existsSync(runtime)) {
+    err(`js/data/details/_detail.js (the detail runtime) is missing`);
+  } else {
+    try { (0, eval)(fs.readFileSync(runtime, "utf8")); }
+    catch (e) { err(`syntax error in js/data/details/_detail.js: ${e.message}`); }
+
+    const TYPES = new Set(["textbook", "lectures", "video", "notes", "problems", "interactive", "reference"]);
+    for (const c of detailCourses) {
+      const rel = `details/${c.field}/${c.id}.js`;
+      const abs = path.join(dataDir, "details", c.field, `${c.id}.js`);
+      if (!fs.existsSync(abs)) {
+        err(`"${c.id}" has detail:true but js/data/${rel} is missing`);
+        continue;
+      }
+      // The detail file calls registerDetail({...}); it recovers its id from
+      // this script src, so point currentScript at the file being loaded.
+      global.document.currentScript = { src: "file:///" + abs.replace(/\\/g, "/") };
+      try { (0, eval)(fs.readFileSync(abs, "utf8")); }
+      catch (e) { err(`syntax error in js/data/${rel}: ${e.message}`); continue; }
+
+      const d = (global.window.KM_DETAILS || {})[c.id];
+      if (!d) { err(`js/data/${rel} did not register detail for "${c.id}" (check the registerDetail call / filename)`); continue; }
+      if (typeof d.long !== "string" || !d.long.trim()) err(`"${c.id}" detail is missing a "long" description`);
+      if (!Array.isArray(d.topics) || !d.topics.length) err(`"${c.id}" detail is missing "topics"`);
+      if (d.cover != null && typeof d.cover !== "string") err(`"${c.id}" detail.cover must be a string`);
+      for (const key of ["recommended", "supplementary"]) {
+        if (d[key] == null) continue;
+        if (!Array.isArray(d[key])) { err(`"${c.id}" detail.${key} must be an array`); continue; }
+        for (const r of d[key]) {
+          if (!r || !r.t) err(`"${c.id}" has a ${key} resource with no title`);
+          if (r && r.type && !TYPES.has(r.type)) warn(`"${c.id}" resource "${r.t}" has an unusual type "${r.type}"`);
+          if (r && r.free && !r.url) warn(`"${c.id}" resource "${r.t}" is marked free but has no url`);
+          if (r && r.url && !/^https?:\/\//.test(r.url)) warn(`"${c.id}" resource "${r.t}" has a URL that isn't http(s)`);
+        }
+      }
+    }
+
+    // Orphan detail files (a detail file with no matching detail:true course).
+    const detailIds = new Set(detailCourses.map(c => c.id));
+    for (const [id] of Object.entries(global.window.KM_DETAILS || {}))
+      if (!detailIds.has(id)) warn(`detail file registered "${id}" but no course has detail:true for it`);
+  }
+}
 
 // --- Report ---------------------------------------------------------------
 const perField = {};

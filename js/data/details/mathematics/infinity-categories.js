@@ -1,0 +1,30 @@
+registerDetail({
+  cover: cover(96, "∞-Categories", "network", "Mathematics"),
+  long: "Higher category theory generalizes ordinary categories by allowing morphisms between morphisms, and morphisms between those, coherently up to infinite dimension. The theory of (∞,1)-categories, in which all higher morphisms above the first are invertible, provides the natural language for modern homotopy theory, derived algebraic geometry, and topological field theory. Quasi-categories, modeled as simplicial sets satisfying the inner horn-filling condition, give a combinatorial model in which limits, colimits, adjunctions, and the Yoneda lemma all have well-behaved homotopy-invariant analogues. The straightening/unstraightening equivalence relates cartesian fibrations to functors valued in ∞-categories, generalizing the Grothendieck construction. Presentable ∞-categories and the adjoint functor theorem organize the large-scale structure of the subject, and the entire framework can be developed model-independently.",
+  topics: [
+    "Simplicial sets",
+    "The nerve of a category",
+    "Kan complexes",
+    "Quasi-categories",
+    "Inner horn filling",
+    "Homotopy coherence",
+    "Functors of ∞-categories",
+    "Natural transformations",
+    "∞-limits & colimits",
+    "Adjunctions",
+    "Presentable ∞-categories",
+    "Straightening/unstraightening",
+    "Cartesian fibrations",
+    "The ∞-categorical Yoneda lemma",
+    "Mapping spaces",
+    "Localization",
+  ],
+  recommended: [
+    res("Kerodon", "Jacob Lurie", { type: "reference", free: true, url: "https://kerodon.net/" }),
+    res("Higher Categories and Homotopical Algebra", "Denis-Charles Cisinski", { type: "textbook", free: true, url: "https://cisinski.app.uni-regensburg.de/" }),
+  ],
+  supplementary: [
+    res("Higher Topos Theory", "Jacob Lurie", { type: "textbook" }),
+    res("Elements of ∞-Category Theory", "Riehl & Verity", { type: "textbook" }),
+  ],
+});

@@ -135,6 +135,7 @@ const Graph = (() => {
     function mountNode(n) {
       const el = document.createElement("div");
       el.className = "km-node";
+      if (n.detail) el.classList.add("km-rich");   // wider when expanded
       el.style.left = n.x + "px";
       el.style.top = n.y + "px";
       el.style.width = n.w + "px";
@@ -200,6 +201,15 @@ const Graph = (() => {
     function buildBody(n) {
       const body = document.createElement("div");
       body.className = "km-node-body";
+      const rich = !!n.detail;
+
+      // Cover-image banner (rich cards only; filled once its detail loads).
+      let cover = null;
+      if (rich) {
+        cover = document.createElement("div");
+        cover.className = "km-cover km-cover-loading";
+        body.appendChild(cover);
+      }
 
       // Full field label chip at the top of the details.
       const f = fields[n.field] || {};
@@ -208,6 +218,7 @@ const Graph = (() => {
       fieldLine.innerHTML = `<span class="km-field-swatch"></span>${escapeHtml(f.label ?? n.field)}`;
       body.appendChild(fieldLine);
 
+      // Short description now; swapped for the longer one when detail loads.
       const desc = document.createElement("p");
       desc.className = "km-desc";
       desc.textContent = n.desc || "";
@@ -241,30 +252,103 @@ const Graph = (() => {
       }
       body.appendChild(reqWrap);
 
-      // Collapsible topics.
-      const topicsWrap = document.createElement("div");
-      topicsWrap.className = "km-section";
-      const details = document.createElement("details");
-      const summary = document.createElement("summary");
-      summary.innerHTML = `Topics covered <span class="km-count">${(n.topics || []).length}</span>`;
-      details.appendChild(summary);
-      const tl = document.createElement("ul");
-      tl.className = "km-topics";
-      for (const t of (n.topics || [])) {
-        const li = document.createElement("li");
-        li.textContent = t;
-        tl.appendChild(li);
-      }
-      details.appendChild(tl);
-      details.addEventListener("click", e => e.stopPropagation());
-      topicsWrap.appendChild(details);
-      body.appendChild(topicsWrap);
+      // Topics + resources go in a zone that rich cards fill asynchronously.
+      const zone = document.createElement("div");
+      zone.className = "km-content-zone";
+      body.appendChild(zone);
 
-      // Resources.
-      body.appendChild(resourceBlock("Free resources", n.free, "free"));
-      body.appendChild(resourceBlock("Paid resources", n.paid, "paid"));
+      if (rich) {
+        const loading = document.createElement("p");
+        loading.className = "km-none";
+        loading.textContent = "Loading details…";
+        zone.appendChild(loading);
+        loadDetail(n, (d) => {
+          zone.innerHTML = "";
+          if (!d) {
+            // Detail file missing/failed — fall back to the built-in fields.
+            cover.remove();
+            standardContent(n, zone);
+            return;
+          }
+          cover.classList.remove("km-cover-loading");
+          const img = document.createElement("img");
+          img.src = d.cover; img.alt = `${n.title} cover`; img.loading = "lazy";
+          cover.appendChild(img);
+          if (d.long) desc.textContent = d.long;
+          zone.appendChild(topicsSection(d.topics || n.topics, true));
+          zone.appendChild(refBlock("Recommended", d.recommended, "recommended"));
+          zone.appendChild(refBlock("Supplementary", d.supplementary, "supplementary"));
+        });
+      } else {
+        standardContent(n, zone);
+      }
 
       return body;
+    }
+
+    // Legacy body content: collapsible topic list + free/paid resource blocks.
+    function standardContent(n, zone) {
+      zone.appendChild(topicsSection(n.topics, false));
+      zone.appendChild(resourceBlock("Free resources", n.free, "free"));
+      zone.appendChild(resourceBlock("Paid resources", n.paid, "paid"));
+    }
+
+    // Collapsible "Topics covered". `chips` renders a flowing tag cloud (rich
+    // cards, which list many more topics) instead of a bulleted list.
+    function topicsSection(topics, chips) {
+      topics = topics || [];
+      const wrap = document.createElement("div");
+      wrap.className = "km-section";
+      const details = document.createElement("details");
+      if (chips) details.open = true;
+      const summary = document.createElement("summary");
+      summary.innerHTML = `Topics covered <span class="km-count">${topics.length}</span>`;
+      details.appendChild(summary);
+      if (chips) {
+        const cloud = document.createElement("div");
+        cloud.className = "km-topic-chips";
+        for (const t of topics) {
+          const s = document.createElement("span");
+          s.className = "km-topic-chip";
+          s.textContent = t;
+          cloud.appendChild(s);
+        }
+        details.appendChild(cloud);
+      } else {
+        const tl = document.createElement("ul");
+        tl.className = "km-topics";
+        for (const t of topics) {
+          const li = document.createElement("li");
+          li.textContent = t;
+          tl.appendChild(li);
+        }
+        details.appendChild(tl);
+      }
+      details.addEventListener("click", e => e.stopPropagation());
+      wrap.appendChild(details);
+      return wrap;
+    }
+
+    // Lazily inject a course's detail file, invoking cb(detail) once it
+    // registers (or cb(null) if it can't be loaded). Cached after first load.
+    // Detail files live under js/data/details/<field>/<id>.js.
+    function loadDetail(n, cb) {
+      const id = n.id, field = n.field;
+      const cache = window.KM_DETAILS || (window.KM_DETAILS = {});
+      if (cache[id]) { cb(cache[id]); return; }
+      const waiters = window.__kmDetailWaiters || (window.__kmDetailWaiters = {});
+      (waiters[id] || (waiters[id] = [])).push(cb);
+      if (!loadDetail._requested) loadDetail._requested = new Set();
+      if (loadDetail._requested.has(id)) return;
+      loadDetail._requested.add(id);
+      const s = document.createElement("script");
+      s.src = `js/data/details/${encodeURIComponent(field)}/${encodeURIComponent(id)}.js`;
+      s.async = true;
+      s.onerror = () => {
+        const ws = waiters[id]; delete waiters[id];
+        if (ws) ws.forEach(f => f(null));
+      };
+      document.head.appendChild(s);
     }
 
     function resourceBlock(title, list, cls) {
@@ -289,6 +373,38 @@ const Graph = (() => {
         } else {
           li.innerHTML = label;
         }
+        ul.appendChild(li);
+      }
+      wrap.appendChild(ul);
+      return wrap;
+    }
+
+    // Rich resource block: each item shows a type chip and a "Free" chip.
+    function refBlock(title, list, cls) {
+      const wrap = document.createElement("div");
+      wrap.className = "km-section";
+      const items = list || [];
+      wrap.innerHTML = `<h4 class="km-res-h ${cls}">${title}</h4>`;
+      if (!items.length) {
+        const p = document.createElement("p");
+        p.className = "km-none";
+        p.textContent = "—";
+        wrap.appendChild(p);
+        return wrap;
+      }
+      const ul = document.createElement("ul");
+      ul.className = "km-resources km-resources-rich";
+      for (const r of items) {
+        const li = document.createElement("li");
+        const label = `${escapeHtml(r.t)}${r.by ? ` <span class="km-by">— ${escapeHtml(r.by)}</span>` : ""}`;
+        const line = r.url
+          ? `<a href="${escapeAttr(r.url)}" target="_blank" rel="noopener">${label}</a>`
+          : label;
+        const tags =
+          (r.type ? `<span class="km-tag km-tag-type">${escapeHtml(r.type)}</span>` : "") +
+          (r.free ? `<span class="km-tag km-tag-free">Free</span>` : "");
+        li.innerHTML = `<div class="km-res-line">${line}</div>` +
+          (tags ? `<div class="km-res-tags">${tags}</div>` : "");
         ul.appendChild(li);
       }
       wrap.appendChild(ul);
@@ -617,6 +733,9 @@ const Graph = (() => {
     });
 
     root.addEventListener("wheel", (e) => {
+      // Over an open card, let the wheel scroll the card's own body instead of
+      // zooming the graph underneath it.
+      if (e.target.closest(".km-node.km-expanded")) return;
       e.preventDefault();
       const rect = root.getBoundingClientRect();
       const sx = e.clientX - rect.left, sy = e.clientY - rect.top;

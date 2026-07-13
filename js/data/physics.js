@@ -32,7 +32,7 @@ registerCourses([
 
   { id: "electromagnetism", title: "Electromagnetism", field: "physics",
     desc: "Electric and magnetic fields unified by Maxwell's equations.",
-    requires: ["vector-calculus", "ode"],
+    requires: ["calculus-3", "ode"],
     topics: ["Electrostatics", "Magnetostatics", "Maxwell's equations", "Electromagnetic waves", "Potentials & gauge", "Radiation"],
     free: [R("Electricity and Magnetism", "MIT OCW 8.02", "https://ocw.mit.edu/courses/8-02-physics-ii-electricity-and-magnetism-spring-2007/"),
            R("Electromagnetism", "David Tong", "https://www.damtp.cam.ac.uk/user/tong/em.html")],
@@ -57,7 +57,7 @@ registerCourses([
 
   { id: "continuum-mechanics", title: "Continuum Mechanics", field: "physics",
     desc: "The mechanics of deformable media — stress, strain and the tensor description of solids and fluids.",
-    requires: ["classical-mechanics", "vector-calculus"],
+    requires: ["classical-mechanics", "calculus-3"],
     topics: ["Stress & strain tensors", "Constitutive relations", "Elasticity", "Conservation laws in continua", "Viscoelasticity", "Waves in solids"],
     free: [],
     paid: [R("A First Course in Continuum Mechanics", "Y. C. Fung"),

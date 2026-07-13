@@ -7,7 +7,20 @@ contribute — if you can edit a text file, you can improve the atlas.
 
 > **TL;DR** — All the knowledge lives in plain data files under
 > [`js/data/`](js/data/), one file per field. To add or fix something you edit a
-> field's file, run `node scripts/validate.js`, and open a pull request.
+> field's file (and, for the new rich cards, a small per-course file under
+> [`js/data/details/`](js/data/details/)), run `node scripts/validate.js`, and
+> open a pull request.
+
+> ### 🚧 Migration in progress
+> The atlas is moving to **richer course cards** (a cover image, a long
+> description, a full topic list, and references split into *recommended* /
+> *supplementary* and tagged by type). This splits a course into two files: a
+> lightweight **node** in the field file, and a lazily-loaded **detail** file.
+> **[Mathematics](js/data/mathematics.js) is fully migrated** and is the
+> reference example. **Every other field is still in the legacy single-file
+> format** and is being converted one field at a time. Both formats are valid and
+> the validator accepts either — edit whichever format the field you're touching
+> currently uses (see [The data model](#the-data-model)).
 
 ---
 
@@ -65,36 +78,39 @@ Just open `index.html` in any browser.
 Everything is in [`js/data/`](js/data/):
 
 ```
-js/data/_config.js     fields (label, abbr, family, hue) + the R() helper
-js/data/mathematics.js one file per field — the data you edit
-js/data/...
+js/data/_config.js               fields (label, abbr, family, hue) + the R() helper
+js/data/<field>.js               one file per field — the course nodes you edit
+js/data/details/_detail.js       the detail runtime: registerDetail(), res(), cover()
+js/data/details/<field>/<id>.js  rich card content for one migrated course
 ```
 
-Each field file registers a list of courses:
+A course's data lives in **one of two formats** depending on whether its field
+has been migrated to the rich cards (see the migration note above).
+
+### Legacy format (most fields today)
+
+The field file registers each course with all of its content inline:
 
 ```js
 registerCourses([
 
   {
-    id:       "real-analysis",              // unique, lowercase-kebab-case
-    title:    "Real Analysis",              // shown on the node
-    field:    "mathematics",                // a key in FIELDS (see _config.js)
-    desc:     "The rigorous foundation of calculus: limits, continuity and "
-            + "integration made precise.",  // one or two sentences
-    requires: ["calculus-2", "set-theory"], // prerequisite course ids (edges)
-    topics:   ["Construction of ℝ", "Metric spaces", "Uniform convergence"],
-    free:     [ R("Basic Analysis", "Jiří Lebl", "https://www.jirka.org/ra/") ],
-    paid:     [ R("Principles of Mathematical Analysis", "Walter Rudin") ],
+    id:       "photosynthesis",             // unique, lowercase-kebab-case
+    title:    "Photosynthesis",             // shown on the node
+    field:    "biology",                    // a key in FIELDS (see _config.js)
+    desc:     "How plants turn light, water and CO₂ into sugar and oxygen.",
+    requires: ["cell-biology", "organic-chemistry"], // prerequisite ids (edges)
+    topics:   ["Light reactions", "The Calvin cycle", "Chloroplasts"],
+    free:     [ R("Photosynthesis", "Khan Academy", "https://www.khanacademy.org/...") ],
+    paid:     [ R("Molecular Biology of the Cell", "Alberts et al.") ],
   },
 
 ]);
 ```
 
 `R(title, author, url)` is a small helper for a resource. **`url` is optional** —
-if you don't have a stable link, just cite the title and author:
-`R("Principles of Mathematical Analysis", "Walter Rudin")`.
+if you don't have a stable link, just cite the title and author.
 
-### Field of every key
 | key | required | notes |
 |---|---|---|
 | `id` | ✅ | unique across the **whole** atlas, `lowercase-kebab-case` |
@@ -105,6 +121,65 @@ if you don't have a stable link, just cite the title and author:
 | `topics` | ✅ | array of short topic strings (the collapsible dropdown) |
 | `free` | ✅ | array of `R(...)` resources (may be `[]`) |
 | `paid` | ✅ | array of `R(...)` resources (may be `[]`) |
+
+### Migrated format (Mathematics — the new rich cards)
+
+The course is split in two. The **field file** keeps only the node (what the
+graph needs at startup) and sets `detail: true`:
+
+```js
+registerCourses([
+
+  { id: "real-analysis", title: "Real Analysis", field: "mathematics", detail: true,
+    requires: ["calculus-2", "proof-writing"] },
+
+]);
+```
+
+The **detail file** — `js/data/details/mathematics/real-analysis.js` — holds the
+rich card content. It calls `registerDetail({...})`; **the id is taken from the
+file name, so don't restate it**:
+
+```js
+registerDetail({
+  cover: cover(96, "Real Analysis", "waves", "Mathematics"), // hue, title, motif, eyebrow
+  long:
+    "Real analysis rebuilds calculus on rigorous foundations. " +   // a full paragraph,
+    "It starts by pinning down what the real numbers actually are …", // string-concatenated
+  topics: [                                    // comprehensive — all major topics (12–18)
+    "The real numbers & completeness", "Sequences & limits", "Metric spaces",
+    "Compactness", "The Riemann integral", "Uniform convergence", /* … */
+  ],
+  recommended: [                               // 2–4 canonical, level-appropriate sources
+    res("Principles of Mathematical Analysis", "Walter Rudin", { type: "textbook" }),
+    res("Basic Analysis I", "Jiří Lebl", { type: "textbook", free: true, url: "https://www.jirka.org/ra/" }),
+  ],
+  supplementary: [                             // 2–5 extras: videos, notes, alt texts
+    res("Analysis I", "Terence Tao", { type: "textbook" }),
+  ],
+});
+```
+
+Helpers (defined in `_detail.js`, available in every detail file):
+
+- `res(title, by, opts)` — a tagged resource. `opts = { url?, type?, free? }`.
+  - `type` is one of `textbook`, `lectures`, `video`, `notes`, `problems`,
+    `interactive`, `reference` — shown as a chip.
+  - `free: true` marks a genuinely, legally free resource — **always pair it with
+    the real `url`**. Don't invent links; omit both if unsure.
+- `cover(hue, title, motif, eyebrow)` — generates the card's SVG cover. Use the
+  field's `hue` (from `_config.js`; Mathematics is `96`), a short title, an
+  `eyebrow` (the field's display name), and a `motif` chosen from `curve`,
+  `vectors`, `waves`, `orbit`, `network`.
+
+| key | required | notes |
+|---|---|---|
+| field file: `id` / `title` / `field` / `requires` | ✅ | the node + edges |
+| field file: `detail: true` | ✅ | tells the renderer to load the detail file |
+| detail: `long` | ✅ | the full description (replaces `desc`) |
+| detail: `topics` | ✅ | comprehensive list, ~12–18 items |
+| detail: `recommended` / `supplementary` | ✅ | arrays of `res(...)` (either may be `[]`) |
+| detail: `cover` | ➖ | a `cover(...)` call; recommended |
 
 **Prerequisites may point at any field.** Quantum mechanics can require
 `linear-algebra`; biochemistry can require `organic-chemistry`. That's
@@ -132,6 +207,13 @@ node by hand.
 3. Add one `<script src="js/data/<field>.js"></script>` line to
    [`index.html`](index.html), next to the other field files.
 
+New fields are welcome to adopt the **migrated rich-card format** from the start
+(see [The data model](#the-data-model)): give each course `detail: true` and add
+its content under `js/data/details/<field>/<id>.js`. The detail runtime
+(`js/data/details/_detail.js`) is already loaded globally, and detail files load
+lazily — you do **not** add a `<script>` tag for them. The `js/data/details/`
+folder already contains an (empty) subfolder for every field.
+
 ---
 
 ## Style & quality guidelines
@@ -146,11 +228,19 @@ node by hand.
   without a URL instead.
 - Attribute authors correctly.
 
-**Descriptions** — one or two sentences, plain and inviting, no marketing. Say
-what the subject *is*, not why it's great.
+**Descriptions** — plain and inviting, no marketing; say what the subject *is*,
+not why it's great. Legacy `desc` is one or two sentences; a migrated card's
+`long` is a full paragraph or two.
 
-**Topics** — 4–8 short items naming the key ideas someone will learn. They fill
-the collapsible dropdown; they aren't a syllabus.
+**Topics** — name the key ideas someone will learn, not a full syllabus. Legacy
+`topics` is 4–8 items; a migrated card lists the major topics comprehensively
+(~12–18).
+
+**References (migrated cards)** — split them by intent: `recommended` for the few
+canonical, level-appropriate resources someone should actually use, and
+`supplementary` for worthwhile extras (videos, notes, alternative texts). Tag
+each with a `type`, and mark genuinely-free resources with `free: true` **and**
+their real URL.
 
 **Prerequisites** — list the *minimal* set actually needed to begin, not
 everything tangentially related. Fewer, correct edges beat many loose ones. Never
@@ -173,12 +263,14 @@ node scripts/validate.js
 
 It checks the entire catalog for the things that break the atlas:
 
-- missing/malformed course fields
+- missing/malformed course fields (in **either** format)
 - duplicate ids
 - prerequisites pointing at non-existent courses
 - **dependency cycles**
 - courses in undefined fields; fields missing `label`/`abbr`/`family`/`hue`
 - resources with no title
+- for `detail: true` courses: a well-formed detail file exists (cover, `long`,
+  `topics`, references) — and flags orphan detail files
 
 The same check runs automatically on every pull request via GitHub Actions, so a
 PR can't be merged with broken data. Please make sure it passes locally first.
@@ -188,7 +280,10 @@ PR can't be merged with broken data. Please make sure it passes locally first.
 - [ ] New `id`s are unique and `lowercase-kebab-case`.
 - [ ] Resources are accurate, well-attributed, and links (if any) work.
 - [ ] Prerequisites are minimal and correct; no cycles.
-- [ ] I opened `index.html` and my subject appears where I'd expect.
+- [ ] I matched the field's current format (legacy inline, or `detail: true` +
+      a detail file) — see [the migration note](#-migration-in-progress).
+- [ ] I opened `index.html` and my subject appears where I'd expect (open a
+      migrated card to check its cover, description, topics and references).
 
 ---
 

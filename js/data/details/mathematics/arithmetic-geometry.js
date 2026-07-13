@@ -1,0 +1,25 @@
+registerDetail({
+  cover: cover(96, "Arithmetic Geometry", "orbit", "Mathematics"),
+  long: "Arithmetic geometry applies the machinery of modern algebraic geometry to problems in number theory, studying schemes defined over the integers and other rings of arithmetic interest. Working over a Dedekind domain lets one view a curve or variety together with its reductions modulo each prime, packaged as an arithmetic surface whose geometry encodes number-theoretic behavior. Néron models give canonical smooth models for abelian varieties, while the theory of heights provides the quantitative measures of arithmetic complexity that control the distribution of rational and integral points. Galois representations attached to the étale cohomology of a variety tie its arithmetic to the absolute Galois group of the base field. Deep finiteness theorems, culminating in Faltings's proof of the Mordell conjecture, bound the rational points on curves of higher genus. Throughout, the reduction of curves and the Weil conjectures link local information at each prime to global arithmetic.",
+  topics: [
+    "Schemes over Dedekind domains",
+    "Reduction of curves modulo p",
+    "Arithmetic surfaces",
+    "Minimal & regular models",
+    "Néron models",
+    "Abelian varieties over number fields",
+    "The theory of heights",
+    "Height machine & canonical heights",
+    "Galois representations",
+    "Rational & integral points",
+    "The Mordell conjecture (Faltings)",
+    "Diophantine approximation",
+    "The Weil conjectures",
+    "Local-global principles",
+  ],
+  recommended: [
+    res("Arithmetic Geometry", "Cornell, Silverman & Stevens (eds.)", { type: "textbook" }),
+    res("Heights in Diophantine Geometry", "Bombieri & Gubler", { type: "textbook" }),
+  ],
+  supplementary: [],
+});
