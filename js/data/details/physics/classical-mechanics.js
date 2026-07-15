@@ -26,7 +26,6 @@ registerDetail({
     "Constraints and Lagrange multipliers",
     "Symmetries, conservation laws, and Noether's theorem",
     "Hamiltonian mechanics and phase space",
-    "Canonical transformations and Poisson brackets",
     "Rigid-body dynamics and the inertia tensor",
     "Coupled oscillations and normal modes",
   ],
@@ -36,8 +35,8 @@ registerDetail({
     res("Classical Dynamics", "David Tong", { type: "notes", free: true, url: "https://www.damtp.cam.ac.uk/user/tong/dynamics.html" }),
   ],
   supplementary: [
-    res("Classical Mechanics", "Herbert Goldstein", { type: "textbook" }),
-    res("Mechanics (Course of Theoretical Physics, Vol. 1)", "L. D. Landau & E. M. Lifshitz", { type: "textbook" }),
-    res("Structure and Interpretation of Classical Mechanics", "Sussman & Wisdom", { type: "textbook" }),
+    res("Introduction to Classical Mechanics", "David Morin", { type: "textbook" }),
+    res("An Introduction to Mechanics", "Kleppner & Kolenkow", { type: "textbook" }),
+    res("Classical Dynamics of Particles and Systems", "Marion & Thornton", { type: "textbook" }),
   ],
 });
