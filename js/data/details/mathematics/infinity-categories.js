@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "∞-Categories", "network", "Mathematics"),
   long: "Higher category theory generalizes ordinary categories by allowing morphisms between morphisms, and morphisms between those, coherently up to infinite dimension. The theory of (∞,1)-categories, in which all higher morphisms above the first are invertible, provides the natural language for modern homotopy theory, derived algebraic geometry, and topological field theory. Quasi-categories, modeled as simplicial sets satisfying the inner horn-filling condition, give a combinatorial model in which limits, colimits, adjunctions, and the Yoneda lemma all have well-behaved homotopy-invariant analogues. The straightening/unstraightening equivalence relates cartesian fibrations to functors valued in ∞-categories, generalizing the Grothendieck construction. Presentable ∞-categories and the adjoint functor theorem organize the large-scale structure of the subject, and the entire framework can be developed model-independently.",
   topics: [
     "Simplicial sets",

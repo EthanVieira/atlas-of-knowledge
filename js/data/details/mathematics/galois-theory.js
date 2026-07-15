@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Galois Theory", "orbit", "Mathematics"),
   long:
     "Galois theory is one of the great unifications in mathematics, revealing that the symmetries of " +
     "the roots of a polynomial are governed by a finite group. Its centerpiece is the Galois " +

@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Arithmetic", "vectors", "Mathematics"),
   long:
     "Arithmetic is the foundation of all mathematics, concerned with numbers and the basic " +
     "operations that combine them. It begins with the natural numbers and place-value notation, " +

@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Partial Differential Equations", "waves", "Mathematics"),
   long:
     "Partial differential equations describe how quantities vary across space and time, encoding the laws " +
     "of physics, geometry, and countless applied models in the language of derivatives. The subject " +

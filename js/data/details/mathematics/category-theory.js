@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Category Theory", "network", "Mathematics"),
   long:
     "Category theory provides a bird's-eye view of mathematics, describing structures not by their " +
     "internal elements but by the maps between them. Its basic vocabulary of categories, functors and " +

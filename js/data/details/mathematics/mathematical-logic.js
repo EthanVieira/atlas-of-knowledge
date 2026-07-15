@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Mathematical Logic", "network", "Mathematics"),
   long:
     "Mathematical Logic makes mathematical reasoning itself an object of study, treating proofs " +
     "and statements as formal objects that can be analyzed with mathematical precision. It begins " +

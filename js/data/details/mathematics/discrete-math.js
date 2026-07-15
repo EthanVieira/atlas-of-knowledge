@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Discrete Mathematics", "network", "Mathematics"),
   long:
     "Discrete mathematics is the mathematics of distinct, countable structures — the natural " +
     "habitat of computer science. It gathers the essential tools for reasoning precisely: formal " +

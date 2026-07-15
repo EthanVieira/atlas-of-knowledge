@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Group Theory", "orbit", "Mathematics"),
   long:
     "Group theory studies symmetry in its purest algebraic form: sets equipped with a single " +
     "associative operation, an identity and inverses. Starting from the basic definitions it builds " +

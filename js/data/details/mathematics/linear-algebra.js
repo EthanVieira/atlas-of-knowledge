@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Linear Algebra", "vectors", "Mathematics"),
   long:
     "Linear algebra is the study of vectors, the spaces they live in, and the linear maps " +
     "between those spaces. Starting from systems of linear equations, it abstracts to vector " +

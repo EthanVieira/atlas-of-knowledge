@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Scheme Theory", "orbit", "Mathematics"),
   long: "Scheme theory is Grothendieck's reworking of algebraic geometry that vastly extends the classical theory of varieties. Its basic building block is the spectrum of a commutative ring, whose points are prime ideals and which carries a structure sheaf of rings; general schemes are obtained by gluing such affine pieces. This framework accommodates nilpotents, arbitrary base rings, and arithmetic phenomena, allowing geometry over the integers and over non-algebraically-closed fields. Morphisms of schemes and their relative properties, such as being separated or proper, replace the ad hoc constructions of the classical theory, and fibered products give a robust notion of base change. Quasi-coherent and coherent sheaves, together with their cohomology, provide the invariants of the theory. The culmination includes Serre duality and the Riemann-Roch theorem, which relate cohomology to intersection-theoretic data on curves and beyond.",
   topics: [
     "Spec of a ring",

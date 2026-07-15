@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Field Theory", "network", "Mathematics"),
   long:
     "Field theory studies the arithmetic of division: sets in which every nonzero element can be " +
     "inverted, and the towers of extensions that arise from adjoining new elements. The central theme " +

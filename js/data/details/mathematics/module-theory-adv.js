@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Homological Algebra", "network", "Mathematics"),
   long:
     "Homological algebra measures the failure of exactness, extracting algebraic invariants from chains " +
     "of maps whose composites vanish. The subject begins with chain complexes and their homology, then " +

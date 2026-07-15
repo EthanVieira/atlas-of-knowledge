@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Mathematical Statistics", "curve", "Mathematics"),
   long: "Mathematical statistics turns probability into a tool for learning from data, formalizing how we estimate unknown quantities and quantify our uncertainty about them. Point estimation methods—the method of moments and maximum likelihood—produce estimators whose quality is judged through concepts like sufficiency, unbiasedness, and the Cramér–Rao lower bound. Interval estimation and hypothesis testing let us make calibrated statements, with the Neyman–Pearson lemma characterizing optimal tests and likelihood-ratio tests extending the idea broadly. Bayesian inference offers a complementary paradigm in which prior beliefs are updated by data. The course ties everything together through linear regression, the workhorse model of applied statistics. Throughout, the emphasis is on the theory that justifies the procedures used across science.",
   topics: [
     "Populations & samples",

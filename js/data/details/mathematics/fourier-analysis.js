@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Fourier Analysis", "waves", "Mathematics"),
   long:
     "Fourier analysis decomposes functions into superpositions of waves, expressing periodic signals as " +
     "Fourier series and general functions through the Fourier transform. The core insight is that " +

@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Elementary Algebra", "curve", "Mathematics"),
   long:
     "Elementary Algebra generalizes arithmetic by using letters to stand for unknown or varying " +
     "quantities, turning numerical patterns into symbolic rules. Students learn to manipulate " +

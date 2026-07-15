@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Lie Groups & Lie Algebras", "orbit", "Mathematics"),
   long:
     "Lie theory unites analysis, algebra and geometry in the study of continuous symmetry. A Lie group " +
     "is a group that is also a smooth manifold, and the exponential map linearizes it near the identity " +

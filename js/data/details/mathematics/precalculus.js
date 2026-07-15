@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Precalculus", "curve", "Mathematics"),
   long:
     "Precalculus consolidates and extends algebra and trigonometry to prepare students for the " +
     "study of calculus. Its central object is the function, and the course surveys the major " +

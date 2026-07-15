@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Representation Theory", "orbit", "Mathematics"),
   long:
     "Representation theory studies abstract algebraic structures by realizing their elements as linear " +
     "transformations, turning group and algebra problems into the concrete language of matrices. For " +

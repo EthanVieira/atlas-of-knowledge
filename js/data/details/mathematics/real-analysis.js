@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Real Analysis", "waves", "Mathematics"),
   long:
     "Real analysis rebuilds calculus on rigorous foundations. It starts by pinning down what the " +
     "real numbers actually are — a complete ordered field — and uses completeness to make precise " +

@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Harmonic Analysis", "waves", "Mathematics"),
   long:
     "Harmonic analysis is the graduate continuation of Fourier analysis, developing the deep machinery " +
     "needed to understand operators that arise throughout analysis and partial differential equations. " +

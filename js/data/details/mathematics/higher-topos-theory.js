@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Higher Topos Theory", "network", "Mathematics"),
   long: "Higher topos theory develops the ∞-categorical analogue of Grothendieck topoi, replacing sheaves of sets with sheaves of spaces and thereby capturing homotopy-theoretic descent. An ∞-topos is a presentable ∞-category satisfying the ∞-categorical Giraud axioms, most importantly universality of colimits and effectivity of groupoid objects. Descent formalizes the way local homotopical data glues to global objects, and truncation together with Postnikov towers stratifies an ∞-topos by homotopical complexity. Shape theory and étale homotopy type extract classical invariants from these higher structures, while hypercompletion resolves subtleties in how sheaf conditions interact with infinite Postnikov data. The framework underpins derived and spectral algebraic geometry, providing the ambient setting in which derived schemes and stacks naturally live.",
   topics: [
     "∞-topoi",

@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Trigonometry", "waves", "Mathematics"),
   long:
     "Trigonometry studies the relationships between the angles and side lengths of triangles, and " +
     "the periodic functions that arise from them. It begins with the right-triangle ratios sine, " +

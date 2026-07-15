@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Euclidean Geometry", "network", "Mathematics"),
   long:
     "Euclidean Geometry studies points, lines, angles, and figures in the plane through the " +
     "axiomatic method first set out in Euclid's Elements. Beginning from a small set of " +

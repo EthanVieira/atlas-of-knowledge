@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Calculus II", "curve", "Mathematics"),
   long:
     "Calculus II is the integral half of single-variable calculus. It starts from the definite " +
     "integral as a limit of Riemann sums, ties differentiation and integration together through " +

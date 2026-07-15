@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Commutative Algebra", "network", "Mathematics"),
   long:
     "Commutative algebra is the study of commutative rings and their modules, and it serves as the " +
     "local language of algebraic geometry and algebraic number theory. Localization lets one zoom in " +

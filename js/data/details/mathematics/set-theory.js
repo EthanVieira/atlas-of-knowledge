@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Naive Set Theory", "network", "Mathematics"),
   long:
     "Naive Set Theory develops the theory of sets informally but rigorously, providing the common " +
     "language in which nearly all of modern mathematics is expressed. Starting from the intuitive " +

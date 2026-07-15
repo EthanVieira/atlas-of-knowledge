@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Probability Theory", "waves", "Mathematics"),
   long: "Probability theory is the mathematics of uncertainty, providing a rigorous framework for reasoning about random phenomena. It begins with sample spaces, events, and the axioms that govern how probabilities combine, then develops the powerful ideas of conditioning and independence. Random variables translate outcomes into numbers, letting us summarize behavior through expectation, variance, and entire distributions. The theory culminates in limit theorems—the law of large numbers and the central limit theorem—that explain why averages stabilize and why the bell curve appears everywhere. These tools underpin statistics, machine learning, physics, and finance.",
   topics: [
     "Sample spaces & events",

@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Functional Analysis", "vectors", "Mathematics"),
   long:
     "Functional analysis studies infinite-dimensional vector spaces equipped with a topology, treating " +
     "functions themselves as points in a space and linear operators as the maps between such spaces. The " +

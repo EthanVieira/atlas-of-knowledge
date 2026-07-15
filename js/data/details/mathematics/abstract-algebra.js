@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Abstract Algebra", "orbit", "Mathematics"),
   long:
     "Abstract algebra studies the structures that arise when you keep only the essential rules of " +
     "arithmetic — a set with operations satisfying a few axioms. Groups capture symmetry and " +

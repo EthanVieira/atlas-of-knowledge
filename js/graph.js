@@ -203,14 +203,6 @@ const Graph = (() => {
       body.className = "km-node-body";
       const rich = !!n.detail;
 
-      // Cover-image banner (rich cards only; filled once its detail loads).
-      let cover = null;
-      if (rich) {
-        cover = document.createElement("div");
-        cover.className = "km-cover km-cover-loading";
-        body.appendChild(cover);
-      }
-
       // Full field label chip at the top of the details.
       const f = fields[n.field] || {};
       const fieldLine = document.createElement("div");
@@ -266,14 +258,9 @@ const Graph = (() => {
           zone.innerHTML = "";
           if (!d) {
             // Detail file missing/failed — fall back to the built-in fields.
-            cover.remove();
             standardContent(n, zone);
             return;
           }
-          cover.classList.remove("km-cover-loading");
-          const img = document.createElement("img");
-          img.src = d.cover; img.alt = `${n.title} cover`; img.loading = "lazy";
-          cover.appendChild(img);
           if (d.long) desc.textContent = d.long;
           zone.appendChild(topicsSection(d.topics || n.topics, true));
           zone.appendChild(refBlock("Recommended", d.recommended, "recommended"));

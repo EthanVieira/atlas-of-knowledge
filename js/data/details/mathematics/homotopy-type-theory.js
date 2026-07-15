@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Homotopy Type Theory", "network", "Mathematics"),
   long: "Homotopy type theory reinterprets Martin-Löf dependent type theory through the lens of homotopy, viewing types as spaces, terms as points, and identity types as paths. Under this correspondence a type carries the structure of an ∞-groupoid, and iterated identity types recover higher homotopies. Voevodsky's univalence axiom asserts that equivalent types are equal, turning the informal practice of identifying isomorphic structures into a formal principle. Higher inductive types allow spaces such as the circle and spheres to be defined by generators for both points and paths, enabling synthetic homotopy theory in which classical results like π₁ of the circle are proved type-theoretically. Cubical type theory gives univalence a computational interpretation, and the whole framework is designed for machine-checked formalization in proof assistants, offering a univalent foundation for mathematics.",
   topics: [
     "Dependent type theory",

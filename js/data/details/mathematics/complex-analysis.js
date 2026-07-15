@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Complex Analysis", "curve", "Mathematics"),
   long:
     "Complex analysis studies functions of a single complex variable, where the mere assumption of " +
     "differentiability turns out to be astonishingly rigid. A function that is complex-differentiable " +

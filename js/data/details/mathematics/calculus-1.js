@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Calculus I", "curve", "Mathematics"),
   long:
     "Calculus I develops the differential calculus from the ground up. It begins with the " +
     "limit — the rigorous idea of a quantity approaching a value — and uses it to define " +

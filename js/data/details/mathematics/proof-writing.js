@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Mathematical Proof", "network", "Mathematics"),
   long:
     "Mathematical Proof teaches the craft of rigorous argument that underlies all of higher " +
     "mathematics. It begins with the language of logic and sets, then develops the standard " +

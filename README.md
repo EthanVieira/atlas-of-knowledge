@@ -6,11 +6,10 @@ horizontal levels by **topological depth** (how deep in the prerequisite chain a
 subject sits), colored by your **completion** status, and expand on click to show
 a description, prerequisites, the topics covered, and curated learning resources.
 
-Course cards are being upgraded to a **richer format** — a cover image, a longer
-description, a full topic list, and references split into *recommended* /
-*supplementary* and tagged by type. **Mathematics** uses it today; the other
-fields are being migrated over. See [CONTRIBUTING.md](CONTRIBUTING.md) for both
-data formats.
+Course cards are being upgraded to a **richer format** — a longer description, a
+full topic list, and references split into *recommended* / *supplementary* and
+tagged by type. **Mathematics** uses it today; the other fields are being migrated
+over. See [CONTRIBUTING.md](CONTRIBUTING.md) for both data formats.
 
 https://ethanvieira.github.io/atlas-of-knowledge/
 

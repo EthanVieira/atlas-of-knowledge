@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Type Theory", "network", "Mathematics"),
   long: "Type theory is a foundational framework in which every term carries a type, unifying logic, computation, and the foundations of mathematics. Starting from the simply typed lambda-calculus, the Curry–Howard correspondence reveals that propositions are types and proofs are programs, so that normalization of terms corresponds to the simplification of proofs. Richer systems add polymorphism through System F, dependency through dependent types, and inductively defined data through inductive types, arranged into universes to avoid paradox. The calculus of constructions and Martin-Löf type theory provide expressive foundations in which ordinary mathematics can be formalized. These theories are realized in proof assistants such as Coq, Agda, and Lean, where machine-checked proofs and verified programs are written in the same language. The subject sits at the intersection of mathematical logic, programming language theory, and constructive mathematics.",
   topics: [
     "The simply typed lambda-calculus",

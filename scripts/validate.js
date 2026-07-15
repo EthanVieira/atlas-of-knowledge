@@ -10,8 +10,8 @@
  *    • a course assigned to a field that isn't defined
  *    • fields missing label / abbr / family / hue, or an unknown family
  *    • resources missing a title
- *    • detail:true courses: a well-formed detail file exists (cover, long,
- *      topics, recommended/supplementary), and no orphan detail files
+ *    • detail:true courses: a well-formed detail file exists (long, topics,
+ *      recommended/supplementary), and no orphan detail files
  *
  *  Two course formats are accepted during the field-by-field migration to
  *  detail files: legacy (desc/topics/free/paid inline) and migrated
@@ -147,7 +147,7 @@ for (const cy of cycles) err(`dependency cycle: ${cy}`);
 
 // --- Detail files (migrated card content) ---------------------------------
 // Every `detail: true` course must have a well-formed detail file that
-// registers a cover, long description, topics and split/tagged references.
+// registers a long description, topics and split/tagged references.
 if (detailCourses.length) {
   const runtime = path.join(dataDir, "details", "_detail.js");
   if (!fs.existsSync(runtime)) {
@@ -174,7 +174,6 @@ if (detailCourses.length) {
       if (!d) { err(`js/data/${rel} did not register detail for "${c.id}" (check the registerDetail call / filename)`); continue; }
       if (typeof d.long !== "string" || !d.long.trim()) err(`"${c.id}" detail is missing a "long" description`);
       if (!Array.isArray(d.topics) || !d.topics.length) err(`"${c.id}" detail is missing "topics"`);
-      if (d.cover != null && typeof d.cover !== "string") err(`"${c.id}" detail.cover must be a string`);
       for (const key of ["recommended", "supplementary"]) {
         if (d[key] == null) continue;
         if (!Array.isArray(d[key])) { err(`"${c.id}" detail.${key} must be an array`); continue; }

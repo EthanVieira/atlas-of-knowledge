@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Ring & Module Theory", "orbit", "Mathematics"),
   long:
     "Ring theory generalizes the arithmetic of the integers and of polynomials to any set with " +
     "compatible addition and multiplication, and module theory extends linear algebra by letting " +

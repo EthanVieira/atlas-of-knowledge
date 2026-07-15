@@ -12,7 +12,7 @@ contribute — if you can edit a text file, you can improve the atlas.
 > open a pull request.
 
 > ### 🚧 Migration in progress
-> The atlas is moving to **richer course cards** (a cover image, a long
+> The atlas is moving to **richer course cards** (a long
 > description, a full topic list, and references split into *recommended* /
 > *supplementary* and tagged by type). This splits a course into two files: a
 > lightweight **node** in the field file, and a lazily-loaded **detail** file.
@@ -80,7 +80,7 @@ Everything is in [`js/data/`](js/data/):
 ```
 js/data/_config.js               fields (label, abbr, family, hue) + the R() helper
 js/data/<field>.js               one file per field — the course nodes you edit
-js/data/details/_detail.js       the detail runtime: registerDetail(), res(), cover()
+js/data/details/_detail.js       the detail runtime: registerDetail(), res()
 js/data/details/<field>/<id>.js  rich card content for one migrated course
 ```
 
@@ -142,7 +142,6 @@ file name, so don't restate it**:
 
 ```js
 registerDetail({
-  cover: cover(96, "Real Analysis", "waves", "Mathematics"), // hue, title, motif, eyebrow
   long:
     "Real analysis rebuilds calculus on rigorous foundations. " +   // a full paragraph,
     "It starts by pinning down what the real numbers actually are …", // string-concatenated
@@ -167,10 +166,6 @@ Helpers (defined in `_detail.js`, available in every detail file):
     `interactive`, `reference` — shown as a chip.
   - `free: true` marks a genuinely, legally free resource — **always pair it with
     the real `url`**. Don't invent links; omit both if unsure.
-- `cover(hue, title, motif, eyebrow)` — generates the card's SVG cover. Use the
-  field's `hue` (from `_config.js`; Mathematics is `96`), a short title, an
-  `eyebrow` (the field's display name), and a `motif` chosen from `curve`,
-  `vectors`, `waves`, `orbit`, `network`.
 
 | key | required | notes |
 |---|---|---|
@@ -179,7 +174,6 @@ Helpers (defined in `_detail.js`, available in every detail file):
 | detail: `long` | ✅ | the full description (replaces `desc`) |
 | detail: `topics` | ✅ | comprehensive list, ~12–18 items |
 | detail: `recommended` / `supplementary` | ✅ | arrays of `res(...)` (either may be `[]`) |
-| detail: `cover` | ➖ | a `cover(...)` call; recommended |
 
 **Prerequisites may point at any field.** Quantum mechanics can require
 `linear-algebra`; biochemistry can require `organic-chemistry`. That's
@@ -269,7 +263,7 @@ It checks the entire catalog for the things that break the atlas:
 - **dependency cycles**
 - courses in undefined fields; fields missing `label`/`abbr`/`family`/`hue`
 - resources with no title
-- for `detail: true` courses: a well-formed detail file exists (cover, `long`,
+- for `detail: true` courses: a well-formed detail file exists (`long`,
   `topics`, references) — and flags orphan detail files
 
 The same check runs automatically on every pull request via GitHub Actions, so a
@@ -283,7 +277,7 @@ PR can't be merged with broken data. Please make sure it passes locally first.
 - [ ] I matched the field's current format (legacy inline, or `detail: true` +
       a detail file) — see [the migration note](#-migration-in-progress).
 - [ ] I opened `index.html` and my subject appears where I'd expect (open a
-      migrated card to check its cover, description, topics and references).
+      migrated card to check its description, topics and references).
 
 ---
 

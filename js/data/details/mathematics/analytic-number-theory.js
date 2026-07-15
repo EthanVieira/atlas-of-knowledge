@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Analytic Number Theory", "waves", "Mathematics"),
   long:
     "Analytic number theory brings the machinery of complex analysis to bear on questions about the integers, above all the distribution of the primes. Dirichlet series and the Riemann zeta function translate arithmetic information into analytic properties, so that the behavior of primes is governed by the zeros and poles of these functions. The central achievement is the prime number theorem, equivalent to the non-vanishing of the zeta function on the line Re(s) = 1. Dirichlet characters and their L-functions extend the theory to primes in arithmetic progressions, while the functional equation reveals a hidden symmetry across the critical strip. Sieve methods provide flexible combinatorial tools for bounding the primes and sifted sets. Overshadowing the whole subject is the Riemann hypothesis, whose truth would sharpen nearly every estimate about the primes.",
   topics: [

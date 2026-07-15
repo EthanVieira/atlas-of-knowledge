@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Differential Equations", "waves", "Mathematics"),
   long:
     "Ordinary differential equations relate an unknown function to its derivatives, and solving " +
     "one means recovering the function from the law governing its rate of change — the native " +

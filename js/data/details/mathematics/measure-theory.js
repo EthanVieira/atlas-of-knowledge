@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Measure Theory", "waves", "Mathematics"),
   long:
     "Measure theory provides the modern foundation for integration, probability, and much of analysis " +
     "by asking a deceptively simple question: how do we assign a consistent notion of size to subsets " +

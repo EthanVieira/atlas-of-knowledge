@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Number Theory", "orbit", "Mathematics"),
   long:
     "Elementary number theory studies the deep structure of the integers using tools that require no more than careful proof. It begins with divisibility, the Euclidean algorithm, and the fundamental theorem of arithmetic, then develops the arithmetic of congruences and modular systems. Central results include the Chinese remainder theorem, Fermat's little theorem, Euler's theorem, and the theory of primitive roots. The crown jewel of the elementary theory is Gauss's law of quadratic reciprocity, which governs when a number is a square modulo a prime. Along the way one meets multiplicative arithmetic functions, Diophantine equations, and continued fractions. The subject rewards concreteness and computation while pointing toward the abstractions of algebraic and analytic number theory.",
   topics: [

@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Stochastic Processes", "waves", "Mathematics"),
   long: "Stochastic processes study systems that evolve randomly over time, from queues and populations to stock prices and diffusing particles. The theory begins with Markov chains, whose memoryless dynamics lead to stationary distributions and long-run behavior, and extends through Poisson processes to continuous-time Markov chains. Martingales provide a unifying language for fair games and for controlling expectations along a process. The centerpiece is Brownian motion, whose nowhere-differentiable paths demand a new calculus: the Itô integral and Itô's formula replace the ordinary chain rule. These tools let us pose and solve stochastic differential equations, and the Feynman–Kac formula ties their solutions back to partial differential equations. Applications span mathematical finance, physics, and engineering.",
   topics: [
     "Markov chains",

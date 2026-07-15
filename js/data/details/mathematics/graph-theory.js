@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Graph Theory", "network", "Mathematics"),
   long: "Graph theory studies networks of vertices joined by edges, a deceptively simple object that models everything from road maps and social ties to molecules and algorithms. The subject develops structural ideas—trees, connectivity, and cycles—alongside classical existence questions such as when a graph admits an Eulerian or Hamiltonian tour. Matchings and Hall's theorem, planarity and Kuratowski's characterization, and graph coloring reveal deep interplay between combinatorial constraints and geometry. Flows and the max-flow min-cut theorem connect graphs to optimization and duality. The course reaches toward extremal and probabilistic frontiers—Turán-type results, Ramsey theory, and the theory of random graphs—where counting and structure meet. Its results are foundational for computer science and combinatorial optimization.",
   topics: [
     "Graphs & subgraphs",

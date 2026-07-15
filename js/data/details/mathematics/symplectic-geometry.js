@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Symplectic Geometry", "vectors", "Mathematics"),
   long: "Symplectic geometry is the geometry of phase space, built on a closed nondegenerate 2-form that pairs positions with momenta and underlies Hamiltonian mechanics. Unlike Riemannian geometry it has no local invariants: Darboux's theorem shows every symplectic manifold looks locally like standard R^{2n}. Lagrangian submanifolds, on which the form vanishes, encode much of the structure and appear throughout mechanics and geometric optics. Hamiltonian vector fields turn functions into flows, and the Poisson bracket makes observables into a Lie algebra governing classical dynamics. When a Lie group acts, moment maps package conserved quantities and enable symplectic reduction to smaller phase spaces. Compatible almost complex structures open the door to pseudoholomorphic curves, whose rigidity is exemplified by Gromov's non-squeezing theorem.",
   topics: [
     "Symplectic vector spaces",

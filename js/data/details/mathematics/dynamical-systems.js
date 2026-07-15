@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Dynamical Systems", "orbit", "Mathematics"),
   long: "Dynamical systems studies the long-term behavior of systems that evolve in time, whether described by differential equations (flows) or by iterated maps. The qualitative approach analyzes phase portraits, fixed points, and their linear stability, using Lyapunov functions to certify stability without solving the equations. In the plane, the Poincaré–Bendixson theorem constrains the possible attractors and explains the emergence of limit cycles. As parameters vary, systems undergo bifurcations — saddle-node, transcritical, pitchfork, and Hopf — that reorganize the dynamics qualitatively. One-dimensional maps reveal universal routes to chaos through period doubling, culminating in sensitive dependence on initial conditions, strange attractors, and fractal geometry measured by Lyapunov exponents. Hyperbolicity and symbolic dynamics then provide a rigorous language for describing chaotic invariant sets.",
   topics: [
     "Flows & maps",

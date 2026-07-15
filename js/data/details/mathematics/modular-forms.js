@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Modular Forms", "waves", "Mathematics"),
   long:
     "Modular forms are holomorphic functions on the upper half-plane that transform in a prescribed way under the action of the modular group SL₂(ℤ) and remain controlled at the cusps. Despite this rigid definition they encode a startling wealth of arithmetic, appearing in the theory of partitions, sums of squares, and the arithmetic of elliptic curves. The space of forms of a given weight is finite-dimensional, a fact captured by the valence formula, and Eisenstein series and cusp forms provide explicit generators. Hecke operators act on these spaces and their simultaneous eigenforms carry multiplicative Fourier coefficients whose generating series are Dirichlet L-functions with Euler products. The j-invariant, theta functions, and forms for congruence subgroups extend the theory in many directions. Modular forms sit at the crossroads of complex analysis, representation theory, and number theory, and were central to the proof of Fermat's Last Theorem.",
   topics: [

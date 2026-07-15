@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Measure-Theoretic Probability", "curve", "Mathematics"),
   long: "Measure-theoretic probability rebuilds the subject on the rigorous foundation of measure theory, resolving the paradoxes that elementary treatments leave open. Probabilities become measures on σ-algebras, random variables become measurable functions, and expectation becomes the Lebesgue integral—a unification that handles discrete, continuous, and mixed distributions uniformly. This machinery makes precise the notions of convergence needed to prove the strong law of large numbers and the central limit theorem via characteristic functions. Conditional expectation is recast as a projection defined through the Radon–Nikodym theorem, opening the door to martingales and their convergence theorems. The course closes with a first look at Brownian motion, the bridge to stochastic analysis. It is the standard graduate gateway to modern probability.",
   topics: [
     "Probability spaces & σ-algebras",

@@ -1,5 +1,4 @@
 registerDetail({
-  cover: cover(96, "Multivariable Calculus", "vectors", "Mathematics"),
   long:
     "Calculus III lifts calculus into two and three dimensions. It begins with the geometry of " +
     "space — vectors, dot and cross products, and curves traced by moving particles — then " +
