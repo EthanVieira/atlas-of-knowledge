@@ -1,0 +1,32 @@
+registerDetail({
+  long: "Computer Security examines how to design, attack, and defend systems in the presence of adversaries, combining principles with concrete attack and defense techniques. It starts from threat modeling, the CIA triad, and foundational design principles such as least privilege, complete mediation, and defense in depth. A large focus is software security: memory-safety vulnerabilities like buffer overflows and use-after-free, the control-flow hijacking they enable, and mitigations such as ASLR, DEP, and stack canaries. The course covers authentication and password systems, access control, privilege separation, and the applied cryptography and protocols—especially TLS and PKI—that secure communication. Web security is treated in depth, including XSS, CSRF, SQL injection, and the same-origin policy, alongside network attacks and malware. Advanced units address side channels and timing attacks, hardware security, and the tension between privacy, anonymity, and surveillance. Students learn to reason about trust, adversarial capabilities, and the economics that shape real-world security failures.",
+  topics: [
+    "threat modeling and security principles",
+    "the CIA triad (confidentiality, integrity, availability)",
+    "memory-safety vulnerabilities (buffer overflows, use-after-free)",
+    "control-flow hijacking and exploitation",
+    "exploit mitigations (ASLR, DEP, stack canaries)",
+    "authentication and password systems",
+    "access control and privilege separation",
+    "applied cryptography and security protocols",
+    "TLS and public-key infrastructure",
+    "web security (XSS, CSRF, SQL injection)",
+    "the same-origin policy and browser security",
+    "network attacks and defenses",
+    "malware and intrusion detection",
+    "side channels and timing attacks",
+    "hardware security and trusted execution",
+    "privacy, anonymity, and surveillance",
+  ],
+  recommended: [
+    res("Computer Security (CS161)", "UC Berkeley", { type: "lectures", free: true, url: "https://cs161.org/" }),
+    res("Security Engineering", "Ross Anderson", { type: "textbook", free: true, url: "https://www.cl.cam.ac.uk/~rja14/book.html" }),
+    res("Security Engineering (print, 3rd ed.)", "Ross Anderson", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("The Art of Software Security Assessment", "Mark Dowd, John McDonald, and Justin Schuh", { type: "textbook" }),
+    res("Computer Systems Security (6.858)", "MIT OpenCourseWare", { type: "lectures" }),
+    res("Cryptography Engineering", "Niels Ferguson, Bruce Schneier, and Tadayoshi Kohno", { type: "textbook" }),
+    res("The Web Application Hacker's Handbook", "Dafydd Stuttard and Marcus Pinto", { type: "reference" }),
+  ],
+});

@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Probabilistic Graphical Models provides a unified framework for representing and reasoning about complex probability distributions over many variables using the language of graphs. The course shows how a graph structure encodes conditional independence assumptions that factorize an otherwise intractable joint distribution into manageable local pieces. It develops both major representations: directed Bayesian networks, whose semantics follow from the chain rule and d-separation, and undirected Markov random fields and factor graphs, justified by the Hammersley-Clifford theorem. Students study exact inference through variable elimination and the junction-tree algorithm, then approximate inference via belief propagation, variational mean-field methods, and sampling techniques such as Gibbs sampling and MCMC. The course also covers learning, including maximum-likelihood and Bayesian parameter estimation, structure learning, and the EM algorithm for models with latent variables. Temporal models such as hidden Markov models and Kalman filters, along with decision-theoretic extensions, show how the framework applies to dynamic and decision-making problems.",
+  topics: [
+    "representing joint distributions",
+    "Bayesian networks and the chain rule",
+    "conditional independence and d-separation",
+    "Markov random fields and factor graphs",
+    "the Hammersley-Clifford theorem",
+    "exact inference (variable elimination)",
+    "the junction-tree algorithm",
+    "belief propagation",
+    "approximate inference",
+    "variational methods and mean field",
+    "sampling methods (Gibbs, MCMC)",
+    "importance sampling",
+    "learning parameters (MLE, Bayesian)",
+    "structure learning",
+    "latent variable models and EM",
+    "temporal models (HMMs, Kalman filters)",
+    "decision-theoretic models",
+  ],
+  recommended: [
+    res("Probabilistic Graphical Models (Stanford)", "Daphne Koller", { type: "lectures", free: true, url: "https://www.coursera.org/specializations/probabilistic-graphical-models" }),
+    res("Probabilistic Graphical Models: Principles and Techniques", "Koller & Friedman", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Pattern Recognition and Machine Learning", "Christopher Bishop", { type: "textbook" }),
+    res("Machine Learning: A Probabilistic Perspective", "Kevin Murphy", { type: "textbook" }),
+    res("Graphical Models, Exponential Families, and Variational Inference", "Wainwright & Jordan", { type: "reference" }),
+  ],
+});

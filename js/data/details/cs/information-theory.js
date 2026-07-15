@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Information theory, founded by Claude Shannon, gives a quantitative theory of information, communication, and compression built on the notion of entropy. The course develops entropy, joint and conditional entropy, mutual information, and relative entropy (KL divergence), together with the chain rule and the asymptotic equipartition property that underlies typical-set arguments. These lead to the source coding theorem and practical compression schemes such as Huffman and arithmetic coding. The heart of the course is channel capacity and Shannon's noisy-channel coding theorem, which establishes the fundamental limits of reliable communication and the surprising power of coding at rates below capacity. Error-correcting codes, from Hamming codes to modern LDPC codes, show how these limits are approached in practice. The continuous setting is treated through differential entropy and the Gaussian channel, and lossy compression is formalized by rate–distortion theory. The course closes with Kolmogorov complexity, linking information to the algorithmic notion of descriptive complexity.",
+  topics: [
+    "Entropy",
+    "Joint and conditional entropy",
+    "Mutual information",
+    "Relative entropy (KL divergence)",
+    "The chain rule",
+    "The asymptotic equipartition property",
+    "Source coding and data compression",
+    "Huffman and arithmetic coding",
+    "The source coding theorem",
+    "Channel capacity",
+    "The noisy-channel coding theorem",
+    "Error-correcting codes (Hamming, LDPC)",
+    "Differential entropy",
+    "The Gaussian channel",
+    "Rate–distortion theory",
+    "Kolmogorov complexity",
+  ],
+  recommended: [
+    res("Information Theory, Inference, and Learning Algorithms", "David MacKay", { type: "textbook", free: true, url: "https://www.inference.org.uk/mackay/itila/" }),
+    res("Elements of Information Theory", "Thomas Cover & Joy Thomas", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Information Theory: A Tutorial Introduction", "James Stone", { type: "textbook" }),
+    res("A Mathematical Theory of Communication", "Claude Shannon", { type: "reference" }),
+    res("Information Theory: From Coding to Learning", "Yury Polyanskiy & Yihong Wu", { type: "textbook" }),
+  ],
+});

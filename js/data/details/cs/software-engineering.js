@@ -1,0 +1,33 @@
+registerDetail({
+  long: "Software engineering is the discipline of building and sustaining software that must work correctly, evolve over years, and be maintained by teams rather than individuals. The course frames the software development lifecycle — from eliciting requirements and writing specifications through iterative, agile delivery — and treats change as the normal condition rather than an exception. A large part of the craft is structural: modularity and abstraction, design principles such as SOLID and DRY, reusable design patterns, and higher-level software architecture and API design that keep a growing system comprehensible. Equally important is the machinery that keeps quality high while many people commit code, including version control and branching with Git, code review, and continuous integration and delivery. Testing is treated as a first-class activity spanning unit, integration, and end-to-end tests, alongside test-driven development, debugging, profiling, and disciplined refactoring. The course also addresses the human and long-run realities of engineering: managing technical debt, writing documentation, and collaborating effectively on a team. Students come away understanding that programming is only one part of producing software that lasts.",
+  topics: [
+    "the software development lifecycle",
+    "requirements and specification",
+    "agile and iterative processes",
+    "version control and branching with Git",
+    "code review",
+    "modularity and abstraction",
+    "design principles: SOLID and DRY",
+    "design patterns",
+    "software architecture",
+    "APIs and interface design",
+    "testing: unit, integration, end-to-end",
+    "test-driven development",
+    "debugging and profiling",
+    "refactoring",
+    "continuous integration and delivery",
+    "code quality and technical debt",
+    "documentation and team collaboration",
+  ],
+  recommended: [
+    res("Software Engineering at Google", "Winters, Manshreck & Wright", { type: "textbook", free: true, url: "https://abseil.io/resources/swe-book" }),
+    res("The Pragmatic Programmer", "Hunt & Thomas", { type: "textbook" }),
+    res("Design Patterns", "Gamma, Helm, Johnson & Vlissides", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Clean Code", "Robert C. Martin", { type: "textbook" }),
+    res("Refactoring", "Martin Fowler", { type: "textbook" }),
+    res("Code Complete", "Steve McConnell", { type: "textbook" }),
+    res("The Mythical Man-Month", "Frederick P. Brooks", { type: "textbook" }),
+  ],
+});

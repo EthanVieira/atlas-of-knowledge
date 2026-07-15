@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Cryptography studies how to protect information and communication against adversaries, grounded in precise definitions and provable guarantees. It begins with perfect secrecy and the one-time pad, then relaxes to computational security based on pseudorandomness and hardness assumptions. Symmetric primitives—stream ciphers, block ciphers such as AES, modes of operation, message authentication codes, and hash functions modeled in the random-oracle model—provide confidentiality and integrity. The number-theoretic core (modular arithmetic, groups, and hard problems like factoring and discrete logarithm) underpins public-key encryption, RSA, Diffie–Hellman key exchange, and elliptic-curve cryptography. Digital signatures, key management, and public-key infrastructure show how these primitives compose into deployable systems. Advanced topics include zero-knowledge proofs, an introduction to secure multiparty computation, and post-quantum cryptography that resists quantum attacks. Throughout, the emphasis is on reduction-based proofs that relate breaking a scheme to solving a well-studied hard problem.",
+  topics: [
+    "perfect secrecy and the one-time pad",
+    "computational security and pseudorandomness",
+    "stream ciphers and pseudorandom generators",
+    "block ciphers and AES",
+    "modes of operation",
+    "message authentication codes",
+    "hash functions and the random-oracle model",
+    "the number theory of cryptography",
+    "public-key encryption",
+    "RSA and trapdoor permutations",
+    "Diffie–Hellman key exchange",
+    "elliptic-curve cryptography",
+    "digital signatures",
+    "key management and PKI",
+    "zero-knowledge proofs",
+    "secure multiparty computation (introduction)",
+    "post-quantum cryptography",
+  ],
+  recommended: [
+    res("A Graduate Course in Applied Cryptography", "Dan Boneh and Victor Shoup", { type: "textbook", free: true, url: "https://toc.cryptobook.us/" }),
+    res("Introduction to Modern Cryptography", "Jonathan Katz and Yehuda Lindell", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Cryptography I", "Dan Boneh (Stanford / Coursera)", { type: "lectures" }),
+    res("Handbook of Applied Cryptography", "Alfred J. Menezes, Paul C. van Oorschot, and Scott A. Vanstone", { type: "reference" }),
+    res("The Joy of Cryptography", "Mike Rosulek", { type: "textbook" }),
+  ],
+});

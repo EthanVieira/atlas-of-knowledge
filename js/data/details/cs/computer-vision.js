@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Computer vision studies how machines can recover meaningful information about the world from images and video. The course begins with the physics and geometry of image formation, then covers classical low-level operations such as filtering, edge and corner detection, and hand-crafted feature descriptors like SIFT. From these primitives it builds up multi-view geometry, including homographies, camera calibration, epipolar geometry, stereo reconstruction, and structure from motion. The second half pivots to modern deep learning, treating convolutional architectures for classification, detection frameworks such as R-CNN and YOLO, and semantic and instance segmentation. Advanced topics include optical flow, self-supervised and generative vision models, and 3D vision with neural rendering. Throughout, the emphasis is on connecting geometric reasoning with data-driven representation learning to solve real perception tasks.",
+  topics: [
+    "image formation and the pinhole camera model",
+    "image filtering and convolution",
+    "edge and corner detection",
+    "local feature descriptors (SIFT, HOG)",
+    "image transformations and homographies",
+    "camera calibration",
+    "stereo vision and epipolar geometry",
+    "structure from motion",
+    "optical flow and motion estimation",
+    "image segmentation",
+    "image classification",
+    "convolutional network architectures",
+    "object detection (R-CNN, Fast/Faster R-CNN, YOLO)",
+    "semantic and instance segmentation",
+    "generative and self-supervised vision",
+    "3D vision and neural rendering",
+  ],
+  recommended: [
+    res("Computer Vision: Algorithms and Applications", "Richard Szeliski", { type: "textbook", free: true, url: "https://szeliski.org/Book/" }),
+    res("CS231n: Deep Learning for Computer Vision", "Stanford University", { type: "lectures", free: true, url: "https://cs231n.stanford.edu/" }),
+    res("Multiple View Geometry in Computer Vision", "Richard Hartley & Andrew Zisserman", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Concise Computer Vision", "Reinhard Klette", { type: "textbook" }),
+    res("Deep Learning", "Ian Goodfellow, Yoshua Bengio & Aaron Courville", { type: "textbook" }),
+    res("Digital Image Processing", "Rafael Gonzalez & Richard Woods", { type: "textbook" }),
+  ],
+});

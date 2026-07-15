@@ -1,0 +1,32 @@
+registerDetail({
+  long: "This course studies programming languages not as tools to be used but as objects to be understood, designed, and formally reasoned about. It begins with how programs are described — grammars, parsing, and abstract syntax trees — and then builds a succession of interpreters that give those trees meaning, moving from a naive substitution model to environments and closures that capture lexical scope. Central themes are binding and scope (lexical versus dynamic), evaluation strategies such as call-by-value, call-by-name, and call-by-need, and the way continuations expose control flow as a first-class notion. The course pairs these operational insights with the mathematics of semantics, contrasting operational and denotational styles, and develops type systems as lightweight proofs of program properties, including type checking, type inference, and parametric polymorphism. Different paradigms — functional, object-oriented, and logic programming — are examined as points in a design space rather than as competing dogmas, illuminating how a handful of ideas recombine. Metaprogramming and macros show how languages can be extended from within. The result is a durable mental model that makes any new language easier to learn and evaluate.",
+  topics: [
+    "syntax and context-free grammars",
+    "parsing and abstract syntax trees",
+    "interpreters and the substitution model",
+    "environments and closures",
+    "binding and scope: lexical vs dynamic",
+    "operational semantics",
+    "denotational semantics",
+    "type systems and type checking",
+    "type inference",
+    "parametric polymorphism",
+    "evaluation strategies: call-by-value, call-by-name, call-by-need",
+    "continuations and first-class control",
+    "memory management and garbage collection",
+    "the functional paradigm",
+    "the object-oriented paradigm",
+    "the logic-programming paradigm",
+    "metaprogramming and macros",
+  ],
+  recommended: [
+    res("Programming Languages: Application and Interpretation", "Shriram Krishnamurthi", { type: "textbook", free: true, url: "https://www.plai.org/" }),
+    res("Concepts, Techniques, and Models of Computer Programming", "Van Roy & Haridi", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Types and Programming Languages", "Benjamin C. Pierce", { type: "textbook" }),
+    res("Structure and Interpretation of Computer Programs", "Abelson & Sussman", { type: "textbook" }),
+    res("Essentials of Programming Languages", "Friedman & Wand", { type: "textbook" }),
+    res("Practical Foundations for Programming Languages", "Robert Harper", { type: "textbook" }),
+  ],
+});

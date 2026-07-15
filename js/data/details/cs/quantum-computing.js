@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Quantum computing studies how the principles of quantum mechanics can be harnessed for computation, offering provable advantages for certain problems over any classical approach. The course begins with the qubit, the Bloch sphere, superposition, and the linear-algebraic postulates of quantum mechanics, then builds up single- and multi-qubit gates and the quantum circuit model. Entanglement and Bell states are developed as a genuinely quantum resource, with consequences including the no-cloning theorem, quantum teleportation, and superdense coding. The core algorithms are treated in depth: the Deutsch–Jozsa algorithm as a first separation, the quantum Fourier transform and phase estimation, Shor's polynomial-time factoring algorithm, and Grover's quadratic-speedup search. The complexity class BQP situates these results within the broader theory of computation. The final part addresses the central practical obstacle—noise and decoherence—through quantum error-correcting codes and the theory of fault tolerance, which together show that reliable quantum computation is possible in principle despite imperfect hardware.",
+  topics: [
+    "Qubits and the Bloch sphere",
+    "Quantum states and superposition",
+    "The postulates of quantum mechanics",
+    "Single- and multi-qubit gates",
+    "Entanglement and Bell states",
+    "Quantum circuits",
+    "The no-cloning theorem",
+    "Quantum teleportation and superdense coding",
+    "The Deutsch–Jozsa algorithm",
+    "The quantum Fourier transform",
+    "Phase estimation",
+    "Shor's factoring algorithm",
+    "Grover's search",
+    "The complexity class BQP",
+    "Quantum error-correcting codes and fault tolerance",
+    "Noise and decoherence",
+  ],
+  recommended: [
+    res("Quantum Computation (Caltech Ph229)", "John Preskill", { type: "lectures", free: true, url: "http://theory.caltech.edu/~preskill/ph229/" }),
+    res("Quantum Computation and Quantum Information", "Michael Nielsen & Isaac Chuang", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Quantum Computing Since Democritus", "Scott Aaronson", { type: "textbook" }),
+    res("An Introduction to Quantum Computing", "Phillip Kaye, Raymond Laflamme & Michele Mosca", { type: "textbook" }),
+    res("Classical and Quantum Computation", "Alexei Kitaev, Alexander Shen & Mikhail Vyalyi", { type: "reference" }),
+  ],
+});

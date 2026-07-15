@@ -1,0 +1,31 @@
+registerDetail({
+  long: "A compiler translates a high-level source language into an equivalent lower-level target, and this course follows that translation end to end while building a working compiler in stages. The front end turns raw text into structure: lexical analysis uses regular expressions and finite automata to produce tokens, and parsing — recursive descent, LL, and LR techniques — assembles those tokens into an abstract syntax tree. Semantic analysis then decorates the tree, resolving names through symbol tables and enforcing a type system so that meaningless programs are rejected before code is emitted. The middle and back ends lower the program to intermediate representations such as three-address code and SSA, model the runtime environment with activation records, and generate target code through instruction selection and register allocation. A substantial portion is devoted to making that code fast: data-flow analysis provides the framework, enabling local, loop, and global optimizations, while garbage collection manages memory automatically at run time. Throughout, the course emphasizes how theory — automata, grammars, lattices — becomes concrete engineering. Students leave able to reason about every layer between a program's syntax and the machine that runs it.",
+  topics: [
+    "the compiler pipeline: front end to back end",
+    "lexical analysis and regular expressions",
+    "finite automata for scanning",
+    "parsing: recursive descent, LL, and LR",
+    "abstract syntax trees",
+    "semantic analysis and symbol tables",
+    "type checking",
+    "intermediate representations: three-address code and SSA",
+    "the runtime environment and activation records",
+    "code generation",
+    "instruction selection",
+    "register allocation",
+    "data-flow analysis",
+    "local and loop optimization",
+    "global optimization",
+    "garbage collection",
+  ],
+  recommended: [
+    res("Compilers", "Stanford / Alex Aiken", { type: "lectures", free: true, url: "https://www.edx.org/learn/computer-science/stanford-university-compilers" }),
+    res("Compilers: Principles, Techniques, and Tools", "Aho, Lam, Sethi & Ullman", { type: "textbook" }),
+    res("Modern Compiler Implementation in ML", "Andrew Appel", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Engineering a Compiler", "Cooper & Torczon", { type: "textbook" }),
+    res("Crafting Interpreters", "Robert Nystrom", { type: "textbook" }),
+    res("Advanced Compiler Design and Implementation", "Steven Muchnick", { type: "textbook" }),
+  ],
+});

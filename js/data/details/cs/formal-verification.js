@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Formal Verification develops rigorous techniques for proving that software and hardware satisfy their specifications rather than merely testing for bugs. Deductive methods center on Hoare logic and the weakest-precondition calculus, where loop invariants and separation logic let one reason compositionally about state and the heap. Temporal logics such as LTL and CTL express liveness and safety properties over executions, and model checking automatically verifies them against finite-state models. Because state spaces explode, the course studies symbolic techniques using BDDs, bounded model checking, and the SAT and SMT solvers (DPLL, CDCL, theory combination) that power them. Abstract interpretation provides sound approximations for reasoning about infinite-state programs, while refinement types embed lightweight verification into type checking. Interactive theorem provers such as Coq, Isabelle, and Lean support machine-checked proofs with heavy proof automation. Capstone case studies include verified compilers and operating systems that carry end-to-end correctness guarantees.",
+  topics: [
+    "program correctness and formal specifications",
+    "Hoare logic and the weakest precondition",
+    "loop invariants and verification conditions",
+    "separation logic and heap reasoning",
+    "temporal logic (LTL and CTL)",
+    "explicit-state model checking",
+    "state-space explosion and symbolic model checking (BDDs)",
+    "bounded model checking",
+    "SAT solving (DPLL and CDCL)",
+    "SMT solvers and theory combination",
+    "abstract interpretation",
+    "refinement types",
+    "interactive theorem proving (Coq, Isabelle, Lean)",
+    "proof automation and tactics",
+    "verified compilers and systems",
+    "counterexample-guided abstraction refinement (CEGAR)",
+  ],
+  recommended: [
+    res("Software Foundations, Vol. 2: Programming Language Foundations", "Benjamin C. Pierce et al.", { type: "interactive", free: true, url: "https://softwarefoundations.cis.upenn.edu/" }),
+    res("Principles of Model Checking", "Christel Baier and Joost-Pieter Katoen", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("The Calculus of Computation", "Aaron R. Bradley and Zohar Manna", { type: "textbook" }),
+    res("Model Checking", "Edmund M. Clarke, Orna Grumberg, and Doron Peled", { type: "textbook" }),
+    res("Concrete Semantics with Isabelle/HOL", "Tobias Nipkow and Gerwin Klein", { type: "textbook" }),
+    res("Handbook of Satisfiability", "Armin Biere, Marijn Heule, Hans van Maaren, and Toby Walsh (eds.)", { type: "reference" }),
+  ],
+});

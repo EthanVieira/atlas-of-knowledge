@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Advanced algorithms extends the standard undergraduate toolkit toward the techniques that dominate modern algorithm design and research. The course opens with amortized analysis and sophisticated data structures—Fibonacci heaps and van Emde Boas trees—then develops the theory of network flows, including maximum flow, minimum cut, and bipartite matching via the max-flow min-cut theorem. A substantial thread treats linear programming as a unifying framework, covering LP duality and the simplex and ellipsoid methods, which underpin much of combinatorial optimization. Algebraic and numerical methods appear through the fast Fourier transform and number-theoretic and matrix algorithms, while string processing is addressed with KMP and suffix trees. The final portion turns to algorithms for constrained computational settings: online algorithms with competitive analysis, streaming algorithms for massive data, and external-memory and cache-oblivious algorithms that account for the memory hierarchy. The goal is fluency with both the design paradigms and the analytical techniques used to prove worst-case guarantees.",
+  topics: [
+    "Amortized analysis",
+    "Advanced data structures",
+    "Fibonacci heaps",
+    "van Emde Boas trees",
+    "Maximum flow and minimum cut",
+    "Bipartite matching",
+    "The max-flow min-cut theorem",
+    "Linear programming",
+    "LP duality",
+    "The simplex and ellipsoid methods",
+    "The fast Fourier transform",
+    "Number-theoretic and matrix algorithms",
+    "String matching (KMP, suffix trees)",
+    "Online algorithms and competitive analysis",
+    "Streaming algorithms",
+    "External-memory and cache-oblivious algorithms",
+  ],
+  recommended: [
+    res("Advanced Algorithms (MIT 6.854)", "MIT", { type: "lectures", free: true, url: "https://ocw.mit.edu/courses/6-854j-advanced-algorithms-fall-2008/" }),
+    res("Algorithm Design", "Jon Kleinberg & Éva Tardos", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Introduction to Algorithms", "Cormen, Leiserson, Rivest & Stein", { type: "textbook" }),
+    res("Combinatorial Optimization: Algorithms and Complexity", "Christos Papadimitriou & Kenneth Steiglitz", { type: "textbook" }),
+    res("Algorithms", "Sanjoy Dasgupta, Christos Papadimitriou & Umesh Vazirani", { type: "textbook" }),
+  ],
+});

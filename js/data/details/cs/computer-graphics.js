@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Computer graphics studies the algorithms and mathematics that turn geometric descriptions of scenes into images. The course develops the real-time graphics pipeline, covering 2D and 3D transformations expressed in homogeneous coordinates, viewing and projection, rasterization, clipping, and hidden-surface removal with the z-buffer. It examines local shading models such as Phong and Blinn-Phong, texture mapping, and antialiasing through careful sampling. The second thread is physically based rendering: ray tracing accelerated by bounding volume hierarchies, the rendering equation, and global illumination solved with Monte Carlo integration and path tracing. Additional topics include geometric representations of meshes, curves, and surfaces, and the fundamentals of animation. By the end students understand both interactive rendering and the light-transport theory behind photorealistic image synthesis.",
+  topics: [
+    "the graphics pipeline",
+    "2D and 3D transformations",
+    "homogeneous coordinates",
+    "viewing and projection",
+    "rasterization",
+    "the z-buffer and hidden-surface removal",
+    "clipping",
+    "shading models (Phong, Blinn-Phong)",
+    "texture mapping",
+    "ray tracing",
+    "acceleration structures (BVH)",
+    "the rendering equation",
+    "global illumination and path tracing",
+    "Monte Carlo integration",
+    "geometry, meshes, curves and surfaces",
+    "sampling, antialiasing and animation",
+  ],
+  recommended: [
+    res("GAMES101: Introduction to Computer Graphics", "Lingqi Yan", { type: "lectures", free: true, url: "https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html" }),
+    res("Physically Based Rendering: From Theory to Implementation", "Matt Pharr, Wenzel Jakob & Greg Humphreys", { type: "textbook", free: true, url: "https://www.pbr-book.org/" }),
+    res("Fundamentals of Computer Graphics", "Steve Marschner & Peter Shirley", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Real-Time Rendering", "Tomas Akenine-Möller, Eric Haines & Naty Hoffman", { type: "textbook" }),
+    res("Computer Graphics: Principles and Practice", "John Hughes et al.", { type: "textbook" }),
+    res("Ray Tracing in One Weekend", "Peter Shirley", { type: "textbook" }),
+  ],
+});

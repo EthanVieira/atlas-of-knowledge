@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Bioinformatics applies algorithms and statistical models to biological sequence and structure data. The course begins with biological sequences and databases, then develops pairwise alignment through the Needleman-Wunsch and Smith-Waterman dynamic programming algorithms, scoring matrices such as PAM and BLOSUM, and heuristic search with BLAST. It extends to multiple sequence alignment and to probabilistic models, especially hidden Markov models and profile HMMs used for gene finding and family classification. Genome-scale methods cover sequencing technologies, de Bruijn graph assembly, and the algorithmic challenges of reconstructing genomes from short reads. The course also treats phylogenetic tree construction and molecular evolution, RNA secondary-structure prediction, motif finding, and structural bioinformatics. Statistical analysis of gene expression rounds out the toolkit for interpreting high-throughput biological data.",
+  topics: [
+    "biological sequences and databases",
+    "pairwise sequence alignment (Needleman-Wunsch, Smith-Waterman)",
+    "dynamic programming for alignment",
+    "scoring matrices (PAM, BLOSUM)",
+    "heuristic alignment (BLAST)",
+    "multiple sequence alignment",
+    "hidden Markov models and profile HMMs",
+    "gene finding",
+    "genome assembly and de Bruijn graphs",
+    "sequencing technologies",
+    "phylogenetic tree construction",
+    "molecular evolution",
+    "RNA secondary-structure prediction",
+    "motif finding",
+    "structural bioinformatics",
+    "gene expression analysis",
+  ],
+  recommended: [
+    res("Bioinformatics Algorithms / Rosalind", "Phillip Compeau & Pavel Pevzner", { type: "interactive", free: true, url: "https://rosalind.info/" }),
+    res("Biological Sequence Analysis", "Richard Durbin, Sean Eddy, Anders Krogh & Graeme Mitchison", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("An Introduction to Bioinformatics Algorithms", "Neil Jones & Pavel Pevzner", { type: "textbook" }),
+    res("Bioinformatics and Functional Genomics", "Jonathan Pevsner", { type: "textbook" }),
+    res("Molecular Biology of the Cell", "Bruce Alberts et al.", { type: "reference" }),
+  ],
+});

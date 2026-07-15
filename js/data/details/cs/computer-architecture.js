@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Computer architecture studies how the abstract instruction set of a processor is realized in hardware and how design choices shape performance, cost, and power. Starting from the instruction set architecture (ISA), the course develops a datapath and control unit that fetch, decode, and execute instructions, contrasting single-cycle, multi-cycle, and pipelined organizations. Pipelining introduces structural, data, and control hazards, which are mitigated through forwarding, stalling, and branch prediction. The memory hierarchy—registers, multiple cache levels, main memory, and virtual memory with a TLB—is analyzed to bridge the growing gap between processor and memory speeds. More advanced topics cover instruction-level parallelism through superscalar and out-of-order execution, as well as thread-level parallelism in multicore and multiprocessor systems with their attendant cache-coherence problems. Throughout, quantitative reasoning with metrics such as CPI, execution time, and Amdahl's law guides the evaluation of competing designs.",
+  topics: [
+    "instruction set architectures (RISC vs CISC)",
+    "assembly language and machine code",
+    "the datapath and control unit",
+    "single-cycle vs multi-cycle designs",
+    "pipelining and pipeline hazards",
+    "forwarding, stalling, and branch prediction",
+    "the memory hierarchy",
+    "caches, associativity, and replacement policies",
+    "cache coherence in multiprocessors",
+    "virtual memory and the TLB",
+    "I/O, buses, and interrupts",
+    "instruction-level parallelism",
+    "superscalar and out-of-order execution",
+    "multicore and multiprocessors",
+    "performance measurement (CPI, execution time)",
+    "Amdahl's law and speedup",
+  ],
+  recommended: [
+    res("Computation Structures (MIT 6.004)", "MIT OpenCourseWare", { type: "lectures", free: true, url: "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/" }),
+    res("Computer Organization and Design", "Patterson & Hennessy", { type: "textbook" }),
+    res("Computer Architecture: A Quantitative Approach", "Hennessy & Patterson", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Structured Computer Organization", "Andrew S. Tanenbaum", { type: "textbook" }),
+    res("Digital Design and Computer Architecture", "Harris & Harris", { type: "textbook" }),
+    res("Inside the Machine", "Jon Stokes", { type: "reference" }),
+  ],
+});

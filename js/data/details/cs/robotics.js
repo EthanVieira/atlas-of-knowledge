@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Robotics studies how to model, plan, and control machines that sense and act in the physical world. The course develops the mathematics of rigid-body motion, representing rotations in SO(3), rigid transforms, twists, and screw motions. From this foundation it builds forward kinematics via the product-of-exponentials formula, inverse kinematics, and velocity kinematics through the Jacobian, then treats robot dynamics using Lagrangian and Newton-Euler formulations. Planning and control topics include trajectory generation, configuration-space obstacles, sampling-based motion planners such as RRT and PRM, and feedback control. A probabilistic thread covers state estimation with Bayes filters, the Kalman and particle filters, localization, and SLAM. The course concludes with perception, grasping and manipulation, and learning-based approaches to control.",
+  topics: [
+    "rigid-body motions and homogeneous transforms",
+    "rotations SO(3) and twists",
+    "forward kinematics",
+    "the product-of-exponentials formula",
+    "inverse kinematics",
+    "the Jacobian and velocity kinematics",
+    "robot dynamics (Lagrangian, Newton-Euler)",
+    "trajectory generation",
+    "configuration space and obstacles",
+    "motion planning (RRT, PRM)",
+    "feedback control",
+    "state estimation and Bayes filters",
+    "the Kalman and particle filters",
+    "localization and SLAM",
+    "perception, grasping and manipulation",
+    "learning for control",
+  ],
+  recommended: [
+    res("Modern Robotics: Mechanics, Planning, and Control", "Kevin Lynch & Frank Park", { type: "textbook", free: true, url: "https://modernrobotics.northwestern.edu/" }),
+    res("Probabilistic Robotics", "Sebastian Thrun, Wolfram Burgard & Dieter Fox", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Planning Algorithms", "Steven M. LaValle", { type: "textbook" }),
+    res("Robotics: Modelling, Planning and Control", "Bruno Siciliano, Lorenzo Sciavicco, Luigi Villani & Giuseppe Oriolo", { type: "textbook" }),
+    res("Introduction to Autonomous Mobile Robots", "Roland Siegwart, Illah Nourbakhsh & Davide Scaramuzza", { type: "textbook" }),
+  ],
+});

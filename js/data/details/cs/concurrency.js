@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Concurrency and parallelism studies how to coordinate multiple threads of execution correctly and how to exploit multiple processors for speed. The course begins with the shared-memory model and the mutual-exclusion problem, developing locks, spinlocks, semaphores, monitors, and condition variables while exposing the hazards of race conditions, deadlock, livelock, and starvation. It grounds correctness in memory consistency models, contrasting sequential consistency with the weaker orderings real hardware provides, and shows how atomic operations such as compare-and-swap enable synchronization without locks. Building on these primitives, the course explores lock-free and wait-free data structures and the subtle bugs they invite, including the ABA problem, along with transactional memory as a higher-level alternative. The message-passing paradigm and the actor model offer a contrasting approach that avoids shared state entirely. Turning to performance, the course analyzes parallel algorithms using the work/span model, the fork-join framework, and the distinction between data and task parallelism, giving a principled account of what parallel speedup is achievable.",
+  topics: [
+    "threads and shared memory",
+    "mutual exclusion",
+    "locks and spinlocks",
+    "the critical-section problem",
+    "race conditions and data races",
+    "deadlock, livelock, and starvation",
+    "semaphores and monitors",
+    "condition variables",
+    "memory consistency and sequential consistency",
+    "atomic operations and compare-and-swap",
+    "lock-free and wait-free data structures",
+    "the ABA problem",
+    "transactional memory",
+    "message passing and actors",
+    "parallel algorithms and work/span",
+    "the fork-join model",
+    "data and task parallelism",
+  ],
+  recommended: [
+    res("The Art of Multiprocessor Programming", "Herlihy & Shavit", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Java Concurrency in Practice", "Brian Goetz", { type: "reference" }),
+    res("C++ Concurrency in Action", "Anthony Williams", { type: "reference" }),
+    res("Is Parallel Programming Hard, And, If So, What Can You Do About It?", "Paul E. McKenney", { type: "textbook" }),
+    res("Structured Parallel Programming", "McCool, Robison & Reinders", { type: "textbook" }),
+  ],
+});

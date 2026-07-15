@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Statistical learning theory provides the mathematical foundations that explain when and why learning from data is possible. The course formalizes learning through the statistical learning framework and empirical risk minimization, then develops the PAC and agnostic PAC models that quantify sample complexity. It analyzes the bias-complexity tradeoff and introduces the VC dimension as a measure of hypothesis-class capacity, culminating in the fundamental theorem of statistical learning. Uniform convergence is established via growth functions, Sauer's lemma, and Rademacher complexity, with covering numbers giving finer control for real-valued classes. These tools yield generalization bounds and illuminate margin theory and support vector machines, regularization, and algorithmic stability. The course concludes with online learning and regret analysis, boosting, and principled approaches to model selection.",
+  topics: [
+    "the statistical learning framework",
+    "empirical risk minimization",
+    "the PAC learning model",
+    "agnostic PAC learning",
+    "the bias-complexity tradeoff",
+    "the VC dimension",
+    "the fundamental theorem of statistical learning",
+    "growth functions and Sauer's lemma",
+    "uniform convergence",
+    "Rademacher complexity",
+    "covering numbers",
+    "generalization bounds",
+    "margin theory and support vector machines",
+    "regularization and algorithmic stability",
+    "online learning and regret",
+    "boosting and model selection",
+  ],
+  recommended: [
+    res("Understanding Machine Learning: From Theory to Algorithms", "Shai Shalev-Shwartz & Shai Ben-David", { type: "textbook", free: true, url: "https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/" }),
+    res("Foundations of Machine Learning", "Mehryar Mohri, Afshin Rostamizadeh & Ameet Talwalkar", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("A Probabilistic Theory of Pattern Recognition", "Luc Devroye, László Györfi & Gábor Lugosi", { type: "textbook" }),
+    res("The Nature of Statistical Learning Theory", "Vladimir Vapnik", { type: "textbook" }),
+    res("High-Dimensional Statistics: A Non-Asymptotic Viewpoint", "Martin J. Wainwright", { type: "textbook" }),
+  ],
+});

@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Computer networks studies how independent machines are connected into systems that reliably move data across the room or around the world. The course is organized around the layered model, using both the OSI reference model and the pragmatic TCP/IP stack to decompose the problem into physical, link, network, transport, and application layers. At the link layer it covers framing, error detection, and medium access control as exemplified by Ethernet; at the network layer it develops IP addressing, subnetting, and the routing algorithms—link-state, distance-vector, and BGP—that stitch the internet together. The transport layer receives careful treatment, contrasting UDP with TCP's reliable, flow-controlled, and congestion-controlled byte stream. Application-layer protocols such as DNS and HTTP illustrate how services are built on the socket API, and a survey of TLS and security fundamentals shows how confidentiality and integrity are added. Quality-of-service mechanisms round out an end-to-end, systems-oriented view of networking.",
+  topics: [
+    "the layered model (OSI and TCP/IP)",
+    "the physical and link layers",
+    "framing and error detection",
+    "medium access control and Ethernet",
+    "switching and the network layer",
+    "IP addressing and subnetting",
+    "routing (link-state, distance-vector, BGP)",
+    "the transport layer",
+    "TCP reliability and flow control",
+    "congestion control",
+    "UDP and datagram services",
+    "the application layer (DNS, HTTP)",
+    "the socket API",
+    "network security basics (TLS)",
+    "quality of service",
+  ],
+  recommended: [
+    res("Computer Networks: A Systems Approach", "Peterson & Davie", { type: "textbook", free: true, url: "https://book.systemsapproach.org/" }),
+    res("Computer Networking: A Top-Down Approach", "Kurose & Ross", { type: "textbook" }),
+    res("Computer Networks", "Andrew Tanenbaum", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("TCP/IP Illustrated, Volume 1", "W. Richard Stevens", { type: "reference" }),
+    res("High Performance Browser Networking", "Ilya Grigorik", { type: "reference" }),
+    res("Unix Network Programming", "W. Richard Stevens", { type: "textbook" }),
+  ],
+});

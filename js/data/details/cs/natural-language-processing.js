@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Natural language processing develops computational methods for understanding and generating human language. The course opens with the foundations of text processing, tokenization, and probabilistic n-gram language models, then introduces distributed word representations such as word2vec and GloVe. It covers core linguistic tasks including part-of-speech tagging, sequence labeling with CRFs, and syntactic parsing over both constituency and dependency structures. Neural methods are developed progressively, from recurrent networks and sequence-to-sequence models to attention mechanisms and the transformer architecture. Building on these, the course examines pretrained language models like BERT and GPT and their application to machine translation, named-entity recognition, question answering, coreference, and semantic role labeling. It closes with text generation, evaluation methodology, and the capabilities and limitations of large language models.",
+  topics: [
+    "text preprocessing and tokenization",
+    "n-gram language models and smoothing",
+    "word embeddings (word2vec, GloVe)",
+    "part-of-speech tagging",
+    "sequence labeling and conditional random fields",
+    "syntactic parsing (constituency and dependency)",
+    "recurrent networks for NLP",
+    "sequence-to-sequence models",
+    "attention mechanisms and transformers",
+    "pretrained language models (BERT, GPT)",
+    "machine translation",
+    "named-entity recognition",
+    "question answering",
+    "semantic role labeling and coreference resolution",
+    "text generation and evaluation",
+    "large language models",
+  ],
+  recommended: [
+    res("Speech and Language Processing (3rd ed. draft)", "Dan Jurafsky & James H. Martin", { type: "textbook", free: true, url: "https://web.stanford.edu/~jurafsky/slp3/" }),
+    res("Speech and Language Processing", "Dan Jurafsky & James H. Martin", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Introduction to Natural Language Processing", "Jacob Eisenstein", { type: "textbook" }),
+    res("Foundations of Statistical Natural Language Processing", "Christopher Manning & Hinrich Schütze", { type: "textbook" }),
+    res("Natural Language Processing with Transformers", "Lewis Tunstall, Leandro von Werra & Thomas Wolf", { type: "textbook" }),
+  ],
+});

@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Reinforcement Learning studies how an agent can learn to make good sequential decisions by interacting with an environment and receiving reward signals. The course formalizes this setting as a Markov decision process, defining returns, policies, and the value functions whose relationships are captured by the Bellman equations. It first considers planning with a known model through dynamic programming methods such as policy iteration and value iteration. Attention then shifts to learning from experience without a model, covering Monte Carlo estimation and temporal-difference methods including SARSA and Q-learning, together with the central exploration-exploitation tradeoff. The course develops function approximation so that these ideas scale beyond small tabular problems, leading naturally to policy-gradient methods like REINFORCE and to actor-critic architectures. Modern deep reinforcement learning is introduced through algorithms such as DQN, and the course closes with model-based approaches and a look at real-world applications in games, robotics, and control.",
+  topics: [
+    "the agent-environment interface",
+    "Markov decision processes",
+    "returns and value functions",
+    "the Bellman equations",
+    "dynamic programming (policy and value iteration)",
+    "Monte Carlo methods",
+    "temporal-difference learning",
+    "SARSA and Q-learning",
+    "the exploration-exploitation tradeoff",
+    "eligibility traces (TD-lambda)",
+    "function approximation",
+    "policy-gradient methods (REINFORCE)",
+    "actor-critic methods",
+    "deep reinforcement learning (DQN)",
+    "model-based reinforcement learning",
+    "applications (games, robotics, control)",
+  ],
+  recommended: [
+    res("Reinforcement Learning: An Introduction", "Sutton & Barto", { type: "textbook", free: true, url: "http://incompleteideas.net/book/the-book.html" }),
+    res("Reinforcement Learning: An Introduction (print edition)", "Sutton & Barto", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Algorithms for Reinforcement Learning", "Csaba Szepesvári", { type: "textbook" }),
+    res("Reinforcement Learning: State-of-the-Art", "Wiering & van Otterlo", { type: "reference" }),
+    res("Spinning Up in Deep RL", "OpenAI", { type: "notes" }),
+  ],
+});

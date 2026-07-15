@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Artificial Intelligence surveys the foundational ideas and techniques used to build systems that perceive, reason, and act to achieve goals. The course frames intelligence through the lens of rational agents that select actions to maximize expected utility given their knowledge and observations. It develops a toolkit of problem-solving methods, beginning with state-space search and heuristic guidance, then advancing to adversarial game playing and constraint satisfaction. A second thread covers knowledge representation and logical inference, showing how agents can encode facts and derive new conclusions. The final portion introduces reasoning under uncertainty with probability and Bayesian networks, sequential decision making via Markov decision processes, and a first exposure to reinforcement learning and machine learning. By the end, students can model a problem, choose an appropriate algorithm, and reason about its correctness, optimality, and computational cost.",
+  topics: [
+    "intelligent agents and rationality",
+    "problem formulation and state spaces",
+    "uninformed search: BFS, DFS, uniform-cost search",
+    "informed search and heuristics (A*, admissibility)",
+    "local search and optimization (hill climbing, simulated annealing)",
+    "adversarial search and minimax",
+    "alpha-beta pruning and evaluation functions",
+    "constraint satisfaction problems and backtracking",
+    "propositional and first-order logic",
+    "logical inference and resolution",
+    "classical planning",
+    "probabilistic reasoning and Bayes' rule",
+    "Bayesian networks and inference",
+    "Markov decision processes",
+    "introduction to reinforcement learning",
+    "introduction to machine learning",
+  ],
+  recommended: [
+    res("Intro to AI (Berkeley CS188)", "UC Berkeley", { type: "lectures", free: true, url: "https://inst.eecs.berkeley.edu/~cs188/" }),
+    res("Artificial Intelligence: A Modern Approach", "Stuart Russell & Peter Norvig", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Artificial Intelligence: Foundations of Computational Agents", "David Poole & Alan Mackworth", { type: "textbook" }),
+    res("Search Algorithms in AI", "Various", { type: "notes" }),
+    res("Essentials of Metaheuristics", "Sean Luke", { type: "textbook" }),
+  ],
+});

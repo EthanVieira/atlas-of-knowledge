@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Database systems studies how large collections of structured data are modeled, stored, queried, and kept consistent under concurrent access and failures. The course begins with the relational model and its formal foundation in relational algebra, then develops SQL for expressing queries, joins, and aggregation, alongside entity-relationship modeling and normalization for principled schema design. It descends through the storage stack—file organization, indexing with B+ trees and hash indexes, and the buffer pool that mediates between disk and memory. Query processing is examined operator by operator, followed by cost-based query optimization that chooses efficient execution plans. The transactional core of the course covers ACID guarantees, concurrency control via two-phase locking and multiversion concurrency control, and logging and recovery using the ARIES protocol. The course closes with modern directions including distributed databases, NoSQL systems, and column-oriented storage for analytics.",
+  topics: [
+    "the relational model and relational algebra",
+    "SQL (queries, joins, aggregation)",
+    "database design and normalization",
+    "the entity-relationship model",
+    "storage and file organization",
+    "indexing (B+ trees, hash indexes)",
+    "the buffer pool",
+    "query processing and operators",
+    "query optimization and cost estimation",
+    "transactions and ACID",
+    "concurrency control (2PL, MVCC)",
+    "logging and recovery (ARIES)",
+    "distributed databases",
+    "NoSQL databases",
+    "column stores and analytics",
+  ],
+  recommended: [
+    res("Intro to Database Systems (CMU 15-445)", "Andy Pavlo", { type: "lectures", free: true, url: "https://15445.courses.cs.cmu.edu/" }),
+    res("Database System Concepts", "Silberschatz, Korth & Sudarshan", { type: "textbook" }),
+    res("Database Management Systems", "Ramakrishnan & Gehrke", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Designing Data-Intensive Applications", "Martin Kleppmann", { type: "reference" }),
+    res("Readings in Database Systems", "Bailis, Hellerstein & Stonebraker", { type: "reference" }),
+    res("Transaction Processing: Concepts and Techniques", "Gray & Reuter", { type: "textbook" }),
+  ],
+});

@@ -1,0 +1,33 @@
+registerDetail({
+  long: "Machine Learning introduces the principles and algorithms that let computers improve at a task by learning from data rather than being explicitly programmed. The course begins with supervised learning, deriving linear and logistic regression from first principles and training them with gradient descent. Along the way it develops the central conceptual framework of the field: the bias-variance tradeoff, regularization, and the distinction between generative and discriminative models. Students study a broad catalog of methods including naive Bayes, support vector machines with kernels, decision trees, and ensemble techniques such as random forests and boosting. The second half turns to unsupervised learning, covering clustering, dimensionality reduction, and the expectation-maximization algorithm for latent variable models. Throughout, the emphasis is on sound methodology, so model selection, cross-validation, and appropriate evaluation metrics receive careful treatment. The result is a working understanding of how to choose, train, and rigorously assess models on real data.",
+  topics: [
+    "supervised learning framework",
+    "linear regression and least squares",
+    "logistic regression and classification",
+    "gradient descent and optimization",
+    "the bias-variance tradeoff",
+    "regularization (ridge, lasso)",
+    "generative vs discriminative models",
+    "naive Bayes",
+    "support vector machines and kernels",
+    "decision trees and random forests",
+    "ensemble methods and boosting",
+    "neural networks (introduction)",
+    "unsupervised learning",
+    "k-means and clustering",
+    "principal component analysis",
+    "the EM algorithm",
+    "model selection and cross-validation",
+    "evaluation metrics (precision, recall, ROC)",
+  ],
+  recommended: [
+    res("Machine Learning (Stanford CS229)", "Andrew Ng", { type: "lectures", free: true, url: "https://cs229.stanford.edu/" }),
+    res("The Elements of Statistical Learning", "Hastie, Tibshirani & Friedman", { type: "textbook", free: true, url: "https://hastie.su.domains/ElemStatLearn/" }),
+    res("Pattern Recognition and Machine Learning", "Christopher Bishop", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("An Introduction to Statistical Learning", "James, Witten, Hastie & Tibshirani", { type: "textbook" }),
+    res("Machine Learning: A Probabilistic Perspective", "Kevin Murphy", { type: "textbook" }),
+    res("A Course in Machine Learning", "Hal Daumé III", { type: "textbook" }),
+  ],
+});

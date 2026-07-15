@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Deep Learning studies neural networks with many layers of learned representations and the techniques that make them trainable at scale. The course starts from the multilayer perceptron, explaining how nonlinear activation functions and the backpropagation algorithm, implemented via automatic differentiation, allow gradients to flow through deep compositions. It then examines the practical machinery of optimization, including stochastic gradient descent, adaptive optimizers such as Adam, careful weight initialization, and normalization schemes that stabilize training. Regularization methods like dropout and weight decay are introduced to combat overfitting in highly expressive models. Students survey the major architectural families: convolutional networks for images, recurrent networks and LSTMs for sequences, and the attention mechanism that underlies the transformer. The final segment covers representation learning and generative modeling, including autoencoders, variational autoencoders, GANs, and diffusion models, along with self-supervised and transfer learning. Practical concerns of training large models efficiently tie the material together.",
+  topics: [
+    "the multilayer perceptron",
+    "activation functions (ReLU, sigmoid, tanh)",
+    "backpropagation and automatic differentiation",
+    "loss functions (cross-entropy, MSE)",
+    "stochastic gradient descent and optimizers (Adam)",
+    "weight initialization",
+    "regularization (dropout, weight decay)",
+    "batch and layer normalization",
+    "convolutional neural networks",
+    "recurrent networks and LSTMs",
+    "attention and the transformer",
+    "embeddings and representation learning",
+    "autoencoders",
+    "generative models (VAEs, GANs, diffusion)",
+    "self-supervised and transfer learning",
+    "training at scale",
+  ],
+  recommended: [
+    res("Deep Learning", "Goodfellow, Bengio & Courville", { type: "textbook", free: true, url: "https://www.deeplearningbook.org/" }),
+    res("Understanding Deep Learning", "Simon Prince", { type: "textbook", free: true, url: "https://udlbook.github.io/udlbook/" }),
+    res("Deep Learning (print edition)", "Goodfellow, Bengio & Courville", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Dive into Deep Learning", "Zhang, Lipton, Li & Smola", { type: "interactive" }),
+    res("Neural Networks and Deep Learning", "Michael Nielsen", { type: "textbook" }),
+    res("The Little Book of Deep Learning", "François Fleuret", { type: "textbook" }),
+  ],
+});

@@ -1,0 +1,30 @@
+registerDetail({
+  long: "An operating system is the layer of software that manages a machine's hardware resources and presents clean abstractions—processes, address spaces, and files—to applications. This course examines how the OS virtualizes the CPU by multiplexing processes and threads across cores, how it schedules them fairly and efficiently, and how it mediates the boundary between user and kernel mode through system calls. It develops the machinery of concurrency, including locks, semaphores, monitors, and condition variables, and analyzes the classic pitfalls of race conditions and deadlock. Memory management is covered in depth, from segmentation and paging to demand paging, page replacement, and the translation hardware that makes virtual memory practical. The persistence half of the course studies file systems, the virtual file system layer, journaling, and crash consistency, along with I/O and device drivers. Finally, the course surveys modern virtualization and containers, tying the abstractions together into a coherent picture of how real systems are built.",
+  topics: [
+    "the process abstraction and lifecycle",
+    "system calls and the kernel/user boundary",
+    "threads and concurrency",
+    "CPU scheduling policies",
+    "context switching and dispatch",
+    "synchronization (locks, semaphores, monitors)",
+    "condition variables",
+    "deadlock detection and avoidance",
+    "address spaces and memory management",
+    "paging and virtual memory",
+    "page replacement algorithms",
+    "file systems and the VFS",
+    "journaling and crash consistency",
+    "I/O and device drivers",
+    "virtualization and containers",
+  ],
+  recommended: [
+    res("Operating Systems: Three Easy Pieces", "Arpaci-Dusseau", { type: "textbook", free: true, url: "https://pages.cs.wisc.edu/~remzi/OSTEP/" }),
+    res("Operating System Concepts", "Silberschatz, Galvin & Gagne", { type: "textbook" }),
+    res("Modern Operating Systems", "Andrew Tanenbaum", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("The Linux Programming Interface", "Michael Kerrisk", { type: "reference" }),
+    res("Understanding the Linux Kernel", "Bovet & Cesati", { type: "textbook" }),
+    res("Advanced Programming in the UNIX Environment", "W. Richard Stevens", { type: "reference" }),
+  ],
+});

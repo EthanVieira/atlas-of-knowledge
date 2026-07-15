@@ -1,0 +1,33 @@
+registerDetail({
+  long: "Distributed systems studies how to coordinate many independent computers, connected only by an unreliable network, so that together they behave like a single coherent service. The defining difficulty is partial failure combined with asynchrony: nodes and links can fail independently, messages can be delayed or lost, and there is no shared global clock, which makes reasoning about order and agreement subtle. The course develops the theoretical bedrock — the happens-before relation, logical and vector clocks, consistent global snapshots, the FLP impossibility result, and the CAP theorem — that bounds what any protocol can achieve. On top of this it builds the core mechanisms of real systems: replication strategies, consistency models ranging from linearizability to eventual consistency, and consensus algorithms such as Paxos and Raft that keep replicas in agreement despite failures. It also covers the transactional and structural machinery of large deployments, including two- and three-phase commit, sharding and partitioning, gossip-based dissemination, and data-parallel frameworks like MapReduce. By the end students can reason precisely about correctness and fault tolerance and can design services that stay available and consistent enough under realistic failure conditions.",
+  topics: [
+    "the challenges of distribution: partial failure and asynchrony",
+    "logical clocks and vector clocks",
+    "the happens-before relation and causality",
+    "global state and consistent snapshots (Chandy-Lamport)",
+    "replication: primary-backup, chain, and quorum",
+    "consistency models: linearizability, sequential, eventual",
+    "consensus with Paxos",
+    "consensus with Raft",
+    "leader election",
+    "the FLP impossibility result",
+    "the CAP theorem and its trade-offs",
+    "two-phase and three-phase commit",
+    "distributed transactions and isolation",
+    "fault tolerance and failure detectors",
+    "gossip and epidemic protocols",
+    "sharding and partitioning",
+    "MapReduce and data-parallel systems",
+  ],
+  recommended: [
+    res("Distributed Systems (MIT 6.824)", "MIT", { type: "lectures", free: true, url: "https://pdos.csail.mit.edu/6.824/" }),
+    res("Distributed Systems", "van Steen & Tanenbaum", { type: "textbook", free: true, url: "https://www.distributed-systems.net/index.php/books/ds4/" }),
+    res("Designing Data-Intensive Applications", "Martin Kleppmann", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Time, Clocks, and the Ordering of Events in a Distributed System", "Leslie Lamport", { type: "reference" }),
+    res("Paxos Made Simple", "Leslie Lamport", { type: "reference" }),
+    res("In Search of an Understandable Consensus Algorithm (Raft)", "Ongaro & Ousterhout", { type: "reference" }),
+    res("Distributed Systems: Principles and Paradigms", "Tanenbaum & van Steen", { type: "textbook" }),
+  ],
+});

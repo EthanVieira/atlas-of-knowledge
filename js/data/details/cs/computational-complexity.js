@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Computational complexity theory studies the intrinsic resources—chiefly time and space—required to solve computational problems, and classifies problems into complexity classes based on those requirements. The course develops the theory of P, NP, and NP-completeness through the Cook–Levin theorem, then broadens to space complexity, the polynomial hierarchy, and the fundamental hierarchy theorems that separate classes by resource bounds. It introduces non-uniform models via Boolean circuits and randomized classes such as BPP and RP, and studies how randomness might be removed through derandomization. A major arc covers interactive proofs, culminating in IP=PSPACE, and the PCP theorem, which reframes NP through locally checkable proofs and yields sharp inapproximability results. Counting complexity (#P) and communication complexity round out the picture, giving lower-bound tools that reach across the field. Throughout, the emphasis is on structural relationships between classes and the deep open problems—above all P versus NP—that organize the subject.",
+  topics: [
+    "Time and space complexity classes",
+    "P and NP",
+    "NP-completeness and the Cook–Levin theorem",
+    "The polynomial hierarchy",
+    "Space complexity (L, NL, PSPACE)",
+    "Savitch's theorem",
+    "The time and space hierarchy theorems",
+    "Randomized complexity (BPP, RP)",
+    "Boolean circuits and non-uniformity",
+    "Interactive proofs and IP = PSPACE",
+    "The PCP theorem",
+    "Hardness of approximation",
+    "Counting complexity (#P)",
+    "Communication complexity",
+    "Derandomization and pseudorandomness",
+    "Relativization and oracle separations",
+  ],
+  recommended: [
+    res("Computational Complexity: A Modern Approach", "Sanjeev Arora & Boaz Barak", { type: "textbook", free: true, url: "https://theory.cs.princeton.edu/complexity/" }),
+    res("Computational Complexity: A Modern Approach", "Sanjeev Arora & Boaz Barak", { type: "textbook" }),
+    res("Computational Complexity", "Christos Papadimitriou", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("The Nature of Computation", "Cristopher Moore & Stephan Mertens", { type: "textbook" }),
+    res("Computational Complexity: A Conceptual Perspective", "Oded Goldreich", { type: "textbook" }),
+    res("Gems of Theoretical Computer Science", "Uwe Schöning & Randall Pruim", { type: "reference" }),
+  ],
+});

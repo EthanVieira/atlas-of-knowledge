@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Programming Language Theory studies the mathematical foundations that give programming languages precise meaning and guarantees. It begins with the untyped λ-calculus as a universal model of computation and builds up to rich type systems that classify programs and rule out whole categories of errors. Central results include type safety, proved via progress and preservation, and the Curry–Howard correspondence, which reveals types as propositions and programs as proofs. The course develops parametric polymorphism (System F), existential types for data abstraction, subtyping, recursive types, and type inference in the Hindley–Milner style. It contrasts operational and denotational semantics as complementary ways to assign meaning, and uses logical relations to prove deep properties such as parametricity and normalization. Throughout, mechanized metatheory using a proof assistant makes the arguments fully rigorous and machine-checked.",
+  topics: [
+    "the untyped λ-calculus",
+    "β-reduction and evaluation strategies (call-by-value, call-by-name)",
+    "Church encodings and fixed-point combinators",
+    "the simply-typed λ-calculus",
+    "type safety: progress and preservation",
+    "the Curry–Howard correspondence",
+    "parametric polymorphism and System F",
+    "existential types and data abstraction",
+    "subtyping and bounded quantification",
+    "recursive and iso-recursive types",
+    "references, mutable state, and effects",
+    "type inference and Hindley–Milner",
+    "dependent types",
+    "operational and denotational semantics",
+    "logical relations and parametricity",
+    "mechanized metatheory in a proof assistant",
+  ],
+  recommended: [
+    res("Software Foundations", "Benjamin C. Pierce et al.", { type: "interactive", free: true, url: "https://softwarefoundations.cis.upenn.edu/" }),
+    res("Practical Foundations for Programming Languages", "Robert Harper", { type: "textbook", free: true, url: "https://www.cs.cmu.edu/~rwh/pfpl.html" }),
+    res("Types and Programming Languages", "Benjamin C. Pierce", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Advanced Topics in Types and Programming Languages", "Benjamin C. Pierce (ed.)", { type: "textbook" }),
+    res("Semantics with Applications", "Hanne Riis Nielson and Flemming Nielson", { type: "textbook" }),
+    res("Lambda Calculus and Combinators: An Introduction", "J. Roger Hindley and Jonathan P. Seldin", { type: "textbook" }),
+  ],
+});
