@@ -1,0 +1,32 @@
+registerDetail({
+  long: "Physical organic chemistry applies the quantitative tools of physical chemistry to understand how and why organic reactions occur. It examines molecular structure and bonding through molecular orbital theory, then uses thermodynamics and kinetics to dissect reaction pathways and the fleeting reactive intermediates—carbocations, carbanions, radicals, and carbenes—that lie along them. Central conceptual tools include the Hammond postulate, linear free-energy relationships such as the Hammett equation, the Curtin–Hammett principle, and kinetic isotope effects, all of which let chemists infer transition-state structure from experimental data. Solvent, substituent, and acid–base effects are analyzed systematically, with pKa serving as a unifying scale for reactivity. Mechanistic probes such as isotopic labeling, stereochemical analysis, and frontier molecular orbital reasoning connect observation to mechanism. The field also rationalizes pericyclic reactions through the Woodward–Hoffmann rules and orbital symmetry, and increasingly treats non-covalent interactions and molecular recognition. Mastery provides the predictive framework underlying nearly all of modern synthesis and reaction design.",
+  topics: [
+    "Structure and bonding: MO theory for organic molecules",
+    "Thermodynamics of organic reactions",
+    "Kinetics and reaction rate laws",
+    "Reactive intermediates: carbocations",
+    "Carbanions, radicals, and carbenes",
+    "The Hammond postulate",
+    "Linear free-energy relationships (Hammett equation)",
+    "The Curtin–Hammett principle",
+    "Kinetic isotope effects",
+    "Solvent and substituent effects",
+    "Acid–base chemistry and pKa scales",
+    "Isotopic labeling and mechanistic probes",
+    "Frontier molecular orbital theory",
+    "Pericyclic reactions and orbital symmetry",
+    "The Woodward–Hoffmann rules",
+    "Non-covalent interactions and molecular recognition",
+    "Transition-state theory and the reaction coordinate",
+    "Stereochemical analysis of mechanism",
+  ],
+  recommended: [
+    res("Modern Physical Organic Chemistry", "Eric V. Anslyn & Dennis A. Dougherty", { type: "textbook" }),
+    res("The Study of Organic Reaction Mechanisms", "Bernard Miller & Rachel Prosser", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Physical Organic Chemistry", "Neil S. Isaacs", { type: "textbook" }),
+    res("Molecular Orbitals and Organic Chemical Reactions", "Ian Fleming", { type: "reference" }),
+    res("Perspectives on Structure and Mechanism in Organic Chemistry", "Felix A. Carroll", { type: "textbook" }),
+  ],
+});

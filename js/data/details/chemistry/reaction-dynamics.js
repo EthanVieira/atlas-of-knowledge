@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Chemical reaction dynamics seeks a microscopic, state-resolved understanding of how chemical bonds break and form, moving beyond phenomenological rate constants to the motion of atoms across potential energy surfaces. The course begins with the topology of reaction coordinates, transition states, and saddle points, and develops molecular collision theory together with the scattering cross sections that connect quantum mechanics to observable reaction probabilities. Experimental probes such as crossed molecular beams and state-to-state measurements reveal how translational, vibrational, and rotational energy channels into reactivity and product distributions. The reactive flux formalism and the problem of barrier recrossing lead into transition-state theory and its variational refinement, while RRKM theory treats the statistical dynamics of unimolecular dissociation. The course contrasts statistical and dynamical bottlenecks, then examines genuinely quantum effects including tunneling and resonance. Ultrafast and time-resolved methods introduce femtochemistry and wavepacket dynamics, and the treatment of nonadiabatic transitions and conical intersections shows how multiple electronic surfaces govern photochemical and radiationless processes. The result is a unified framework linking spectroscopy, kinetics, and quantum dynamics.",
+  topics: [
+    "Potential energy surfaces and reaction coordinates",
+    "Transition states and saddle points",
+    "Molecular collision theory",
+    "Scattering and reactive cross sections",
+    "Crossed molecular beam experiments",
+    "State-to-state reaction dynamics",
+    "Reactive flux and barrier recrossing",
+    "Transition-state theory",
+    "Variational transition-state theory",
+    "RRKM theory of unimolecular reactions",
+    "Statistical versus dynamical bottlenecks",
+    "Quantum dynamics and tunneling",
+    "Reactive resonances",
+    "Femtochemistry and wavepacket dynamics",
+    "Nonadiabatic dynamics and surface hopping",
+    "Conical intersections",
+  ],
+  recommended: [
+    res("Molecular Reaction Dynamics", "Raphael D. Levine", { type: "textbook" }),
+    res("Chemical Kinetics and Dynamics", "Jeffrey I. Steinfeld, Joseph S. Francisco & William L. Hase", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Theories of Molecular Reaction Dynamics", "Niels E. Henriksen & Flemming Y. Hansen", { type: "textbook" }),
+    res("Unimolecular Reaction Dynamics: Theory and Experiments", "Tomas Baer & William L. Hase", { type: "textbook" }),
+    res("Molecular Reaction Dynamics and Chemical Reactivity", "Raphael D. Levine & Richard B. Bernstein", { type: "textbook" }),
+  ],
+});

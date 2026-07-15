@@ -1,0 +1,33 @@
+registerDetail({
+  long: "Coordination chemistry studies metal complexes in which a central metal ion is surrounded by ligands that donate electron pairs to form coordinate bonds. Building on inorganic and quantum chemistry, the course develops the geometric and electronic structure of transition-metal complexes, beginning with coordination numbers, geometries, nomenclature, and the many forms of isomerism. Bonding models progress from the electrostatic crystal-field theory, through its splitting of d orbitals in octahedral, tetrahedral, and square-planar environments, to the more complete ligand-field and molecular-orbital treatments that incorporate covalency and π-bonding. These models rationalize high-spin versus low-spin configurations, the spectrochemical series, crystal-field stabilization energy, and the 18-electron rule. Electronic spectra are analyzed with term symbols and Tanabe–Sugano diagrams, while magnetic moments reveal the number of unpaired electrons and phenomena such as the Jahn–Teller distortion. The course closes with the dynamics of complexes: ligand-substitution mechanisms and electron-transfer reactions described by Marcus theory. Together these topics provide the foundation for organometallic, bioinorganic, and materials chemistry.",
+  topics: [
+    "coordination number and geometry",
+    "nomenclature and isomerism (structural, geometric, optical)",
+    "crystal-field theory and d-orbital splitting",
+    "octahedral, tetrahedral, and square-planar fields",
+    "high-spin versus low-spin configurations",
+    "the spectrochemical series",
+    "crystal-field stabilization energy (CFSE)",
+    "ligand-field theory and covalency",
+    "molecular-orbital theory of complexes (sigma and pi bonding)",
+    "the 18-electron rule",
+    "term symbols and free-ion states",
+    "electronic spectra and Tanabe-Sugano diagrams",
+    "magnetism and magnetic moments",
+    "the Jahn-Teller effect",
+    "ligand-substitution mechanisms (associative, dissociative, interchange)",
+    "trans effect and kinetic lability",
+    "electron-transfer reactions and Marcus theory",
+    "chelate effect and thermodynamic stability",
+  ],
+  recommended: [
+    res("Inorganic Chemistry", "Catherine E. Housecroft & Alan G. Sharpe", { type: "textbook", free: false }),
+    res("Ligand Field Theory and Its Applications", "Brian N. Figgis & Michael A. Hitchman", { type: "textbook", free: false }),
+    res("Introduction to Ligand Fields", "Carl J. Ballhausen", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Physical Inorganic Chemistry: A Coordination Chemistry Approach", "S. F. A. Kettle", { type: "textbook" }),
+    res("Shriver and Atkins' Inorganic Chemistry", "Peter Atkins, Tina Overton, Jonathan Rourke, Mark Weller & Fraser Armstrong", { type: "textbook" }),
+    res("Bonding and Structure of Molecules and Solids", "David Pettifor", { type: "reference" }),
+  ],
+});

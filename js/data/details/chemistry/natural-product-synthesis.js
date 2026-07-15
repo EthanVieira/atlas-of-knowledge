@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Natural product total synthesis is the capstone of organic synthesis, concerned with building complex, biologically active molecules—terpenes, alkaloids, polyketides, and beyond—from simple precursors. The discipline emphasizes strategic analysis of demanding targets, identifying the key bond disconnections and convergent fragment couplings that make a long synthesis tractable. Stereochemical control is paramount, drawing on the full arsenal of asymmetric methods to set multiple contiguous stereocenters, while careful protecting-group orchestration keeps reactive functionality in check across many steps. Advanced tactics feature prominently: cascade and domino reactions that forge several bonds at once, ring-forming strategies such as ring-closing metathesis, C–H functionalization, and late-stage functionalization that streamline routes. Biomimetic approaches take inspiration from proposed biosynthetic pathways to achieve remarkable efficiency. Through study of landmark total syntheses, students learn to evaluate routes by synthetic efficiency and step economy and to appreciate how methodology and strategy combine to conquer molecular complexity. The subject serves both as a proving ground for new reactions and as a demonstration of the predictive power of modern synthetic planning.",
+  topics: [
+    "Analysis of complex targets",
+    "Strategic bond disconnections",
+    "Convergent synthesis and fragment coupling",
+    "Stereochemical control",
+    "Asymmetric methods in synthesis",
+    "Protecting-group orchestration",
+    "Cascade and domino reactions",
+    "Ring-forming strategies (cyclization, ring-closing metathesis)",
+    "C–H functionalization in synthesis",
+    "Late-stage functionalization",
+    "Biomimetic synthesis",
+    "Synthesis of terpenes",
+    "Synthesis of alkaloids",
+    "Synthesis of polyketides",
+    "Landmark total syntheses",
+    "Synthetic efficiency and step economy",
+    "Retrosynthetic strategy for polycyclic targets",
+  ],
+  recommended: [
+    res("Classics in Total Synthesis", "K. C. Nicolaou & E. J. Sorensen", { type: "textbook" }),
+    res("Classics in Total Synthesis II", "K. C. Nicolaou & Scott A. Snyder", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("The Logic of Chemical Synthesis", "E. J. Corey & Xue-Min Cheng", { type: "reference" }),
+    res("Strategies and Tactics in Organic Synthesis", "Michael Harmata (ed.)", { type: "reference" }),
+    res("Organic Synthesis: Strategy and Control", "Paul Wyatt & Stuart Warren", { type: "textbook" }),
+  ],
+});

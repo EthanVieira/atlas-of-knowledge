@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Instrumental Analysis covers the physical principles, instrumentation, and data-handling behind modern analytical measurements, building on the foundations of classical analytical chemistry. The course treats each major class of instrument as a transducer that converts chemical information into an electrical signal, and emphasizes the universal concerns of signals, noise, and the signal-to-noise ratio that limit every measurement. Spectroscopic methods form the core, spanning UV-Vis absorption, atomic absorption and emission (AAS, ICP-OES/MS), molecular fluorescence, infrared and Raman vibrational analysis, and analytical NMR. Mass spectrometry is developed through its ionization sources and mass analyzers, then connected to separations through hyphenated techniques such as GC-MS and LC-MS. Electroanalytical chemistry is treated through potentiometry, voltammetry, and coulometry, alongside chromatographic detectors, thermal analysis, and surface and microscopy methods. Throughout, students learn to design calibration strategies, quantify with standards and internal standards, and evaluate figures of merit such as sensitivity, detection limit, and dynamic range.",
+  topics: [
+    "Signals, noise, and the signal-to-noise ratio",
+    "Signal averaging and noise reduction",
+    "Calibration curves, standards, and internal standards",
+    "Figures of merit: sensitivity, detection limit, dynamic range",
+    "UV-Vis spectrophotometry and Beer's law",
+    "Atomic absorption spectroscopy (AAS)",
+    "Atomic emission: flame and ICP-OES/ICP-MS",
+    "Molecular fluorescence and phosphorescence",
+    "Infrared and Raman spectroscopy in analysis",
+    "Analytical nuclear magnetic resonance (NMR)",
+    "Mass spectrometry: ionization sources",
+    "Mass analyzers (quadrupole, TOF, ion trap, magnetic sector)",
+    "Chromatographic detectors",
+    "Electroanalytical methods: potentiometry",
+    "Voltammetry and coulometry",
+    "Hyphenated techniques (GC-MS, LC-MS)",
+    "Thermal analysis (TGA, DSC)",
+    "Surface and microscopy methods",
+  ],
+  recommended: [
+    res("Principles of Instrumental Analysis", "Skoog, Holler & Crouch", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Analytical Chemistry", "LibreTexts", { type: "reference" }),
+    res("Quantitative Chemical Analysis", "Daniel C. Harris", { type: "textbook" }),
+    res("Fundamentals of Analytical Chemistry", "Skoog, West, Holler & Crouch", { type: "textbook" }),
+  ],
+});

@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Bioinorganic chemistry examines the essential roles that metal ions play in biological systems, applying the concepts of coordination chemistry to the metal sites of proteins and enzymes. The course begins with the bioavailability and selection of metal ions and the structural features of metal-binding sites in proteins, then develops the spectroscopic methods, including electronic, EPR, and Mossbauer techniques, used to characterize metalloproteins. Major functional themes follow: reversible oxygen transport and storage by hemoglobin, myoglobin, and hemocyanin; long-range electron transfer through cytochromes, iron-sulfur clusters, and blue copper proteins; and the activation of dioxygen by heme and non-heme oxygenases such as cytochrome P450 and methane monooxygenase. The course covers the multi-metal catalysts of global biogeochemical cycles, notably the manganese oxygen-evolving complex of photosynthesis and the molybdenum-iron cofactor of nitrogenase. Hydrolytic zinc enzymes and iron storage in ferritin illustrate metal homeostasis, while a final section addresses metals in medicine, including cisplatin and MRI contrast agents, alongside metal toxicity and chelation therapy.",
+  topics: [
+    "metal ions in biology and bioavailability",
+    "metal-binding sites in proteins",
+    "spectroscopy of metalloproteins (UV-vis, EPR, Mossbauer)",
+    "oxygen transport and storage (hemoglobin, myoglobin, hemocyanin)",
+    "electron-transfer proteins (cytochromes, iron-sulfur clusters, blue copper)",
+    "oxygen activation (cytochrome P450, methane monooxygenase)",
+    "photosynthesis and the oxygen-evolving complex",
+    "nitrogen fixation (nitrogenase)",
+    "zinc enzymes and hydrolysis (carbonic anhydrase, carboxypeptidase)",
+    "metal homeostasis and storage (ferritin)",
+    "metals in medicine (cisplatin, MRI contrast agents)",
+    "metal toxicity and chelation therapy",
+    "cooperativity and allostery in oxygen binding",
+    "redox potentials and electron-transfer tuning",
+    "biomineralization",
+    "metalloenzyme reaction mechanisms",
+  ],
+  recommended: [
+    res("Biological Inorganic Chemistry: Structure and Reactivity", "Ivano Bertini, Harry B. Gray, Edward I. Stiefel & Joan Selverstone Valentine", { type: "textbook", free: false }),
+    res("Principles of Bioinorganic Chemistry", "Stephen J. Lippard & Jeremy M. Berg", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Bioinorganic Chemistry: Inorganic Elements in the Chemistry of Life", "Wolfgang Kaim, Brigitte Schwederski & Axel Klein", { type: "textbook" }),
+    res("The Biological Chemistry of the Elements: The Inorganic Chemistry of Life", "J. J. R. Frausto da Silva & R. J. P. Williams", { type: "reference" }),
+    res("Biological Inorganic Chemistry: A New Introduction to Molecular Structure and Function", "Robert R. Crichton", { type: "textbook" }),
+  ],
+});

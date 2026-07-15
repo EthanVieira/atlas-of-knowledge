@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Crystallography is the science of determining the atomic arrangement of matter from its diffraction of X-rays, neutrons, or electrons. The course develops the symmetry framework of crystals, from crystal systems and Bravais lattices through the 32 crystallographic point groups to the full set of 230 space groups that classify all periodic arrangements. It then builds the theory of diffraction: the reciprocal lattice, Bragg's law and the equivalent Laue conditions, and the structure factor that encodes how atomic positions determine diffracted intensities. Because detectors record intensities but not phases, the central obstacle is the phase problem, addressed through direct methods and Patterson techniques that recover phase information and yield an interpretable electron-density map via Fourier synthesis. Students learn the practical distinctions between single-crystal and powder diffraction and between X-ray, neutron, and electron sources. Structure solution is followed by least-squares refinement judged through R-factors and validated against crystallographic databases. The result is a quantitative, three-dimensional model of molecular and extended structure.",
+  topics: [
+    "crystal systems and Bravais lattices",
+    "symmetry operations and point groups",
+    "the 230 space groups",
+    "the reciprocal lattice",
+    "Bragg's law and Laue conditions",
+    "the structure factor",
+    "electron density and Fourier synthesis",
+    "the phase problem",
+    "direct methods",
+    "Patterson methods",
+    "X-ray, neutron, and electron diffraction",
+    "single-crystal versus powder diffraction",
+    "structure solution",
+    "least-squares refinement and R-factors",
+    "systematic absences and space-group determination",
+    "crystallographic databases (ICSD, CSD, PDB)",
+  ],
+  recommended: [
+    res("Crystallography teaching pamphlets", "International Union of Crystallography (IUCr)", { type: "notes", free: true, url: "https://www.iucr.org/education/pamphlets" }),
+    res("Fundamentals of Crystallography", "Carmelo Giacovazzo et al.", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Crystal Structure Analysis: Principles and Practice", "William Clegg (ed.)", { type: "textbook" }),
+    res("Crystal Structure Determination", "Werner Massa", { type: "textbook" }),
+    res("The Basics of Crystallography and Diffraction", "Christopher Hammond", { type: "textbook" }),
+  ],
+});

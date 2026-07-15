@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Polymer chemistry examines the synthesis, structure, and physical behavior of macromolecules built from repeating monomer units. It divides polymerization into two broad mechanistic classes: step-growth processes, quantified by the Carothers equation relating conversion to molecular weight, and chain-growth processes proceeding through radical, ionic, or coordination pathways. The kinetics of free-radical polymerization—initiation, propagation, and termination—are treated in detail, as are coordination methods such as Ziegler–Natta catalysis and the controlled or living techniques (ATRP, RAFT, NMP) that deliver precise architectures and narrow dispersities. Copolymerization and reactivity ratios describe how comonomers combine, while molecular-weight distributions and their measurement by GPC/SEC characterize the products. The course connects molecular structure to bulk properties through polymer solution thermodynamics (Flory–Huggins theory), the glass transition and crystallinity, and viscoelastic and rheological behavior. Ultimately these concepts explain the mechanical performance of plastics, elastomers, and fibers, linking synthetic design to material function.",
+  topics: [
+    "Classification of polymers",
+    "Step-growth polymerization",
+    "The Carothers equation",
+    "Chain-growth (radical) polymerization",
+    "Kinetics of radical polymerization",
+    "Ionic polymerization",
+    "Coordination polymerization (Ziegler–Natta)",
+    "Controlled/living polymerization (ATRP, RAFT, NMP)",
+    "Copolymerization and reactivity ratios",
+    "Molecular-weight distributions and dispersity",
+    "Polymer characterization (GPC/SEC)",
+    "Polymer solution thermodynamics (Flory–Huggins)",
+    "The glass transition",
+    "Crystallinity in polymers",
+    "Viscoelasticity and rheology",
+    "Mechanical properties of polymers",
+    "Chain conformation and statistics",
+  ],
+  recommended: [
+    res("Principles of Polymerization", "George Odian", { type: "textbook" }),
+    res("Introduction to Physical Polymer Science", "Leslie H. Sperling", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Polymer Chemistry", "Paul C. Hiemenz & Timothy P. Lodge", { type: "textbook" }),
+    res("The Physics of Polymers", "Gert R. Strobl", { type: "textbook" }),
+    res("Polymer Physics", "Michael Rubinstein & Ralph H. Colby", { type: "reference" }),
+  ],
+});

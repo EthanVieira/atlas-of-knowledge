@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Solid state chemistry examines the synthesis, structure, and properties of extended inorganic solids in which bonding propagates through a periodic lattice rather than terminating in discrete molecules. The course begins with the geometry of crystals: lattices, unit cells, Bravais lattices, and Miller indices, together with close-packing schemes and the common structure types (rock salt, zinc blende, fluorite, perovskite, and spinel) that recur across inorganic materials. Diffraction methods, especially X-ray diffraction interpreted through Bragg's law, provide the primary experimental route to these structures. Bonding is treated through lattice-energy calculations and band theory adapted for chemists, connecting electronic structure to whether a solid behaves as an insulator, semiconductor, or metal. Real crystals depart from ideality through point and extended defects and nonstoichiometry, which in turn govern ionic conductivity, solid electrolytes, and magnetic and electronic behavior. Practical solid-state synthesis, phase diagrams, and phase transitions round out the treatment. The unifying theme is the relationship between structure and macroscopic property that underlies materials design.",
+  topics: [
+    "crystal lattices and unit cells",
+    "close packing (hcp, ccp) and interstitial sites",
+    "common structure types (NaCl, ZnS, fluorite, perovskite, spinel)",
+    "Bravais lattices and crystal systems",
+    "Miller indices and crystal planes",
+    "X-ray diffraction and Bragg's law",
+    "bonding in solids and lattice energy (Born-Haber cycle)",
+    "band theory for chemists",
+    "point defects (Schottky, Frenkel) and color centers",
+    "extended defects and nonstoichiometry",
+    "solid-state synthesis methods",
+    "phase diagrams and phase transitions",
+    "ionic conductivity and solid electrolytes",
+    "magnetic properties of solids",
+    "electronic properties (metals, semiconductors, insulators)",
+    "structure-property relationships",
+  ],
+  recommended: [
+    res("Solid State Chemistry and its Applications", "Anthony R. West", { type: "textbook", free: false }),
+    res("Basic Solid State Chemistry", "Anthony R. West", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Solid State Chemistry: An Introduction", "Lesley E. Smart & Elaine A. Moore", { type: "textbook" }),
+    res("Introduction to Solid State Physics", "Charles Kittel", { type: "textbook" }),
+    res("Structural Inorganic Chemistry", "A. F. Wells", { type: "reference" }),
+  ],
+});

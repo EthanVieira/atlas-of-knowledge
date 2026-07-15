@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Medicinal chemistry is the discipline that designs, synthesizes, and optimizes molecules to become safe and effective drugs. It begins with drug targets—enzymes, receptors, ion channels, and nucleic acids—and the pharmacodynamic principles, including dose–response relationships and receptor theory, that govern how ligands produce biological effects. A central activity is establishing structure–activity relationships (SAR) and refining them through pharmacophore identification and bioisosteric replacement to improve potency and selectivity. The drug discovery pipeline is studied from hit identification through hit-to-lead and lead optimization, with careful attention to ADME properties, pharmacokinetics, and guidelines such as Lipinski's rule of five that shape druglikeness. Students examine prodrug strategies, drug metabolism, and the mechanisms of enzyme inhibitors and receptor agonists and antagonists. Modern methods—high-throughput and fragment-based screening, structure-based drug design, and QSAR and other computational approaches—illustrate how molecular design is guided by both biological data and physical modeling. The field integrates organic chemistry, biochemistry, and pharmacology into a coherent framework for creating therapeutics.",
+  topics: [
+    "Drug targets: enzymes, receptors, ion channels, nucleic acids",
+    "Pharmacodynamics and dose–response",
+    "Structure–activity relationships (SAR)",
+    "Pharmacophores",
+    "Bioisosterism",
+    "The drug discovery pipeline (hit-to-lead, lead optimization)",
+    "ADME and pharmacokinetics",
+    "Lipinski's rule of five",
+    "Prodrugs",
+    "Drug metabolism",
+    "Receptor theory: agonism and antagonism",
+    "Enzyme inhibitors",
+    "High-throughput screening",
+    "Fragment-based screening",
+    "Structure-based drug design",
+    "QSAR and computational methods",
+    "Druglikeness and physicochemical properties",
+  ],
+  recommended: [
+    res("An Introduction to Medicinal Chemistry", "Graham L. Patrick", { type: "textbook" }),
+    res("The Organic Chemistry of Drug Design and Drug Action", "Richard B. Silverman & Mark W. Holladay", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Foye's Principles of Medicinal Chemistry", "Thomas L. Lemke & David A. Williams", { type: "reference" }),
+    res("Burger's Medicinal Chemistry and Drug Discovery", "Donald J. Abraham (ed.)", { type: "reference" }),
+    res("The Practice of Medicinal Chemistry", "Camille G. Wermuth (ed.)", { type: "textbook" }),
+  ],
+});

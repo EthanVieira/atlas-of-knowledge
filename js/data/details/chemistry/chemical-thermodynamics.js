@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Chemical thermodynamics applies the universal laws of energy and entropy to chemical systems, providing the framework for predicting whether reactions and phase changes occur spontaneously and where they reach equilibrium. Building on the first law, it develops the state functions internal energy and enthalpy and relates them to heat and work in chemical processes. The second and third laws introduce entropy, allowing the Gibbs and Helmholtz free energies to serve as criteria for spontaneity under conditions of constant temperature and pressure or volume. Central to the treatment of mixtures are the chemical potential and partial molar quantities, which govern how composition drives phase and reaction equilibria. The formalism of fugacity and activity extends ideal-gas and ideal-solution results to real systems, connecting measurable quantities to thermodynamic potentials. Applications range from colligative properties and the phase rule to phase diagrams, the Clausius–Clapeyron equation, and the temperature dependence of equilibrium constants through the van 't Hoff relation.",
+  topics: [
+    "The laws of thermodynamics for chemistry",
+    "Internal energy and enthalpy",
+    "Heat, work, and calorimetry",
+    "Entropy and the second law",
+    "The third law and absolute entropies",
+    "Gibbs and Helmholtz free energies",
+    "Spontaneity and the equilibrium criterion",
+    "The chemical potential",
+    "Partial molar quantities",
+    "Fugacity and activity",
+    "Ideal and real solutions",
+    "Colligative properties",
+    "Phase equilibria and the phase rule",
+    "Phase diagrams",
+    "The Clausius–Clapeyron equation",
+    "The equilibrium constant and its temperature dependence (van 't Hoff)",
+  ],
+  recommended: [
+    res("Chemical Thermodynamics", "LibreTexts", { type: "reference", free: true, url: "https://chem.libretexts.org/" }),
+    res("Physical Chemistry", "Peter Atkins & Julio de Paula", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Physical Chemistry: A Molecular Approach", "Donald McQuarrie & John Simon", { type: "textbook" }),
+    res("Thermodynamics and an Introduction to Thermostatistics", "Herbert Callen", { type: "textbook" }),
+    res("Molecular Thermodynamics", "Donald McQuarrie & John Simon", { type: "textbook" }),
+  ],
+});

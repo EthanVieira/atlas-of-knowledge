@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Enzymology is the quantitative and mechanistic study of enzymes, the protein and RNA catalysts that accelerate biological reactions by many orders of magnitude. The course begins with enzyme classification and nomenclature, then develops steady-state kinetics in depth, deriving the Michaelis-Menten equation and interpreting kcat, KM, and the specificity constant kcat/KM as measures of catalytic efficiency. Inhibition is treated systematically, distinguishing reversible competitive, non-competitive, and uncompetitive modes from irreversible inactivation, and pre-steady-state methods are introduced to resolve individual steps along a catalytic cycle. A central theme is the physical origin of catalytic power—proximity and orientation, transition-state stabilization, and the contributions of acid-base, covalent, and metal-ion catalysis, together with the roles of cofactors and coenzymes. Allosteric regulation is analyzed through the MWC and KNF models of cooperativity, and isotope effects are used as probes of mechanism. The course concludes with enzyme evolution and the design of new activities through directed evolution and rational enzyme engineering.",
+  topics: [
+    "Enzyme classification and nomenclature",
+    "Steady-state (Michaelis-Menten) kinetics",
+    "kcat, KM, and catalytic efficiency (kcat/KM)",
+    "Reversible inhibition (competitive, non-competitive, uncompetitive)",
+    "Irreversible inhibition and inactivation",
+    "Pre-steady-state kinetics",
+    "Proximity and orientation effects",
+    "Transition-state stabilization",
+    "Acid-base catalysis",
+    "Covalent catalysis",
+    "Metal-ion catalysis",
+    "Cofactors and coenzymes",
+    "Allostery and cooperativity (MWC and KNF models)",
+    "Regulation of enzyme activity",
+    "Kinetic isotope effects and mechanism",
+    "Enzyme evolution",
+    "Directed evolution and enzyme engineering",
+  ],
+  recommended: [
+    res("Structure and Mechanism in Protein Science", "Alan Fersht", { type: "textbook", free: false }),
+    res("Fundamentals of Enzyme Kinetics", "Athel Cornish-Bowden", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Enzymes: Biochemistry, Biotechnology, Clinical Chemistry", "Trevor Palmer & Philip Bonner", { type: "textbook" }),
+    res("Lehninger Principles of Biochemistry", "Nelson & Cox", { type: "textbook" }),
+    res("Enzyme Kinetics: Principles and Methods", "Bisswanger", { type: "textbook" }),
+  ],
+});

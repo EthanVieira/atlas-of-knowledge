@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Materials chemistry applies the principles of solid-state and physical chemistry to the design, synthesis, and characterization of functional materials. The organizing framework is the interplay of structure, property, and processing: how atomic and microstructural arrangement, together with the route used to make a material, determine its mechanical, electronic, optical, and magnetic behavior. The course surveys the major materials classes, including metals and alloys, ceramics and glasses, semiconductors and their doping, and polymers viewed as engineering materials. It then treats materials defined by function, such as electronic and dielectric materials, magnetic materials, optical and photonic materials, and porous frameworks like zeolites and metal-organic frameworks. Contemporary topics include thin films and coatings, an introduction to nanomaterials, and energy materials for batteries, photovoltaics, and fuel cells. Throughout, characterization techniques such as X-ray diffraction, electron microscopy, and spectroscopy connect structure to property, while synthesis and processing methods show how materials are actually made and shaped.",
+  topics: [
+    "structure-property-processing relationships",
+    "metals and alloys",
+    "ceramics and glasses",
+    "semiconductors and doping",
+    "polymers as engineering materials",
+    "electronic and dielectric materials",
+    "magnetic materials",
+    "optical and photonic materials",
+    "porous materials (zeolites, MOFs)",
+    "thin films and coatings",
+    "nanomaterials (introduction)",
+    "energy materials (batteries, photovoltaics, fuel cells)",
+    "materials characterization (XRD, electron microscopy, spectroscopy)",
+    "synthesis and processing methods",
+    "composites and hybrid materials",
+    "phase behavior and microstructure",
+  ],
+  recommended: [
+    res("Materials Chemistry", "Bradley D. Fahlman", { type: "textbook", free: false }),
+    res("The Materials Science of Thin Films", "Milton Ohring", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Chemistry of the Solid State", "various / Lesley Smart & Elaine Moore", { type: "textbook" }),
+    res("Introduction to Materials Science and Engineering", "William D. Callister & David G. Rethwisch", { type: "textbook" }),
+    res("Functional Materials: Electrical, Dielectric, Electromagnetic, Optical and Magnetic Applications", "Deborah D. L. Chung", { type: "reference" }),
+  ],
+});

@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Chemical Biology applies the tools and reasoning of synthetic and physical organic chemistry to understand and manipulate biological systems at the molecular level. The course centers on chemistry that works in the crowded, aqueous, functional-group-rich environment of the cell, beginning with bioconjugation and chemoselective ligations, including click chemistry and bioorthogonal reactions. Genetic code expansion and unnatural amino acids are presented as a means of installing new chemistry into proteins, while activity-based protein profiling, chemical probes, and small-molecule microarrays provide strategies for interrogating enzyme activity and small-molecule-target interactions. Affinity-based target identification and proteomics and metabolomics platforms connect chemical perturbation to systems-level readouts. Imaging is a recurring theme, from fluorescent probes and biosensors to bioorthogonal labeling for live-cell microscopy. The course also covers oligonucleotide and peptide synthesis, directed evolution, natural-product-based probes, and methods for the chemical control of protein function such as optogenetics and chemically induced dimerization.",
+  topics: [
+    "Bioconjugation chemistry",
+    "Chemoselective ligations and click chemistry",
+    "Bioorthogonal reactions",
+    "Unnatural amino acids and genetic code expansion",
+    "Activity-based protein profiling",
+    "Chemical probes and inhibitors",
+    "Small-molecule microarrays",
+    "Affinity-based target identification",
+    "Fluorescent probes and biosensors",
+    "Bioorthogonal imaging",
+    "Proteomics and metabolomics tools",
+    "Oligonucleotide and peptide synthesis",
+    "Directed evolution",
+    "Chemically induced dimerization",
+    "Optogenetics and chemical control of protein function",
+    "Natural-product-based probes",
+  ],
+  recommended: [
+    res("Chemical Biology", "Waldmann & Janning", { type: "textbook", free: false }),
+    res("The Molecules of Life", "Kuriyan, Konforti & Wemmer", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Introduction to Chemical Biology", "Kool & others", { type: "reference" }),
+    res("Bioorganic Chemistry", "Hermann Dugas", { type: "textbook" }),
+    res("The Organic Chemistry of Biological Pathways", "McMurry & Begley", { type: "textbook" }),
+  ],
+});

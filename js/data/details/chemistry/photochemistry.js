@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Photochemistry studies the chemical and physical processes that follow the absorption of light by molecules, beginning with the formation of electronically excited states and their fates. The course builds from the electronic structure of excited states and the Jablonski diagram, distinguishing singlet and triplet manifolds and the spin-selection rules that govern transitions between them. Radiative pathways—fluorescence and phosphorescence—are analyzed alongside non-radiative decay through internal conversion and intersystem crossing, with quantum yields providing the quantitative bookkeeping of competing channels. The Franck–Condon principle and Kasha's rule explain the vertical nature of transitions and why emission originates from the lowest excited state of a given multiplicity. Bimolecular photophysics is developed through Förster and Dexter energy transfer, electron transfer, and Marcus theory, which frame sensitization and quenching. The course surveys representative photochemical reactions including cis–trans isomerization, cycloadditions, and Norrish processes, and closes with applications such as chemiluminescence, photocatalysis, and solar energy conversion. Throughout, kinetic and spectroscopic methods link excited-state dynamics to observable rates and product distributions.",
+  topics: [
+    "Light absorption and electronic excited states",
+    "The Jablonski diagram",
+    "Singlet and triplet states and spin multiplicity",
+    "Fluorescence and radiative decay",
+    "Phosphorescence and spin-forbidden emission",
+    "Internal conversion and non-radiative decay",
+    "Intersystem crossing and spin–orbit coupling",
+    "Quantum yields of emission and reaction",
+    "The Franck–Condon principle",
+    "Kasha's rule",
+    "Förster resonance energy transfer",
+    "Dexter energy transfer",
+    "Photoinduced electron transfer and Marcus theory",
+    "Photochemical reactions: isomerization, cycloadditions, Norrish",
+    "Sensitization and quenching",
+    "Chemiluminescence, photocatalysis, and solar energy conversion",
+  ],
+  recommended: [
+    res("Modern Molecular Photochemistry of Organic Molecules", "Nicholas J. Turro, V. Ramamurthy & J. C. Scaiano", { type: "textbook" }),
+    res("Principles of Molecular Photochemistry: An Introduction", "Nicholas J. Turro, V. Ramamurthy & J. C. Scaiano", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Photochemistry and Photophysics: Concepts, Research, Applications", "Vincenzo Balzani, Paola Ceroni & Alberto Juris", { type: "textbook" }),
+    res("Molecular Fluorescence: Principles and Applications", "Bernard Valeur & Mário Nuno Berberan-Santos", { type: "textbook" }),
+    res("Essentials of Molecular Photochemistry", "Andrew Gilbert & Jim Baggott", { type: "textbook" }),
+  ],
+});

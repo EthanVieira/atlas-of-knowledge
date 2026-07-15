@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Statistical thermodynamics bridges the microscopic world of molecular energy levels and the macroscopic laws of thermodynamics, deriving bulk properties from molecular models. Its central result is the Boltzmann distribution, which specifies how molecules populate available quantum states at thermal equilibrium and defines the molecular partition function. Factoring this partition function into translational, rotational, vibrational, and electronic contributions allows thermodynamic functions—energy, entropy, heat capacity, and free energy—to be computed from spectroscopic data. The canonical ensemble generalizes these ideas to interacting systems and connects the ensemble partition function to the Helmholtz free energy. Applications include the equipartition theorem, the Einstein and Debye theories of heat capacities of solids, the Sackur–Tetrode equation for the entropy of an ideal gas, and the evaluation of chemical equilibrium constants directly from partition functions. The course also develops transition-state theory from a statistical-mechanical standpoint and examines thermal fluctuations about equilibrium.",
+  topics: [
+    "The Boltzmann distribution",
+    "The molecular partition function",
+    "Translational partition function",
+    "Rotational partition function",
+    "Vibrational partition function",
+    "Electronic partition function",
+    "The canonical ensemble",
+    "Relating the partition function to thermodynamic functions",
+    "The equipartition theorem",
+    "Heat capacities of gases and solids (Einstein/Debye)",
+    "Chemical equilibrium from partition functions",
+    "The Sackur–Tetrode equation",
+    "Transition-state theory from statistical mechanics",
+    "Fluctuations",
+    "Indistinguishability and quantum statistics",
+  ],
+  recommended: [
+    res("Statistical Thermodynamics", "LibreTexts", { type: "reference", free: true, url: "https://chem.libretexts.org/" }),
+    res("Statistical Mechanics", "Donald A. McQuarrie", { type: "textbook" }),
+    res("An Introduction to Statistical Thermodynamics", "Terrell L. Hill", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Physical Chemistry: A Molecular Approach", "Donald McQuarrie & John Simon", { type: "textbook" }),
+    res("Molecular Driving Forces", "Ken A. Dill & Sarina Bromberg", { type: "textbook" }),
+    res("Introduction to Modern Statistical Mechanics", "David Chandler", { type: "textbook" }),
+  ],
+});

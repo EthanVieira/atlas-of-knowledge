@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Surface and interface chemistry examines the distinctive thermodynamics and kinetics of the boundaries between phases, where the loss of coordination symmetry gives rise to surface tension, surface free energy, and a rich array of interfacial phenomena. The course develops the mechanical and thermodynamic descriptions of curved interfaces through the Young–Laplace and Kelvin equations, then applies them to wetting, contact angles, and capillary rise. A central theme is adsorption: the Langmuir, BET, and Freundlich isotherms are derived and used to distinguish physisorption from chemisorption and to quantify surface coverage and heats of adsorption. Electrostatic phenomena at interfaces are treated through the electrical double layer, zeta potential, and the DLVO theory that governs colloidal stability, aggregation, and the behavior of surfactants and micelles. The course also covers self-assembled and Langmuir–Blodgett films, heterogeneous catalysis at surfaces, and the mechanisms by which adsorbed reactants are activated. Modern surface-sensitive characterization techniques—XPS, AFM, and LEED among them—are surveyed to connect atomic-scale structure with macroscopic interfacial behavior. Together these topics provide the physical-chemical foundation for catalysis, colloid science, materials, and nanotechnology.",
+  topics: [
+    "Surface tension and surface free energy",
+    "The Young–Laplace equation and curved interfaces",
+    "The Kelvin equation and vapor pressure over curved surfaces",
+    "Wetting, contact angle, and Young's equation",
+    "Capillarity and capillary rise",
+    "Langmuir adsorption isotherm",
+    "BET isotherm and surface-area determination",
+    "Freundlich isotherm and empirical adsorption",
+    "Physisorption versus chemisorption",
+    "The electrical double layer and Gouy–Chapman–Stern models",
+    "Zeta potential and electrokinetic phenomena",
+    "Colloidal stability and DLVO theory",
+    "Micelles, surfactants, and critical micelle concentration",
+    "Langmuir–Blodgett and self-assembled films",
+    "Heterogeneous catalysis at surfaces",
+    "Surface characterization: XPS, AFM, and LEED",
+  ],
+  recommended: [
+    res("Physical Chemistry of Surfaces", "Arthur W. Adamson & Alice P. Gast", { type: "textbook" }),
+    res("Intermolecular and Surface Forces", "Jacob N. Israelachvili", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Surfaces, Interfaces, and Colloids", "Drew Myers", { type: "textbook" }),
+    res("Concepts in Surface Physics", "Marc-André Van Hove & M.-C. Desjonquères", { type: "textbook" }),
+    res("An Introduction to Interfaces and Colloids", "John C. Berg", { type: "textbook" }),
+  ],
+});

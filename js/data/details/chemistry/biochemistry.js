@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Biochemistry examines the molecular basis of life, connecting organic chemistry and molecular biology to the structures and reactions that sustain living cells. The course begins with the building blocks—amino acids, the peptide bond, and the hierarchical organization of protein structure from primary through quaternary levels—and the thermodynamics and pathways of protein folding. Enzymes are studied as catalysts, with steady-state kinetics and the Michaelis-Menten framework providing quantitative tools for describing their behavior. Structural and functional surveys of carbohydrates, lipids, biological membranes, membrane transport, and nucleic acids establish the molecular inventory of the cell. The second half develops bioenergetics and metabolism, tracing the flow of energy and carbon through glycolysis, gluconeogenesis, the citric acid cycle, oxidative phosphorylation, and photosynthesis. Fatty-acid and amino-acid metabolism and the principles of signal transduction complete a picture of how cells extract energy, build biomolecules, and coordinate their chemistry.",
+  topics: [
+    "Amino acids and the peptide bond",
+    "Protein structure (primary through quaternary)",
+    "Protein folding and stability",
+    "Enzymes and catalysis",
+    "Enzyme kinetics (Michaelis-Menten)",
+    "Carbohydrates and glycobiology",
+    "Lipids and biological membranes",
+    "Membrane transport",
+    "Nucleic acid structure",
+    "Bioenergetics and ATP",
+    "Glycolysis and gluconeogenesis",
+    "The citric acid cycle",
+    "Oxidative phosphorylation",
+    "Photosynthesis",
+    "Fatty-acid and amino-acid metabolism",
+    "Signal transduction",
+  ],
+  recommended: [
+    res("General Biochemistry (MIT OCW 7.05)", "MIT OpenCourseWare", { type: "lectures", free: true, url: "https://ocw.mit.edu/courses/7-05-general-biochemistry-spring-2020/" }),
+    res("Biochemistry", "LibreTexts", { type: "reference", free: true, url: "https://bio.libretexts.org/" }),
+    res("Lehninger Principles of Biochemistry", "Nelson & Cox", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Biochemistry", "Voet & Voet", { type: "textbook" }),
+    res("Biochemistry", "Berg, Tymoczko & Stryer", { type: "textbook" }),
+  ],
+});

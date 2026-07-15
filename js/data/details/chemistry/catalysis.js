@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Catalysis is the acceleration of chemical reactions by species that are regenerated in the process, and it underpins the majority of industrial chemical production. Building on kinetics, organometallic chemistry, and surface chemistry, the course develops the unifying concept of the catalytic cycle, in which turnover frequency, turnover number, and the rate-determining step characterize catalyst performance. Homogeneous catalysis is treated through organometallic cycles for hydrogenation, hydroformylation, and cross-coupling, including the stereocontrol that makes asymmetric catalysis possible. Heterogeneous catalysis is developed from adsorption phenomena, the Sabatier principle, and the role of active sites, with reaction pathways described by the Langmuir-Hinshelwood and Eley-Rideal mechanisms and tuned by supports and promoters. The course also examines enzyme catalysis and biomimetic approaches, as well as the increasingly important fields of electrocatalysis and photocatalysis. Practical concerns of catalyst characterization and deactivation connect the molecular picture to real reactors, and case studies of major industrial catalytic processes illustrate how these principles are applied at scale.",
+  topics: [
+    "principles of catalysis and turnover (TON, TOF)",
+    "the catalytic cycle and rate-determining step",
+    "homogeneous catalysis",
+    "organometallic catalytic cycles (hydrogenation, hydroformylation, cross-coupling)",
+    "asymmetric catalysis",
+    "heterogeneous catalysis",
+    "adsorption and the Sabatier principle",
+    "active sites and surface reactions",
+    "Langmuir-Hinshelwood and Eley-Rideal mechanisms",
+    "catalyst supports and promoters",
+    "enzyme catalysis and biomimetics",
+    "electrocatalysis and photocatalysis",
+    "catalyst characterization",
+    "catalyst deactivation and regeneration",
+    "industrial catalytic processes (Haber-Bosch, Fischer-Tropsch, catalytic reforming)",
+    "volcano plots and descriptors",
+  ],
+  recommended: [
+    res("Concepts of Modern Catalysis and Kinetics", "Ib Chorkendorff & J. W. Niemantsverdriet", { type: "textbook", free: false }),
+    res("The Organometallic Chemistry of the Transition Metals", "Robert H. Crabtree", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Homogeneous Catalysis: Understanding the Art", "Piet W. N. M. van Leeuwen", { type: "textbook" }),
+    res("Fundamentals of Industrial Catalytic Processes", "C. H. Bartholomew & R. J. Farrauto", { type: "reference" }),
+    res("Catalysis: Concepts and Green Applications", "Gadi Rothenberg", { type: "textbook" }),
+  ],
+});

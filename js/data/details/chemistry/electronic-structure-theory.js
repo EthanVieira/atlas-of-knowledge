@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Electronic structure theory develops the systematic approximations used to solve the many-electron Schrödinger equation and to compute the properties of atoms, molecules, and solids. The course begins with the Born–Oppenheimer separation, the antisymmetry requirement expressed through Slater determinants, and the Hartree–Fock method, whose self-consistent field is cast in the algebraic Roothaan equations over finite basis sets. It then treats electron correlation as the central missing ingredient, introducing configuration interaction, Møller–Plesset perturbation theory, and coupled-cluster theory, with CCSD(T) presented as the practical gold standard for dynamic correlation. Static correlation and bond breaking motivate multireference approaches such as CASSCF, while density functional theory is developed from the Hohenberg–Kohn theorems through the Kohn–Sham construction and the hierarchy of exchange–correlation functionals. Excited states are addressed with TD-DFT and equation-of-motion coupled cluster, and the course extends to periodic systems and solid-state electronic structure. Emphasis is placed on the scaling, accuracy, and systematic improvability of each method, and on the numerical linear algebra and integral evaluation that make large calculations feasible. Students learn to match method and basis set to the chemistry at hand.",
+  topics: [
+    "The many-electron problem and the Born–Oppenheimer approximation",
+    "Slater determinants and electron antisymmetry",
+    "The Hartree–Fock method and the self-consistent field",
+    "Roothaan–Hall equations and basis sets",
+    "Gaussian basis sets and integral evaluation",
+    "Electron correlation and the correlation energy",
+    "Configuration interaction (CISD, full CI)",
+    "Møller–Plesset perturbation theory (MP2)",
+    "Coupled-cluster theory and CCSD(T)",
+    "Multireference methods and CASSCF",
+    "Density functional theory and the Kohn–Sham equations",
+    "Exchange–correlation functionals (LDA, GGA, hybrids)",
+    "Excited-state methods: TD-DFT",
+    "Equation-of-motion coupled cluster (EOM-CC)",
+    "Periodic and solid-state electronic structure",
+    "Method scaling, accuracy, and basis-set convergence",
+  ],
+  recommended: [
+    res("Modern Quantum Chemistry: Introduction to Advanced Electronic Structure Theory", "Attila Szabo & Neil S. Ostlund", { type: "textbook" }),
+    res("Molecular Electronic-Structure Theory", "Trygve Helgaker, Poul Jørgensen & Jeppe Olsen", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Introduction to Computational Chemistry", "Frank Jensen", { type: "textbook" }),
+    res("Quantum Chemistry", "Ira N. Levine", { type: "textbook" }),
+    res("A Chemist's Guide to Density Functional Theory", "Wolfram Koch & Max C. Holthausen", { type: "textbook" }),
+  ],
+});

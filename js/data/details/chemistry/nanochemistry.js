@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Nanochemistry concerns the synthesis, assembly, and properties of matter at the length scale of roughly one to a hundred nanometers, where size itself becomes a tunable variable. Building on materials and surface chemistry, the course explains why nanoscale objects differ from bulk solids: large surface-to-volume ratios and quantum confinement give rise to size-dependent electronic, optical, and catalytic properties, epitomized by the tunable emission of quantum dots. Students learn the principal synthetic strategies, contrasting bottom-up colloidal and sol-gel routes with top-down fabrication, and study how surface functionalization with ligands controls stability, solubility, and reactivity. Self-assembly and supramolecular chemistry provide routes to organized nanostructures without direct fabrication. The course surveys important material families, including carbon nanomaterials such as fullerenes, nanotubes, and graphene, other two-dimensional materials, plasmonic metal nanoparticles, and nanostructured catalysts. Characterization relies on electron microscopy, scanning-probe methods, and light-scattering techniques. Applications span sensing, drug delivery, and energy, and the course concludes with the environmental and health considerations of nanotoxicology.",
+  topics: [
+    "the nanoscale and size-dependent properties",
+    "quantum confinement and quantum dots",
+    "nanoparticle synthesis (bottom-up and top-down)",
+    "colloidal and sol-gel methods",
+    "surface functionalization and ligand chemistry",
+    "self-assembly and supramolecular chemistry",
+    "carbon nanomaterials (fullerenes, nanotubes, graphene)",
+    "two-dimensional materials",
+    "nanoscale plasmonics",
+    "nanostructured catalysts",
+    "electron microscopy (TEM, SEM)",
+    "scanning-probe microscopy (AFM, STM)",
+    "dynamic light scattering and particle sizing",
+    "applications (sensing, drug delivery, energy)",
+    "nanotoxicology and safety",
+    "surface-to-volume ratio and surface energy",
+  ],
+  recommended: [
+    res("Nanochemistry: A Chemical Approach to Nanomaterials", "Geoffrey A. Ozin, Andre C. Arsenault & Ludovico Cademartiri", { type: "textbook", free: false }),
+    res("Nanostructures and Nanomaterials: Synthesis, Properties, and Applications", "Guozhong Cao & Ying Wang", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Introduction to Nanoscience and Nanotechnology", "Gabor L. Hornyak, H. F. Tibbals, Joydeep Dutta & John J. Moore", { type: "textbook" }),
+    res("Nanoscale Materials in Chemistry", "Kenneth J. Klabunde & Ryan M. Richards (eds.)", { type: "reference" }),
+    res("The Chemistry of Nanomaterials: Synthesis, Properties and Applications", "C. N. R. Rao, A. Muller & A. K. Cheetham (eds.)", { type: "reference" }),
+  ],
+});

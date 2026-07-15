@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Quantum chemistry applies the principles of quantum mechanics to atoms and molecules, providing the theoretical foundation for understanding electronic structure, bonding, and spectra. It starts from the postulates of quantum mechanics, expressing observables as operators and physical states as wavefunctions that satisfy the Schrödinger equation. A sequence of exactly solvable models—the particle in a box, the harmonic oscillator, the rigid rotor, and the hydrogen atom—builds intuition for quantization, angular momentum, and spin. Approximation methods, chiefly the variational principle and perturbation theory, make many-electron and molecular problems tractable. The Born–Oppenheimer approximation separates nuclear and electronic motion and leads to the molecular Schrödinger equation, which is solved using the LCAO approach and molecular orbital theory for systems from H2+ to polyatomic molecules. The course culminates in the Hartree–Fock self-consistent-field method and the classification of atomic and molecular states through term symbols.",
+  topics: [
+    "The postulates of quantum mechanics",
+    "Operators and eigenvalue equations",
+    "The particle in a box",
+    "The harmonic oscillator",
+    "The rigid rotor",
+    "The hydrogen atom",
+    "Angular momentum and spin",
+    "The variational method",
+    "Perturbation theory",
+    "The Born–Oppenheimer approximation",
+    "The molecular Schrödinger equation",
+    "LCAO and molecular orbital theory",
+    "H2+ and H2",
+    "The Hartree–Fock method",
+    "Term symbols",
+    "Introduction to electron correlation and DFT",
+  ],
+  recommended: [
+    res("Quantum Chemistry", "LibreTexts", { type: "reference", free: true, url: "https://chem.libretexts.org/" }),
+    res("Quantum Chemistry", "Ira N. Levine", { type: "textbook" }),
+    res("Quantum Chemistry", "Donald McQuarrie", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Molecular Quantum Mechanics", "Peter Atkins & Ronald Friedman", { type: "textbook" }),
+    res("Modern Quantum Chemistry", "Attila Szabo & Neil Ostlund", { type: "textbook" }),
+    res("Introduction to Computational Chemistry", "Frank Jensen", { type: "textbook" }),
+  ],
+});

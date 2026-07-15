@@ -1,0 +1,33 @@
+registerDetail({
+  long: "Organic synthesis is the art and science of constructing complex molecules from simpler starting materials through deliberate sequences of bond-forming and functional-group transformations. The discipline is organized around retrosynthetic analysis, in which a target is logically disconnected into synthons and their real synthetic equivalents, revealing viable forward routes. Students master the core methods of carbon–carbon bond formation—enolate alkylations, aldol and related condensations, organometallic additions, olefinations such as the Wittig and Horner–Wadsworth–Emmons reactions—alongside the full toolkit of oxidations, reductions, and functional-group interconversions. Pericyclic and cycloaddition reactions, together with transition-metal-catalyzed cross-couplings, provide powerful strategies for assembling rings and joining fragments. A recurring theme is control: protecting-group strategy safeguards reactive sites, while stereoselective and asymmetric methods, chiral auxiliaries, and chiral catalysts install defined stereochemistry. Strategic thinking—convergent versus linear planning and step economy—distinguishes elegant routes from merely feasible ones. Fluency with the vast catalog of named reactions ties this practical knowledge together.",
+  topics: [
+    "Retrosynthetic analysis and disconnection",
+    "Synthons and synthetic equivalents",
+    "Functional group interconversions",
+    "Carbon–carbon bond formation: enolate chemistry",
+    "Organometallic reagents (Grignard, organolithium, cuprates)",
+    "Oxidation methods",
+    "Reduction methods",
+    "Olefination (Wittig, Horner–Wadsworth–Emmons)",
+    "Pericyclic and cycloaddition reactions",
+    "Transition-metal-catalyzed cross-coupling",
+    "Protecting group strategy",
+    "Stereoselective synthesis",
+    "Asymmetric synthesis and chiral catalysts",
+    "Chiral auxiliaries",
+    "Convergent versus linear synthesis",
+    "Named reactions and their mechanisms",
+    "Aldol and Michael reactions",
+    "Step economy and synthetic efficiency",
+  ],
+  recommended: [
+    res("Strategic Applications of Named Reactions in Organic Synthesis", "László Kürti & Barbara Czakó", { type: "reference" }),
+    res("Advanced Organic Chemistry, Part B: Reactions and Synthesis", "Francis A. Carey & Richard J. Sundberg", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Organic Chemistry", "Jonathan Clayden, Nick Greeves & Stuart Warren", { type: "textbook" }),
+    res("Organic Synthesis: The Disconnection Approach", "Stuart Warren & Paul Wyatt", { type: "textbook" }),
+    res("The Logic of Chemical Synthesis", "E. J. Corey & Xue-Min Cheng", { type: "reference" }),
+    res("Strategic Applications of Named Reactions (companion problems)", "László Kürti & Barbara Czakó", { type: "problems" }),
+  ],
+});

@@ -1,0 +1,32 @@
+registerDetail({
+  long: "Organometallic chemistry studies compounds containing metal–carbon bonds, focusing on the transition metals whose rich reactivity underpins modern catalysis. The subject begins with bonding and electron bookkeeping: the 18-electron rule and formal electron counting, classification of ligands as L- or X-type, and the bonding of carbonyls, phosphines, hydrides, alkenes, and π-systems such as those in metallocenes. From these foundations emerge the elementary reaction steps—oxidative addition, reductive elimination, migratory insertion, β-hydride elimination, and ligand substitution—whose combinations define catalytic cycles. Students learn to assemble these steps into mechanisms for industrially and academically central processes, including palladium- and nickel-catalyzed cross-couplings (Suzuki, Heck, Negishi), olefin metathesis, hydrogenation, and hydroformylation. Reactive carbene and carbyne complexes broaden the scope of accessible transformations. A growing emphasis on C–H activation illustrates how organometallic principles enable selective functionalization of otherwise inert bonds. The discipline thus bridges inorganic and organic chemistry and provides the mechanistic language of homogeneous catalysis.",
+  topics: [
+    "The 18-electron rule and electron counting",
+    "Ligand classes: L-type and X-type",
+    "Carbonyl, phosphine, and hydride ligands",
+    "Metal–carbonyl complexes",
+    "Metal–alkene and π-complexes",
+    "Metallocenes and sandwich compounds",
+    "Carbene and carbyne complexes",
+    "Oxidative addition",
+    "Reductive elimination",
+    "Migratory insertion",
+    "β-Hydride elimination",
+    "Ligand substitution mechanisms",
+    "Catalytic cycles",
+    "Cross-coupling (Suzuki, Heck, Negishi)",
+    "Olefin metathesis",
+    "Hydrogenation and hydroformylation",
+    "C–H activation",
+    "Oxidation states and d-electron configurations",
+  ],
+  recommended: [
+    res("The Organometallic Chemistry of the Transition Metals", "Robert H. Crabtree", { type: "textbook" }),
+    res("Organotransition Metal Chemistry: From Bonding to Catalysis", "John F. Hartwig", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Organometallics", "Christoph Elschenbroich", { type: "textbook" }),
+    res("Principles and Applications of Organotransition Metal Chemistry", "James P. Collman, Louis S. Hegedus, et al.", { type: "reference" }),
+    res("Catalysis Concepts and Green Applications", "Gadi Rothenberg", { type: "textbook" }),
+  ],
+});

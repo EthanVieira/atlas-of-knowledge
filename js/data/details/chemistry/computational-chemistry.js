@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Computational chemistry is the practical discipline of modeling molecular structure, energetics, and dynamics on computers, spanning methods from empirical force fields to first-principles quantum mechanics. The course opens with molecular mechanics and force fields, the concept of potential energy surfaces, and the algorithms for geometry optimization and conformational searching that locate minima and transition states. It then turns to running ab initio and density functional calculations in practice, emphasizing basis-set selection, convergence, and the trade-offs between accuracy and cost. Statistical sampling is developed through molecular dynamics and Monte Carlo methods, including thermostats and barostats for controlling temperature and pressure, and free-energy techniques such as thermodynamic integration and umbrella sampling. Multiscale strategies including QM/MM and implicit and explicit solvation models extend these methods to enzymes and condensed phases. The course also surveys docking and cheminformatics, the rapidly growing use of machine-learning interatomic potentials, and the high-performance computing practices—parallelization and hardware acceleration—needed for large-scale simulation. Hands-on exercises connect algorithmic choices to reliable chemical predictions.",
+  topics: [
+    "Molecular mechanics and force fields",
+    "Potential energy surfaces and geometry optimization",
+    "Conformational searching",
+    "Ab initio and DFT calculations in practice",
+    "Basis-set selection and convergence",
+    "Molecular dynamics simulation",
+    "Monte Carlo methods",
+    "Thermostats and barostats",
+    "Free-energy methods: thermodynamic integration",
+    "Umbrella sampling and enhanced sampling",
+    "QM/MM multiscale methods",
+    "Implicit and explicit solvation models",
+    "Molecular docking and cheminformatics",
+    "Machine-learning interatomic potentials",
+    "High-performance and GPU computing",
+    "Analysis of trajectories and statistical error",
+  ],
+  recommended: [
+    res("Introduction to Computational Chemistry", "Frank Jensen", { type: "textbook" }),
+    res("Essentials of Computational Chemistry: Theories and Models", "Christopher J. Cramer", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Molecular Modelling: Principles and Applications", "Andrew R. Leach", { type: "textbook" }),
+    res("Understanding Molecular Simulation: From Algorithms to Applications", "Daan Frenkel & Berend Smit", { type: "textbook" }),
+    res("Computer Simulation of Liquids", "Michael P. Allen & Dominic J. Tildesley", { type: "textbook" }),
+  ],
+});
