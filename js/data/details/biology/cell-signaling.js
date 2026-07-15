@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Cell signaling examines how cells detect extracellular cues and transduce them into precise intracellular responses that govern proliferation, differentiation, metabolism, and death. The course develops the core logic of signal transduction—ligand-receptor binding, conformational change, enzymatic amplification, and reversible covalent modification—before surveying the major receptor classes and their downstream cascades. Central themes include how specificity and fidelity are achieved despite shared components, how signals are amplified and then adapted or terminated, and how scaffolds and localized signaling complexes shape network behavior. Students analyze canonical pathways such as GPCR/cAMP, receptor tyrosine kinase/MAPK, and PI3K/AKT, along with the small GTPase switches that pattern the cytoskeleton and vesicular traffic. Emphasis is placed on feedback loops, network motifs, and emergent properties like switches, oscillations, and bistability that quantitative and systems approaches reveal. The course closes by connecting dysregulated signaling to cancer, diabetes, and developmental disorders, and to the rational design of targeted therapeutics.",
+  topics: [
+    "Signaling principles: fidelity, specificity, and dynamic range",
+    "Receptor classes and ligand recognition",
+    "G-protein-coupled receptors and heterotrimeric G proteins",
+    "Receptor tyrosine kinases and adaptor recruitment",
+    "Second messengers: cAMP and PKA signaling",
+    "Calcium signaling and IP3/DAG from PLC",
+    "Lipid second messengers and phosphoinositides",
+    "Protein kinases and phosphatases as switches",
+    "MAP kinase cascades and their regulation",
+    "The PI3K/AKT/mTOR pathway",
+    "Small GTPases: Ras, Rho, and GEF/GAP control",
+    "Signal amplification, adaptation, and termination",
+    "Scaffolds, anchoring, and signaling complexes",
+    "Feedback loops and network motifs",
+    "Systems-level and quantitative signaling",
+    "Signaling in development, cancer, and disease",
+  ],
+  recommended: [
+    res("Cell Signaling: Principles and Mechanisms", "Wendell Lim, Bruce Mayer & Tony Pawson", { type: "textbook" }),
+    res("Molecular Biology of the Cell", "Alberts, Heald, Johnson, Morgan, Raff, Roberts & Walter", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Molecular Cell Biology", "Lodish, Berk, Kaiser, Krieger, Bretscher, Ploegh, Martin, Yaffe & Amon", { type: "textbook" }),
+    res("Signal Transduction", "Bastien Gomperts, IJsbrand Kramer & Peter Tatham", { type: "textbook" }),
+    res("The Biology of Cancer", "Robert A. Weinberg", { type: "reference" }),
+  ],
+});

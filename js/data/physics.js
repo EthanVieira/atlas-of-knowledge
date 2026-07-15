@@ -9,10 +9,11 @@
 registerCourses([
 
   // --- Classical core ---
-  { id: "classical-mechanics", title: "Classical Mechanics", field: "physics", detail: true, requires: ["calculus-3", "ode"] },
+  { id: "general-physics", title: "General Physics", field: "physics", detail: true, requires: ["calculus-1"] },
+  { id: "classical-mechanics", title: "Classical Mechanics", field: "physics", detail: true, requires: ["general-physics", "calculus-3", "ode"] },
   { id: "waves-oscillations", title: "Waves & Oscillations", field: "physics", detail: true, requires: ["classical-mechanics", "ode"] },
   { id: "thermodynamics", title: "Thermodynamics", field: "physics", detail: true, requires: ["calculus-3", "classical-mechanics"] },
-  { id: "electromagnetism", title: "Electromagnetism", field: "physics", detail: true, requires: ["calculus-3", "ode"] },
+  { id: "electromagnetism", title: "Electromagnetism", field: "physics", detail: true, requires: ["general-physics", "calculus-3", "ode"] },
   { id: "special-relativity", title: "Special Relativity", field: "physics", detail: true, requires: ["classical-mechanics", "electromagnetism"] },
   { id: "optics", title: "Optics", field: "physics", detail: true, requires: ["electromagnetism", "waves-oscillations"] },
   { id: "continuum-mechanics", title: "Continuum Mechanics", field: "physics", detail: true, requires: ["classical-mechanics", "calculus-3"] },

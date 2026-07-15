@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Population genetics is the quantitative core of evolutionary biology, describing how allele and genotype frequencies change within and among populations under the joint action of mutation, selection, drift, migration, and mating structure. The course begins with the Hardy–Weinberg principle as a null model and builds systematically toward stochastic dynamics through the Wright–Fisher model and diffusion approximations. Students learn to compute the effects of selection on allele frequencies, to characterize the balance between mutation and drift, and to analyze how finite population size governs the fate of neutral and selected variants. Population structure is treated through Wright's F-statistics, inbreeding, and models of migration, while linkage disequilibrium connects loci across the genome. The neutral theory and the coalescent provide a genealogical framework for interpreting molecular variation, and the final segment applies these tools to detecting selection from sequence data. The treatment is mathematically explicit, drawing on probability and statistics, and emphasizes deriving results as well as fitting models to real polymorphism data. By the end, students can read the modern population-genomics literature and reason quantitatively about evolutionary process.",
+  topics: [
+    "the Hardy–Weinberg principle",
+    "allele and genotype frequencies",
+    "genetic drift and the Wright–Fisher model",
+    "effective population size",
+    "mutation and the mutation–drift balance",
+    "natural selection and fitness",
+    "selection–drift interplay",
+    "migration and population structure (Fst)",
+    "inbreeding and assortative mating",
+    "linkage disequilibrium",
+    "the neutral theory of molecular evolution",
+    "the coalescent",
+    "molecular population genetics",
+    "detecting selection from sequence data",
+    "diffusion approximations",
+    "the site frequency spectrum",
+  ],
+  recommended: [
+    res("Population Genetics Notes", "Graham Coop", { type: "notes", free: true, url: "https://github.com/cooplab/popgen-notes" }),
+    res("Principles of Population Genetics", "Daniel L. Hartl and Andrew G. Clark", { type: "textbook" }),
+    res("Population Genetics: A Concise Guide", "John H. Gillespie", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Elements of Evolutionary Genetics", "Brian Charlesworth and Deborah Charlesworth", { type: "textbook" }),
+    res("The Neutral Theory of Molecular Evolution", "Motoo Kimura", { type: "reference" }),
+    res("Coalescent Theory: An Introduction", "John Wakeley", { type: "textbook" }),
+  ],
+});

@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Physiology is the study of how living organisms and their component systems function, from the molecular and cellular level up to the integrated whole organism. Building on cell biology and biochemistry, the course centers on homeostasis: the maintenance of a stable internal environment through negative and positive feedback control. Students trace the mechanisms by which excitable cells generate membrane potentials and how the cardiovascular, respiratory, renal, gastrointestinal, endocrine, and reproductive systems coordinate to sustain life. Emphasis is placed on quantitative relationships such as hemodynamics, gas exchange, glomerular filtration, and acid-base balance. The material connects structure to function and explains how organ systems communicate through neural and hormonal signaling. By the end, students can reason about how perturbations, disease, and physical exertion challenge homeostatic control and how the body compensates.",
+  topics: [
+    "homeostasis and feedback control",
+    "membrane potentials and transport",
+    "nerve and muscle excitability",
+    "skeletal, cardiac, and smooth muscle mechanics",
+    "the cardiovascular system",
+    "the cardiac cycle and hemodynamics",
+    "respiratory physiology and gas exchange",
+    "ventilation-perfusion matching",
+    "renal physiology and fluid/electrolyte balance",
+    "acid-base regulation",
+    "the gastrointestinal system",
+    "the endocrine system",
+    "metabolism and thermoregulation",
+    "reproductive physiology",
+    "the autonomic nervous system",
+    "integrative and exercise physiology",
+  ],
+  recommended: [
+    res("Anatomy & Physiology", "OpenStax", { type: "textbook", free: true, url: "https://openstax.org/details/books/anatomy-and-physiology" }),
+    res("Medical Physiology", "Boron & Boulpaep", { type: "textbook" }),
+    res("Guyton and Hall Textbook of Medical Physiology", "Hall & Hall", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Berne & Levy Physiology", "Koeppen & Stanton", { type: "textbook" }),
+    res("Ganong's Review of Medical Physiology", "Barrett et al.", { type: "reference" }),
+    res("Vander's Human Physiology", "Widmaier, Raff & Strang", { type: "textbook" }),
+  ],
+});

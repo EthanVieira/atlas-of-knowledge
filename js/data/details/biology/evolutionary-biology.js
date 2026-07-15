@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Evolutionary biology is the study of the processes that generate and shape biological diversity, unifying genetics, ecology, development, and paleontology under the principle of descent with modification. This course develops the logic of the modern synthesis, showing how mutation, recombination, natural and sexual selection, genetic drift, and gene flow act on heritable variation to change populations over time. Students learn to distinguish adaptation from historical constraint and chance, to reason about fitness and its consequences, and to interpret evidence for common ancestry from morphology, molecules, and the fossil record. The course treats speciation and the origin of reproductive isolation, the reconstruction of phylogeny, and macroevolutionary patterns across deep time. Coevolution, the evolution of sex and recombination, and the major transitions in the history of life illustrate how evolutionary reasoning applies across scales from genes to genomes to ecosystems. Applications to evolutionary medicine, including antibiotic resistance, senescence, and host–pathogen dynamics, connect theory to pressing practical problems. Throughout, the emphasis is on treating evolution as a predictive, testable science grounded in population thinking.",
+  topics: [
+    "evidence for evolution",
+    "descent with modification",
+    "natural selection and fitness",
+    "sexual selection",
+    "genetic variation and its sources",
+    "genetic drift and effective population size",
+    "gene flow and migration",
+    "adaptation and constraint",
+    "the modern synthesis",
+    "speciation and reproductive isolation",
+    "phylogeny and common ancestry",
+    "macroevolution and the fossil record",
+    "coevolution",
+    "the evolution of sex and recombination",
+    "major transitions in the history of life",
+    "evolutionary medicine",
+  ],
+  recommended: [
+    res("Understanding Evolution", "UC Berkeley", { type: "interactive", free: true, url: "https://evolution.berkeley.edu/" }),
+    res("Evolution", "Douglas J. Futuyma", { type: "textbook" }),
+    res("Evolution", "Mark Ridley", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("The Selfish Gene", "Richard Dawkins", { type: "reference" }),
+    res("The Origin of Species", "Charles Darwin", { type: "reference" }),
+    res("Why Evolution Is True", "Jerry A. Coyne", { type: "reference" }),
+  ],
+});

@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Epigenetics studies heritable and reversible changes in gene expression that arise from chromatin state rather than alterations in DNA sequence. The course begins with the physical organization of the genome—the nucleosome, higher-order chromatin, and the dynamic packaging that makes DNA selectively accessible. It develops the logic of the histone code, detailing the writers, readers, and erasers that deposit, interpret, and remove covalent modifications, and the chromatin-remodeling complexes that reposition nucleosomes. Students examine DNA methylation and demethylation, the antagonistic Polycomb and Trithorax systems that maintain repressed and active states, and how these mechanisms achieve stable yet reversible cellular memory. Classic phenomena including X-chromosome inactivation, genomic imprinting, and position-effect variegation illustrate epigenetic regulation in action, as do non-coding RNAs and RNAi-directed silencing. The course connects these mechanisms to development, disease, and the contested question of transgenerational inheritance, and surveys the genomic methods—ChIP-seq and bisulfite sequencing—used to map epigenetic landscapes.",
+  topics: [
+    "Chromatin structure and the nucleosome",
+    "The histone code and histone modifications",
+    "Writers, readers, and erasers of histone marks",
+    "DNA methylation and demethylation",
+    "Chromatin remodeling complexes",
+    "Polycomb and Trithorax systems",
+    "X-chromosome inactivation",
+    "Genomic imprinting",
+    "Non-coding RNAs and RNAi-directed silencing",
+    "Position-effect variegation and heterochromatin",
+    "Cellular memory and epigenetic inheritance",
+    "Transgenerational epigenetic inheritance",
+    "Epigenetics in development and differentiation",
+    "Epigenetics in cancer and disease",
+    "Epigenomic mapping: ChIP-seq and bisulfite sequencing",
+    "Higher-order chromatin and nuclear organization",
+  ],
+  recommended: [
+    res("Epigenetics", "C. David Allis, Marie-Laure Caparros, Thomas Jenuwein & Danny Reinberg", { type: "textbook" }),
+    res("Chromatin and Gene Regulation", "Bryan M. Turner", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Molecular Biology of the Gene", "Watson, Baker, Bell, Gann, Levine & Losick", { type: "textbook" }),
+    res("Genes XII", "Benjamin Lewin, Jocelyn Krebs, Elliott Goldstein & Stephen Kilpatrick", { type: "reference" }),
+    res("Epigenetics: A Very Short Introduction", "Nessa Carey", { type: "reference" }),
+  ],
+});

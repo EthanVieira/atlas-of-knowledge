@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Virology examines the structure, replication, genetics, and pathogenesis of viruses across all domains of life. The course opens with the architecture of virions—capsid symmetry, envelopes, and the packaging of nucleic-acid genomes—and organizes the viral world through the Baltimore classification, which groups viruses by how they generate messenger RNA. It follows the common infectious cycle of attachment, entry, uncoating, genome replication, gene expression, assembly, and release, contrasting the distinct replication strategies of positive- and negative-strand RNA viruses, double-stranded RNA and DNA viruses, and retroviruses. Emphasis is placed on viral genetics and evolution, including mutation, recombination, reassortment, and the quasispecies nature of RNA virus populations. The course then turns to the interaction between viruses and their hosts: innate antiviral defenses, tropism and pathogenesis, latency and persistence, and the mechanisms by which some viruses cause cancer. It closes with the practical dimensions of virology—antiviral drugs and resistance, vaccine strategies, and the epidemiology and emergence of new viral threats.",
+  topics: [
+    "Virus structure, capsid symmetry, and envelopes",
+    "The Baltimore classification scheme",
+    "Attachment, entry, and uncoating",
+    "Genome replication strategies (+ssRNA, −ssRNA, dsRNA, DNA)",
+    "Retroviruses and reverse transcription",
+    "Transcription and translation of viral genes",
+    "Virion assembly, maturation, and release",
+    "Viral genetics, recombination, and reassortment",
+    "Viral evolution and quasispecies",
+    "Host–virus interactions and innate antiviral defenses",
+    "Viral pathogenesis and tissue tropism",
+    "Latency and persistent infection",
+    "Oncogenic viruses and virus-associated cancers",
+    "Antiviral drugs and drug resistance",
+    "Vaccines and vaccine platforms",
+    "Emerging viruses and viral epidemiology",
+  ],
+  recommended: [
+    res("Virology lectures", "Vincent Racaniello", { type: "lectures", free: true, url: "https://www.virology.ws/course/" }),
+    res("Principles of Virology", "Flint, Racaniello, Rall, Hatziioannou & Skalka", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Fields Virology", "Knipe & Howley (eds.)", { type: "reference" }),
+    res("Introduction to Modern Virology", "Dimmock, Easton & Leppard", { type: "textbook" }),
+    res("This Week in Virology (TWiV) podcast", "Vincent Racaniello et al.", { type: "video" }),
+  ],
+});

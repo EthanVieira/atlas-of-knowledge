@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Quantitative genetics addresses the inheritance and evolution of continuous traits controlled by many loci of individually small effect, extending population genetics into the domain of complex phenotypes. The course develops the infinitesimal model and the partitioning of phenotypic variance into additive, dominance, epistatic, and environmental components, from which heritability in the broad and narrow sense is defined. Students learn how the resemblance between relatives underpins the estimation of variance components and how the breeder's equation predicts the response to selection from heritability and the selection differential. Multivariate extensions treat genetic correlations, the G-matrix, and correlated responses across traits, while genotype–environment interaction and plasticity complicate simple predictions. The genomic era is covered through QTL mapping, genome-wide association studies, and the missing-heritability problem, culminating in genomic selection and prediction methods now central to breeding and human genetics. The course is statistically demanding, drawing on linear models, mixed models, and matrix algebra. Applications span animal and plant improvement, evolutionary quantitative genetics, and the dissection of human complex traits and disease.",
+  topics: [
+    "continuous traits and the infinitesimal model",
+    "partitioning phenotypic variance",
+    "additive, dominance, and epistatic variance",
+    "heritability (broad and narrow sense)",
+    "resemblance between relatives",
+    "the breeder's equation and response to selection",
+    "selection differentials and intensity",
+    "genetic correlations and the G-matrix",
+    "the multivariate response to selection",
+    "genotype–environment interaction",
+    "QTL mapping",
+    "genome-wide association studies (GWAS)",
+    "the missing-heritability problem",
+    "genomic selection and prediction",
+    "mixed models and variance-component estimation",
+    "evolution of quantitative traits",
+  ],
+  recommended: [
+    res("Introduction to Quantitative Genetics", "Douglas S. Falconer and Trudy F. C. Mackay", { type: "textbook" }),
+    res("Genetics and Analysis of Quantitative Traits", "Michael Lynch and Bruce Walsh", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Evolution and Selection of Quantitative Traits", "Bruce Walsh and Michael Lynch", { type: "textbook" }),
+    res("Linear Models for the Prediction of Animal Breeding Values", "Raphael A. Mrode", { type: "textbook" }),
+    res("A Primer of Ecological Genetics", "Jeffrey K. Conner and Daniel L. Hartl", { type: "reference" }),
+  ],
+});

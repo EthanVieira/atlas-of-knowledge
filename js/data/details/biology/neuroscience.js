@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Neuroscience is the study of the nervous system, spanning the molecular biology of individual neurons to the circuits and systems that produce perception, movement, and behavior. Building on cell biology and physiology, the course begins with the neuron and glia, the ionic basis of the resting membrane potential, and the voltage-gated ion channels that make neurons excitable. Students study the action potential through the Hodgkin-Huxley framework and then how signals cross chemical and electrical synapses, how neurotransmitters act on their receptors, and how dendritic integration determines whether a neuron fires. The course surveys how the nervous system wires itself during development and how sensory systems for vision, audition, and somatosensation transduce and encode the world. Motor systems, reflexes, and the autonomic nervous system illustrate output pathways, while plasticity underlies learning and memory. The course closes by connecting these principles to neurological and psychiatric disease.",
+  topics: [
+    "the neuron and glia",
+    "the resting membrane potential",
+    "ion channels",
+    "the action potential (Hodgkin-Huxley)",
+    "synaptic transmission (chemical and electrical)",
+    "neurotransmitters and receptors",
+    "synaptic integration and dendritic processing",
+    "neural development and wiring",
+    "sensory systems (vision, audition, somatosensation)",
+    "motor systems and reflexes",
+    "the autonomic nervous system",
+    "neural plasticity",
+    "learning and memory",
+    "neuromodulation",
+    "neurological and psychiatric disease",
+  ],
+  recommended: [
+    res("Brain and Cognitive Sciences (9.01 Neuroscience and Behavior)", "MIT OpenCourseWare", { type: "lectures", free: true, url: "https://ocw.mit.edu/courses/9-01-neuroscience-and-behavior-fall-2003/" }),
+    res("Principles of Neural Science", "Kandel et al.", { type: "textbook" }),
+    res("Neuroscience", "Purves et al.", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Neuroscience: Exploring the Brain", "Bear, Connors & Paradiso", { type: "textbook" }),
+    res("From Neuron to Brain", "Nicholls et al.", { type: "textbook" }),
+    res("Ion Channels of Excitable Membranes", "Hille", { type: "reference" }),
+  ],
+});

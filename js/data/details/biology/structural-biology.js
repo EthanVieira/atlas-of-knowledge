@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Structural Biology investigates how the three-dimensional structures of biological macromolecules determine their function. The course develops the hierarchy of protein architecture—from primary sequence through secondary structure, motifs, domains, and folds to quaternary assemblies—grounding it in the geometry of the peptide bond and the allowed conformations captured by the Ramachandran plot. It analyzes the forces that govern protein folding and stability, the specialized architecture of membrane proteins, and the structures of nucleic acids and protein–nucleic acid complexes. A major portion of the course covers the experimental methods used to determine structures at atomic resolution: X-ray crystallography, nuclear magnetic resonance spectroscopy of biomolecules, cryo-electron microscopy, and small-angle scattering, together with their respective strengths and limitations. The course also addresses computational structure prediction, including the impact of AlphaFold, and the use of structural databases such as the Protein Data Bank. It concludes by connecting structure to function and to structure-based and fragment-based drug design.",
+  topics: [
+    "The hierarchy of protein structure",
+    "The peptide bond and the Ramachandran plot",
+    "Secondary structure: α-helices and β-sheets",
+    "Motifs, domains, and folds",
+    "Protein stability and folding",
+    "Membrane protein architecture",
+    "Nucleic acid structure",
+    "Protein–nucleic acid complexes",
+    "X-ray crystallography",
+    "NMR spectroscopy of biomolecules",
+    "Cryo-electron microscopy",
+    "Small-angle X-ray and neutron scattering",
+    "Computational structure prediction and AlphaFold",
+    "Structure-based function and drug design",
+    "Structural databases and the PDB",
+    "Conformational change and allostery",
+  ],
+  recommended: [
+    res("Introduction to Protein Structure", "Carl Branden & John Tooze", { type: "textbook" }),
+    res("Protein Structure and Function", "Gregory Petsko & Dagmar Ringe", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Structural Bioinformatics", "Bourne & Weissig (eds.)", { type: "reference" }),
+    res("Biomolecular Crystallography", "Bernhard Rupp", { type: "textbook" }),
+    res("RCSB Protein Data Bank", "RCSB PDB", { type: "interactive" }),
+  ],
+});

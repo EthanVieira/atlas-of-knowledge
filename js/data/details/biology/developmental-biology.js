@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Developmental biology asks how a single fertilized egg builds a complex, patterned, multicellular organism through reproducible programs of cell division, movement, and differentiation. The course traces development from fertilization through cleavage, gastrulation, and the establishment of the body axes, emphasizing the molecular mechanisms that convert genetic information into spatial form. Central concepts include morphogen gradients and positional information, inductive signaling between tissues, and the gene regulatory networks that specify and stabilize cell fates. Students study the genetics of pattern formation—Hox genes, segmentation, and the conserved toolkit shared across animals—alongside the cellular behaviors of migration, adhesion, and programmed cell death that sculpt organs. Comparative analysis across model organisms such as Drosophila, C. elegans, zebrafish, Xenopus, and mouse illustrates both conserved principles and evolutionary variation. The course also introduces the germ line, organogenesis, and regeneration, laying groundwork for stem cell biology and evolutionary developmental biology.",
+  topics: [
+    "Fertilization and egg activation",
+    "Cleavage and blastula formation",
+    "Gastrulation and germ layer formation",
+    "Axis specification and body plans",
+    "Morphogen gradients and positional information",
+    "Cell fate specification and induction",
+    "Gene regulatory networks in pattern formation",
+    "Hox genes and segmentation",
+    "Organogenesis and tissue morphogenesis",
+    "The germ line and its determination",
+    "Cell migration, adhesion, and morphogenesis",
+    "Stem cells and niches (introduction)",
+    "Regeneration and tissue repair",
+    "Apoptosis in development",
+    "Model organisms: Drosophila, C. elegans, zebrafish, Xenopus, mouse",
+    "Evolution of developmental mechanisms (evo-devo)",
+  ],
+  recommended: [
+    res("Developmental Biology", "Michael J. F. Barresi & Scott F. Gilbert", { type: "textbook" }),
+    res("Principles of Development", "Lewis Wolpert, Cheryll Tickle & Alfonso Martinez Arias", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Molecular Biology of the Cell", "Alberts, Heald, Johnson, Morgan, Raff, Roberts & Walter", { type: "textbook" }),
+    res("Essential Developmental Biology", "Jonathan M. W. Slack", { type: "textbook" }),
+    res("From DNA to Diversity", "Sean B. Carroll, Jennifer K. Grenier & Scott D. Weatherbee", { type: "reference" }),
+  ],
+});

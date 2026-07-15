@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Computational biology develops the algorithms, probabilistic models, and machine-learning methods used to extract biological meaning from molecular data. The course is anchored in classical sequence analysis: pairwise and multiple alignment solved by dynamic programming, hidden Markov models for annotation, and gene finding. From these foundations it builds toward phylogenetic inference, models of molecular evolution, and RNA secondary-structure prediction. Regulatory genomics is addressed through motif discovery and the statistical detection of functional elements, while network biology introduces inference and analysis of interaction and regulatory networks. Protein-structure prediction connects sequence to three-dimensional function, and modern deep-learning approaches are discussed alongside classical methods. Bayesian and statistical modeling recur throughout as the principled framework for handling uncertainty. The course concludes with single-cell and spatial analysis and the simulation of biological systems, giving students a broad, rigorous, and computational toolkit for contemporary biology.",
+  topics: [
+    "Sequence alignment (pairwise, multiple)",
+    "Dynamic programming",
+    "Hidden Markov models",
+    "Phylogenetic inference",
+    "Gene finding and genome annotation",
+    "RNA secondary-structure prediction",
+    "Motif discovery and regulatory genomics",
+    "Network biology and network inference",
+    "Protein-structure prediction",
+    "Models of molecular evolution",
+    "Statistical models and Bayesian methods",
+    "Machine learning and deep learning for biology",
+    "Single-cell and spatial analysis",
+    "Simulation of biological systems",
+    "Expectation-maximization and probabilistic inference",
+  ],
+  recommended: [
+    res("Computational Biology (6.047/6.878)", "MIT OpenCourseWare", { type: "lectures", free: true, url: "https://ocw.mit.edu/courses/6-047-computational-biology-fall-2015/" }),
+    res("Biological Sequence Analysis", "Durbin, Eddy, Krogh & Mitchison", { type: "textbook", free: false }),
+    res("Bioinformatics and Functional Genomics", "Jonathan Pevsner", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("An Introduction to Bioinformatics Algorithms", "Jones & Pevzner", { type: "textbook" }),
+    res("Bioinformatics Algorithms: An Active Learning Approach", "Compeau & Pevzner", { type: "textbook" }),
+    res("Statistical Methods in Molecular Evolution", "Rasmus Nielsen", { type: "reference" }),
+  ],
+});

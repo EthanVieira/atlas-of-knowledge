@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Immunology is the study of the molecular and cellular systems that protect organisms from pathogens while maintaining tolerance to self. The course begins with the innate immune system—physical barriers, pattern-recognition receptors, complement, and inflammation—that provides rapid, germline-encoded defense. It then develops the adaptive immune response, explaining how B and T lymphocytes generate an enormous repertoire of antigen receptors through V(D)J recombination and how antigen is processed and presented on MHC molecules. Central themes include the clonal selection and activation of lymphocytes, the differentiation of helper, cytotoxic, and regulatory T-cell subsets, and the cytokine networks that coordinate them. The course also examines immunological memory and the principles of vaccination, the mechanisms of self-tolerance and how their failure produces autoimmunity, and the pathology of hypersensitivity, allergy, and immunodeficiency. It concludes with tumor immunology and the immunotherapies—checkpoint blockade and engineered cell therapies—that now translate these ideas into the clinic.",
+  topics: [
+    "Innate immunity and pattern-recognition receptors (PRRs, TLRs)",
+    "The complement system and its pathways",
+    "Inflammation and leukocyte recruitment",
+    "Antigen processing and presentation via the MHC",
+    "Overview of the adaptive immune response",
+    "B cells and antibody structure and function",
+    "Antibody diversity and V(D)J recombination",
+    "Somatic hypermutation and class switching",
+    "T-cell development, positive and negative selection",
+    "T-cell subsets, effector functions, and cytokines",
+    "Immunological memory and the basis of vaccination",
+    "Central and peripheral tolerance and autoimmunity",
+    "Hypersensitivity reactions and allergy",
+    "Primary and secondary immunodeficiency",
+    "Tumor immunology, immune evasion, and immunotherapy",
+    "Mucosal immunity and the host–microbiota interface",
+  ],
+  recommended: [
+    res("Immunobiology (Janeway's, 5th ed.)", "Janeway, Travers, Walport & Shlomchik", { type: "textbook", free: true, url: "https://www.ncbi.nlm.nih.gov/books/NBK10757/" }),
+    res("Janeway's Immunobiology", "Murphy & Weaver", { type: "textbook" }),
+    res("Cellular and Molecular Immunology", "Abbas, Lichtman & Pillai", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("How the Immune System Works", "Lauren Sompayrac", { type: "textbook" }),
+    res("The Immune System", "Peter Parham", { type: "textbook" }),
+    res("Kuby Immunology", "Punt, Stranford, Jones & Owen", { type: "textbook" }),
+  ],
+});

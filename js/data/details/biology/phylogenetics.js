@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Phylogenetics is the science of reconstructing evolutionary relationships and representing them as trees, providing the historical framework needed to interpret comparative biological data. The course introduces tree terminology, clades, and rooting, then treats the coding of homologous characters and the foundational assumptions that make inference possible. Students work through distance methods such as UPGMA and neighbor-joining, maximum parsimony with heuristic tree search, and probabilistic approaches built on explicit models of sequence evolution ranging from Jukes–Cantor to HKY and GTR. Maximum likelihood and Bayesian inference with MCMC are developed in depth, along with measures of nodal support including the bootstrap and posterior probabilities. The molecular clock and calibration methods enable divergence-time estimation, while the distinction between gene trees and species trees motivates coalescent-based multispecies methods. The course closes with phylogenetic comparative methods for testing evolutionary hypotheses and with phylogenomics at genome scale. It is quantitative and algorithmic, drawing on statistics and computation, and prepares students to use and critically evaluate modern phylogenetic software.",
+  topics: [
+    "trees, clades, and terminology",
+    "homology and character coding",
+    "distance methods (UPGMA, neighbor-joining)",
+    "maximum parsimony and tree search",
+    "models of sequence evolution (JC, HKY, GTR)",
+    "maximum likelihood inference",
+    "Bayesian phylogenetics and MCMC",
+    "bootstrap and branch support",
+    "the molecular clock and divergence dating",
+    "gene trees versus species trees",
+    "coalescent methods",
+    "phylogenetic comparative methods",
+    "phylogenomics",
+    "rooting and outgroup selection",
+    "model selection and adequacy",
+    "long-branch attraction and systematic error",
+  ],
+  recommended: [
+    res("Inferring Phylogenies", "Joseph Felsenstein", { type: "textbook" }),
+    res("Molecular Evolution: A Statistical Approach", "Ziheng Yang", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Tree Thinking: An Introduction to Phylogenetic Biology", "David A. Baum and Stacey D. Smith", { type: "textbook" }),
+    res("The Phylogenetic Handbook", "Philippe Lemey, Marco Salemi, and Anne-Mieke Vandamme", { type: "reference" }),
+    res("Computational Molecular Evolution", "Ziheng Yang", { type: "textbook" }),
+  ],
+});
