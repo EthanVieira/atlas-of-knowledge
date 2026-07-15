@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Continuum Mechanics provides the unified tensor framework from which both solid mechanics and fluid mechanics descend, treating matter as a continuous medium rather than a collection of particles. Building on classical mechanics and vector calculus, it begins with the kinematics of deformation, distinguishing material and spatial descriptions and introducing the deformation gradient, strain measures, and rate-of-deformation tensors. The concept of stress is developed through Cauchy's theorem, leading to the Cauchy stress tensor and its principal values. The balance laws of mass, linear and angular momentum, and energy are cast as both integral and local field equations. Constitutive relations then close the system, distinguishing elastic solids, viscous fluids, and viscoelastic materials while respecting objectivity and thermodynamic constraints. Applications include linear elasticity, the derivation of the Navier equations, and the propagation of waves in deformable solids. The course establishes the mathematical language and physical principles required for advanced study of elasticity, fluid dynamics, and materials.",
+  topics: [
+    "Index notation and Cartesian tensors",
+    "Material vs. spatial (Lagrangian vs. Eulerian) descriptions",
+    "Kinematics of deformation and the deformation gradient",
+    "Strain tensors and compatibility",
+    "Rate of deformation and spin tensors",
+    "Cauchy stress tensor and traction",
+    "Principal stresses and stress invariants",
+    "Conservation of mass and the continuity equation",
+    "Balance of linear and angular momentum",
+    "Energy balance and the first law",
+    "Constitutive relations and material objectivity",
+    "Linear elasticity and the Navier equations",
+    "Newtonian and non-Newtonian fluids",
+    "Viscoelasticity and rheological models",
+    "Elastic wave propagation in solids",
+    "Thermodynamic restrictions and the Clausius-Duhem inequality",
+  ],
+  recommended: [
+    res("A First Course in Continuum Mechanics", "Y. C. Fung", { type: "textbook", free: false }),
+    res("A First Course in Continuum Mechanics", "Oscar Gonzalez and Andrew M. Stuart", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Continuum Mechanics", "P. Chadwick", { type: "textbook" }),
+    res("The Mechanics and Thermodynamics of Continua", "Morton E. Gurtin, Eliot Fried, and Lallit Anand", { type: "textbook" }),
+    res("Theory of Elasticity", "L. D. Landau and E. M. Lifshitz", { type: "textbook" }),
+  ],
+});

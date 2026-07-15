@@ -1,0 +1,30 @@
+registerDetail({
+  long: "This course treats superconductivity and superfluidity as the paradigmatic examples of macroscopic quantum coherence, in which a phase transition produces a condensate that flows without dissipation. It begins with the defining phenomenology — the vanishing of electrical resistance and the expulsion of magnetic flux through the Meissner effect — and the phenomenological London equations that capture the electrodynamics of the superconducting state. The distinction between type-I and type-II superconductors, characterized by the coherence length and the magnetic penetration depth, motivates the microscopic theory. The isotope effect points to phonons as the pairing glue, leading to the formation of Cooper pairs and the full BCS theory with its self-consistent gap equation, condensation energy, and predictions for the specific heat and energy gap. Ginzburg–Landau theory provides a complementary order-parameter description that naturally accommodates spatial variation, the quantization of magnetic flux, and the lattice of Abrikosov vortices in type-II materials. The Josephson effect illustrates the observable consequences of macroscopic phase coherence and underpins superconducting devices. The course also treats superfluid helium as a neutral analog and closes with unconventional superconductors, where pairing symmetry and strong correlations remain active research frontiers.",
+  topics: [
+    "zero resistance and persistent currents",
+    "the Meissner effect and flux expulsion",
+    "the London equations and electrodynamics",
+    "type-I and type-II superconductors",
+    "the isotope effect",
+    "Cooper pairing",
+    "BCS theory and the gap equation",
+    "the coherence length and penetration depth",
+    "Ginzburg-Landau theory",
+    "vortices and flux quantization",
+    "the Abrikosov vortex lattice",
+    "the Josephson effect",
+    "superfluid helium-4 and helium-3",
+    "unconventional and high-Tc superconductors",
+    "the superconducting energy gap and tunneling",
+    "critical fields and critical currents",
+  ],
+  recommended: [
+    res("Introduction to Superconductivity", "Michael Tinkham", { type: "textbook" }),
+    res("Superconductivity of Metals and Alloys", "P. G. de Gennes", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Theory of Superconductivity", "J. Robert Schrieffer", { type: "textbook" }),
+    res("Superfluidity and Superconductivity", "David R. Tilley and John Tilley", { type: "textbook" }),
+    res("Superconductivity, Superfluids, and Condensates", "James F. Annett", { type: "textbook" }),
+  ],
+});

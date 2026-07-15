@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Kinetic theory describes how the collective, macroscopic behavior of gases and other dilute systems emerges from the motion and collisions of their constituent particles. It begins with elementary estimates of pressure, mean free path, and collision rates from the Maxwell-Boltzmann distribution, then develops the full Boltzmann transport equation for the single-particle distribution function. The nonlinear collision integral captures binary scattering, and Boltzmann's H-theorem demonstrates the approach to equilibrium and the microscopic origin of the second law and entropy production. Through the Chapman-Enskog expansion the theory systematically recovers the hydrodynamic equations and predicts transport coefficients such as viscosity, thermal conductivity, and diffusivity. A more fundamental derivation traces the Boltzmann equation to the BBGKY hierarchy, exposing the assumptions of molecular chaos and diluteness that underlie it. These methods form the foundation for understanding non-equilibrium phenomena, from the flow of gases to transport in plasmas and the early universe.",
+  topics: [
+    "kinetic theory of gases",
+    "Maxwell-Boltzmann distribution",
+    "mean free path and collision frequency",
+    "pressure and flux from molecular motion",
+    "transport coefficients: viscosity, conductivity, diffusion",
+    "the Boltzmann equation",
+    "the collision integral and molecular chaos (Stosszahlansatz)",
+    "the H-theorem and entropy production",
+    "approach to equilibrium and irreversibility",
+    "collision invariants and conservation laws",
+    "the Chapman-Enskog expansion",
+    "the hydrodynamic limit and Navier-Stokes equations",
+    "the BBGKY hierarchy",
+    "relaxation-time approximation (BGK)",
+    "diffusion and random walks",
+    "applications to plasmas and dilute systems",
+  ],
+  recommended: [
+    res("Kinetic Theory", "David Tong", { type: "notes", free: true, url: "https://www.damtp.cam.ac.uk/user/tong/kinetic.html" }),
+    res("Physical Kinetics", "E. M. Lifshitz and L. P. Pitaevskii", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("The Mathematical Theory of Non-uniform Gases", "Sydney Chapman and T. G. Cowling", { type: "textbook" }),
+    res("Statistical Physics of Particles", "Mehran Kardar", { type: "textbook" }),
+    res("A Modern Course in Statistical Physics", "Linda E. Reichl", { type: "textbook" }),
+  ],
+});

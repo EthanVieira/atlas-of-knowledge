@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Non-equilibrium statistical mechanics studies systems driven away from thermal equilibrium and the stochastic dynamics by which they fluctuate, relax, and respond to external forces. The canonical starting point is Brownian motion, described phenomenologically by the Langevin equation with its friction and random-force terms, and equivalently by the Fokker-Planck equation for the evolving probability distribution. Master equations extend this description to systems with discrete states and jump processes. A central pillar is linear response theory, in which Kubo formulas express transport coefficients as equilibrium correlation functions and the fluctuation-dissipation theorem ties dissipation to spontaneous fluctuations. Onsager's reciprocal relations constrain coupled irreversible flows, while projection-operator techniques provide a systematic route from microscopic dynamics to reduced stochastic equations. Modern developments in stochastic thermodynamics and the Jarzynski and Crooks fluctuation theorems generalize the second law to small, driven systems, quantifying work, heat, and entropy production along individual trajectories.",
+  topics: [
+    "Brownian motion and diffusion",
+    "the Langevin equation",
+    "the Fokker-Planck equation",
+    "master equations and jump processes",
+    "correlation functions and spectral densities",
+    "the fluctuation-dissipation theorem",
+    "linear response theory",
+    "Kubo formulas and Green-Kubo relations",
+    "Onsager reciprocal relations",
+    "projection-operator methods (Mori-Zwanzig)",
+    "generalized Langevin equation and memory kernels",
+    "stochastic thermodynamics",
+    "entropy production and the second law",
+    "Jarzynski equality",
+    "Crooks fluctuation theorem",
+    "detailed balance and time-reversal symmetry",
+  ],
+  recommended: [
+    res("Nonequilibrium Statistical Mechanics", "Robert Zwanzig", { type: "textbook" }),
+    res("Non-Equilibrium Thermodynamics", "S. R. de Groot and P. Mazur", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("The Fokker-Planck Equation", "Hannes Risken", { type: "textbook" }),
+    res("Stochastic Processes in Physics and Chemistry", "N. G. van Kampen", { type: "textbook" }),
+    res("Stochastic Energetics", "Ken Sekimoto", { type: "textbook" }),
+  ],
+});

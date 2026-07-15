@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Plasma physics studies ionized gases in which long-range electromagnetic forces produce collective behavior distinct from ordinary fluids, describing states of matter from laboratory fusion devices to the solar wind and interstellar medium. The course begins with the basic parameters that define the plasma state — the Debye length, which sets the scale over which charges are screened, and the plasma frequency, which characterizes the fastest electron response. Single-particle motion in electric and magnetic fields introduces gyration and the various guiding-center drifts that govern confinement. Building up in complexity, the fluid description leads to magnetohydrodynamics, used to analyze equilibria, pressure balance, and the stability of confined plasmas against instabilities such as kink and interchange modes. A survey of plasma waves develops the dispersion relations for electrostatic and electromagnetic modes in magnetized and unmagnetized plasmas. The kinetic picture, based on the Vlasov equation, reveals genuinely collisionless phenomena, most notably Landau damping, in which waves exchange energy with resonant particles. The course also treats collisional transport, resistivity, and diffusion, and concludes with the physics of magnetic confinement and the conditions required for controlled thermonuclear fusion. Applications span fusion energy, space physics, and astrophysics.",
+  topics: [
+    "Debye shielding and quasineutrality",
+    "plasma parameters and the plasma frequency",
+    "single-particle motion and gyration",
+    "guiding-center drifts",
+    "plasma oscillations",
+    "magnetohydrodynamics (MHD)",
+    "MHD equilibria and pressure balance",
+    "MHD stability and instabilities",
+    "plasma waves and dispersion relations",
+    "the kinetic (Vlasov) description",
+    "Landau damping",
+    "kinetic and fluid instabilities",
+    "collisions, resistivity, and transport",
+    "magnetic confinement configurations",
+    "controlled thermonuclear fusion",
+    "diffusion across magnetic fields",
+  ],
+  recommended: [
+    res("Introduction to Plasma Physics and Controlled Fusion", "Francis F. Chen", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("The Physics of Plasmas", "T. J. M. Boyd and J. J. Sanderson", { type: "textbook" }),
+    res("Principles of Plasma Physics", "Nicholas A. Krall and Alvin W. Trivelpiece", { type: "textbook" }),
+    res("Plasma Physics and Fusion Energy", "Jeffrey P. Freidberg", { type: "textbook" }),
+    res("Introduction to Plasma Theory", "Dwight R. Nicholson", { type: "textbook" }),
+  ],
+});

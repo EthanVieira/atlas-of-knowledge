@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Classical Electrodynamics is the graduate-level treatment of Maxwell's theory, developing the mathematical machinery and physical applications at the level of Jackson. It opens with the systematic solution of boundary-value problems in electrostatics and magnetostatics using Green functions, separation of variables, and multipole expansions. The course then turns to electromagnetic fields in matter, wave propagation, and guided waves in waveguides and resonant cavities. A major focus is radiation: the generation of fields by time-varying sources, the Lienard-Wiechert potentials for moving charges, and the angular distribution and spectrum of radiation from accelerated charges. The theory is recast in manifestly covariant form, expressing the field-strength tensor and Maxwell's equations in four-vector notation consistent with special relativity. Advanced topics include the scattering and diffraction of electromagnetic waves, the physics of radiation damping, and the self-force problem embodied in radiation reaction. The course demands fluency with vector calculus, partial differential equations, and relativistic kinematics.",
+  topics: [
+    "Boundary-value problems and Green functions",
+    "Separation of variables in electrostatics",
+    "Multipole expansions",
+    "Dielectrics, magnetic media, and macroscopic Maxwell equations",
+    "Plane electromagnetic waves and dispersion",
+    "Waveguides and resonant cavities",
+    "Radiating systems and the multipole radiation fields",
+    "Lienard-Wiechert potentials",
+    "Radiation from accelerated charges and the Larmor formula",
+    "Synchrotron and bremsstrahlung radiation",
+    "Covariant formulation and the field-strength tensor",
+    "Relativistic transformation of fields",
+    "Lagrangian and Hamiltonian formulations of electrodynamics",
+    "Scattering and diffraction of electromagnetic waves",
+    "Radiation reaction and the Abraham-Lorentz force",
+    "Energy, momentum, and the Maxwell stress tensor",
+  ],
+  recommended: [
+    res("Classical Electrodynamics", "John David Jackson", { type: "textbook", free: false }),
+    res("Modern Electrodynamics", "Andrew Zangwill", { type: "textbook", free: false }),
+    res("The Classical Theory of Fields", "L. D. Landau and E. M. Lifshitz", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Electromagnetism", "David Tong", { type: "notes", free: true, url: "https://www.damtp.cam.ac.uk/user/tong/em.html" }),
+    res("Principles of Electrodynamics", "Melvin Schwartz", { type: "textbook" }),
+    res("Classical Electricity and Magnetism", "Wolfgang K. H. Panofsky and Melba Phillips", { type: "textbook" }),
+  ],
+});

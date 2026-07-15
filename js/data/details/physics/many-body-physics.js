@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Quantum many-body theory develops the formalism needed to describe systems of many interacting quantum particles, where the exponential growth of Hilbert space makes exact solutions impossible and collective phenomena dominate. The course opens with second quantization, which recasts many-particle states in terms of creation and annihilation operators and makes symmetrization and antisymmetrization automatic. Applying this machinery to the interacting electron gas introduces Hartree–Fock theory, exchange and correlation energies, and the concept of the quasiparticle — a dressed excitation that behaves almost like a free particle. The heart of the course is the Green's function method at both zero and finite temperature, where Wick's theorem and Feynman diagrams organize perturbation theory and the self-energy captures interaction effects through Dyson's equation. Resummation of diagrams yields the random-phase approximation, dynamical screening, and plasmon collective modes, while linear-response theory and the Kubo formula connect these objects to measurable susceptibilities and conductivities. Landau's Fermi-liquid theory then explains why the quasiparticle picture survives interactions in a wide class of metals. The course ends with bosonization as a powerful nonperturbative tool for one-dimensional systems. These techniques form the shared language of modern condensed matter and nuclear many-body physics.",
+  topics: [
+    "second quantization and Fock space",
+    "the interacting electron gas",
+    "Hartree-Fock approximation",
+    "quasiparticles and the adiabatic picture",
+    "zero-temperature Green's functions",
+    "finite-temperature (Matsubara) Green's functions",
+    "Wick's theorem",
+    "Feynman diagrams and perturbation theory",
+    "the self-energy and Dyson's equation",
+    "the random-phase approximation and screening",
+    "plasmons and collective modes",
+    "linear response and the Kubo formula",
+    "Landau Fermi-liquid theory",
+    "spectral functions and analytic continuation",
+    "bosonization in one dimension",
+    "correlation functions and response",
+  ],
+  recommended: [
+    res("Quantum Theory of Many-Particle Systems", "Alexander L. Fetter and John Dirk Walecka", { type: "textbook" }),
+    res("Many-Particle Physics", "Gerald D. Mahan", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Methods of Quantum Field Theory in Statistical Physics", "A. A. Abrikosov, L. P. Gorkov, and I. E. Dzyaloshinski", { type: "textbook" }),
+    res("A Guide to Feynman Diagrams in the Many-Body Problem", "Richard D. Mattuck", { type: "textbook" }),
+    res("Condensed Matter Field Theory", "Alexander Altland and Ben Simons", { type: "textbook" }),
+  ],
+});

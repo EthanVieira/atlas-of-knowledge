@@ -1,0 +1,30 @@
+registerDetail({
+  long: "The Standard Model is the relativistic quantum field theory describing the electromagnetic, weak, and strong interactions of the known elementary particles, built on the gauge group SU(3)_C × SU(2)_L × U(1)_Y acting on three generations of chiral fermions. Electroweak symmetry is spontaneously broken to U(1)_EM by the Higgs mechanism, giving mass to the W and Z bosons while leaving the photon massless and generating fermion masses through Yukawa couplings to the Higgs doublet. Quark flavor mixing is encoded in the unitary CKM matrix, whose single physical phase is the sole source of CP violation in the quark sector, while the strong interactions are governed by quantum chromodynamics with its hallmark asymptotic freedom and confinement. The theory's chiral gauge structure is rendered consistent only through the intricate cancellation of gauge and gravitational anomalies within each generation. Precision electroweak measurements at LEP, the Tevatron, and the LHC test the model at the loop level and constrain its parameters to remarkable accuracy, culminating in the 2012 discovery of the Higgs boson. Neutrino oscillation experiments reveal nonzero neutrino masses and PMNS lepton mixing, physics not accounted for by the minimal renormalizable Standard Model and pointing toward beyond-the-Standard-Model completions. This course develops the field content, symmetry breaking, radiative corrections, and phenomenology at a graduate and research level.",
+  topics: [
+    "the gauge group SU(3)×SU(2)×U(1) and its representations",
+    "chiral fermion content and hypercharge assignments",
+    "electroweak unification and the Weinberg angle",
+    "the Higgs mechanism and spontaneous symmetry breaking",
+    "the W and Z boson masses and custodial symmetry",
+    "fermion generations and Yukawa couplings",
+    "the CKM matrix, unitarity triangle, and CP violation",
+    "quantum chromodynamics, confinement, and asymptotic freedom",
+    "the running of gauge couplings and the beta functions",
+    "neutrino masses, seesaw mechanisms, and the PMNS matrix",
+    "gauge and gravitational anomaly cancellation",
+    "the electroweak phase transition and effective potential",
+    "precision electroweak observables and oblique parameters",
+    "flavor-changing neutral currents and the GIM mechanism",
+    "the strong CP problem and the theta parameter",
+    "beyond the Standard Model: grand unification and hierarchy",
+  ],
+  recommended: [
+    res("The Standard Model and Beyond", "Paul Langacker", { type: "textbook", free: false }),
+    res("Gauge Theory of Elementary Particle Physics", "Ta-Pei Cheng & Ling-Fong Li", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Dynamics of the Standard Model", "Donoghue, Golowich & Holstein", { type: "textbook" }),
+    res("An Introduction to the Standard Model of Particle Physics", "Cottingham & Greenwood", { type: "textbook" }),
+    res("The Review of Particle Physics", "Particle Data Group", { type: "reference" }),
+  ],
+});

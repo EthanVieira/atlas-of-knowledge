@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Phase transitions and critical phenomena concern the qualitative changes of state that many-body systems undergo as temperature, field, or other parameters are varied, and the remarkable universality that governs behavior near continuous transitions. The subject introduces order parameters to distinguish phases and Landau theory as a systematic mean-field expansion of the free energy, capturing symmetry breaking and the distinction between first- and second-order transitions. Near a critical point, thermodynamic quantities and correlation functions diverge as power laws characterized by critical exponents, and the scaling hypothesis relates these exponents through scaling laws. The striking observation that diverse systems share the same exponents is explained by universality, with behavior fixed by dimensionality and symmetry rather than microscopic detail. The renormalization group provides the definitive framework: by coarse-graining and rescaling, it flows Hamiltonians toward fixed points, explains scaling and universality, and computes exponents systematically, for example through the momentum-space ε-expansion near four dimensions. The Ising and Heisenberg models serve as the paradigmatic testing grounds throughout.",
+  topics: [
+    "phases and the phase diagram",
+    "order parameters and symmetry breaking",
+    "first- and second-order transitions",
+    "Landau theory of phase transitions",
+    "mean-field theory and its limitations",
+    "the Ising model",
+    "the Heisenberg and O(n) models",
+    "critical exponents",
+    "the scaling hypothesis and scaling laws",
+    "universality and universality classes",
+    "correlation functions and the correlation length",
+    "the correlation length exponent and diverging fluctuations",
+    "the renormalization group idea",
+    "real-space renormalization (block spins)",
+    "momentum-space renormalization group",
+    "the epsilon-expansion and Wilson-Fisher fixed point",
+    "the Ginzburg criterion and upper critical dimension",
+  ],
+  recommended: [
+    res("Lectures on Phase Transitions and the Renormalization Group", "Nigel Goldenfeld", { type: "textbook" }),
+    res("Scaling and Renormalization in Statistical Physics", "John Cardy", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Statistical Physics of Fields", "Mehran Kardar", { type: "textbook" }),
+    res("Principles of Condensed Matter Physics", "P. M. Chaikin and T. C. Lubensky", { type: "textbook" }),
+    res("Introduction to Phase Transitions and Critical Phenomena", "H. Eugene Stanley", { type: "textbook" }),
+  ],
+});

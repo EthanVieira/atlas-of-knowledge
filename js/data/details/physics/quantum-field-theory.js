@@ -1,0 +1,32 @@
+registerDetail({
+  long: "Quantum field theory (QFT) is the framework that unifies quantum mechanics with special relativity, describing particles as excitations of underlying fields defined over spacetime. The course begins with classical field theory, the Lagrangian formulation, and Noether's theorem relating symmetries to conserved currents, before turning to the canonical quantization of the real and complex scalar field. It develops the Dirac equation and spinor fields, the quantization of the electromagnetic field, and the machinery needed to extract physical predictions: the S-matrix, the LSZ reduction formula, and Wick's theorem. The path integral is introduced as a complementary quantization scheme that makes gauge symmetries and perturbation theory transparent, generating Feynman diagrams as a systematic expansion in the coupling. Concrete quantum electrodynamics processes such as Compton scattering and electron-positron annihilation are computed at tree level, and the course then confronts the ultraviolet divergences of loop integrals. Regularization and renormalization are developed to absorb these infinities into physical parameters, culminating in the renormalization group and the running of coupling constants with energy scale.",
+  topics: [
+    "classical field theory & the Lagrangian formulation",
+    "Noether's theorem & conserved currents",
+    "canonical quantization of scalar fields",
+    "the Dirac equation & spinors",
+    "quantization of the electromagnetic field",
+    "the S-matrix & LSZ reduction",
+    "Wick's theorem & time-ordered products",
+    "the path integral formulation",
+    "generating functionals & correlation functions",
+    "Feynman rules & diagrams",
+    "QED processes at tree level",
+    "loop integrals & ultraviolet divergences",
+    "regularization schemes",
+    "renormalization & counterterms",
+    "the running coupling & renormalization group",
+    "spontaneous symmetry breaking",
+  ],
+  recommended: [
+    res("Quantum Field Theory", "David Tong", { type: "notes", free: true, url: "https://www.damtp.cam.ac.uk/user/tong/qft.html" }),
+    res("Quantum Field Theory (draft)", "Mark Srednicki", { type: "textbook", free: true, url: "http://web.physics.ucsb.edu/~mark/qft.html" }),
+    res("An Introduction to Quantum Field Theory", "Michael Peskin & Daniel Schroeder", { type: "textbook" }),
+    res("Quantum Field Theory and the Standard Model", "Matthew Schwartz", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("The Quantum Theory of Fields, Vol. 1", "Steven Weinberg", { type: "textbook" }),
+    res("Quantum Field Theory in a Nutshell", "A. Zee", { type: "textbook" }),
+    res("Student Friendly Quantum Field Theory", "Robert Klauber", { type: "textbook" }),
+  ],
+});

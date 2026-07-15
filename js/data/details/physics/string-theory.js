@@ -1,0 +1,31 @@
+registerDetail({
+  long: "String theory replaces point particles with one-dimensional extended objects whose vibrational modes are interpreted as the spectrum of elementary particles, providing a consistent quantum theory that automatically includes gravity. The dynamics of a propagating string are captured by the reparametrization-invariant Nambu–Goto action or, equivalently, the Polyakov action, whose gauge fixing reduces the worldsheet theory to a two-dimensional conformal field theory whose consistency fixes the critical spacetime dimension to twenty-six for the bosonic string and ten for the superstring. Quantizing the mode expansion yields a spectrum containing a massless graviton, and the requirement of a ghost-free, tachyon-controlled spectrum leads through the GSO projection to spacetime supersymmetric superstrings. T-duality relates strings on large and small compact spaces and reveals D-branes as dynamical objects on which open strings end, carrying gauge fields and sourcing Ramond–Ramond charges. The five consistent superstring theories are unified by a web of dualities into eleven-dimensional M-theory, and compactification on Calabi–Yau manifolds connects the ten-dimensional theory to four-dimensional physics, giving rise to string phenomenology. This course develops the worldsheet formulation, quantization, spectrum, branes, and dualities at a graduate and research level.",
+  topics: [
+    "the relativistic string and the Nambu–Goto action",
+    "the Polyakov action and worldsheet symmetries",
+    "mode expansion and canonical quantization",
+    "the critical dimension and the conformal anomaly",
+    "worldsheet conformal field theory and the Weyl anomaly",
+    "the bosonic string spectrum and the tachyon",
+    "superstrings: RNS and Green–Schwarz formulations",
+    "the GSO projection and spacetime supersymmetry",
+    "vertex operators and string scattering amplitudes",
+    "T-duality and compactification on circles",
+    "D-branes, open strings, and gauge fields",
+    "the five superstring theories and their dualities",
+    "M-theory and eleven-dimensional supergravity",
+    "Calabi–Yau compactification and moduli",
+    "string phenomenology and the landscape",
+    "the low-energy effective action and supergravity limits",
+  ],
+  recommended: [
+    res("String Theory", "David Tong", { type: "notes", free: true, url: "https://www.damtp.cam.ac.uk/user/tong/string.html" }),
+    res("String Theory, Vols. 1–2", "Joseph Polchinski", { type: "textbook", free: false }),
+    res("String Theory and M-Theory", "Becker, Becker & Schwarz", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Superstring Theory, Vols. 1–2", "Green, Schwarz & Witten", { type: "textbook" }),
+    res("A First Course in String Theory", "Barton Zwiebach", { type: "textbook" }),
+    res("Basic Concepts of String Theory", "Blumenhagen, Lüst & Theisen", { type: "textbook" }),
+  ],
+});

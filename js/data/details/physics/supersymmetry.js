@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Supersymmetry is a spacetime symmetry relating bosons and fermions, extending the Poincaré algebra by fermionic generators whose anticommutators close on the momentum operator, the unique nontrivial extension permitted by the Haag–Łopuszański–Sohnius theorem. Its representations pair particles of equal mass differing by half a unit of spin into supermultiplets, and the formalism of superspace and superfields packages these components into chiral and vector superfields on which supersymmetric actions are built economically. The interactions of chiral superfields are governed by a holomorphic superpotential whose form is protected by powerful non-renormalization theorems, so that many quantities receive no perturbative quantum corrections and the theory exhibits remarkable ultraviolet behavior. Supersymmetric gauge theories couple vector superfields to matter and, when supersymmetry is spontaneously or softly broken, provide the framework for the Minimal Supersymmetric Standard Model, addressing the gauge hierarchy problem and predicting superpartners stabilized by R-parity. Seiberg duality and the exact results of Seiberg and Witten reveal the nonperturbative structure of these theories, including confinement, chiral symmetry breaking, and electric-magnetic duality. Promoting supersymmetry to a local symmetry yields supergravity, unifying the framework with general relativity. This course develops the algebra, superspace methods, dynamics, and phenomenology at a graduate and research level.",
+  topics: [
+    "the supersymmetry algebra and central charges",
+    "superspace and the superfield formalism",
+    "chiral and antichiral superfields",
+    "vector superfields and gauge supermultiplets",
+    "the Wess–Zumino model",
+    "the superpotential and F- and D-terms",
+    "non-renormalization theorems",
+    "supersymmetric gauge theories and matter coupling",
+    "spontaneous SUSY breaking: F-term and D-term",
+    "soft SUSY breaking and mediation mechanisms",
+    "the MSSM spectrum and superpartners",
+    "R-parity and dark matter candidates",
+    "the Coleman–Mandula theorem and its evasion",
+    "Seiberg duality and electric-magnetic duality",
+    "Seiberg–Witten theory and N=2 dynamics",
+    "supergravity and local supersymmetry (overview)",
+  ],
+  recommended: [
+    res("Supersymmetry and Supergravity", "Julius Wess & Jonathan Bagger", { type: "textbook", free: false }),
+    res("The Quantum Theory of Fields, Vol. 3: Supersymmetry", "Steven Weinberg", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Weak Scale Supersymmetry", "Howard Baer & Xerxes Tata", { type: "textbook" }),
+    res("Modern Supersymmetry: Dynamics and Duality", "John Terning", { type: "textbook" }),
+    res("A Supersymmetry Primer", "Stephen P. Martin", { type: "notes" }),
+  ],
+});

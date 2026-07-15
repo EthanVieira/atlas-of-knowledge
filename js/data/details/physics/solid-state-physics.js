@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Solid state physics studies the electronic, thermal, magnetic, and structural properties of crystalline matter, building a quantitative bridge between quantum mechanics and the everyday behavior of metals, insulators, and semiconductors. The course begins with the geometry of crystals — Bravais lattices, the reciprocal lattice, and the interpretation of X-ray diffraction through Bragg's law — before introducing the free-electron models of Drude and Sommerfeld to explain conduction, heat capacity, and the Wiedemann–Franz law. Bloch's theorem then organizes electrons moving in a periodic potential into energy bands, developed both from the nearly-free-electron picture and from the tight-binding limit, which together explain why some solids are metals and others insulators or semiconductors. Lattice vibrations are quantized into phonons, whose dispersion relations govern specific heat, thermal conductivity, and electron–phonon scattering. The shape of the Fermi surface underlies transport, magnetotransport, and quantum oscillation phenomena, while exchange interactions give rise to the various forms of magnetic order. The course closes with an introduction to superconductivity as a striking example of collective quantum behavior in the solid state. Throughout, the emphasis is on connecting microscopic models to measurable material properties.",
+  topics: [
+    "Bravais lattices and crystal structure",
+    "the reciprocal lattice and Brillouin zones",
+    "X-ray diffraction and Bragg's law",
+    "the Drude model of conduction",
+    "the Sommerfeld free-electron model",
+    "Bloch's theorem and periodic potentials",
+    "nearly-free-electron band structure",
+    "tight-binding models",
+    "semiconductors, doping, and the band gap",
+    "phonons and lattice dynamics",
+    "thermal and electrical transport",
+    "the Fermi surface and quantum oscillations",
+    "electron-phonon interactions",
+    "magnetism and exchange interactions",
+    "the Hall effect and magnetotransport",
+    "introduction to superconductivity",
+  ],
+  recommended: [
+    res("Applications of Quantum Mechanics", "David Tong", { type: "notes", free: true, url: "https://www.damtp.cam.ac.uk/user/tong/aqm.html" }),
+    res("Solid State Physics", "Neil W. Ashcroft and N. David Mermin", { type: "textbook" }),
+    res("Introduction to Solid State Physics", "Charles Kittel", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("The Oxford Solid State Basics", "Steven H. Simon", { type: "textbook" }),
+    res("Band Theory and Electronic Properties of Solids", "John Singleton", { type: "textbook" }),
+    res("Principles of the Theory of Solids", "J. M. Ziman", { type: "textbook" }),
+  ],
+});

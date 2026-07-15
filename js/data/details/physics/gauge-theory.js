@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Gauge theory is the mathematical and physical language underlying the Standard Model, promoting global internal symmetries to local ones and thereby dictating the form of the fundamental interactions. Starting from abelian gauge invariance in electromagnetism, the course generalizes to non-abelian Yang-Mills theory, where the gauge fields transform in the adjoint representation of a Lie algebra and interact with themselves. The geometric interpretation in terms of fiber bundles, connections, and curvature is developed alongside gauge-invariant observables such as Wilson loops. Quantization is carried out through the path integral, requiring gauge fixing via the Faddeev-Popov procedure and the introduction of ghost fields, whose consistency is guaranteed by the residual BRST symmetry. The course treats spontaneous symmetry breaking and the Higgs mechanism by which gauge bosons acquire mass, and analyzes the deep quantum properties of non-abelian theories: asymptotic freedom, the role of instantons and the vacuum structure, chiral anomalies, and the still-open problem of color confinement. Together these ideas explain both the electroweak sector and the strong interactions described by quantum chromodynamics.",
+  topics: [
+    "abelian gauge invariance & electromagnetism",
+    "non-abelian gauge symmetry",
+    "Yang–Mills theory & the field strength",
+    "Lie algebras & the adjoint representation",
+    "fiber bundles, connections & curvature",
+    "Wilson loops & gauge-invariant observables",
+    "path-integral quantization of gauge fields",
+    "gauge fixing & Faddeev–Popov ghosts",
+    "BRST symmetry & Ward identities",
+    "spontaneous symmetry breaking",
+    "the Higgs mechanism",
+    "asymptotic freedom & the QCD beta function",
+    "instantons & vacuum structure",
+    "chiral & gauge anomalies",
+    "confinement & the strong-coupling regime",
+  ],
+  recommended: [
+    res("Gauge Theory", "David Tong", { type: "notes", free: true, url: "https://www.damtp.cam.ac.uk/user/tong/gaugetheory.html" }),
+    res("Quantum Field Theory in a Nutshell", "A. Zee", { type: "textbook" }),
+    res("The Quantum Theory of Fields, Vol. 2", "Steven Weinberg", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Gauge Theories in Particle Physics", "Ian Aitchison & Anthony Hey", { type: "textbook" }),
+    res("Quantum Field Theory and the Standard Model", "Matthew Schwartz", { type: "textbook" }),
+    res("Geometry, Topology and Physics", "Mikio Nakahara", { type: "reference" }),
+    res("An Introduction to Quantum Field Theory", "Michael Peskin & Daniel Schroeder", { type: "textbook" }),
+  ],
+});

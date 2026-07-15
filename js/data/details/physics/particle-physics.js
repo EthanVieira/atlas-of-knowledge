@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Particle physics studies the elementary constituents of matter and the forces that govern their interactions, organizing a once-bewildering zoo of particles into the elegant structure of the Standard Model. Building on quantum field theory, the course reviews relativistic kinematics, cross sections, and decay rates, and uses conservation laws and the discrete symmetries C, P, and T to constrain allowed processes. It develops the quark model of hadrons, the classification of mesons and baryons by isospin and flavor, and the evidence for quarks from deep inelastic scattering and the parton picture. Electromagnetic and strong processes are treated through quantum electrodynamics and quantum chromodynamics, while the weak interaction is introduced with its characteristic parity violation and unified with electromagnetism in the electroweak theory. Neutrino masses and oscillations are examined as physics informing and extending the Standard Model. Throughout, the course connects theory to experiment, discussing detectors, accelerators, and the phenomenology by which fundamental parameters are measured.",
+  topics: [
+    "the particle zoo & the Standard Model",
+    "conservation laws & quantum numbers",
+    "relativistic kinematics & Mandelstam variables",
+    "cross sections & decay rates",
+    "discrete symmetries C, P, T & CPT",
+    "isospin & flavor symmetry",
+    "the quark model & hadron classification",
+    "QED processes & Feynman calculus",
+    "QCD, color & asymptotic freedom",
+    "deep inelastic scattering & partons",
+    "the weak interaction & parity violation",
+    "electroweak unification & the Higgs boson",
+    "neutrino masses & oscillations",
+    "CP violation & the CKM matrix",
+    "accelerators, detectors & phenomenology",
+  ],
+  recommended: [
+    res("Introduction to Elementary Particles", "David J. Griffiths", { type: "textbook" }),
+    res("Modern Particle Physics", "Mark Thomson", { type: "textbook" }),
+    res("Quarks and Leptons", "Francis Halzen & Alan Martin", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Particle Physics", "David Tong", { type: "notes", free: true, url: "https://www.damtp.cam.ac.uk/user/tong/particle.html" }),
+    res("Dynamics of the Standard Model", "John Donoghue, Eugene Golowich & Barry Holstein", { type: "textbook" }),
+    res("Review of Particle Physics", "Particle Data Group", { type: "reference" }),
+    res("Gauge Theories in Particle Physics", "Ian Aitchison & Anthony Hey", { type: "textbook" }),
+  ],
+});

@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Statistical mechanics builds the bridge from the microscopic laws governing atoms and molecules to the macroscopic thermodynamic behavior of matter in bulk. Starting from the fundamental postulate of equal a priori probabilities, it introduces the microcanonical, canonical, and grand canonical ensembles and shows how the partition function encodes all thermodynamic information through free energies. The framework explains entropy as a measure of accessible microstates, derives the laws of thermodynamics, and quantifies fluctuations about equilibrium. Quantum statistics of indistinguishable particles yields Bose-Einstein and Fermi-Dirac distributions, accounting for phenomena such as blackbody radiation, Bose-Einstein condensation, the degenerate electron gas, and the heat capacity of solids. The subject also treats interacting systems through cluster and virial expansions, mean-field theory, and provides a first look at phase transitions and critical phenomena. Mastery of these ideas underpins condensed matter physics, astrophysics, chemistry, and modern approaches to complex and disordered systems.",
+  topics: [
+    "fundamental postulate and equal a priori probabilities",
+    "microcanonical ensemble and entropy",
+    "canonical ensemble and the partition function",
+    "grand canonical ensemble and chemical potential",
+    "free energies and thermodynamic potentials",
+    "equipartition theorem and the classical ideal gas",
+    "Maxwell-Boltzmann velocity distribution",
+    "fluctuations and thermodynamic stability",
+    "quantum statistics: bosons and fermions",
+    "Fermi-Dirac statistics and the degenerate electron gas",
+    "Bose-Einstein statistics and condensation",
+    "blackbody radiation and the photon gas",
+    "heat capacity of solids: Einstein and Debye models",
+    "interacting gases: virial and cluster expansions",
+    "mean-field theory and the Ising model",
+    "introduction to phase transitions and critical phenomena",
+  ],
+  recommended: [
+    res("Statistical Physics", "David Tong", { type: "notes", free: true, url: "https://www.damtp.cam.ac.uk/user/tong/statphys.html" }),
+    res("Statistical Mechanics: Entropy, Order Parameters, and Complexity", "James P. Sethna", { type: "textbook", free: true, url: "https://sethna.lassp.cornell.edu/StatMech/" }),
+    res("Statistical Physics of Particles", "Mehran Kardar", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Fundamentals of Statistical and Thermal Physics", "Frederick Reif", { type: "textbook" }),
+    res("Statistical Mechanics", "R. K. Pathria", { type: "textbook" }),
+    res("Statistical Mechanics: A Set of Lectures", "Richard P. Feynman", { type: "textbook" }),
+  ],
+});

@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Fluid Dynamics studies the motion of liquids and gases from first principles, taking the continuum description and the balance laws as its starting point and specializing them to flowing matter. The course derives the continuity equation and the Euler equations for ideal flow, then adds viscous stresses to obtain the Navier-Stokes equations that govern real fluids. Central concepts include vorticity and circulation, potential flow for irrotational incompressible motion, and Bernoulli's theorem relating pressure and velocity along streamlines. Viscous phenomena are explored through exact solutions, the physics of boundary layers, and the role of the Reynolds number in dimensional analysis and dynamic similarity. The course examines hydrodynamic instabilities and the transition to turbulence, introducing statistical descriptions and energy-cascade ideas. Emphasis is placed on both the mathematical structure of the governing equations and physical intuition for flow phenomena, preparing students for aerodynamics, geophysical flows, and astrophysical fluid dynamics.",
+  topics: [
+    "Continuum hypothesis and material derivative",
+    "Continuity equation and incompressibility",
+    "Euler equations for ideal flow",
+    "Bernoulli's theorem and its applications",
+    "Vorticity, circulation, and Kelvin's theorem",
+    "Potential (irrotational) flow and complex methods",
+    "Navier-Stokes equations",
+    "Exact viscous solutions (Couette, Poiseuille, Stokes flow)",
+    "Dimensional analysis and the Reynolds number",
+    "Dynamic similarity and scaling",
+    "Boundary layers and Prandtl's theory",
+    "Flow separation and drag",
+    "Hydrodynamic instabilities",
+    "Transition to turbulence",
+    "Statistical description of turbulence and the energy cascade",
+    "Waves in fluids and compressible flow",
+  ],
+  recommended: [
+    res("An Introduction to Fluid Dynamics", "G. K. Batchelor", { type: "textbook", free: false }),
+    res("Fluid Mechanics", "L. D. Landau and E. M. Lifshitz", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Elementary Fluid Dynamics", "D. J. Acheson", { type: "textbook" }),
+    res("Physical Fluid Dynamics", "D. J. Tritton", { type: "textbook" }),
+    res("Turbulence: The Legacy of A. N. Kolmogorov", "Uriel Frisch", { type: "textbook" }),
+  ],
+});

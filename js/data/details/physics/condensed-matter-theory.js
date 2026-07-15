@@ -1,0 +1,32 @@
+registerDetail({
+  long: "Condensed matter theory applies the machinery of quantum field theory and statistical mechanics to the emergent, collective phenomena of interacting many-particle systems. A central organizing theme is spontaneous symmetry breaking: an order parameter distinguishes phases, Landau theory captures the phenomenology of phase transitions, and broken continuous symmetries produce gapless Goldstone modes such as phonons and spin waves. The course develops the path-integral formulation, including bosonic and fermionic coherent states, as the natural framework for treating superfluidity, superconductivity, and quantum criticality. The quantum Hall effect — both integer and fractional — introduces topology into condensed matter through Berry phases, Chern numbers, and incompressible correlated liquids with fractionalized excitations. Strongly correlated electrons are studied through the Hubbard model, Mott insulators, and the quantum magnetism that emerges at strong coupling. The course culminates in modern topics including field theories of condensed matter systems, continuous quantum phase transitions driven by tuning parameters at zero temperature, and topological order that lies beyond the Landau symmetry-breaking paradigm. Throughout, the goal is to see how simple microscopic rules generate rich emergent physics that cannot be anticipated from the constituents alone.",
+  topics: [
+    "spontaneous symmetry breaking and order parameters",
+    "Landau theory of phase transitions",
+    "Goldstone modes and rigidity",
+    "coherent-state path integrals",
+    "superfluidity and the Bose condensate",
+    "the integer quantum Hall effect",
+    "the fractional quantum Hall effect",
+    "Berry phases and Berry curvature",
+    "Mott insulators and the Hubbard model",
+    "quantum magnetism and spin models",
+    "field theory of condensed matter",
+    "quantum phase transitions and criticality",
+    "topological order",
+    "renormalization group in condensed matter",
+    "fractionalization and emergent gauge fields",
+    "response functions and effective actions",
+  ],
+  recommended: [
+    res("Quantum Hall Effect", "David Tong", { type: "notes", free: true, url: "https://www.damtp.cam.ac.uk/user/tong/qhe.html" }),
+    res("Condensed Matter Field Theory", "Alexander Altland and Ben Simons", { type: "textbook" }),
+    res("Introduction to Many-Body Physics", "Piers Coleman", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Quantum Field Theory in Condensed Matter Physics", "Alexei M. Tsvelik", { type: "textbook" }),
+    res("Field Theories of Condensed Matter Physics", "Eduardo Fradkin", { type: "textbook" }),
+    res("Basic Notions of Condensed Matter Physics", "Philip W. Anderson", { type: "textbook" }),
+    res("Principles of Condensed Matter Physics", "P. M. Chaikin and T. C. Lubensky", { type: "textbook" }),
+  ],
+});

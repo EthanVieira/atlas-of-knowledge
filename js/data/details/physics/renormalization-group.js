@@ -1,0 +1,30 @@
+registerDetail({
+  long: "The renormalization group (RG) is the organizing principle that explains how physical descriptions change as one varies the energy or length scale at which a system is probed. Building on quantum field theory and statistical mechanics, this course develops the Wilsonian picture in which one integrates out short-distance modes to obtain an effective field theory for the remaining long-distance degrees of freedom. It shows how this coarse-graining generates a flow in the space of couplings, governed by beta functions, whose fixed points correspond to scale-invariant theories and critical phenomena. The classification of operators as relevant, irrelevant, or marginal explains why only a handful of parameters matter at low energies and underlies the remarkable universality of critical exponents across microscopically distinct systems. The Callan-Symanzik equation provides the field-theoretic formulation, encoding anomalous dimensions and the running of couplings. Practical calculational tools are developed, including the epsilon-expansion around four dimensions, and the framework is applied to phenomena ranging from second-order phase transitions to the asymptotic freedom of non-abelian gauge theories.",
+  topics: [
+    "effective field theory & scale separation",
+    "the Wilsonian renormalization group",
+    "integrating out high-momentum modes",
+    "coarse-graining & block-spin transformations",
+    "the Callan–Symanzik equation",
+    "beta functions & running couplings",
+    "fixed points of the RG flow",
+    "relevant, irrelevant & marginal operators",
+    "universality & universality classes",
+    "critical exponents & scaling laws",
+    "anomalous dimensions",
+    "the ε-expansion near four dimensions",
+    "the Gaussian & Wilson–Fisher fixed points",
+    "asymptotic freedom & infrared slavery",
+    "crossover & scaling functions",
+  ],
+  recommended: [
+    res("Scaling and Renormalization in Statistical Physics", "John Cardy", { type: "textbook" }),
+    res("Quantum and Statistical Field Theory", "Michel Le Bellac", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Statistical Field Theory", "David Tong", { type: "notes", free: true, url: "https://www.damtp.cam.ac.uk/user/tong/sft.html" }),
+    res("The Theory of Critical Phenomena", "J. J. Binney et al.", { type: "textbook" }),
+    res("Lectures on Phase Transitions and the Renormalization Group", "Nigel Goldenfeld", { type: "textbook" }),
+    res("Quantum Field Theory and Critical Phenomena", "Jean Zinn-Justin", { type: "reference" }),
+  ],
+});

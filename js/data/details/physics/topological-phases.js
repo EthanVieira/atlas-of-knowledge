@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Topological phases of matter are states whose defining properties are protected by global, topological features of their quantum wavefunctions rather than by local order parameters, so they cannot be characterized within the Landau symmetry-breaking paradigm. The course begins with the geometric foundations — the Berry phase and Berry curvature — and shows how integrating the curvature over a Brillouin zone yields the quantized Chern number, identified with the TKNN invariant that explains the exact quantization of the integer quantum Hall conductance. Simple lattice models such as Su–Schrieffer–Heeger illustrate topological band theory, winding numbers, and the bulk–boundary correspondence, whereby a nontrivial bulk invariant forces protected gapless states at the sample edge. Time-reversal symmetry introduces the ℤ₂ topological insulators in two and three dimensions, with their helical edge and surface states. The course then turns to superconducting analogs hosting Majorana bound states, and to the fractional quantum Hall effect, where anyons carry fractional charge and statistics and realize genuine topological order with ground-state degeneracy on nontrivial manifolds. Symmetry-protected topological phases and the tenfold classification of free-fermion systems organize these examples into a unified periodic-table framework. The emphasis throughout is on invariants, protected boundary modes, and the interplay of symmetry and topology.",
+  topics: [
+    "the Berry phase and Berry curvature",
+    "the Chern number and TKNN invariant",
+    "the integer quantum Hall effect",
+    "the fractional quantum Hall effect",
+    "the Su-Schrieffer-Heeger model",
+    "topological band theory and winding numbers",
+    "Z2 topological insulators",
+    "the bulk-boundary correspondence",
+    "protected edge and surface states",
+    "Majorana fermions and topological superconductors",
+    "anyons and fractional statistics",
+    "topological order and ground-state degeneracy",
+    "symmetry-protected topological phases",
+    "the tenfold classification of free fermions",
+    "time-reversal and particle-hole symmetry",
+    "topological quantum computation",
+  ],
+  recommended: [
+    res("Topology in Condensed Matter", "TU Delft (Akhmerov et al.)", { type: "interactive", free: true, url: "https://topocondmat.org/" }),
+    res("Topological Insulators and Topological Superconductors", "B. Andrei Bernevig and Taylor L. Hughes", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("A Short Course on Topological Insulators", "Janos K. Asboth, Laszlo Oroszlany, and Andras Palyi", { type: "textbook" }),
+    res("Topological Insulators and Topological Superconductors: Colloquium", "M. Z. Hasan and C. L. Kane", { type: "reference" }),
+    res("Quantum Field Theory of Many-Body Systems", "Xiao-Gang Wen", { type: "textbook" }),
+  ],
+});

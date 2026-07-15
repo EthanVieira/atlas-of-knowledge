@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Optics develops the physics of light from the ray picture through the full wave and Fourier-optical treatments, building directly on electromagnetism and the theory of waves and oscillations. It begins with geometric optics and the matrix (ABCD) formalism for imaging systems, then treats interference in thin films and interferometers, and the scalar diffraction theory underlying Fraunhofer and Fresnel patterns. Polarization is analyzed with Jones and Stokes descriptions, while coherence theory connects the statistical properties of light sources to fringe visibility. A central thread is Fourier optics, in which a lens performs a spatial Fourier transform and diffraction gratings, apertures, and spatial filters are understood as operations in the frequency domain. The course closes with modern topics: the physics of lasers, Gaussian-beam propagation, and resonator modes. Throughout, the emphasis is on quantitative prediction of observable intensity distributions and on the unifying role of the wave equation.",
+  topics: [
+    "Geometric optics and Fermat's principle",
+    "Matrix (ABCD) ray optics and imaging systems",
+    "Aberrations and optical instruments",
+    "Superposition and two-beam interference",
+    "Thin-film interference and interferometers",
+    "Multiple-beam interference and Fabry-Perot etalons",
+    "Fraunhofer diffraction",
+    "Fresnel diffraction and the Fresnel zone construction",
+    "Diffraction gratings and spectral resolution",
+    "Polarization: Jones and Stokes-Mueller calculus",
+    "Birefringence and wave plates",
+    "Temporal and spatial coherence",
+    "Fourier optics and spatial filtering",
+    "Abbe theory of image formation",
+    "Lasers, resonator modes, and stimulated emission",
+    "Gaussian beams and beam propagation",
+  ],
+  recommended: [
+    res("Optics", "Eugene Hecht", { type: "textbook", free: false }),
+    res("Principles of Optics", "Max Born and Emil Wolf", { type: "textbook", free: false }),
+  ],
+  supplementary: [
+    res("Introduction to Fourier Optics", "Joseph W. Goodman", { type: "textbook" }),
+    res("Lasers", "Anthony E. Siegman", { type: "textbook" }),
+    res("Fundamentals of Photonics", "Bahaa Saleh and Malvin Teich", { type: "textbook" }),
+  ],
+});
