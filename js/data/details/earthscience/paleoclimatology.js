@@ -1,0 +1,32 @@
+registerDetail({
+  long: "Paleoclimatology reconstructs the history of Earth's climate before the instrumental record using proxies preserved in natural archives. The course explains how physical, chemical, and biological signals in ice cores, marine and lake sediments, tree rings, corals, speleothems, and rocks record temperature, ice volume, greenhouse-gas concentrations, and circulation. Oxygen-isotope paleothermometry and ice-core gas records are treated in detail as cornerstones of quantitative reconstruction. The course traces climate across geologic time, from the faint young Sun paradox and Snowball Earth episodes through greenhouse and icehouse worlds to the long Cenozoic cooling that led into the ice ages. Orbital (Milankovitch) forcing is developed as the pacemaker of glacial-interglacial cycles, and the record of abrupt change, including Dansgaard-Oeschger events and the Younger Dryas, is examined for what it reveals about climate thresholds. Attention to the Holocene and the climate of the last millennium connects deep-time perspective to the context of present-day warming. Throughout, the course emphasizes the strengths, limitations, and dating of each proxy system.",
+  topics: [
+    "Climate proxies and natural archives",
+    "Oxygen-isotope paleothermometry",
+    "Ice cores and greenhouse-gas records",
+    "Marine sediment records and foraminifera",
+    "The deep-time climate record",
+    "Greenhouse and icehouse worlds",
+    "The faint young Sun paradox",
+    "Snowball Earth episodes",
+    "The Cenozoic cooling trend",
+    "Milankovitch cycles and orbital forcing",
+    "Glacial-interglacial cycles",
+    "Abrupt climate change (Dansgaard-Oeschger, Younger Dryas)",
+    "The Holocene climate",
+    "Climate of the last millennium",
+    "Geochronology and age-depth models",
+    "Dansgaard-Oeschger and Heinrich events",
+  ],
+  recommended: [
+    res("Earth's Climate: Past and Future", "William F. Ruddiman", { type: "textbook" }),
+    res("Paleoclimates: Understanding Climate Change Past and Present", "Thomas M. Cronin", { type: "textbook" }),
+    res("IPCC Assessment Reports (Paleoclimate chapters)", "Intergovernmental Panel on Climate Change", { type: "reference", free: true, url: "https://www.ipcc.ch/reports/" }),
+  ],
+  supplementary: [
+    res("The Climate of the Past", "Thomas Stocker", { type: "notes" }),
+    res("Paleoclimatology", "Raymond S. Bradley", { type: "textbook" }),
+    res("Ice Ages and Astronomical Causes", "Richard A. Muller & Gordon J. MacDonald", { type: "reference" }),
+    res("Frozen Earth: The Once and Future Story of Ice Ages", "Doug Macdougall", { type: "reference" }),
+  ],
+});

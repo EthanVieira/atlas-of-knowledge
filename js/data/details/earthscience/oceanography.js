@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Oceanography is the interdisciplinary study of the ocean, integrating the physics, chemistry, geology, and biology of the marine environment. The physical branch describes the properties of seawater—temperature, salinity, and density—linked through the nonlinear equation of state that governs stratification and the formation of distinct water masses. Large-scale circulation arises from two coupled systems: the wind-driven surface circulation, shaped by Ekman transport and geostrophic balance, and the density-driven thermohaline (overturning) circulation that ventilates the deep ocean over centuries. Concentrated western boundary currents such as the Gulf Stream carry heat poleward, while coastal upwelling brings nutrient-rich water to the surface and sustains marine productivity. Waves and tides transfer energy across scales, from wind-generated surface waves and internal waves to the astronomically forced tides. Air-sea interaction couples the ocean to the atmosphere, regulating climate through exchanges of heat, momentum, and gases. Ocean chemistry, including the carbonate system, controls the ocean's uptake of carbon dioxide and its role in the global carbon cycle, tying physical circulation to biological and climatic processes.",
+  topics: [
+    "The shape and sediments of ocean basins",
+    "Seawater properties: temperature, salinity, and density",
+    "The equation of state of seawater",
+    "Ocean stratification and water masses",
+    "Wind-driven surface circulation",
+    "Ekman transport and geostrophy",
+    "The thermohaline (overturning) circulation",
+    "Western boundary currents",
+    "Surface and internal waves",
+    "Tides",
+    "Coastal upwelling",
+    "Air-sea interaction and heat exchange",
+    "Ocean chemistry and the carbonate system",
+    "Marine biological productivity",
+    "El Nino and ocean-atmosphere variability",
+    "Ocean observing and measurement methods",
+  ],
+  recommended: [
+    res("Descriptive Physical Oceanography", "Talley, Pickard, Emery & Swift", { type: "textbook" }),
+    res("Essentials of Oceanography", "Alan Trujillo & Harold Thurman", { type: "textbook" }),
+    res("Geosciences (Oceanography)", "LibreTexts", { type: "reference", free: true, url: "https://geo.libretexts.org/" }),
+  ],
+  supplementary: [
+    res("Introduction to Physical Oceanography", "Robert H. Stewart", { type: "textbook" }),
+    res("Ocean Circulation", "Open University", { type: "textbook" }),
+    res("Chemical Oceanography", "Frank J. Millero", { type: "textbook" }),
+  ],
+});

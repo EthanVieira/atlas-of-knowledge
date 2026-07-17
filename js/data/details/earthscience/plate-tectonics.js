@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Plate tectonics is the unifying theory of the solid Earth, describing the outer lithosphere as a set of rigid plates that move over the ductile asthenosphere. This course develops the paradigm from its observational foundations—seafloor spreading, symmetric magnetic stripes, and the fit of continents—to a quantitative kinematic and dynamic framework. Plate motions are treated rigorously with Euler poles and rotation vectors on a sphere, and the three boundary types—divergent, convergent, and transform—are analyzed through their geology and geophysics. Mid-ocean ridges, subduction zones and volcanic arcs, continental collision and orogeny, and the Wilson cycle of ocean opening and closing organize the large-scale behavior. Geodynamics supplies the mechanics: stress in the lithosphere, flexure and isostasy, heat conduction and mantle convection, and the balance of driving forces such as slab pull and ridge push against mantle drag. Mantle plumes and hotspots are examined as a complement to plate-boundary processes. The result is a physically grounded account of how and why plates move.",
+  topics: [
+    "The plate-tectonic paradigm and rigid-plate model",
+    "Seafloor spreading and magnetic stripe anomalies",
+    "Divergent, convergent, and transform boundaries",
+    "Euler poles and plate-kinematic reconstructions",
+    "Mid-ocean ridges and oceanic lithosphere evolution",
+    "Subduction zones, slabs, and volcanic arcs",
+    "Continental collision and orogeny",
+    "Transform faults and fracture zones",
+    "Mantle convection and thermal plumes",
+    "The Wilson cycle",
+    "Stress and rheology of the lithosphere",
+    "Lithospheric flexure and isostasy",
+    "Conductive and convective heat transport",
+    "Driving forces: slab pull, ridge push, mantle drag",
+    "Thermal structure and cooling of oceanic plates",
+    "Triple junctions and their stability",
+  ],
+  recommended: [
+    res("Global Tectonics", "Philip Kearey, Keith A. Klepeis & Frederick J. Vine", { type: "textbook" }),
+    res("Geodynamics", "Donald L. Turcotte & Gerald Schubert", { type: "textbook" }),
+    res("Plate Tectonics: How It Works", "Allan Cox & Robert Brian Hart", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("The Solid Earth: An Introduction to Global Geophysics", "C. M. R. Fowler", { type: "textbook" }),
+    res("Mantle Convection in the Earth and Planets", "Gerald Schubert, Donald Turcotte & Peter Olson", { type: "textbook" }),
+    res("Earth Structure: An Introduction to Structural Geology and Tectonics", "Ben A. van der Pluijm & Stephen Marshak", { type: "textbook" }),
+  ],
+});

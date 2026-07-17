@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Glaciology is the study of ice in the natural environment, focusing on the physics of glaciers, ice sheets, and the transformation of snow into flowing ice. Accumulating snow densifies through firn into glacial ice, and the balance between accumulation and ablation—the mass balance—determines whether a glacier advances, retreats, or maintains equilibrium. The flow of ice is governed by its rheology, expressed through Glen's flow law, which relates the strain rate to stress in a nonlinear, temperature-dependent manner. Glacier motion combines internal deformation with basal sliding, the latter strongly modulated by subglacial hydrology and the thermal regime at the bed. Fast-flowing ice streams and outlet glaciers dominate the discharge of ice sheets and are central to projections of sea-level rise, while calving controls mass loss at marine margins. Glaciers sculpt landscapes through erosion and deposition, and their weight drives isostatic adjustment of the crust. Ice cores preserve a detailed archive of past climate, and modern remote sensing enables monitoring of ice velocity, thickness, and mass change across the cryosphere.",
+  topics: [
+    "Snow, firn, and the transformation to glacial ice",
+    "Glacier mass balance",
+    "Glacier thermodynamics and ice temperature",
+    "Ice rheology and Glen's flow law",
+    "Glacier flow and internal deformation",
+    "Basal sliding and subglacial hydrology",
+    "Ice streams and fast flow",
+    "Ice sheets and their dynamics",
+    "Glacial isostasy and crustal adjustment",
+    "Glacial erosion and landforms",
+    "Iceberg calving and marine margins",
+    "Glaciers and sea-level change",
+    "Ice cores and paleoclimate reconstruction",
+    "Remote sensing of ice",
+    "Glacier surges and instabilities",
+    "Permafrost and the wider cryosphere",
+  ],
+  recommended: [
+    res("The Physics of Glaciers", "Kurt M. Cuffey & W. S. B. Paterson", { type: "textbook" }),
+    res("Principles of Glacier Mechanics", "Roger LeB. Hooke", { type: "textbook" }),
+    res("Geosciences (Glaciology)", "LibreTexts", { type: "reference", free: true, url: "https://geo.libretexts.org/" }),
+  ],
+  supplementary: [
+    res("Dynamics of Ice Sheets and Glaciers", "Ralf Greve & Heinz Blatter", { type: "textbook" }),
+    res("Glaciers and Glaciation", "Douglas Benn & David Evans", { type: "textbook" }),
+    res("Fundamentals of Glacier Dynamics", "C. J. van der Veen", { type: "textbook" }),
+  ],
+});

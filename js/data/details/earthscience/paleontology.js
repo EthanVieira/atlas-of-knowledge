@@ -1,0 +1,32 @@
+registerDetail({
+  long: "Paleontology is the study of ancient life through the fossil record, integrating biology, geology, and evolutionary theory. The course begins with the processes of fossilization and taphonomy that determine what is preserved, and with the biases and completeness of the record itself. Systematics and phylogenetics provide the framework for classifying fossil organisms and reconstructing their evolutionary relationships, while functional morphology infers how extinct organisms lived. Students survey the major fossil groups, from invertebrates and vertebrates to plants and microfossils, and examine the tempo and mode of evolution, speciation, and extinction as read from stratigraphic ranges. Mass extinctions and long-term patterns of macroevolution and biodiversity are analyzed quantitatively. Paleoecology, biostratigraphy, and trace fossils link organisms to their environments and to the dating and correlation of strata. The course closes with the origin and early evolution of life and with exceptional fossil deposits (Lagerstätten) that preserve soft tissues and rare glimpses of past ecosystems.",
+  topics: [
+    "Fossilization and taphonomy",
+    "Completeness and biases of the fossil record",
+    "Systematics and phylogenetics",
+    "Functional morphology and paleobiology",
+    "Major invertebrate fossil groups",
+    "Vertebrate paleontology",
+    "Paleobotany and plant fossils",
+    "Micropaleontology and microfossils",
+    "Evolutionary tempo and mode",
+    "Speciation and extinction in the record",
+    "Mass extinctions",
+    "Macroevolution and diversity through time",
+    "Paleoecology and paleoenvironments",
+    "Biostratigraphy and correlation",
+    "Trace fossils (ichnology)",
+    "Origin of life and exceptional preservation (Lagerstätten)",
+  ],
+  recommended: [
+    res("Introduction to Paleobiology and the Fossil Record", "Michael J. Benton & David A. T. Harper", { type: "textbook" }),
+    res("Bringing Fossils to Life: An Introduction to Paleobiology", "Donald R. Prothero", { type: "textbook" }),
+    res("Geosciences (Paleontology)", "LibreTexts", { type: "reference", free: true, url: "https://geo.libretexts.org/" }),
+  ],
+  supplementary: [
+    res("Principles of Paleontology", "Michael Foote & Arnold I. Miller", { type: "textbook" }),
+    res("Vertebrate Palaeontology", "Michael J. Benton", { type: "textbook" }),
+    res("Invertebrate Palaeontology and Evolution", "E. N. K. Clarkson", { type: "textbook" }),
+    res("The Fossil Record and Evolution", "Readings in Scientific American", { type: "reference" }),
+  ],
+});

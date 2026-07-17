@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Geochemistry applies the principles of chemistry and thermodynamics to understand the composition, evolution, and processes of the Earth and the solar system. The course opens with cosmochemistry and the abundances of the elements, then organizes elemental behavior through the periodic table and the geochemical classification into lithophile, siderophile, chalcophile, and atmophile groups. A rigorous foundation in chemical thermodynamics—free energy, equilibrium constants, and activity models for solids and solutions—underpins the treatment of mineral stability and reaction. Aqueous geochemistry is developed in detail: speciation, acid-base and redox equilibria in natural waters, and mineral solubility and saturation as controls on weathering and diagenesis. Trace-element partitioning between minerals and melts and the systematics of stable isotopes provide quantitative tracers of igneous and surface processes. The course connects these tools to the great geochemical cycles and to the composition of the Earth's major reservoirs—core, mantle, crust, ocean, and atmosphere. Reaction kinetics and rates round out the treatment where equilibrium is not attained.",
+  topics: [
+    "Cosmochemistry and cosmic element abundances",
+    "The periodic table and geochemical classification (Goldschmidt)",
+    "Thermodynamics of geological systems",
+    "Chemical equilibrium, activity, and fugacity",
+    "Aqueous geochemistry and aqueous speciation",
+    "Acid-base equilibria and carbonate systems",
+    "Redox reactions and Eh-pH (Pourbaix) diagrams",
+    "Mineral solubility and saturation indices",
+    "Trace-element partitioning and distribution coefficients",
+    "Stable isotope systematics and fractionation",
+    "Chemical weathering and secondary minerals",
+    "Global geochemical cycles",
+    "Composition of Earth's reservoirs (core, mantle, crust)",
+    "Reaction kinetics and rates in geochemistry",
+    "Adsorption, ion exchange, and surface chemistry",
+    "Geochemical modeling and mass balance",
+  ],
+  recommended: [
+    res("Geochemistry", "William M. White", { type: "textbook" }),
+    res("Geochemistry: An Introduction", "Francis Albarède", { type: "textbook" }),
+    res("Using Geochemical Data: Evaluation, Presentation, Interpretation", "Hugh R. Rollinson", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Principles and Applications of Geochemistry", "Gunter Faure", { type: "textbook" }),
+    res("Aquatic Chemistry", "Werner Stumm & James J. Morgan", { type: "textbook" }),
+    res("Introduction to Geochemistry: Principles and Applications", "Kula C. Misra", { type: "textbook" }),
+  ],
+});

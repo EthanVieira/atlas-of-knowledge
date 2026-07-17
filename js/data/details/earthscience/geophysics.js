@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Geophysics applies the principles of physics to the study of the solid Earth, using field observations and potential-field theory to infer the structure, composition, and dynamics of the interior. The course develops the gravity field and the geoid, showing how deviations from the reference ellipsoid reveal density anomalies and how isostatic compensation supports topography. Seismology provides the sharpest images of the interior: body and surface waves, travel times, and the radial velocity structure that defines the crust, mantle, and core. Geomagnetism is treated from the geodynamo that generates the main field to paleomagnetic records frozen into rocks that established plate motions. Thermal geophysics connects surface heat flow and the geothermal gradient to mantle convection and the planet's cooling history. Exploration methods—gravity, magnetic, electrical, electromagnetic, and seismic reflection and refraction surveying—are developed as practical inversions of the same governing physics. Throughout, quantitative treatment of potential fields, elasticity, and heat transport ties observation to the forces that drive plate tectonics.",
+  topics: [
+    "Gravity field, gravity anomalies, and the geoid",
+    "Isostasy: Airy and Pratt models, flexural compensation",
+    "The Earth's figure, reference ellipsoid, and rotation",
+    "Seismic body waves (P, S) and the wave equation",
+    "Surface waves and dispersion (Rayleigh, Love)",
+    "Radial internal structure: crust, mantle, core",
+    "Geomagnetism and the geodynamo",
+    "Paleomagnetism and apparent polar wander",
+    "Heat flow and the geothermal gradient",
+    "Mantle convection and Rayleigh number",
+    "Electrical and electromagnetic methods",
+    "Gravity and magnetic surveying and reduction",
+    "Seismic reflection and refraction surveying",
+    "Potential-field theory (Laplace, upward/downward continuation)",
+    "Elasticity and seismic velocities of rocks",
+    "Plate-driving forces (slab pull, ridge push)",
+  ],
+  recommended: [
+    res("Fundamentals of Geophysics", "William Lowrie", { type: "textbook" }),
+    res("The Solid Earth: An Introduction to Global Geophysics", "C. M. R. Fowler", { type: "textbook" }),
+    res("Geodynamics", "Donald Turcotte & Gerald Schubert", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("An Introduction to Geophysical Exploration", "Philip Kearey, Michael Brooks & Ian Hill", { type: "textbook" }),
+    res("Whole Earth Geophysics", "Robert J. Lillie", { type: "textbook" }),
+    res("Global Physics of the Earth", "MIT OpenCourseWare (12.201/12.501)", { type: "lectures" }),
+  ],
+});

@@ -1,0 +1,32 @@
+registerDetail({
+  long: "Environmental and engineering geology applies geologic knowledge to the interaction between people and the physical Earth, with the goals of reducing hazard risk and building safely on and with earth materials. The course frames geologic hazards in terms of risk and surveys the major processes that threaten life and property, including earthquakes and seismic hazard, volcanic eruptions, landslides and slope instability, flooding, coastal erosion, and land subsidence. The engineering side treats soil and rock as construction materials, covering their mechanical behavior, site investigation, and the design of foundations. A substantial portion addresses groundwater, including contamination, transport, and remediation, together with the geology of waste disposal and landfill siting. The course also examines the environmental consequences of extracting mineral and energy resources. Throughout, geologic understanding is connected to land-use planning, regulation, and public policy so that students can communicate risk and inform decisions. Case studies of past disasters illustrate how geology, engineering, and society intersect.",
+  topics: [
+    "Geologic hazards and risk assessment",
+    "Earthquakes and seismic hazard",
+    "Volcanic hazards",
+    "Landslides and slope stability",
+    "Flooding and river hazards",
+    "Coastal hazards and erosion",
+    "Land subsidence",
+    "Soil and rock as engineering materials",
+    "Foundations and site investigation",
+    "Groundwater contamination and remediation",
+    "Waste disposal and landfills",
+    "Mineral and energy resources and the environment",
+    "Land-use planning",
+    "Geology and public policy",
+    "Geotechnical properties and rock mechanics",
+    "Natural hazard mitigation and risk communication",
+  ],
+  recommended: [
+    res("Introduction to Environmental Geology", "Edward A. Keller", { type: "textbook" }),
+    res("Environmental Geology", "Carla W. Montgomery", { type: "textbook" }),
+    res("Geosciences (Environmental Geology)", "LibreTexts", { type: "reference", free: true, url: "https://geo.libretexts.org/" }),
+  ],
+  supplementary: [
+    res("Foundations of Engineering Geology", "Tony Waltham", { type: "textbook" }),
+    res("Natural Hazards: Earth's Processes as Hazards, Disasters, and Catastrophes", "Edward A. Keller & Duane E. DeVecchio", { type: "textbook" }),
+    res("Principles of Engineering Geology", "P. B. Attewell & I. W. Farmer", { type: "reference" }),
+    res("Groundwater", "R. Allan Freeze & John A. Cherry", { type: "reference" }),
+  ],
+});

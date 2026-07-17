@@ -1,0 +1,32 @@
+registerDetail({
+  long: "Climate science examines the long-term statistical behavior of the coupled atmosphere-ocean-land-ice system and the physical principles that govern its equilibrium and change. The course opens with the global energy balance and the greenhouse effect, then develops the concepts of radiative forcing, feedbacks, and climate sensitivity that determine how strongly the system responds to a perturbation. It surveys the components of the climate system and their interactions, including atmosphere-ocean coupling and dominant modes of variability such as ENSO and the North Atlantic Oscillation. The carbon cycle and other biogeochemical cycles are treated as the biogeochemical controls on greenhouse-gas concentrations, alongside the water and energy cycles that move heat and moisture around the planet. General circulation models (GCMs) are introduced as the primary tools for simulating climate and generating projections under emission scenarios. The course addresses paleoclimate evidence, cryosphere-climate interactions, anthropogenic warming, and the possibility of abrupt transitions and tipping points. Students leave able to interpret the physical basis of assessments like those of the IPCC.",
+  topics: [
+    "The global energy balance and greenhouse effect",
+    "Radiative forcing and climate feedbacks",
+    "The climate system and its components",
+    "Atmosphere-ocean coupling",
+    "Modes of variability (ENSO, NAO, PDO)",
+    "The carbon cycle and biogeochemical cycles",
+    "Climate sensitivity and its constraints",
+    "Climate models and general circulation models (GCMs)",
+    "The global water and energy cycles",
+    "Cryosphere-climate interactions",
+    "Past climates and paleoclimate proxies",
+    "Anthropogenic climate change and detection/attribution",
+    "Climate projections and emission scenarios",
+    "Tipping points and abrupt change",
+    "Ocean heat uptake and sea-level rise",
+    "Aerosols and their climate effects",
+  ],
+  recommended: [
+    res("IPCC Assessment Reports", "Intergovernmental Panel on Climate Change", { type: "reference", free: true, url: "https://www.ipcc.ch/reports/" }),
+    res("Global Physical Climatology", "Dennis L. Hartmann", { type: "textbook" }),
+    res("The Earth System", "Lee R. Kump, James F. Kasting & Robert G. Crane", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Principles of Planetary Climate", "Raymond T. Pierrehumbert", { type: "textbook" }),
+    res("A Climate Modelling Primer", "Kendal McGuffie & Ann Henderson-Sellers", { type: "textbook" }),
+    res("The Physics of Atmospheres", "John T. Houghton", { type: "reference" }),
+    res("Climate Change: The Science of Global Warming", "David Archer", { type: "notes" }),
+  ],
+});

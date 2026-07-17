@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Soil science is the study of soil as a natural body, encompassing its formation, composition, classification, and the physical, chemical, and biological processes that occur within it. Soils develop through the interaction of five factors—parent material, climate, organisms, topography, and time—which govern weathering and the differentiation of a soil profile into distinct horizons. The physical framework of texture, structure, and pore geometry controls how water and air move and are retained, described through the concepts of soil water potential and hydraulic conductivity. Chemically, clay minerals and organic colloids provide the cation exchange capacity that buffers soil pH and holds plant nutrients, linking soil fertility to mineralogy and organic matter dynamics. A diverse community of bacteria, fungi, and fauna drives decomposition and nutrient cycling, making soil a central compartment of the global carbon and nitrogen cycles. Systematic classification schemes such as Soil Taxonomy organize this diversity and support mapping and land-use decisions. The field also addresses soil erosion, degradation, and conservation practices essential to sustaining agriculture and ecosystems.",
+  topics: [
+    "Soil formation and the five factors of soil formation",
+    "Weathering and parent material",
+    "Soil horizons and profile development",
+    "Soil texture and particle-size distribution",
+    "Soil structure and aggregation",
+    "Clay mineralogy",
+    "Soil water and water potential",
+    "Soil organic matter",
+    "Cation exchange capacity and colloids",
+    "Soil pH and acidity",
+    "Plant nutrients and soil fertility",
+    "Soil biology and microbial ecology",
+    "Soil classification (Soil Taxonomy)",
+    "Soil erosion and conservation",
+    "Soils and the carbon cycle",
+    "Soil mapping and survey",
+  ],
+  recommended: [
+    res("The Nature and Properties of Soils", "Nyle C. Brady & Ray R. Weil", { type: "textbook" }),
+    res("Soil Genesis and Classification", "Randall J. Schaetzl & Michael L. Anderson", { type: "textbook" }),
+    res("Geosciences (Soil Science)", "LibreTexts", { type: "reference", free: true, url: "https://geo.libretexts.org/" }),
+  ],
+  supplementary: [
+    res("Soil Physics", "William A. Jury & Robert Horton", { type: "textbook" }),
+    res("The Chemistry of Soils", "Garrison Sposito", { type: "textbook" }),
+    res("Fundamentals of Soil Science", "Henry D. Foth", { type: "textbook" }),
+  ],
+});

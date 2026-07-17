@@ -1,0 +1,32 @@
+registerDetail({
+  long: "Petroleum geology applies sedimentology, structural geology, and geochemistry to the exploration for and production of oil and natural gas. The course follows the petroleum system from its origin, tracing how organic matter is deposited and preserved in source rocks, converted to kerogen, and thermally matured through the oil and gas windows during burial. Migration along carrier beds and faults delivers hydrocarbons to reservoir rocks, whose porosity and permeability control storage and flow, and to traps sealed by impermeable cap rocks. Structural, stratigraphic, and combination traps are analyzed within the broader context of basin analysis, subsidence, and thermal history. The course develops the practical tools of the discipline, including well-log interpretation and formation evaluation, and seismic acquisition and interpretation for imaging the subsurface. Unconventional resources such as shale gas, tight oil, and heavy oil receive dedicated treatment alongside reserves estimation and the geological aspects of production. Students learn to assess a prospect by evaluating whether all elements of the petroleum system are present and correctly timed.",
+  topics: [
+    "The origin of petroleum and kerogen",
+    "Source rocks and organic matter",
+    "Thermal maturation and the oil window",
+    "Migration and the carrier system",
+    "Reservoir rocks: porosity and permeability",
+    "Seals and cap rocks",
+    "Traps (structural and stratigraphic)",
+    "The petroleum system concept",
+    "Basin analysis and subsidence",
+    "Well logging and formation evaluation",
+    "Seismic exploration and interpretation",
+    "Unconventional resources (shale, tight, heavy oil)",
+    "Reserves estimation and classification",
+    "Production geology and reservoir management",
+    "Burial history and thermal modeling",
+    "Petrophysics and fluid properties",
+  ],
+  recommended: [
+    res("Elements of Petroleum Geology", "Richard C. Selley & Stephen A. Sonnenberg", { type: "textbook" }),
+    res("Petroleum Geoscience", "Jon Gluyas & Richard Swarbrick", { type: "textbook" }),
+    res("Geosciences (Petroleum Geology)", "LibreTexts", { type: "reference", free: true, url: "https://geo.libretexts.org/" }),
+  ],
+  supplementary: [
+    res("The Petroleum System: From Source to Trap", "L. B. Magoon & W. G. Dow (eds.)", { type: "reference" }),
+    res("Petroleum Formation and Occurrence", "Bernard P. Tissot & Dietrich H. Welte", { type: "textbook" }),
+    res("Applied Petroleum Reservoir Engineering", "Ronald E. Terry & J. Brandon Rogers", { type: "textbook" }),
+    res("Seismic Data Analysis", "Öz Yilmaz", { type: "reference" }),
+  ],
+});

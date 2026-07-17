@@ -1,0 +1,32 @@
+registerDetail({
+  long: "Atmospheric science studies the physics and chemistry of Earth's gaseous envelope, from its layered vertical structure to the dynamics that produce weather. The course begins with atmospheric composition, the temperature profile of the troposphere and stratosphere, and the radiative energy balance that drives the whole system. Thermodynamics is developed to treat dry and moist air, the hydrostatic equation, adiabatic processes, stability, and the formation of clouds and precipitation. The dynamical core introduces the governing equations of motion in a rotating frame, geostrophic and gradient-wind balance, and the general circulation that redistributes heat from equator to pole. Synoptic-scale phenomena such as mid-latitude cyclones, fronts, and atmospheric waves are analyzed alongside the turbulent planetary boundary layer. The treatment concludes with the basis of numerical weather prediction and an introduction to atmospheric chemistry. Together these topics provide the quantitative foundation for meteorology, climate science, and air-quality studies.",
+  topics: [
+    "Atmospheric composition and vertical structure",
+    "Radiation and the global energy balance",
+    "Atmospheric thermodynamics and adiabatic processes",
+    "The hydrostatic equation and pressure-height relations",
+    "Moisture, humidity, and phase changes of water",
+    "Clouds, precipitation, and microphysics",
+    "Atmospheric stability and convection",
+    "The equations of atmospheric motion in a rotating frame",
+    "Geostrophic and gradient wind balance",
+    "The general circulation of the atmosphere",
+    "Mid-latitude cyclones and frontal systems",
+    "Boundary-layer meteorology and turbulence",
+    "Atmospheric waves (Rossby and gravity waves)",
+    "Weather forecasting and numerical models",
+    "Introduction to atmospheric chemistry",
+    "Vorticity and potential vorticity",
+  ],
+  recommended: [
+    res("Atmospheric Science: An Introductory Survey", "John M. Wallace & Peter V. Hobbs", { type: "textbook" }),
+    res("An Introduction to Dynamic Meteorology", "James R. Holton & Gregory J. Hakim", { type: "textbook" }),
+    res("MIT 12.003 Atmosphere, Ocean and Climate Dynamics", "MIT OpenCourseWare", { type: "lectures", free: true, url: "https://ocw.mit.edu/courses/12-003-atmosphere-ocean-and-climate-dynamics-fall-2008/" }),
+  ],
+  supplementary: [
+    res("Mid-Latitude Atmospheric Dynamics", "Jonathan E. Martin", { type: "textbook" }),
+    res("Meteorology Today", "C. Donald Ahrens", { type: "textbook" }),
+    res("A First Course in Atmospheric Thermodynamics", "Grant W. Petty", { type: "textbook" }),
+    res("Atmospheric Chemistry and Physics", "John H. Seinfeld & Spyros N. Pandis", { type: "reference" }),
+  ],
+});

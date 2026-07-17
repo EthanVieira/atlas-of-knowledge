@@ -1,0 +1,32 @@
+registerDetail({
+  long: "Hydrogeology is the study of the occurrence, distribution, movement, and chemistry of groundwater within the Earth's crust. It applies the physics of fluid flow through porous and fractured media to quantify how water infiltrates, is stored in aquifers, and discharges to springs, streams, and wells. The subject builds on Darcy's law and the concept of hydraulic head to derive the groundwater flow equation, which is solved analytically and numerically for problems ranging from regional flow systems to individual pumping wells. Well hydraulics and aquifer testing, including the Theis solution for transient flow to a well, provide the practical tools for estimating transmissivity and storativity. Hydrogeology also addresses the unsaturated zone, recharge and discharge processes, and the geochemical evolution and contaminant transport that determine water quality. Special settings such as karst and fractured-rock aquifers require treatment of flow through conduits and discrete fractures rather than an equivalent porous medium. The discipline underpins sustainable groundwater management, water supply, and remediation of contaminated aquifers.",
+  topics: [
+    "The hydrologic cycle",
+    "Porosity and permeability",
+    "Darcy's law and hydraulic conductivity",
+    "Hydraulic head and gradients",
+    "Aquifers, aquitards, and confining units",
+    "The groundwater flow equation",
+    "Flow nets and flow-system analysis",
+    "Well hydraulics and pumping tests",
+    "The Theis solution for transient flow",
+    "Storativity and specific yield",
+    "Unsaturated (vadose) zone flow",
+    "Recharge and discharge processes",
+    "Springs and groundwater-surface water interaction",
+    "Groundwater chemistry and geochemical evolution",
+    "Contaminant transport (advection and dispersion)",
+    "Karst and fractured-rock aquifers",
+    "Groundwater management and sustainability",
+  ],
+  recommended: [
+    res("Groundwater", "R. Allan Freeze & John A. Cherry", { type: "textbook", free: true, url: "https://gw-project.org/books/groundwater/" }),
+    res("Applied Hydrogeology", "C. W. Fetter", { type: "textbook" }),
+    res("Geosciences (Hydrogeology)", "LibreTexts", { type: "reference", free: true, url: "https://geo.libretexts.org/" }),
+  ],
+  supplementary: [
+    res("The Physics of Flow through Porous Media", "R. A. Freeze", { type: "notes" }),
+    res("Hydrogeology and Groundwater Modeling", "Neven Kresic", { type: "textbook" }),
+    res("Contaminant Hydrogeology", "C. W. Fetter", { type: "textbook" }),
+  ],
+});

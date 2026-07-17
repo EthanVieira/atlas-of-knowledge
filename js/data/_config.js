@@ -16,6 +16,7 @@ var FIELDS = {
   mathematics:      { label: "Mathematics",           abbr: "MATH",  family: "sciences",    hue: 96  },
   physics:          { label: "Physics",               abbr: "PHYS",  family: "sciences",    hue: 120 },
   chemistry:        { label: "Chemistry",             abbr: "CHEM",  family: "sciences",    hue: 150 },
+  earthscience:     { label: "Earth Science",         abbr: "EASC",  family: "sciences",    hue: 161 },
   biology:          { label: "Biology",               abbr: "BIO",   family: "sciences",    hue: 172 },
   cs:               { label: "Computer Science",      abbr: "CS",    family: "sciences",    hue: 190 },
 

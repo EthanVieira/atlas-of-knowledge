@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Isotope geochemistry and geochronology use the systematics of radioactive decay and isotopic fractionation to date geological events and to trace the sources and evolution of Earth materials. The course builds from the decay equation and the isochron method to the principal radiogenic systems—K-Ar and Ar-Ar, Rb-Sr, Sm-Nd, U-Th-Pb with concordia and discordia, and the Re-Os and Lu-Hf pairs—emphasizing the assumptions, closure behavior, and interpretation of each. Zircon geochronology receives special attention as the backbone of the deep-time record, together with thermochronology and the concept of closure temperature that links ages to cooling histories. Surface-process and archaeological timescales are addressed through cosmogenic-nuclide exposure dating and radiocarbon. Stable-isotope fractionation of oxygen, hydrogen, carbon, and sulfur is developed as a set of quantitative tracers of temperature, water, and biogeochemical cycling. The course closes by using combined radiogenic tracers to constrain the differentiation of mantle and crust and the growth of continents through time. Throughout, careful error propagation and the physical meaning of an isotopic age are stressed.",
+  topics: [
+    "Radioactive decay and the decay equation",
+    "The isochron method and error propagation",
+    "K-Ar and Ar-Ar dating",
+    "Rb-Sr systematics",
+    "Sm-Nd systematics and epsilon-Nd",
+    "U-Th-Pb dating; concordia and discordia",
+    "Zircon geochronology (U-Pb, SHRIMP, LA-ICP-MS)",
+    "Re-Os and Lu-Hf systems",
+    "Cosmogenic nuclides and exposure dating",
+    "Radiocarbon dating and calibration",
+    "Stable isotope fractionation (O, H, C, S)",
+    "Closure temperature and thermochronology",
+    "Isotopes as tracers of mantle and crust",
+    "Mantle reservoirs and continental growth",
+    "Mass spectrometry and analytical methods",
+    "The geologic time scale and its calibration",
+  ],
+  recommended: [
+    res("Radiogenic Isotope Geology", "Alan P. Dickin", { type: "textbook" }),
+    res("Isotopes: Principles and Applications", "Gunter Faure & Teresa M. Mensing", { type: "textbook" }),
+    res("Geochronology and Thermochronology", "Peter W. Reiners, Richard W. Carlson, Paul R. Renne, et al.", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Radiogenic Isotopes in Geologic Processes", "Sergei V. Rasskazov, Sergei Brandt & Irina Brandt", { type: "textbook" }),
+    res("Stable Isotope Geochemistry", "Jochen Hoefs", { type: "textbook" }),
+    res("Cosmogenic Nuclides: Principles, Concepts and Applications in the Earth Surface Sciences", "Tibor J. Dunai", { type: "textbook" }),
+  ],
+});

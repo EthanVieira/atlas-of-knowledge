@@ -1,0 +1,32 @@
+registerDetail({
+  long: "Economic geology is the study of how Earth concentrates metals and minerals into deposits that can be mined at a profit, and of the processes that form them. The course establishes the vocabulary of ore, gangue, and grade, and a genetic classification of mineral deposits before examining each major ore-forming process in turn. Magmatic processes are treated as sources of chromite, platinum-group elements, and nickel-copper sulfides, while hydrothermal systems are developed as the dominant mechanism for concentrating base and precious metals. Students study porphyry copper, epithermal, skarn, volcanogenic massive sulfide (VMS), sedimentary exhalative (SEDEX), and orogenic gold deposits, learning the fluid chemistry, structural controls, and tectonic settings of each. Sedimentary and surficial processes account for banded iron formations, evaporites, placers, and supergene enrichment. The course integrates these into ore-deposit models used in mineral exploration, and closes with the economic and regulatory distinction between resources and reserves. Emphasis is placed on linking deposit type to plate-tectonic setting and exploration strategy.",
+  topics: [
+    "Ore, gangue, and grade",
+    "Classification of mineral deposits",
+    "Magmatic ore deposits",
+    "Chromite and platinum-group-element (PGE) deposits",
+    "Hydrothermal systems and ore fluids",
+    "Porphyry copper deposits",
+    "Epithermal and skarn deposits",
+    "VMS and SEDEX deposits",
+    "Orogenic gold deposits",
+    "Sedimentary ore deposits (BIFs, evaporites)",
+    "Placer deposits",
+    "Supergene enrichment and weathering",
+    "Ore-deposit models and mineral exploration",
+    "Resources versus reserves",
+    "Fluid inclusions and stable isotopes in ore genesis",
+    "Tectonic settings of mineralization",
+  ],
+  recommended: [
+    res("Introduction to Ore-Forming Processes", "Laurence Robb", { type: "textbook" }),
+    res("Economic Geology: Principles and Practice", "Walter L. Pohl", { type: "textbook" }),
+    res("Geosciences (Economic Geology)", "LibreTexts", { type: "reference", free: true, url: "https://geo.libretexts.org/" }),
+  ],
+  supplementary: [
+    res("Mineral Deposits of the World", "various / SEG", { type: "reference" }),
+    res("Ore Geology and Industrial Minerals", "Anthony M. Evans", { type: "textbook" }),
+    res("The Geology of Ore Deposits", "John M. Guilbert & Charles F. Park", { type: "textbook" }),
+    res("Hydrothermal Ore Deposits", "H. L. Barnes (ed.)", { type: "reference" }),
+  ],
+});

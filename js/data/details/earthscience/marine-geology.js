@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Marine geology is the study of the structure, composition, and history of the ocean floor and the processes that shape it. It examines the morphology of ocean basins, from continental margins through abyssal plains and seamounts to the globe-encircling mid-ocean ridge system where new oceanic crust is generated. Plate tectonics provides the unifying framework, explaining seafloor spreading, subduction at active margins, and the evolution of passive margins built on rifted continental crust. Hydrothermal vents at spreading centers drive chemical exchange between crust and seawater and support distinctive ecosystems. Marine sediments—ranging from terrigenous input to pelagic biogenic and authigenic deposits—accumulate as a stratified archive, redistributed by turbidity currents into submarine fans. Deep-sea drilling and coring recover these sediments and the underlying crust, yielding the paleoceanographic and sea-level records that document past climate and ocean circulation. The field also assesses coastal and shelf processes and the mineral and energy resources of the seafloor, linking geological history to present-day environmental and economic questions.",
+  topics: [
+    "The morphology of ocean basins",
+    "Continental margins: passive and active",
+    "Mid-ocean ridges and seafloor spreading",
+    "Hydrothermal vents and crust-seawater exchange",
+    "Abyssal plains and seamounts",
+    "Marine sediments and their classification",
+    "Pelagic versus terrigenous sedimentation",
+    "Turbidites and submarine fans",
+    "Deep-sea drilling and coring",
+    "The paleoceanographic record",
+    "Sea-level history",
+    "Marine mineral and energy resources",
+    "Plate tectonics of the ocean floor",
+    "Coastal and continental shelf processes",
+    "Marine magnetic anomalies and crustal dating",
+    "Submarine volcanism and oceanic plateaus",
+  ],
+  recommended: [
+    res("Marine Geology", "James P. Kennett", { type: "textbook" }),
+    res("The Sea Floor: An Introduction to Marine Geology", "Eugen Seibold & Wolfgang Berger", { type: "textbook" }),
+    res("Geosciences (Marine Geology)", "LibreTexts", { type: "reference", free: true, url: "https://geo.libretexts.org/" }),
+  ],
+  supplementary: [
+    res("Submarine Geology", "Francis P. Shepard", { type: "textbook" }),
+    res("Continental Margin Sedimentation", "Charles Nittrouer et al.", { type: "textbook" }),
+    res("Principles of Sedimentary Basin Analysis", "Andrew D. Miall", { type: "textbook" }),
+  ],
+});

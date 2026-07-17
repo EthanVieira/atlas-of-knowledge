@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Volcanology is the physical study of magma and its eruption, linking the properties of silicate melts to the dynamics of eruptions and the hazards they pose. The course begins with magma rheology—the controls of composition, temperature, crystals, and dissolved volatiles on viscosity—and with volatile solubility and exsolution, which govern how magma ascends and stores in the crust. Eruption dynamics are developed quantitatively: the ascent of buoyant magma through conduits, fragmentation of the melt, and the transition between effusive lava-producing and explosive eruptions parameterized by the Volcanic Explosivity Index. Explosive processes are treated in depth, including plume dynamics, tephra dispersal and fallout, pyroclastic density currents, and the formation of calderas by collapse. The course surveys volcanic edifices and landforms, the tectonic settings that control magma genesis, and the degassing that couples volcanoes to the atmosphere. Modern monitoring—seismicity, deformation, and gas geochemistry—is presented as the basis for interpreting unrest and forecasting eruptions. The impact of volcanism on climate closes the treatment.",
+  topics: [
+    "Magma properties: viscosity, temperature, crystals, volatiles",
+    "Volatile solubility, exsolution, and bubble growth",
+    "Magma ascent through conduits and crustal storage",
+    "Eruption styles and the Volcanic Explosivity Index (VEI)",
+    "Effusive eruptions and lava-flow emplacement",
+    "Explosive eruptions and magma fragmentation",
+    "Eruption columns and plume dynamics",
+    "Pyroclastic density currents",
+    "Tephra dispersal and fallout deposits",
+    "Caldera formation and collapse",
+    "Volcanic edifices and landforms",
+    "Degassing and volcanic gas emissions",
+    "Volcano-tectonic settings and magma genesis",
+    "Volcano monitoring, seismicity, and deformation",
+    "Volcanic hazards and risk assessment",
+    "Volcanism and climate impacts",
+  ],
+  recommended: [
+    res("Volcanism", "Hans-Ulrich Schmincke", { type: "textbook" }),
+    res("Fundamentals of Physical Volcanology", "Elisabeth A. Parfitt & Lionel Wilson", { type: "textbook" }),
+    res("Volcanoes", "Peter Francis & Clive Oppenheimer", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("The Encyclopedia of Volcanoes", "Haraldur Sigurdsson (ed.)", { type: "reference" }),
+    res("Volcanic Textures: A Guide to the Interpretation of Textures in Volcanic Rocks", "Jocelyn McPhie, Mark Doyle & Rodey Allen", { type: "reference" }),
+    res("Magmas Under Pressure: Advances in High-Pressure Experiments", "Yoshio Kono & Chrystele Sanloup (eds.)", { type: "textbook" }),
+  ],
+});

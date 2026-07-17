@@ -1,0 +1,31 @@
+registerDetail({
+  long: "Seismology is the quantitative study of elastic waves in the Earth, from the theory of wave propagation to the imaging of interior structure and the physics of earthquake sources. The course begins with the seismic wave equation derived from the equations of elastodynamics, distinguishing compressional P waves, shear S waves, and the dispersive Rayleigh and Love surface waves. Ray theory, travel-time curves, and Snell's law at velocity discontinuities provide the tools to locate events and to invert arrivals for velocity structure, culminating in seismic tomography. The earthquake source is described through the moment tensor and focal mechanisms, magnitude and radiated energy, and models of rupture and stress drop that connect to the elastic-rebound theory and the earthquake cycle. Free oscillations and normal modes extend the analysis to the whole planet at long periods. The course also treats probabilistic seismic hazard, instrumentation, and the design of modern seismic networks. Emphasis throughout is on relating recorded waveforms rigorously to Earth structure and to the mechanics of faulting.",
+  topics: [
+    "The seismic wave equation and elastodynamics",
+    "P and S body waves and polarization",
+    "Surface waves: Rayleigh and Love, dispersion",
+    "Ray theory, slowness, and travel-time curves",
+    "Reflection and refraction; Snell's law and rays",
+    "Seismic tomography and velocity inversion",
+    "Earthquake location and origin-time estimation",
+    "The moment tensor and focal mechanisms",
+    "Earthquake magnitude, seismic moment, and energy",
+    "Source physics: rupture, stress drop, directivity",
+    "Elastic rebound and the earthquake cycle",
+    "Probabilistic seismic hazard analysis",
+    "Normal modes and free oscillations",
+    "Seismometers, instrumentation, and networks",
+    "Attenuation, Q, and scattering",
+    "Anisotropy and its seismic signatures",
+  ],
+  recommended: [
+    res("An Introduction to Seismology, Earthquakes, and Earth Structure", "Seth Stein & Michael Wysession", { type: "textbook" }),
+    res("Introduction to Seismology", "Peter M. Shearer", { type: "textbook" }),
+    res("Quantitative Seismology", "Keiiti Aki & Paul G. Richards", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Modern Global Seismology", "Thorne Lay & Terry C. Wallace", { type: "textbook" }),
+    res("The Seismic Wavefield", "Brian Kennett", { type: "textbook" }),
+    res("Computational Seismology: A Practical Introduction", "Heiner Igel", { type: "textbook" }),
+  ],
+});
