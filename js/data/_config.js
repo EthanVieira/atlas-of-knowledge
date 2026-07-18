@@ -29,6 +29,7 @@ var FIELDS = {
   nucleng:          { label: "Nuclear Eng.",          abbr: "NUCE",  family: "engineering", hue: 250 },
   aeroeng:          { label: "Aerospace Eng.",        abbr: "AERO",  family: "engineering", hue: 255 },
   bioeng:           { label: "Biomedical Eng.",       abbr: "BME",   family: "engineering", hue: 266 },
+  indeng:           { label: "Industrial Eng.",       abbr: "IE",    family: "engineering", hue: 272 },
 
   // --- Social sciences — violets & purples ---
   economics:        { label: "Economics",             abbr: "ECON",  family: "social",      hue: 278 },
