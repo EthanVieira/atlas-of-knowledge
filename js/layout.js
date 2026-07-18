@@ -14,9 +14,20 @@ const Layout = (() => {
   // Tunable geometry (graph-space pixels).
   const NODE_W = 190;
   const NODE_H = 62;
-  const COL_GAP = 46;   // horizontal gap between node centers within a level
-  const ROW_GAP = 150;  // vertical gap between levels
-  const FIELD_GAP = 120; // extra breathing room inserted between field clusters
+
+  // RADIAL "GALAXY" LAYOUT --------------------------------------------------
+  //   radius = depth  → foundations near the core, capstones at the rim.
+  //   angle  = field  → each field is an angular wedge; families are contiguous
+  //                     arcs (sciences → engineering → social → humanities),
+  //                     so the whole atlas reads as a round sky of constellations
+  //                     instead of one endless horizontal strip.
+  const R0          = 2000; // core radius: the empty hub the depth-0 ring sits on
+  const RING_GAP    = 205;  // radial gap between rings / sub-rows (> NODE_W so
+                            //   radially-adjacent cards never overlap side-on)
+  const NODE_ARC    = 210;  // min tangential spacing between sibling nodes on a ring
+  const FIELD_GAP_A = 0.004 * Math.PI * 2; // angular gap between fields (fraction of turn)
+  const FAMILY_GAP_A = 0.014 * Math.PI * 2; // extra angular gap between families
+  const SWEEPS = 12;        // barycenter passes to align spokes / cut crossings
 
   function build(courses, fields) {
     const byId = new Map();
@@ -65,102 +76,133 @@ const Layout = (() => {
       console.error("[knowledge-map] Dependency cycle detected — some nodes could not be ranked. Check `requires` for a loop.");
     }
 
-    // ---- Group nodes by level, then by field ------------------------------
-    // Each field occupies its own fixed horizontal "lane", so a discipline's
-    // courses always sit in a vertical band directly beneath its root node,
-    // and same-field subjects stay clustered rather than scattered.
-    const levels = [];                 // levels[d] = flat array (built at the end)
-    const byLevelField = [];           // byLevelField[d] = Map(field -> [nodes])
-    for (const n of byId.values()) {
-      const d = n.depth;
-      if (!byLevelField[d]) byLevelField[d] = new Map();
-      const m = byLevelField[d];
-      if (!m.has(n.field)) m.set(n.field, []);
-      m.get(n.field).push(n);
-    }
-
-    const colStride = NODE_W + COL_GAP;
+    // ---- Group nodes by field, then depth (ring) --------------------------
+    const TAU = Math.PI * 2;
     const fieldOrder = Object.keys(fields);
+    const familyOf = f => (fields[f] && fields[f].family) || "";
 
-    // Widest occupancy of each field across all levels → its lane width.
-    const maxCount = {};
-    for (const m of byLevelField) {
-      if (!m) continue;
-      for (const [f, arr] of m) maxCount[f] = Math.max(maxCount[f] || 0, arr.length);
+    // byFieldLevel: field -> Map(depth -> [nodes])
+    const byFieldLevel = new Map();
+    for (const n of byId.values()) {
+      if (!byFieldLevel.has(n.field)) byFieldLevel.set(n.field, new Map());
+      const dm = byFieldLevel.get(n.field);
+      if (!dm.has(n.depth)) dm.set(n.depth, []);
+      dm.get(n.depth).push(n);
     }
-    const presentFields = fieldOrder.filter(f => f in maxCount);
 
-    // Lay the lanes left-to-right in a fixed field order, with a gap between.
-    const laneWidth = {}, laneStart = {};
-    let cursor = 0;
-    for (const f of presentFields) {
-      laneWidth[f] = Math.max(maxCount[f], 1) * colStride;
-      laneStart[f] = cursor;
-      cursor += laneWidth[f] + FIELD_GAP;
+    // Per-field course count. A field's wedge is sized proportional to this, so
+    // every field's spiral reaches a similar rim radius → a tidy round disk.
+    const fieldCount = {};
+    for (const [f, dm] of byFieldLevel) {
+      let c = 0;
+      for (const [, arr] of dm) c += arr.length;
+      fieldCount[f] = c;
     }
-    const totalWidth = cursor - FIELD_GAP;
-    const originShift = -totalWidth / 2;   // center the whole atlas around x = 0
+    const presentFields = fieldOrder.filter(f => byFieldLevel.has(f));
 
-    // Place a field's nodes for one level, centered within that field's lane.
-    const placeGroup = (arr, f, d) => {
-      const c = arr.length;
-      const used = c * colStride - COL_GAP;
-      const pad = (laneWidth[f] - used) / 2;
-      const baseX = laneStart[f] + originShift + pad;
-      for (let i = 0; i < c; i++) {
-        arr[i].x = baseX + i * colStride;
-        arr[i].y = d * (NODE_H + ROW_GAP);
+    // Family order from config (FAMILIES), with any stragglers appended.
+    const cfgFamilies = (window.KNOWLEDGE_MAP && window.KNOWLEDGE_MAP.FAMILIES) || [];
+    const familyOrder = cfgFamilies.map(x => x.key);
+    const seenFam = new Set(familyOrder);
+    for (const f of presentFields)
+      if (familyOf(f) && !seenFam.has(familyOf(f))) { familyOrder.push(familyOf(f)); seenFam.add(familyOf(f)); }
+    const fieldsOfFamily = fam => presentFields.filter(f => familyOf(f) === fam);
+    const familiesPresent = familyOrder.filter(fam => fieldsOfFamily(fam).length);
+
+    // Fields laid out around the dial, grouped into contiguous family arcs.
+    const orderedFields = [];
+    for (const fam of familiesPresent) for (const f of fieldsOfFamily(fam)) orderedFields.push(f);
+
+    // ---- Angular allocation -----------------------------------------------
+    // Reserve gaps between fields (larger between families), then split the rest
+    // of the turn among fields in proportion to their course count.
+    const nFamilies = familiesPresent.length;
+    const gapTotal = orderedFields.length * FIELD_GAP_A + nFamilies * FAMILY_GAP_A;
+    const usable = Math.max(0.1, TAU - gapTotal);
+    const countTotal = orderedFields.reduce((s, f) => s + fieldCount[f], 0) || 1;
+
+    const fieldAngle = {};   // angular width of each field's wedge
+    for (const f of orderedFields) fieldAngle[f] = usable * fieldCount[f] / countTotal;
+
+    // Walk the dial (start at the top, -90°), assigning each wedge a center.
+    const fieldCenter = {};
+    let a = -Math.PI / 2;
+    let prevFam = null;
+    for (const f of orderedFields) {
+      const fam = familyOf(f);
+      a += (fam !== prevFam && prevFam !== null ? FAMILY_GAP_A : FIELD_GAP_A) / 2;
+      fieldCenter[f] = a + fieldAngle[f] / 2;
+      a += fieldAngle[f] + FIELD_GAP_A / 2;
+      prevFam = fam;
+    }
+
+    // Place a whole field as a spiral: walk its depths outward from the core with
+    // a radius cursor. Each ring spreads across the wedge; a ring too wide for the
+    // wedge's arc at that radius wraps into concentric sub-rows (so a bushy
+    // shallow ring pushes outward instead of blowing the core open). Radius only
+    // ever increases, so prerequisites always sit inward of what depends on them.
+    const depthsOf = f => [...byFieldLevel.get(f).keys()].sort((x, y) => x - y);
+    const placeArc = (chunk, f, r) => {
+      const cc = chunk.length;
+      const A = fieldAngle[f], c0 = fieldCenter[f];
+      const step = A / cc;
+      const start = c0 - A / 2 + step / 2;
+      for (let i = 0; i < cc; i++) {
+        const ang = cc === 1 ? c0 : start + i * step;
+        chunk[i].angle = ang; chunk[i].radius = r;
+        chunk[i].x = Math.cos(ang) * r - NODE_W / 2;
+        chunk[i].y = Math.sin(ang) * r - NODE_H / 2;
+      }
+    };
+    const placeField = (f) => {
+      const A = fieldAngle[f], dm = byFieldLevel.get(f);
+      let r = R0;
+      for (const d of depthsOf(f)) {
+        const arr = dm.get(d);
+        const cap = Math.max(1, Math.floor(A * r / NODE_ARC));
+        const rows = Math.ceil(arr.length / cap);
+        const per = Math.ceil(arr.length / rows);
+        for (let k = 0; k < rows; k++) {
+          placeArc(arr.slice(k * per, (k + 1) * per), f, r);
+          r += RING_GAP;
+        }
       }
     };
 
-    // Initial within-lane order: alphabetical, then place.
-    for (let d = 0; d < byLevelField.length; d++) {
-      const m = byLevelField[d];
-      if (!m) continue;
-      for (const f of presentFields) {
-        const arr = m.get(f);
-        if (!arr) continue;
-        arr.sort((a, b) => a.title.localeCompare(b.title));
-        placeGroup(arr, f, d);
-      }
-    }
+    // Initial order: alphabetical within each ring, then place every field.
+    for (const [, dm] of byFieldLevel)
+      for (const [, arr] of dm) arr.sort((a, b) => a.title.localeCompare(b.title));
+    for (const f of presentFields) placeField(f);
 
-    // ---- Barycenter crossing reduction (within each lane) -----------------
-    // Reorder nodes inside a lane by the mean x of their neighbours (prereqs +
-    // dependents). Nodes never leave their field lane, so fields stay grouped
-    // while edge crossings within a discipline are minimised.
-    const centerX = n => n.x + NODE_W / 2;
-    const SWEEPS = 10;
+    // ---- Angular barycenter: align spokes, cut crossings ------------------
+    // Reorder each ring by the mean *angle* of its neighbours (prereqs +
+    // dependents), so a course sits angularly near what it connects to. Unit-
+    // vector averaging handles the 0/2π seam; keys are taken relative to the
+    // wedge center so a field's own spread never wraps.
+    const wrap = t => { while (t > Math.PI) t -= TAU; while (t < -Math.PI) t += TAU; return t; };
     for (let s = 0; s < SWEEPS; s++) {
-      for (let d = 0; d < byLevelField.length; d++) {
-        const m = byLevelField[d];
-        if (!m) continue;
-        for (const f of presentFields) {
-          const arr = m.get(f);
-          if (!arr || arr.length < 2) continue;
-          const bc = new Map();
+      for (const f of presentFields) {
+        const dm = byFieldLevel.get(f), c0 = fieldCenter[f];
+        for (const [, arr] of dm) {
+          if (arr.length < 2) continue;
+          const key = new Map();
           for (const n of arr) {
             const nbrs = n.requires.concat(n.children);
-            if (!nbrs.length) { bc.set(n.id, centerX(n)); continue; }
-            let sum = 0;
-            for (const id of nbrs) sum += centerX(byId.get(id));
-            bc.set(n.id, sum / nbrs.length);
+            if (!nbrs.length) { key.set(n.id, wrap(n.angle - c0)); continue; }
+            let sx = 0, sy = 0;
+            for (const id of nbrs) { const m = byId.get(id); sx += Math.cos(m.angle); sy += Math.sin(m.angle); }
+            key.set(n.id, wrap(Math.atan2(sy, sx) - c0));
           }
-          arr.sort((a, b) =>
-            (bc.get(a.id) - bc.get(b.id)) || a.title.localeCompare(b.title));
-          placeGroup(arr, f, d);
+          arr.sort((a, b) => (key.get(a.id) - key.get(b.id)) || a.title.localeCompare(b.title));
         }
+        placeField(f);
       }
     }
 
-    // Flatten to per-level arrays (field order preserved) for compatibility.
-    for (let d = 0; d < byLevelField.length; d++) {
-      const m = byLevelField[d];
-      if (!m) { levels[d] = []; continue; }
-      const flat = [];
-      for (const f of presentFields) if (m.has(f)) flat.push(...m.get(f));
-      levels[d] = flat;
-    }
+    // Per-level arrays (for compatibility / diagnostics).
+    const levels = [];
+    for (const n of byId.values()) (levels[n.depth] || (levels[n.depth] = [])).push(n);
+    for (let d = 0; d < levels.length; d++) if (!levels[d]) levels[d] = [];
 
     // ---- Build a flat edge list for the renderer --------------------------
     const nodes = [...byId.values()];

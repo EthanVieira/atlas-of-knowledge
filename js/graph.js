@@ -48,6 +48,34 @@ const Graph = (() => {
     // Quick lookups.
     const nodeArr = nodes;
 
+    // Original whole-atlas positions, kept so we can snap back when the filter
+    // is cleared (filtering re-lays-out the visible subset into its own disk).
+    const home = new Map(nodeArr.map(n => [n.id, { x: n.x, y: n.y, angle: n.angle, radius: n.radius }]));
+
+    // Re-lay-out just `idSet` into a fresh compact galaxy, writing the new coords
+    // back onto the EXISTING node objects (so byId / highlight / element refs all
+    // stay valid). The subset is closed under prerequisites, so depths are intact.
+    function relayoutSubset(idSet) {
+      const subset = nodeArr.filter(n => idSet.has(n.id));
+      if (!subset.length) return;
+      const fresh = window.Layout.build(subset, fields);
+      for (const fn of fresh.nodes) {
+        const n = byId.get(fn.id);
+        if (n) { n.x = fn.x; n.y = fn.y; n.angle = fn.angle; n.radius = fn.radius; }
+      }
+    }
+    function restoreHome() {
+      for (const n of nodeArr) {
+        const h = home.get(n.id);
+        if (h) { n.x = h.x; n.y = h.y; n.angle = h.angle; n.radius = h.radius; }
+      }
+    }
+    // Drop every mounted element (positions changed wholesale → remount fresh).
+    function clearMounted() {
+      for (const [, el] of elements) el.remove();
+      elements.clear();
+    }
+
     // ---------------------------------------------------------------------
     //  Transform helpers
     // ---------------------------------------------------------------------
@@ -458,171 +486,100 @@ const Graph = (() => {
       }
     }
 
-    // ---- Minimap: radial astrolabe ----------------------------------------
-    // The atlas is very wide (one lane per field) and short, so a scale replica
-    // smears into a thin horizontal band. Instead we re-project it into a dial:
-    //   angle  = field  (sectors in the same left-to-right order as the lanes)
-    //   radius = depth  (foundations near the center, capstones at the rim)
-    // A progress arc rings each field's sector, and completed stars glow, so the
-    // panel doubles as an at-a-glance progress readout.
-    let mini = null, miniCtx = null, proj = null;
+    // ---- Minimap: scaled overview + "you are here" viewport ---------------
+    // A faithful shrink-to-fit replica of the galaxy. Prerequisite threads and
+    // stars are drawn at scale; completed stars glow so the panel doubles as a
+    // progress readout, and a framed rectangle marks the slice of the atlas
+    // currently on screen. Click or drag inside it to fly there.
+    let mini = null, miniCtx = null;
 
-    // Fixed field order = the layout's lane order, limited to present fields.
-    const fieldSeq = Object.keys(fields).filter(f => nodeArr.some(n => n.field === f));
-    const fieldIndex = new Map(fieldSeq.map((f, i) => [f, i]));
-    const maxDepth = nodeArr.reduce((m, n) => Math.max(m, n.depth), 0);
-    const fieldNodes = new Map(fieldSeq.map(f => [f, []]));   // for rim progress
-    for (const n of nodeArr) fieldNodes.get(n.field).push(n);
-
-    // Per-field horizontal extent (graph space) → a node's fraction across its
-    // lane, which becomes its offset within the field's angular sector.
-    const laneCx = new Map(); // field -> { min, max } of node center-x
-    for (const n of nodeArr) {
-      const cx = n.x + n.w / 2;
-      const e = laneCx.get(n.field);
-      if (!e) laneCx.set(n.field, { min: cx, max: cx });
-      else { e.min = Math.min(e.min, cx); e.max = Math.max(e.max, cx); }
+    // Fit the active bounds (whole atlas, or the filtered subset) into the canvas.
+    function miniTransform() {
+      const b = activeBounds();
+      const w = mini.width, h = mini.height, pad = 10;
+      const s = Math.min((w - 2 * pad) / Math.max(b.w, 1), (h - 2 * pad) / Math.max(b.h, 1));
+      return { s, ox: (w - b.w * s) / 2 - b.minX * s, oy: (h - b.h * s) / 2 - b.minY * s };
     }
-
-    function buildProjection() {
-      const w = mini.width, h = mini.height;
-      const cx = w / 2, cy = h / 2;
-      const R = Math.min(w, h) / 2 - 14;  // leave room for the rim progress arcs
-      const r0 = R * 0.16;                // inner radius (foundations)
-      const F = fieldSeq.length || 1;
-      const sector = (Math.PI * 2) / F;
-      const span = sector * 0.86;         // leave a gap between field sectors
-      const pts = new Map();              // id -> { x, y, angle, radius }
-      for (const n of nodeArr) {
-        const i = fieldIndex.get(n.field) || 0;
-        const lane = laneCx.get(n.field);
-        const frac = lane && lane.max > lane.min
-          ? (n.x + n.w / 2 - lane.min) / (lane.max - lane.min) : 0.5;
-        const a = -Math.PI / 2 + i * sector + (frac - 0.5) * span; // top, clockwise
-        const rad = r0 + (maxDepth ? n.depth / maxDepth : 0) * (R - r0);
-        pts.set(n.id, { x: cx + Math.cos(a) * rad, y: cy + Math.sin(a) * rad, angle: a, radius: rad });
-      }
-      proj = { cx, cy, R, r0, sector, span, pts };
-    }
+    const g2m = (gx, gy, t) => ({ x: gx * t.s + t.ox, y: gy * t.s + t.oy });
+    const m2g = (mx, my, t) => ({ x: (mx - t.ox) / t.s, y: (my - t.oy) / t.s });
 
     function attachMinimap(canvasEl) {
       mini = canvasEl;
       miniCtx = mini.getContext("2d");
-      buildProjection();
-      mini.addEventListener("click", (e) => {
+      const flyTo = (clientX, clientY) => {
         const r = mini.getBoundingClientRect();
-        const px = (e.clientX - r.left) / r.width * mini.width;
-        const py = (e.clientY - r.top) / r.height * mini.height;
-        // Fly to the nearest visible star.
-        let best = null, bestD = Infinity;
-        for (const n of nodeArr) {
-          if (visibleSet && !visibleSet.has(n.id)) continue;
-          const p = proj.pts.get(n.id);
-          const d = (p.x - px) ** 2 + (p.y - py) ** 2;
-          if (d < bestD) { bestD = d; best = n; }
-        }
-        if (best) api.centerOn(best.x + best.w / 2, best.y + best.h / 2);
+        const px = (clientX - r.left) / r.width * mini.width;
+        const py = (clientY - r.top) / r.height * mini.height;
+        const g = m2g(px, py, miniTransform());
+        api.centerOn(g.x, g.y);
+      };
+      let mdown = false;
+      mini.addEventListener("pointerdown", (e) => {
+        mdown = true; try { mini.setPointerCapture(e.pointerId); } catch {}
+        flyTo(e.clientX, e.clientY);
       });
-      drawMinimapBase();
+      mini.addEventListener("pointermove", (e) => { if (mdown) flyTo(e.clientX, e.clientY); });
+      mini.addEventListener("pointerup", () => { mdown = false; });
+      drawMinimap();
     }
 
-    function drawMinimapBase() {
-      if (!mini || !proj) return;
-      const w = mini.width, h = mini.height;
-      const { cx, cy, R, r0, sector, span, pts } = proj;
-      miniCtx.clearRect(0, 0, w, h);
+    // Draw the replica and return its transform (or null if not mounted).
+    function drawMinimap() {
+      if (!mini || !miniCtx) return null;
+      const t = miniTransform();
+      miniCtx.clearRect(0, 0, mini.width, mini.height);
 
-      // Concentric depth rings for a faint astrolabe grid.
-      miniCtx.strokeStyle = "rgba(150,132,92,0.12)";
-      miniCtx.lineWidth = 0.5;
-      for (let k = 1; k <= 3; k++) {
-        miniCtx.beginPath();
-        miniCtx.arc(cx, cy, r0 + (k / 3) * (R - r0), 0, Math.PI * 2);
-        miniCtx.stroke();
-      }
-
-      // Prerequisite edges as faint radial threads.
-      miniCtx.strokeStyle = "rgba(150,132,92,0.18)";
+      // Prerequisite threads, faint, batched into one path.
+      miniCtx.strokeStyle = "rgba(150,132,92,0.16)";
       miniCtx.lineWidth = 0.4;
+      miniCtx.beginPath();
       for (const e of edges) {
         if (visibleSet && (!visibleSet.has(e.from) || !visibleSet.has(e.to))) continue;
-        const a = pts.get(e.from), b = pts.get(e.to);
+        const a = byId.get(e.from), b = byId.get(e.to);
         if (!a || !b) continue;
-        miniCtx.beginPath(); miniCtx.moveTo(a.x, a.y); miniCtx.lineTo(b.x, b.y); miniCtx.stroke();
+        const pa = g2m(a.x + a.w / 2, a.y + a.h / 2, t);
+        const pb = g2m(b.x + b.w / 2, b.y + b.h / 2, t);
+        miniCtx.moveTo(pa.x, pa.y); miniCtx.lineTo(pb.x, pb.y);
       }
+      miniCtx.stroke();
 
       // Stars. Completed ones glow (halo + bright core); the rest stay muted so
       // your progress reads at a glance.
       for (const n of nodeArr) {
         if (visibleSet && !visibleSet.has(n.id)) continue;
-        const p = pts.get(n.id);
+        const p = g2m(n.x + n.w / 2, n.y + n.h / 2, t);
         const st = nodeStatus(n);
         if (st === "complete") {
           miniCtx.fillStyle = "rgba(244,216,150,0.22)";           // halo
-          miniCtx.beginPath(); miniCtx.arc(p.x, p.y, 4.2, 0, Math.PI * 2); miniCtx.fill();
+          miniCtx.beginPath(); miniCtx.arc(p.x, p.y, 3.4, 0, Math.PI * 2); miniCtx.fill();
           miniCtx.fillStyle = "rgba(250,226,150,1)";              // bright core
-          miniCtx.beginPath(); miniCtx.arc(p.x, p.y, 2.3, 0, Math.PI * 2); miniCtx.fill();
+          miniCtx.beginPath(); miniCtx.arc(p.x, p.y, 1.8, 0, Math.PI * 2); miniCtx.fill();
         } else {
           miniCtx.fillStyle = st === "available"
-            ? "rgba(198,184,148,0.72)" : "rgba(102,94,74,0.36)";
+            ? "rgba(198,184,148,0.72)" : "rgba(102,94,74,0.40)";
           miniCtx.beginPath();
-          miniCtx.arc(p.x, p.y, st === "available" ? 1.5 : 1.1, 0, Math.PI * 2);
+          miniCtx.arc(p.x, p.y, st === "available" ? 1.4 : 1.0, 0, Math.PI * 2);
           miniCtx.fill();
         }
       }
-
-      // Per-field completion arc around the rim (faint track + gold fill).
-      const rimR = R + 7;
-      miniCtx.lineWidth = 2.4;
-      miniCtx.lineCap = "round";
-      for (const f of fieldSeq) {
-        const arr = fieldNodes.get(f);
-        if (visibleSet && !arr.some(n => visibleSet.has(n.id))) continue;
-        const i = fieldIndex.get(f);
-        const center = -Math.PI / 2 + i * sector;
-        const a0 = center - span / 2, a1 = center + span / 2;
-        const done = arr.reduce((c, n) => c + (state.isComplete(n.id) ? 1 : 0), 0);
-        const frac = arr.length ? done / arr.length : 0;
-        miniCtx.strokeStyle = "rgba(150,132,92,0.28)";
-        miniCtx.beginPath(); miniCtx.arc(cx, cy, rimR, a0, a1); miniCtx.stroke();
-        if (frac > 0) {
-          miniCtx.strokeStyle = "rgba(242,206,110,0.95)";
-          miniCtx.beginPath(); miniCtx.arc(cx, cy, rimR, a0, a0 + frac * (a1 - a0)); miniCtx.stroke();
-        }
-      }
-      miniCtx.lineCap = "butt";
+      return t;
     }
 
     function renderMinimapViewport() {
-      if (!mini || !proj) return;
-      // Cheap enough to redraw the whole dial + the "you are here" band each frame.
-      drawMinimapBase();
-      const { cx, cy, pts } = proj;
+      const t = drawMinimap();
+      if (!t) return;
+      // "You are here": the current viewport in graph space, framed and clamped
+      // to the canvas so it stays visible even when zoomed past the atlas edge.
       const vr = visibleGraphRect(0);
-      // Angular + radial span of the stars currently on screen. Visible fields
-      // are contiguous in field order, so the angle range never wraps.
-      let a0 = Infinity, a1 = -Infinity, rMin = Infinity, rMax = -Infinity, count = 0;
-      for (const n of nodeArr) {
-        if (visibleSet && !visibleSet.has(n.id)) continue;
-        const ncx = n.x + n.w / 2, ncy = n.y + n.h / 2;
-        if (ncx < vr.x0 || ncx > vr.x1 || ncy < vr.y0 || ncy > vr.y1) continue;
-        const p = pts.get(n.id);
-        a0 = Math.min(a0, p.angle); a1 = Math.max(a1, p.angle);
-        rMin = Math.min(rMin, p.radius); rMax = Math.max(rMax, p.radius);
-        count++;
-      }
-      if (!count) return;
-      a0 -= 0.05; a1 += 0.05;
-      rMin = Math.max(proj.r0 * 0.6, rMin - 6); rMax = Math.min(proj.R + 6, rMax + 6);
-      miniCtx.beginPath();
-      miniCtx.arc(cx, cy, rMax, a0, a1);
-      miniCtx.arc(cx, cy, rMin, a1, a0, true);
-      miniCtx.closePath();
-      miniCtx.fillStyle = "rgba(232,206,140,0.12)";
-      miniCtx.fill();
+      const tl = g2m(vr.x0, vr.y0, t), br = g2m(vr.x1, vr.y1, t);
+      const x0 = Math.max(0.5, tl.x), y0 = Math.max(0.5, tl.y);
+      const x1 = Math.min(mini.width - 0.5, br.x), y1 = Math.min(mini.height - 0.5, br.y);
+      if (x1 <= x0 || y1 <= y0) return;
+      miniCtx.fillStyle = "rgba(232,206,140,0.10)";
+      miniCtx.fillRect(x0, y0, x1 - x0, y1 - y0);
       miniCtx.strokeStyle = "rgba(232,206,140,0.9)";
       miniCtx.lineWidth = 1;
-      miniCtx.stroke();
+      miniCtx.strokeRect(x0, y0, x1 - x0, y1 - y0);
     }
 
     // ---------------------------------------------------------------------
@@ -775,6 +732,7 @@ const Graph = (() => {
         currentFilter = list;
         if (!list) {
           visibleSet = null;
+          restoreHome();                 // back to the whole-atlas positions
         } else {
           const wanted = new Set(list);
           const set = new Set();
@@ -786,11 +744,10 @@ const Graph = (() => {
           if (expandedId && !visibleSet.has(expandedId)) {
             expandedId = null; onSelect && onSelect(null);
           }
+          relayoutSubset(set);           // compact the visible subset into its own disk
         }
         highlightSet = null;
-        // Drop any mounted nodes that are now hidden.
-        for (const [id, el] of elements)
-          if (visibleSet && !visibleSet.has(id)) { el.remove(); elements.delete(id); }
+        clearMounted();                  // positions changed → remount everything fresh
         api.fit();
       },
       getFilter() { return currentFilter; },
@@ -821,6 +778,27 @@ const Graph = (() => {
           if (el) { if (open) { /* body built on demand via click path */ }
             styleNode(n, el); }
         });
+      },
+
+      // Frame a whole field's constellation. Returns false if it has no visible
+      // nodes (e.g. filtered out). Highlights the field so it's easy to spot.
+      focusField(field) {
+        let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+        const ids = new Set();
+        for (const n of nodeArr) {
+          if (n.field !== field) continue;
+          if (visibleSet && !visibleSet.has(n.id)) continue;
+          ids.add(n.id);
+          minX = Math.min(minX, n.x); minY = Math.min(minY, n.y);
+          maxX = Math.max(maxX, n.x + n.w); maxY = Math.max(maxY, n.y + n.h);
+        }
+        if (!ids.size) return false;
+        const w = root.clientWidth, h = root.clientHeight, pad = 110;
+        const bw = Math.max(maxX - minX, 1), bh = Math.max(maxY - minY, 1);
+        const s = clampScale(Math.min((w - 2 * pad) / bw, (h - 2 * pad) / bh));
+        api.setHighlight(ids);
+        api.centerOn((minX + maxX) / 2, (minY + maxY) / 2, Math.min(s, 1.1));
+        return true;
       },
 
       setHighlight(set) {

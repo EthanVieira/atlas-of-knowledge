@@ -264,8 +264,9 @@
   legend.innerHTML = FAMILIES.map(fam => {
     const items = Object.entries(FIELDS)
       .filter(([, f]) => f.family === fam.key)
-      .map(([, f]) =>
-        `<span class="km-legend-item"><span class="swatch" style="--field-hue:${f.hue}"></span>${f.label}</span>`)
+      .map(([k, f]) =>
+        `<button type="button" class="km-legend-item" data-field="${k}" title="Fly to ${f.label}">`
+        + `<span class="swatch" style="--field-hue:${f.hue}"></span>${f.label}</button>`)
       .join("");
     if (!items) return "";
     return `<div class="km-legend-group">
@@ -273,6 +274,16 @@
         <div class="km-legend-items">${items}</div>
       </div>`;
   }).join("");
+
+  // Clicking a field in the legend flies the camera to that constellation. If it
+  // is currently filtered out, bring it into view first, then frame it.
+  legend.addEventListener("click", (e) => {
+    const btn = e.target.closest(".km-legend-item");
+    if (!btn) return;
+    const key = btn.dataset.field;
+    if (!selected.has(key)) { selected.add(key); syncFilter(); }
+    if (!graph.focusField(key)) toast(`${FIELDS[key]?.label ?? key} has no courses to show.`);
+  });
 
   // Collapsible legend (remembers its state).
   const legendEl = $("#legend");
