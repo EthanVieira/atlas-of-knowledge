@@ -6,7 +6,7 @@
  *  index.html. To add a subject: edit the relevant js/data/<field>.js file.
  * ==========================================================================*/
 
-// Fields belong to families (natural sciences, engineering, social sciences,
+// Fields belong to families (natural sciences, applied sciences, social sciences,
 // humanities). Their order here sets the left to right lane order in the graph, so
 // related disciplines sit next to each other, and each family is given its own
 // hue arc so members look visually related. Each field needs a label, a short 
@@ -18,20 +18,20 @@ var FIELDS = {
   chemistry:        { label: "Chemistry",             abbr: "CHEM",  family: "sciences",    hue: 150 },
   earthscience:     { label: "Earth Science",         abbr: "EASC",  family: "sciences",    hue: 161 },
   biology:          { label: "Biology",               abbr: "BIO",   family: "sciences",    hue: 172 },
-  medicine:         { label: "Medicine",              abbr: "MED",   family: "sciences",    hue: 181 },
   cs:               { label: "Computer Science",      abbr: "CS",    family: "sciences",    hue: 190 },
 
-  // --- Engineering — blues & indigo ---
-  matsci:           { label: "Materials Science",     abbr: "MATSE", family: "engineering", hue: 205 },
-  mecheng:          { label: "Mechanical Eng.",       abbr: "MECH",  family: "engineering", hue: 215 },
-  eleceng:          { label: "Electrical Eng.",       abbr: "EE",    family: "engineering", hue: 225 },
-  civileng:         { label: "Civil Eng.",            abbr: "CIVE",  family: "engineering", hue: 235 },
-  architecture:     { label: "Architecture",          abbr: "ARCH",  family: "engineering", hue: 240 },
-  chemeng:          { label: "Chemical Eng.",         abbr: "CHE",   family: "engineering", hue: 245 },
-  nucleng:          { label: "Nuclear Eng.",          abbr: "NUCE",  family: "engineering", hue: 250 },
-  aeroeng:          { label: "Aerospace Eng.",        abbr: "AERO",  family: "engineering", hue: 255 },
-  bioeng:           { label: "Biomedical Eng.",       abbr: "BME",   family: "engineering", hue: 266 },
-  indeng:           { label: "Industrial Eng.",       abbr: "IE",    family: "engineering", hue: 272 },
+  // --- Applied sciences (engineering & medicine) — blues & indigo ---
+  matsci:           { label: "Materials Science",     abbr: "MATSE", family: "applied",     hue: 205 },
+  mecheng:          { label: "Mechanical Eng.",       abbr: "MECH",  family: "applied",     hue: 215 },
+  eleceng:          { label: "Electrical Eng.",       abbr: "EE",    family: "applied",     hue: 225 },
+  civileng:         { label: "Civil Eng.",            abbr: "CIVE",  family: "applied",     hue: 235 },
+  architecture:     { label: "Architecture",          abbr: "ARCH",  family: "applied",     hue: 240 },
+  chemeng:          { label: "Chemical Eng.",         abbr: "CHE",   family: "applied",     hue: 245 },
+  nucleng:          { label: "Nuclear Eng.",          abbr: "NUCE",  family: "applied",     hue: 250 },
+  aeroeng:          { label: "Aerospace Eng.",        abbr: "AERO",  family: "applied",     hue: 255 },
+  bioeng:           { label: "Biomedical Eng.",       abbr: "BME",   family: "applied",     hue: 266 },
+  medicine:         { label: "Medicine",              abbr: "MED",   family: "applied",     hue: 269 },
+  indeng:           { label: "Industrial Eng.",       abbr: "IE",    family: "applied",     hue: 272 },
 
   // --- Social sciences — violets & purples ---
   economics:        { label: "Economics",             abbr: "ECON",  family: "social",      hue: 278 },
@@ -58,7 +58,7 @@ var FIELDS = {
 // Family display order & labels for the legend sections.
 var FAMILIES = [
   { key: "sciences",    label: "Natural & Formal Sciences" },
-  { key: "engineering", label: "Engineering" },
+  { key: "applied",     label: "Applied Sciences" },
   { key: "social",      label: "Social Sciences" },
   { key: "humanities",  label: "Humanities" },
 ];
