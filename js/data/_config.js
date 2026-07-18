@@ -57,10 +57,19 @@ var FAMILIES = [
   { key: "humanities",  label: "Humanities" },
 ];
 
+// Depth zones for the radial layout: distance from the core = how far into a
+// prerequisite chain a course sits. Each zone gets a hue used for its concentric
+// guide ring (in the graph) and its legend swatch. Order = inner → outer.
+var ZONES = [
+  { label: "Foundations",  hue: 168, desc: "Entry points — little or no prerequisites (inner rings)." },
+  { label: "Intermediate", hue: 43,  desc: "Builds on the foundations (middle rings)." },
+  { label: "Advanced",     hue: 338, desc: "Capstones with deep prerequisite chains (outer rings)." },
+];
+
 function R(t, by, url) { return { t: t, by: by, url: url || null }; }
 
 // The global registry. Each field file calls registerCourses([...]).
-window.KNOWLEDGE_MAP = { FIELDS: FIELDS, FAMILIES: FAMILIES, COURSES: [] };
+window.KNOWLEDGE_MAP = { FIELDS: FIELDS, FAMILIES: FAMILIES, ZONES: ZONES, COURSES: [] };
 
 function registerCourses(list) {
   var arr = window.KNOWLEDGE_MAP.COURSES;

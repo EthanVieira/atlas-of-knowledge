@@ -28,9 +28,13 @@ const Graph = (() => {
     canvas.className = "km-edges";
     const world = document.createElement("div");
     world.className = "km-world";
-    root.append(canvas, world);
+    // Overlay canvas sits ABOVE the cards so labels are never hidden by them.
+    const overlay = document.createElement("canvas");
+    overlay.className = "km-edges";
+    root.append(canvas, world, overlay);
 
     const ctx = canvas.getContext("2d");
+    const octx = overlay.getContext("2d");
 
     // ---- View transform ---------------------------------------------------
     // screen = graph * scale + offset
@@ -461,16 +465,116 @@ const Graph = (() => {
     function resizeCanvas() {
       dpr = window.devicePixelRatio || 1;
       const w = root.clientWidth, h = root.clientHeight;
-      canvas.width = Math.round(w * dpr);
-      canvas.height = Math.round(h * dpr);
-      canvas.style.width = w + "px";
-      canvas.style.height = h + "px";
+      canvas.width = overlay.width = Math.round(w * dpr);
+      canvas.height = overlay.height = Math.round(h * dpr);
+      canvas.style.width = overlay.style.width = w + "px";
+      canvas.style.height = overlay.style.height = h + "px";
+    }
+
+    // ---- In-world guides: depth rings + field / family labels -------------
+    // All geometry is derived from the nodes' own polar coords (angle / radius),
+    // so the guides follow the radial layout and any filter re-layout for free.
+    const FIELD_LABEL_MIN_SCALE = 0.11;   // hide field labels when zoomed far out
+    const famLabelOf = {};
+    for (const fam of (window.KNOWLEDGE_MAP && window.KNOWLEDGE_MAP.FAMILIES) || [])
+      famLabelOf[fam.key] = fam.label;
+    const ZONES = (window.KNOWLEDGE_MAP && window.KNOWLEDGE_MAP.ZONES) || [
+      { label: "Foundations", hue: 168 }, { label: "Intermediate", hue: 43 },
+      { label: "Advanced", hue: 338 },
+    ];
+
+    // A rounded pill of text centered at a screen point, drawn on context `g`.
+    function chipLabel(g, x, y, text, { size = 12, fg = "#e7c86a", weight = "600" } = {}) {
+      g.font = `${weight} ${size}px "Iowan Old Style","Palatino Linotype",Georgia,serif`;
+      const tw = g.measureText(text).width;
+      const padX = 7, padY = 4, bw = tw + padX * 2, bh = size + padY * 2;
+      const rx = x - bw / 2, ry = y - bh / 2, r = 6;
+      g.beginPath();
+      g.moveTo(rx + r, ry);
+      g.arcTo(rx + bw, ry, rx + bw, ry + bh, r);
+      g.arcTo(rx + bw, ry + bh, rx, ry + bh, r);
+      g.arcTo(rx, ry + bh, rx, ry, r);
+      g.arcTo(rx, ry, rx + bw, ry, r);
+      g.closePath();
+      g.fillStyle = "rgba(14,15,22,0.74)";
+      g.fill();
+      g.fillStyle = fg;
+      g.textAlign = "center"; g.textBaseline = "middle";
+      g.fillText(text, x, y);
+    }
+
+    function drawGuides(w, h) {
+      const cx = offsetX, cy = offsetY;    // galaxy hub (world origin) on screen
+      // Labels render on the overlay (above the cards); rings on the base canvas.
+      octx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      octx.clearRect(0, 0, w, h);
+      // One pass over visible nodes → overall radius extent, plus each field's and
+      // family's angular mean (via summed unit vectors) and outer radius.
+      let rMin = Infinity, rMax = 0;
+      const fA = new Map(), famA = new Map();
+      for (const n of nodeArr) {
+        if (visibleSet && !visibleSet.has(n.id)) continue;
+        if (n.radius == null) continue;
+        rMin = Math.min(rMin, n.radius); rMax = Math.max(rMax, n.radius);
+        const ca = Math.cos(n.angle), sa = Math.sin(n.angle);
+        let e = fA.get(n.field); if (!e) fA.set(n.field, e = { sx: 0, sy: 0, r: 0, rMin: Infinity });
+        e.sx += ca; e.sy += sa; e.r = Math.max(e.r, n.radius); e.rMin = Math.min(e.rMin, n.radius);
+        const fam = (fields[n.field] || {}).family || n.field;
+        let g = famA.get(fam); if (!g) famA.set(fam, g = { sx: 0, sy: 0, r: 0 });
+        g.sx += ca; g.sy += sa; g.r = Math.max(g.r, n.radius);
+      }
+      if (rMax === 0) return;
+      const inner = Math.max(rMin - 130, 30);
+      const outer = rMax + 60;
+      const onScreen = (x, y) => x > -80 && x < w + 80 && y > -30 && y < h + 30;
+
+      // Concentric depth-zone rings, one hue per zone. The faint inner ring marks
+      // the core; each zone's outer boundary ring is drawn in that zone's hue.
+      const bands = [inner, inner + (outer - inner) / 3, inner + 2 * (outer - inner) / 3, outer];
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = "rgba(150,132,92,0.16)";
+      ctx.beginPath(); ctx.arc(cx, cy, bands[0] * scale, 0, Math.PI * 2); ctx.stroke();
+      for (let i = 0; i < 3; i++) {
+        const hue = (ZONES[i] && ZONES[i].hue) ?? 44;
+        ctx.strokeStyle = `hsla(${hue}, 62%, 58%, 0.34)`;
+        ctx.lineWidth = 1.4;
+        ctx.beginPath(); ctx.arc(cx, cy, bands[i + 1] * scale, 0, Math.PI * 2); ctx.stroke();
+      }
+      // Zone labels climb straight up (angle −90°, x = cx) through the gap that
+      // sits between the first and last field wedge, each in its zone hue.
+      for (let i = 0; i < 3; i++) {
+        const z = ZONES[i]; if (!z) continue;
+        const y = cy - ((bands[i] + bands[i + 1]) / 2) * scale;
+        if (onScreen(cx, y)) chipLabel(octx, cx, y, z.label, { size: 11, fg: `hsl(${z.hue} 68% 72%)`, weight: "700" });
+      }
+
+      // Field labels (short code) at each field's first (innermost) course,
+      // angularly centered — nudged just inside it, into the empty core margin.
+      if (scale >= FIELD_LABEL_MIN_SCALE) {
+        for (const [f, e] of fA) {
+          const ang = Math.atan2(e.sy, e.sx), rr = Math.max(e.rMin - 80, 40) * scale;
+          const x = cx + Math.cos(ang) * rr, y = cy + Math.sin(ang) * rr;
+          if (!onScreen(x, y)) continue;
+          const meta = fields[f] || {};
+          chipLabel(octx, x, y, meta.abbr || f, { size: 11, fg: `hsl(${meta.hue ?? 44} 70% 72%)`, weight: "700" });
+        }
+      }
+
+      // Family labels, further out and larger.
+      for (const [fam, g] of famA) {
+        const ang = Math.atan2(g.sy, g.sx), rr = (g.r + 300) * scale;
+        const x = cx + Math.cos(ang) * rr, y = cy + Math.sin(ang) * rr;
+        if (!onScreen(x, y)) continue;
+        chipLabel(octx, x, y, (famLabelOf[fam] || fam).toUpperCase(), { size: 13, fg: "#f0dca0", weight: "700" });
+      }
     }
 
     function renderEdges() {
       const w = root.clientWidth, h = root.clientHeight;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
+
+      drawGuides(w, h);   // depth rings + field / family labels, behind the edges
 
       // Cull: skip edges whose bounding box is off-screen.
       const pad = 60;

@@ -73,6 +73,8 @@
         <span><span class="chip available"></span>Available</span>
         <span><span class="chip complete"></span>Completed</span>
       </div>
+      <div class="legend-title legend-fields-title">Depth (rings)</div>
+      <div id="zone-legend" class="km-legend-items"></div>
       <div class="legend-title legend-fields-title">Fields</div>
       <div id="field-legend"></div>
     </div>
@@ -87,12 +89,17 @@
   <aside id="goal-panel" hidden>
     <div class="goal-head">
       <span class="goal-eyebrow">🎯 Goal</span>
-      <button id="goal-clear" title="Clear goal" aria-label="Clear goal">✕</button>
+      <button id="goal-collapse" class="goal-collapse" aria-expanded="true"
+              aria-controls="goal-body" title="Collapse">
+        <span class="chev" aria-hidden="true">▾</span>
+      </button>
     </div>
-    <button id="goal-title" class="goal-title" title="Trace &amp; frame this path"></button>
-    <div class="goal-progress"><div id="goal-bar"></div></div>
-    <div id="goal-stats" class="goal-stats"></div>
-    <ol id="goal-steps" class="goal-steps"></ol>
+    <div id="goal-body">
+      <button id="goal-title" class="goal-title" title="Trace &amp; frame this path"></button>
+      <div class="goal-progress"><div id="goal-bar"></div></div>
+      <div id="goal-stats" class="goal-stats"></div>
+      <ol id="goal-steps" class="goal-steps"></ol>
+    </div>
   </aside>
 
   <div id="hint">Drag to pan · scroll to zoom · click a star to open it · click a prerequisite to trace its lineage</div>

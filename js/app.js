@@ -105,9 +105,23 @@
     try { goalId ? localStorage.setItem(GOAL_KEY, goalId) : localStorage.removeItem(GOAL_KEY); }
     catch {}
     graph.setGoal(goalId);
+    if (goalId) setGoalCollapsed(false);   // reveal the plan when a goal is chosen
     renderGoalPanel();
     if (goalId) toast(`Goal set: ${model.byId.get(goalId).title}`);
   }
+
+  // Collapse / expand the panel body (state persists), mirroring the legend.
+  const goalCollapseBtn = $g("#goal-collapse");
+  const GOAL_COLLAPSE_KEY = "knowledge-map.goal.collapsed";
+  function setGoalCollapsed(c) {
+    goalPanel.classList.toggle("collapsed", c);
+    goalCollapseBtn.setAttribute("aria-expanded", String(!c));
+    goalCollapseBtn.title = c ? "Expand" : "Collapse";
+    try { localStorage.setItem(GOAL_COLLAPSE_KEY, c ? "1" : "0"); } catch {}
+  }
+  setGoalCollapsed(localStorage.getItem(GOAL_COLLAPSE_KEY) === "1");
+  goalCollapseBtn.addEventListener("click",
+    () => setGoalCollapsed(!goalPanel.classList.contains("collapsed")));
 
   function renderGoalPanel() {
     const node = goalId && model.byId.get(goalId);
@@ -143,7 +157,6 @@
     graph.setHighlight(new Set(ids));
     graph.frameNodes(ids);
   });
-  $g("#goal-clear").addEventListener("click", () => setGoal(null));
   // Step / next clicks fly to that course and open it.
   function goalGoto(e) {
     const el = e.target.closest("[data-id]");
@@ -151,6 +164,46 @@
   }
   goalStepsEl.addEventListener("click", goalGoto);
   goalStatsEl.addEventListener("click", goalGoto);
+
+  // Drag the panel by its header (position persists).
+  (function makeGoalDraggable() {
+    const head = goalPanel.querySelector(".goal-head");
+    const POS_KEY = "knowledge-map.goal.pos.v1";
+    const W = 244;
+    try {
+      const p = JSON.parse(localStorage.getItem(POS_KEY) || "null");
+      if (p && typeof p.left === "number") {
+        goalPanel.style.left = Math.max(4, Math.min(p.left, innerWidth - W - 4)) + "px";
+        goalPanel.style.top = Math.max(52, Math.min(p.top, innerHeight - 60)) + "px";
+      }
+    } catch {}
+    let drag = null;
+    head.addEventListener("pointerdown", (e) => {
+      if (e.target.closest("#goal-collapse")) return;   // let the collapse button work
+      const r = goalPanel.getBoundingClientRect();
+      drag = { dx: e.clientX - r.left, dy: e.clientY - r.top, w: r.width };
+      try { head.setPointerCapture(e.pointerId); } catch {}
+      goalPanel.classList.add("dragging");
+      e.preventDefault();
+    });
+    head.addEventListener("pointermove", (e) => {
+      if (!drag) return;
+      const left = Math.max(4, Math.min(innerWidth - drag.w - 4, e.clientX - drag.dx));
+      const top = Math.max(52, Math.min(innerHeight - 40, e.clientY - drag.dy));
+      goalPanel.style.left = left + "px";
+      goalPanel.style.top = top + "px";
+    });
+    const end = (e) => {
+      if (!drag) return;
+      drag = null;
+      goalPanel.classList.remove("dragging");
+      try { head.releasePointerCapture(e.pointerId); } catch {}
+      const r = goalPanel.getBoundingClientRect();
+      try { localStorage.setItem(POS_KEY, JSON.stringify({ left: r.left, top: r.top })); } catch {}
+    };
+    head.addEventListener("pointerup", end);
+    head.addEventListener("pointercancel", end);
+  })();
 
   // Restore a persisted goal on load.
   if (goalId) { graph.setGoal(goalId); renderGoalPanel(); }
@@ -360,6 +413,12 @@
     renderGoalPanel();     // keep the goal meter / next-step in sync
   }
   updateProgress();
+
+  // ---- Legend: depth zones (concentric ring hues) ------------------------
+  const ZONES = window.KNOWLEDGE_MAP.ZONES || [];
+  $("#zone-legend").innerHTML = ZONES.map(z =>
+    `<span class="km-legend-item zone-item" title="${z.desc}">`
+    + `<span class="zone-swatch" style="--zh:${z.hue}"></span>${z.label}</span>`).join("");
 
   // ---- Legend / field key (grouped into family sections) -----------------
   const legend = $("#field-legend");
