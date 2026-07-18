@@ -420,6 +420,107 @@ details[open] summary::before { content: "▾ "; }
   box-shadow: 0 0 16px var(--gold-glow);
 }
 
+/* --- Smart discovery toggle + info ---------------------------------------- */
+.km-discover { display: flex; align-items: center; gap: 6px; }
+.km-smart {
+  display: flex; align-items: center; gap: 4px; cursor: pointer; user-select: none;
+  font-family: var(--font-serif); font-size: 11.5px; color: #cdbf98; white-space: nowrap;
+}
+.km-smart input { accent-color: var(--gold); cursor: pointer; margin: 0; }
+.km-info {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 16px; height: 16px; border-radius: 50%; cursor: help; line-height: 1;
+  border: 1px solid rgba(200,180,120,.45); color: #cdbf98;
+  font: italic 10px/1 Georgia, "Times New Roman", serif;
+}
+.km-info:hover, .km-info:focus-visible {
+  border-color: var(--gold); color: #fff2cf; background: rgba(200,180,120,.16); outline: none;
+}
+
+/* --- Goal / study-plan panel ---------------------------------------------- */
+#goal-panel {
+  position: fixed; top: 64px; left: 16px; z-index: 90; width: 244px;
+  max-height: calc(100vh - 230px); display: flex; flex-direction: column;
+  background: rgba(22,23,33,.9); border: 1px solid rgba(200,180,120,.28);
+  border-radius: 12px; padding: 10px 11px; backdrop-filter: blur(5px);
+  box-shadow: 0 6px 22px rgba(0,0,0,.4);
+}
+.goal-head { display: flex; align-items: center; justify-content: space-between; }
+.goal-eyebrow {
+  font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+  font-weight: 700; color: var(--gold);
+}
+#goal-clear {
+  background: none; border: 0; color: #9b8c68; cursor: pointer;
+  font-size: 14px; line-height: 1; padding: 2px 4px; border-radius: 5px;
+}
+#goal-clear:hover { color: #fff2cf; background: rgba(200,180,120,.16); }
+.goal-title {
+  display: block; width: 100%; text-align: left; margin: 4px 0 8px;
+  background: none; border: 0; padding: 0; cursor: pointer;
+  font-family: var(--font-serif); font-size: 15px; color: #f3e4c0; line-height: 1.25;
+}
+.goal-title:hover { color: #fff; text-decoration: underline; }
+.goal-progress { height: 5px; border-radius: 3px; background: rgba(200,180,120,.16); overflow: hidden; }
+#goal-bar {
+  height: 100%; width: 0; transition: width .3s ease;
+  background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+}
+.goal-stats {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  margin: 7px 0 4px; font-size: 11.5px; color: #b7a980;
+}
+.goal-next {
+  background: none; border: 0; padding: 0; cursor: pointer; max-width: 155px;
+  color: var(--gold-bright); font-family: var(--font-serif); font-size: 11.5px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.goal-next:hover { color: #fff2cf; text-decoration: underline; }
+.goal-complete { color: var(--gold-bright); }
+.goal-steps {
+  list-style: none; margin: 6px 0 0; padding: 6px 2px 0;
+  overflow-y: auto; border-top: 1px solid rgba(200,180,120,.16);
+}
+.goal-step {
+  display: flex; align-items: center; gap: 7px; padding: 3px 5px; border-radius: 5px;
+  font-size: 12px; color: #a99e7d; cursor: pointer;
+}
+.goal-step:hover { background: rgba(200,180,120,.12); color: #f3e4c0; }
+.goal-step .gs-mark {
+  flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%;
+  border: 1px solid hsl(var(--field-hue,44) 45% 48%); background: transparent;
+}
+.goal-step .gs-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.goal-step.done { color: #7d7458; }
+.goal-step.done .gs-mark { background: hsl(var(--field-hue,44) 58% 55%); border-color: transparent; }
+.goal-step.done .gs-title { text-decoration: line-through; text-decoration-color: rgba(160,150,110,.5); }
+.goal-step.next { background: rgba(232,206,140,.14); color: #f6e6bc; }
+.goal-step.next .gs-mark { border-color: var(--gold-bright); box-shadow: 0 0 6px var(--gold-glow); }
+.goal-step.locked { opacity: .55; }
+
+/* --- Goal bar inside a course card ---------------------------------------- */
+.km-goalbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 8px 0 2px;
+}
+.km-path-info { font-size: 11.5px; color: #b0a37e; }
+.km-goal-btn {
+  font-family: var(--font-serif); font-size: 11px; cursor: pointer; white-space: nowrap;
+  background: rgba(40,40,54,.7); color: #ecdfbf;
+  border: 1px solid rgba(200,180,120,.3); border-radius: 7px; padding: 3px 9px;
+  transition: all .15s;
+}
+.km-goal-btn:hover { border-color: var(--gold); color: #fff2cf; background: rgba(60,58,78,.85); }
+.km-goal-btn.is-goal {
+  background: linear-gradient(180deg, var(--gold-bright), var(--gold)); color: #2a2010;
+  border-color: var(--gold);
+}
+
+/* --- Goal marker on the graph node ---------------------------------------- */
+.km-node.km-goal {
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 0 3px var(--gold-glow), 0 0 18px 2px var(--gold-glow), 0 2px 10px rgba(0,0,0,.45);
+}
+
 /* --- Toast ----------------------------------------------------------------- */
 #toast {
   position: fixed; top: 62px; left: 50%; transform: translateX(-50%) translateY(-8px);
@@ -519,7 +620,7 @@ details[open] summary::before { content: "▾ "; }
 }
 
 @media (max-width: 720px) {
-  #minimap-wrap, #legend { display: none; }
+  #minimap-wrap, #legend, #goal-panel { display: none; }
   #search { width: 130px; }
   #field-filter { max-width: 130px; }
   .brand .sub { display: none; }

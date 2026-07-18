@@ -72,6 +72,7 @@
       if (node) graph.setHighlight(ancestors(node.id));
       // when closing (node null) leave highlight as-is; empty-space click clears it
     },
+    onGoalToggle: (id) => setGoal(goalId === id ? null : id),
   });
 
   function ancestors(id) {
@@ -84,6 +85,75 @@
     }
     return seen;
   }
+
+  // ---- Goal / study plan -------------------------------------------------
+  // A single "goal" course is persisted; the panel shows the ordered path of
+  // prerequisites leading to it, with progress and the next actionable step.
+  const $g = sel => document.querySelector(sel);
+  const GOAL_KEY = "knowledge-map.goal.v1";
+  let goalId = localStorage.getItem(GOAL_KEY) || null;
+  if (goalId && !model.byId.has(goalId)) goalId = null;
+
+  const goalPanel = $g("#goal-panel");
+  const goalTitleEl = $g("#goal-title");
+  const goalBarEl = $g("#goal-bar");
+  const goalStatsEl = $g("#goal-stats");
+  const goalStepsEl = $g("#goal-steps");
+
+  function setGoal(id) {
+    goalId = id || null;
+    try { goalId ? localStorage.setItem(GOAL_KEY, goalId) : localStorage.removeItem(GOAL_KEY); }
+    catch {}
+    graph.setGoal(goalId);
+    renderGoalPanel();
+    if (goalId) toast(`Goal set: ${model.byId.get(goalId).title}`);
+  }
+
+  function renderGoalPanel() {
+    const node = goalId && model.byId.get(goalId);
+    if (!node) { goalPanel.hidden = true; return; }
+    goalPanel.hidden = false;
+    const steps = graph.pathTo(goalId);        // ordered: prereqs first, goal last
+    const total = steps.length;
+    const done = steps.reduce((c, n) => c + (completed.has(n.id) ? 1 : 0), 0);
+    const pct = total ? Math.round((done / total) * 100) : 0;
+    const next = steps.find(n => !completed.has(n.id));
+
+    goalTitleEl.textContent = node.title;
+    goalBarEl.style.width = pct + "%";
+    goalStatsEl.innerHTML = next
+      ? `<span>${done} / ${total} done</span>`
+        + `<button class="goal-next" data-id="${next.id}" title="Go to the next step">Next: ${next.title}</button>`
+      : `<span class="goal-complete">✦ Path complete — ${total} / ${total}</span>`;
+
+    goalStepsEl.innerHTML = steps.map(n => {
+      const cls = completed.has(n.id) ? "done"
+        : (next && n.id === next.id) ? "next"
+        : isReady(n.id) ? "ready" : "locked";
+      return `<li class="goal-step ${cls}" data-id="${n.id}" title="${n.title}">`
+        + `<span class="gs-mark" style="--field-hue:${FIELDS[n.field]?.hue ?? 44}"></span>`
+        + `<span class="gs-title">${n.title}</span></li>`;
+    }).join("");
+  }
+
+  // Frame + highlight the whole goal path.
+  goalTitleEl.addEventListener("click", () => {
+    if (!goalId) return;
+    const ids = graph.pathTo(goalId).map(n => n.id);
+    graph.setHighlight(new Set(ids));
+    graph.frameNodes(ids);
+  });
+  $g("#goal-clear").addEventListener("click", () => setGoal(null));
+  // Step / next clicks fly to that course and open it.
+  function goalGoto(e) {
+    const el = e.target.closest("[data-id]");
+    if (el) graph.focusNode(el.dataset.id, true);
+  }
+  goalStepsEl.addEventListener("click", goalGoto);
+  goalStatsEl.addEventListener("click", goalGoto);
+
+  // Restore a persisted goal on load.
+  if (goalId) { graph.setGoal(goalId); renderGoalPanel(); }
 
   // ---- Toolbar buttons ---------------------------------------------------
   const $ = sel => document.querySelector(sel);
@@ -162,8 +232,41 @@
   filterPanel.addEventListener("click", (e) => e.stopPropagation());
   document.addEventListener("click", () => setFilterOpen(false));
 
-  // Discover: jump to a random course whose prerequisites are all satisfied.
-  // When fields are filtered, only discover from the selected fields' courses.
+  // Discover: suggest a course whose prerequisites are all satisfied. "Smart"
+  // mode advances your goal (or picks the highest-leverage course); otherwise a
+  // random pick. When fields are filtered, only discover from those fields.
+  const smartBox = $("#discover-smart");
+  const SMART_KEY = "knowledge-map.discover-smart";
+  smartBox.checked = localStorage.getItem(SMART_KEY) === "1";
+  smartBox.addEventListener("change", () => {
+    try { localStorage.setItem(SMART_KEY, smartBox.checked ? "1" : "0"); } catch {}
+  });
+
+  const rnd = arr => arr[Math.floor(Math.random() * arr.length)];
+
+  // Highest-leverage available course: prefer the next actionable step on the
+  // goal path, else the course that immediately unlocks the most others.
+  function smartPick(ready) {
+    const readyIds = new Set(ready.map(c => c.id));
+    if (goalId && model.byId.has(goalId)) {
+      const next = graph.pathTo(goalId)
+        .find(n => !completed.has(n.id) && isReady(n.id) && readyIds.has(n.id));
+      if (next) return next;
+    }
+    const scored = ready.map(c => {
+      const node = model.byId.get(c.id);
+      let immediate = 0;                     // children this course would unlock now
+      for (const chId of node.children) {
+        if (completed.has(chId)) continue;
+        const ch = model.byId.get(chId);
+        if (ch.requires.every(r => r === c.id || completed.has(r))) immediate++;
+      }
+      return { c, score: immediate * 100 + node.children.length };
+    });
+    const best = Math.max(...scored.map(s => s.score));
+    return rnd(scored.filter(s => s.score === best)).c;
+  }
+
   $("#random-course").addEventListener("click", () => {
     const fields = graph.getFilter();            // null = whole atlas, else array
     if (fields && !fields.length) { toast("No fields are selected to discover from."); return; }
@@ -181,9 +284,9 @@
           : "You've completed the entire atlas. Bravo! ✦");
       return;
     }
-    const pick = ready[Math.floor(Math.random() * ready.length)];
+    const pick = smartBox.checked ? smartPick(ready) : rnd(ready);
     graph.focusNode(pick.id, true);
-    toast(`Suggested: ${pick.title}`);
+    toast(`${smartBox.checked ? "Suggested" : "Random"}: ${pick.title}`);
   });
 
   // ---- Transient toast ---------------------------------------------------
@@ -254,6 +357,7 @@
     const pct = total ? Math.round((done / total) * 100) : 0;
     progressText.textContent = `${done} / ${total} completed`;
     progressBar.style.width = pct + "%";
+    renderGoalPanel();     // keep the goal meter / next-step in sync
   }
   updateProgress();
 

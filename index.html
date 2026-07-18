@@ -42,7 +42,15 @@
     </div>
 
     <div class="tools">
-      <button id="random-course" class="btn-discover" title="Jump to a random course you're ready to take">✦ Discover</button>
+      <div class="km-discover">
+        <button id="random-course" class="btn-discover" title="Suggest a course you're ready to take">✦ Discover</button>
+        <label class="km-smart" title="Use smart suggestions instead of a random pick">
+          <input type="checkbox" id="discover-smart" /><span>Smart</span>
+        </label>
+        <span id="discover-info" class="km-info" tabindex="0" role="button"
+              aria-label="About smart discovery"
+              title="Smart discovery suggests the highest-impact course to take next, instead of a random one: if you've set a goal, it points to the next step on that path; otherwise it picks an available course that unlocks the most new courses. Uncheck for a purely random pick among everything you're ready to take.">i</span>
+      </div>
       <button id="zoom-out" title="Zoom out ( − )">−</button>
       <button id="zoom-in"  title="Zoom in ( + )">+</button>
       <button id="zoom-fit" title="Fit whole atlas ( 0 )">⤢</button>
@@ -73,6 +81,18 @@
   <!-- Minimap -->
   <aside id="minimap-wrap">
     <canvas id="minimap" width="200" height="200"></canvas>
+  </aside>
+
+  <!-- Goal / study plan (shown once a goal course is chosen) -->
+  <aside id="goal-panel" hidden>
+    <div class="goal-head">
+      <span class="goal-eyebrow">🎯 Goal</span>
+      <button id="goal-clear" title="Clear goal" aria-label="Clear goal">✕</button>
+    </div>
+    <button id="goal-title" class="goal-title" title="Trace &amp; frame this path"></button>
+    <div class="goal-progress"><div id="goal-bar"></div></div>
+    <div id="goal-stats" class="goal-stats"></div>
+    <ol id="goal-steps" class="goal-steps"></ol>
   </aside>
 
   <div id="hint">Drag to pan · scroll to zoom · click a star to open it · click a prerequisite to trace its lineage</div>

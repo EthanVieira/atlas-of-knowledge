@@ -19,6 +19,7 @@ const Graph = (() => {
       fields,      // FIELDS map
       state,       // completion state (Set of completed ids) manager
       onSelect,    // callback(node|null) when a node opens/closes
+      onGoalToggle,// callback(id) when a card's "set as goal" button is clicked
     } = opts;
 
     // ---- DOM scaffold -----------------------------------------------------
@@ -42,6 +43,7 @@ const Graph = (() => {
     let highlightSet = null;    // Set of ids to highlight (prereq chain), or null
     let visibleSet = null;      // Set of ids to show (field filter), or null = all
     let currentFilter = null;   // active field keys (array), or null = all
+    let goalId = null;          // the chosen goal course (gets a marker), or null
 
     const { nodes, edges, byId, bounds } = model;
 
@@ -152,6 +154,7 @@ const Graph = (() => {
       const isExp = n.id === expandedId;
       if (isExp && el._ensureBody) el._ensureBody(); // build body lazily on open
       el.classList.toggle("km-expanded", isExp);
+      el.classList.toggle("km-goal", n.id === goalId);
       if (highlightSet) {
         el.classList.toggle("km-dim", !highlightSet.has(n.id));
         el.classList.toggle("km-hl", highlightSet.has(n.id));
@@ -237,6 +240,34 @@ const Graph = (() => {
       fieldLine.className = "km-field-full";
       fieldLine.innerHTML = `<span class="km-field-swatch"></span>${escapeHtml(f.label ?? n.field)}`;
       body.appendChild(fieldLine);
+
+      // Goal + "path to here" bar: how many prerequisites lead to this course and
+      // how many are done, plus a button to make it your goal.
+      const path = orderedPath(n.id);
+      const total = path.length - 1;   // exclude the course itself
+      const doneCount = path.reduce(
+        (c, p) => c + (p.id !== n.id && state.isComplete(p.id) ? 1 : 0), 0);
+      const goalBar = document.createElement("div");
+      goalBar.className = "km-goalbar";
+      goalBar.innerHTML =
+        `<span class="km-path-info" title="Prerequisites that lead to this course">`
+        + (total ? `🧭 ${total} prerequisite${total === 1 ? "" : "s"} · ${doneCount} done`
+                 : `🧭 No prerequisites`)
+        + `</span>`
+        + `<button type="button" class="km-goal-btn"></button>`;
+      const goalBtn = goalBar.querySelector(".km-goal-btn");
+      const paintGoalBtn = () => {
+        const on = n.id === goalId;
+        goalBtn.classList.toggle("is-goal", on);
+        goalBtn.textContent = on ? "🎯 Clear goal" : "🎯 Set as goal";
+      };
+      paintGoalBtn();
+      goalBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        onGoalToggle && onGoalToggle(n.id);   // app flips goal + calls api.setGoal
+        paintGoalBtn();
+      });
+      body.appendChild(goalBar);
 
       // Short description now; swapped for the longer one when detail loads.
       const desc = document.createElement("p");
@@ -801,6 +832,32 @@ const Graph = (() => {
         return true;
       },
 
+      // The goal course (marked in the graph). Pass null to clear.
+      setGoal(id) {
+        goalId = id && byId.has(id) ? id : null;
+        for (const [nid, el] of elements) styleNode(byId.get(nid), el);
+        scheduleRender();
+      },
+      getGoal() { return goalId; },
+      // Ordered study plan (course + prereqs, by depth) as plain node objects.
+      pathTo(id) { return byId.has(id) ? orderedPath(id) : []; },
+
+      // Fit the camera to a set of node ids (e.g. a whole study path).
+      frameNodes(ids) {
+        let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity, cnt = 0;
+        for (const id of ids) {
+          const n = byId.get(id);
+          if (!n || (visibleSet && !visibleSet.has(id))) continue;
+          minX = Math.min(minX, n.x); minY = Math.min(minY, n.y);
+          maxX = Math.max(maxX, n.x + n.w); maxY = Math.max(maxY, n.y + n.h); cnt++;
+        }
+        if (!cnt) return;
+        const w = root.clientWidth, h = root.clientHeight, pad = 100;
+        const bw = Math.max(maxX - minX, 1), bh = Math.max(maxY - minY, 1);
+        const s = clampScale(Math.min((w - 2 * pad) / bw, (h - 2 * pad) / bh));
+        api.centerOn((minX + maxX) / 2, (minY + maxY) / 2, Math.min(s, 1.1));
+      },
+
       setHighlight(set) {
         highlightSet = set;
         for (const [id, el] of elements) styleNode(byId.get(id), el);
@@ -832,6 +889,14 @@ const Graph = (() => {
         for (const r of cur.requires) if (!seen.has(r)) { seen.add(r); stack.push(r); }
       }
       return seen;
+    }
+
+    // A course and all its prerequisites, in a valid study order (by depth =
+    // topological rank, then title). The target course is always last.
+    function orderedPath(id) {
+      const arr = [...ancestorsOf(id)].map(x => byId.get(x)).filter(Boolean);
+      arr.sort((a, b) => (a.depth - b.depth) || a.title.localeCompare(b.title));
+      return arr;
     }
 
     // Bounding box to fit: the whole graph, or just the filtered subset.
