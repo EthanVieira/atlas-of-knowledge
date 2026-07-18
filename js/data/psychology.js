@@ -18,7 +18,6 @@ registerCourses([
   { id: "sensation-perception", title: "Sensation & Perception", field: "psychology", detail: true, requires: ["biological-psychology"] },
   { id: "learning-behavior", title: "Learning & Behavior", field: "psychology", detail: true, requires: ["psychology"] },
   { id: "human-memory", title: "Human Memory", field: "psychology", detail: true, requires: ["cognitive-psychology"] },
-  { id: "cognitive-neuroscience", title: "Cognitive Neuroscience", field: "psychology", detail: true, requires: ["cognitive-psychology", "biological-psychology"] },
 
   // --- Biological & individual differences -------------------------------
   { id: "biological-psychology", title: "Biological Psychology", field: "psychology", detail: true, requires: ["psychology"] },
