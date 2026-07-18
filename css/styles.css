@@ -279,6 +279,11 @@ html, body {
 .km-reqs li, .km-resources li, .km-topics li { font-size: 12.5px; line-height: 1.55; }
 .km-req { color: #6d5320; text-decoration: none; border-bottom: 1px dotted #a98b4e; }
 .km-req:hover { color: #4a3810; border-bottom-style: solid; }
+.km-unlock-tag {
+  margin-left: 7px; font-size: 10px; font-weight: 600; white-space: nowrap;
+  padding: 1px 6px; border-radius: 8px; vertical-align: middle;
+  color: #1f5133; background: rgba(74,160,90,.18); border: 1px solid rgba(74,160,90,.45);
+}
 .km-resources a { color: #5a4a2a; text-decoration: none; border-bottom: 1px dotted #b09760; }
 .km-resources a:hover { color: #33260f; }
 .km-by { color: var(--ink-faint); font-style: italic; }

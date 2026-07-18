@@ -307,6 +307,46 @@ const Graph = (() => {
       }
       body.appendChild(reqWrap);
 
+      // Unlocks next: the courses that list this one as a prerequisite. A course
+      // that would become newly available the moment you finish this one (i.e.
+      // this is its last outstanding prerequisite) gets a "newly available" tag.
+      const kids = (n.children || []).map(id => byId.get(id)).filter(Boolean)
+        .sort((a, b) => a.title.localeCompare(b.title));
+      const unlockWrap = document.createElement("div");
+      unlockWrap.className = "km-section";
+      unlockWrap.innerHTML = kids.length
+        ? `<h4>Prerequisite for</h4>`
+        : `<h4>Prerequisite for</h4><p class="km-none">Nothing yet — a leaf of the atlas.</p>`;
+      if (kids.length) {
+        const ul = document.createElement("ul");
+        ul.className = "km-reqs";
+        for (const cn of kids) {
+          const opensNow = !state.isComplete(cn.id) &&
+            cn.requires.every(r => r === n.id || state.isComplete(r));
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = "#";
+          a.className = "km-req";
+          a.dataset.goto = cn.id;
+          a.textContent = cn.title;
+          a.addEventListener("click", (e) => {
+            e.preventDefault(); e.stopPropagation();
+            api.focusNode(cn.id, true);
+          });
+          li.appendChild(a);
+          if (opensNow) {
+            const tag = document.createElement("span");
+            tag.className = "km-unlock-tag";
+            tag.textContent = "newly available";
+            tag.title = "Finishing this course unlocks it";
+            li.appendChild(tag);
+          }
+          ul.appendChild(li);
+        }
+        unlockWrap.appendChild(ul);
+      }
+      body.appendChild(unlockWrap);
+
       // Topics + resources go in a zone that rich cards fill asynchronously.
       const zone = document.createElement("div");
       zone.className = "km-content-zone";
