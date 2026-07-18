@@ -40,6 +40,7 @@ var FIELDS = {
   politicalscience: { label: "Political Science",     abbr: "POLS",  family: "social",      hue: 311 },
   anthropology:     { label: "Anthropology",          abbr: "ANTH",  family: "social",      hue: 322 },
   linguistics:      { label: "Linguistics",           abbr: "LING",  family: "social",      hue: 331 },
+  geography:        { label: "Geography",              abbr: "GEOG",  family: "social",      hue: 337 },
 
   // --- Humanities — warm rose → red → orange ---
   philosophy:       { label: "Philosophy",            abbr: "PHIL",  family: "humanities",  hue: 343 },
