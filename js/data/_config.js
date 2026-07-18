@@ -48,6 +48,7 @@ var FIELDS = {
   law:              { label: "Law",                   abbr: "LAW",   family: "humanities",  hue: 15  },
   performingarts:   { label: "Performing Arts",       abbr: "PERF",  family: "humanities",  hue: 23  },
   visualarts:       { label: "Visual Arts",           abbr: "ART",   family: "humanities",  hue: 31  },
+  culinary:         { label: "Culinary Arts",         abbr: "CULA",  family: "humanities",  hue: 37  },
 };
 
 // Family display order & labels for the legend sections.
