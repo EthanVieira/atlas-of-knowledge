@@ -580,13 +580,6 @@ const Graph = (() => {
         ctx.lineWidth = 1.4;
         ctx.beginPath(); ctx.arc(cx, cy, bands[i + 1] * scale, 0, Math.PI * 2); ctx.stroke();
       }
-      // Zone labels climb straight up (angle −90°, x = cx) through the gap that
-      // sits between the first and last field wedge, each in its zone hue.
-      for (let i = 0; i < 3; i++) {
-        const z = ZONES[i]; if (!z) continue;
-        const y = cy - ((bands[i] + bands[i + 1]) / 2) * scale;
-        if (onScreen(cx, y)) chipLabel(octx, cx, y, z.label, { size: 11, fg: `hsl(${z.hue} 68% 72%)`, weight: "700" });
-      }
 
       // Field labels (short code) at each field's first (innermost) course,
       // angularly centered — nudged just inside it, into the empty core margin.

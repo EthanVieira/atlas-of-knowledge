@@ -515,8 +515,8 @@
   // ---- Legend: depth zones (concentric ring hues) ------------------------
   const ZONES = window.KNOWLEDGE_MAP.ZONES || [];
   $("#zone-legend").innerHTML = ZONES.map(z =>
-    `<span class="km-legend-item zone-item" title="${z.desc}">`
-    + `<span class="zone-swatch" style="--zh:${z.hue}"></span>${z.label}</span>`).join("");
+    `<span class="km-legend-item zone-item" title="${z.label}: ${z.desc}">`
+    + `<span class="zone-swatch" style="--zh:${z.hue}"></span></span>`).join("");
 
   // ---- Legend / field key (grouped into family sections) -----------------
   const legend = $("#field-legend");
