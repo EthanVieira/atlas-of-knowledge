@@ -404,6 +404,7 @@ details[open] summary::before { content: "▾ "; }
   transition: all .15s;
 }
 #reset-progress { width: auto; padding: 0 12px; font-size: 12px; }
+.tools button.tool-text { width: auto; padding: 0 11px; font-size: 12px; }
 .tools button:hover, #reset-progress:hover {
   border-color: var(--gold); color: #fff2cf; background: rgba(60,58,78,.8);
 }
@@ -605,6 +606,15 @@ details[open] summary::before { content: "▾ "; }
   width: 11px; height: 11px; border-radius: 2px; flex: 0 0 auto;
   background: hsl(var(--field-hue,44) 52% 50%);
   border: 1px solid hsl(var(--field-hue,44) 45% 38%);
+}
+/* Per-field completion ring: hue fills clockwise by --pct, over a faint track. */
+.field-prog {
+  width: 14px; height: 14px; border-radius: 50%; flex: 0 0 auto;
+  background: conic-gradient(
+    hsl(var(--field-hue,44) 64% 56%) calc(var(--pct,0) * 1%),
+    rgba(200,180,120,.16) 0);
+  -webkit-mask: radial-gradient(circle, #0000 3.4px, #000 4px);
+          mask: radial-gradient(circle, #0000 3.4px, #000 4px);
 }
 /* Depth-zone key: a hollow ring echoing the concentric guide ring. */
 .zone-item { cursor: help; }

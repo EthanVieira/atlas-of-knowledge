@@ -63,6 +63,7 @@
 
   // ---- Renderer ----------------------------------------------------------
   const viewport = document.getElementById("viewport");
+  let openId = null;   // currently expanded course (mirrored into the URL)
   const graph = window.Graph.create({
     root: viewport,
     model,
@@ -71,6 +72,8 @@
     onSelect: (node) => {
       if (node) graph.setHighlight(ancestors(node.id));
       // when closing (node null) leave highlight as-is; empty-space click clears it
+      openId = node ? node.id : null;
+      updateHash();
     },
     onGoalToggle: (id) => setGoal(goalId === id ? null : id),
   });
@@ -107,6 +110,7 @@
     graph.setGoal(goalId);
     if (goalId) setGoalCollapsed(false);   // reveal the plan when a goal is chosen
     renderGoalPanel();
+    updateHash();
     if (goalId) toast(`Goal set: ${model.byId.get(goalId).title}`);
   }
 
@@ -219,6 +223,98 @@
     }
   });
 
+  // ---- Export / import progress -----------------------------------------
+  $("#export-progress").addEventListener("click", exportProgress);
+  $("#import-progress").addEventListener("click", () => $("#import-file").click());
+  $("#import-file").addEventListener("change", (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (file) importProgress(file);
+    e.target.value = "";                 // allow re-importing the same file
+  });
+
+  function exportProgress() {
+    const data = {
+      app: "atlas-of-knowledge", version: 1,
+      exportedAt: new Date().toISOString(),
+      completed: [...completed],
+      goal: goalId || null,
+    };
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = "atlas-of-knowledge-progress.json";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 0);
+    toast(`Exported ${completed.size} completed course${completed.size === 1 ? "" : "s"}.`);
+  }
+
+  function importProgress(file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      let data;
+      try { data = JSON.parse(reader.result); } catch { data = null; }
+      if (!data || !Array.isArray(data.completed)) {
+        toast("That file isn't a valid progress export."); return;
+      }
+      completed.clear();
+      for (const id of data.completed) if (model.byId.has(id)) completed.add(id);
+      sanitizeCompleted();               // enforce the prereqs-first invariant
+      save();
+      setGoal(data.goal && model.byId.has(data.goal) ? data.goal : null);
+      updateProgress();
+      graph.scheduleRender();
+      toast(`Imported ${completed.size} completed course${completed.size === 1 ? "" : "s"}.`);
+    };
+    reader.readAsText(file);
+  }
+
+  // Drop any completed course whose prerequisites aren't (transitively) complete.
+  function sanitizeCompleted() {
+    let changed = true;
+    while (changed) {
+      changed = false;
+      for (const id of [...completed]) {
+        const n = model.byId.get(id);
+        if (n && !n.requires.every(r => completed.has(r))) { completed.delete(id); changed = true; }
+      }
+    }
+  }
+
+  // ---- Deep-linking: shareable URL hash ---------------------------------
+  // The hash mirrors filter + goal + open course, so a view is bookmarkable.
+  let applyingHash = false;
+  function updateHash() {
+    if (applyingHash) return;
+    const p = new URLSearchParams();
+    if (selected.size < allFieldKeys.length) p.set("fields", [...selected].join(","));
+    if (goalId) p.set("goal", goalId);
+    if (openId) p.set("open", openId);
+    const s = p.toString();
+    try { history.replaceState(null, "", s ? "#" + s : location.pathname + location.search); }
+    catch {}
+  }
+  function applyHash() {
+    const raw = location.hash.replace(/^#/, "");
+    if (!raw) return;
+    const p = new URLSearchParams(raw);
+    if (p.has("fields")) {
+      applyingHash = true;
+      const fs = (p.get("fields") || "").split(",").filter(k => FIELDS[k]);
+      selected.clear(); fs.forEach(k => selected.add(k));
+      syncFilter();
+      applyingHash = false;
+    }
+    if (p.has("goal")) {
+      const g = p.get("goal");
+      if (model.byId.has(g)) { goalId = g; graph.setGoal(g); setGoalCollapsed(false); renderGoalPanel(); }
+    }
+    if (p.has("open")) {
+      const o = p.get("open");
+      if (model.byId.has(o)) { openId = o; graph.focusNode(o, true); }
+    }
+    updateHash();
+  }
+
   // ---- Field filter ------------------------------------------------------
   // A checkbox for every field (grouped by family) plus an "All fields" master
   // toggle. All checked = the big picture (no filter); a subset shows only those
@@ -261,6 +357,7 @@
     filterBtn.classList.toggle("km-active", n !== total);
     // All selected → no filter (whole atlas); otherwise the chosen subset.
     graph.setFilter(n === total ? null : [...selected]);
+    updateHash();
   }
   function showAllFields() { allFieldKeys.forEach(k => selected.add(k)); syncFilter(); }
 
@@ -410,7 +507,8 @@
     const pct = total ? Math.round((done / total) * 100) : 0;
     progressText.textContent = `${done} / ${total} completed`;
     progressBar.style.width = pct + "%";
-    renderGoalPanel();     // keep the goal meter / next-step in sync
+    renderGoalPanel();       // keep the goal meter / next-step in sync
+    updateFieldProgress();   // keep the per-field legend rings in sync
   }
   updateProgress();
 
@@ -429,7 +527,7 @@
       .filter(([, f]) => f.family === fam.key)
       .map(([k, f]) =>
         `<button type="button" class="km-legend-item" data-field="${k}" title="Fly to ${f.label}">`
-        + `<span class="swatch" style="--field-hue:${f.hue}"></span>${f.label}</button>`)
+        + `<span class="field-prog" style="--field-hue:${f.hue};--pct:0"></span>${f.label}</button>`)
       .join("");
     if (!items) return "";
     return `<div class="km-legend-group">
@@ -447,6 +545,24 @@
     if (!selected.has(key)) { selected.add(key); syncFilter(); }
     if (!graph.focusField(key)) toast(`${FIELDS[key]?.label ?? key} has no courses to show.`);
   });
+
+  // Per-field completion, shown as a small ring on each legend field button.
+  function updateFieldProgress() {
+    const el = document.getElementById("field-legend");
+    if (!el) return;
+    const totals = {}, dones = {};
+    for (const c of COURSES) {
+      totals[c.field] = (totals[c.field] || 0) + 1;
+      if (completed.has(c.id)) dones[c.field] = (dones[c.field] || 0) + 1;
+    }
+    el.querySelectorAll(".km-legend-item[data-field]").forEach(btn => {
+      const f = btn.dataset.field, tot = totals[f] || 0, dn = dones[f] || 0;
+      const prog = btn.querySelector(".field-prog");
+      if (prog) prog.style.setProperty("--pct", tot ? Math.round((dn / tot) * 100) : 0);
+      btn.title = `${(FIELDS[f] || {}).label ?? f} — ${dn}/${tot} done · click to fly`;
+    });
+  }
+  updateFieldProgress();
 
   // Collapsible legend (remembers its state).
   const legendEl = $("#legend");
@@ -474,7 +590,8 @@
     else if (e.key === "/") { e.preventDefault(); searchInput.focus(); }
   });
 
-  // Initial paint.
+  // Apply any shareable state from the URL hash, then paint.
+  applyHash();
   graph.scheduleRender();
 
   console.log(`[knowledge-map] ${COURSES.length} courses across ${model.levels.length} levels loaded.`);
