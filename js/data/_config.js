@@ -26,6 +26,7 @@ var FIELDS = {
   eleceng:          { label: "Electrical Eng.",       abbr: "EE",    family: "engineering", hue: 225 },
   civileng:         { label: "Civil Eng.",            abbr: "CIVE",  family: "engineering", hue: 235 },
   chemeng:          { label: "Chemical Eng.",         abbr: "CHE",   family: "engineering", hue: 245 },
+  nucleng:          { label: "Nuclear Eng.",          abbr: "NUCE",  family: "engineering", hue: 250 },
   aeroeng:          { label: "Aerospace Eng.",        abbr: "AERO",  family: "engineering", hue: 255 },
   bioeng:           { label: "Biomedical Eng.",       abbr: "BME",   family: "engineering", hue: 266 },
 
