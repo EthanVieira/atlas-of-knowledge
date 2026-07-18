@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Magnetic & Functional Materials develops the physical origin of magnetism from atomic moments and exchange interactions up to the collective ordering that produces ferromagnets, antiferromagnets, and ferrimagnets. The course explains how magnetic domains, domain walls, and anisotropy give rise to the hysteresis loop that defines soft and hard magnetic behavior, and how these properties are engineered in materials ranging from transformer steels to rare-earth permanent magnets. Beyond magnetism, the course treats coupled functional responses, including magnetostriction, ferroelectric polarization, and piezoelectricity. It then explores multiferroics and magnetoelectric coupling, where magnetic and electric order coexist and interact. Applications such as magnetic recording and spintronics illustrate how these fundamentals translate into information storage and processing technologies. The treatment balances microscopic theory with the structure-property relationships that guide materials selection and design.",
+  topics: [
+    "The origin of magnetism and atomic magnetic moments",
+    "Diamagnetism and paramagnetism",
+    "Ferromagnetism and the exchange interaction",
+    "Antiferromagnetism and ferrimagnetism",
+    "Magnetic domains and domain walls",
+    "Magnetic anisotropy (magnetocrystalline, shape)",
+    "The hysteresis loop and coercivity",
+    "Soft vs hard magnetic materials",
+    "Permanent magnets (rare-earth: NdFeB, SmCo)",
+    "Magnetostriction",
+    "Ferroelectric materials and polarization",
+    "Piezoelectrics",
+    "Multiferroics and magnetoelectric coupling",
+    "Magnetic recording media",
+    "Spintronics and giant magnetoresistance",
+    "Curie and Neel temperatures and magnetic phase transitions",
+  ],
+  recommended: [
+    res("Magnetism and Magnetic Materials", "J. M. D. Coey", { type: "textbook" }),
+    res("Introduction to Magnetic Materials", "Cullity & Graham", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Ferroelectric Devices", "Kenji Uchino", { type: "textbook" }),
+    res("Modern Magnetic Materials: Principles and Applications", "Robert O'Handley", { type: "textbook" }),
+    res("Physics of Ferroelectrics: A Modern Perspective", "Rabe, Ahn & Triscone", { type: "reference" }),
+  ],
+});

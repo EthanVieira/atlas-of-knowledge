@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Electronic and optical materials engineering treats the properties of solids that make them useful in electronic, dielectric, magnetic, and photonic devices. Starting from the free-electron model and progressing to the quantum band theory of solids, the course explains why materials behave as conductors, semiconductors, or insulators in terms of band structure and the filling of allowed states. It develops the semiconductor fundamentals of carrier concentration, mobility, and doping, and applies them to the p-n junction that underlies diodes and transistors. Dielectric response is examined through the various polarization mechanisms, the frequency dependence of the dielectric constant, dielectric loss, and the special classes of piezoelectric and ferroelectric materials. Magnetic materials are classified and related to their microscopic origins, while optical phenomena such as absorption, refraction, and luminescence connect materials to photonic and optoelectronic applications. The treatment closes with thin films for devices and an introduction to superconductivity, tying microscopic structure to macroscopic device performance.",
+  topics: [
+    "Free-electron model of metals",
+    "Quantum band theory of solids",
+    "Conductors, semiconductors, and insulators",
+    "Carrier concentration and mobility",
+    "Semiconductor fundamentals and doping",
+    "The p-n junction",
+    "Dielectric materials and polarization mechanisms",
+    "Dielectric constant and dielectric loss",
+    "Piezoelectric and ferroelectric materials",
+    "Magnetic materials and their classification",
+    "Optical absorption and refraction",
+    "Luminescence and emission processes",
+    "Photonic and optoelectronic materials",
+    "Thin films for electronic and optical devices",
+    "Introduction to superconductivity",
+    "Materials selection for electronic devices",
+  ],
+  recommended: [
+    res("Principles of Electronic Materials and Devices", "S. O. Kasap", { type: "textbook" }),
+    res("Electronic Properties of Materials", "Rolf E. Hummel", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Introduction to Solid State Physics", "Charles Kittel", { type: "textbook" }),
+    res("Physics of Semiconductor Devices", "S. M. Sze and Kwok K. Ng", { type: "reference" }),
+    res("Electronic and Optoelectronic Properties of Semiconductor Structures", "Jasprit Singh", { type: "textbook" }),
+  ],
+});

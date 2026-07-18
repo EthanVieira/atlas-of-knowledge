@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Failure Analysis and Reliability teaches how engineering components fail in service and how to prevent, investigate, and predict those failures. The course begins with a systematic failure-analysis methodology and the practice of fractography, in which fracture-surface features are read to reconstruct the mechanism and sequence of events. Students learn to distinguish ductile from brittle fracture, to recognize fatigue striations and beach marks, and to apply the Paris law describing fatigue-crack-growth rate. Time-dependent and environmentally assisted mechanisms—creep and stress-rupture, stress-corrosion cracking, and hydrogen effects—are treated alongside wear and erosion damage. The role of pre-existing defects and stress concentrations in initiating failure is emphasized, together with nondestructive evaluation techniques for detecting them and root-cause analysis for assigning ultimate causes. The course then turns to reliability engineering, covering the bathtub hazard curve, Weibull statistics, and component lifing. It concludes with principles for designing against failure through material, geometry, and load management.",
+  topics: [
+    "Failure-analysis methodology",
+    "Fractography and fracture-surface interpretation",
+    "Ductile vs brittle fracture features",
+    "Fatigue failure and striations",
+    "Fatigue crack growth and the Paris law",
+    "Creep and stress-rupture failure",
+    "Environmentally assisted cracking",
+    "Stress-corrosion and hydrogen effects",
+    "Wear and erosion failures",
+    "Defects and stress concentrations",
+    "Nondestructive evaluation (NDE)",
+    "Root-cause analysis",
+    "Reliability engineering and the bathtub curve",
+    "Weibull statistics and lifing",
+    "Design against failure",
+  ],
+  recommended: [
+    res("Metal Failures: Mechanisms, Analysis, Prevention", "Arthur J. McEvily & Robert P. Wei", { type: "textbook" }),
+    res("Understanding How Components Fail", "Donald J. Wulpi", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Fatigue of Materials", "S. Suresh", { type: "textbook" }),
+    res("Deformation and Fracture Mechanics of Engineering Materials", "Richard W. Hertzberg", { type: "textbook" }),
+    res("Reliability Engineering", "Elsayed A. Elsayed", { type: "reference" }),
+    res("ASM Handbook, Volume 11: Failure Analysis and Prevention", "ASM International", { type: "reference" }),
+  ],
+});

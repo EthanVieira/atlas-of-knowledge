@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Polymeric materials science connects the molecular architecture of long-chain macromolecules to the physical properties that make polymers useful as plastics, rubbers, fibers, and adhesives. The course establishes the fundamentals of polymer structure and architecture, molecular weight and its distribution, and the statistical conformations of polymer chains. It distinguishes amorphous from semicrystalline polymers and develops the glass transition, crystallization kinetics, and the spherulitic morphology that governs many properties. Mechanical behavior is treated through rubber elasticity, viscoelasticity, and time-temperature superposition, which unify the response of polymers across temperature and loading rate. Yielding, crazing, and fracture explain how polymers deform and fail, while polymer solutions and blends introduce thermodynamics of mixing and phase behavior. The course also covers thermosets and elastomers, the principal polymer processing operations such as extrusion and molding, and the structure-property relationships that guide materials selection and design.",
+  topics: [
+    "Polymer structure and architecture",
+    "Molecular weight and its distribution",
+    "Polymer chains and conformations",
+    "Amorphous and semicrystalline polymers",
+    "The glass transition",
+    "Crystallization and morphology (spherulites)",
+    "Rubber elasticity",
+    "Viscoelasticity",
+    "Time-temperature superposition",
+    "Mechanical behavior of polymers",
+    "Yielding and crazing",
+    "Polymer solutions and blends",
+    "Thermosets and elastomers",
+    "Polymer processing: extrusion and molding",
+    "Structure-property relationships",
+    "Polymerization and synthesis routes",
+  ],
+  recommended: [
+    res("Introduction to Polymers", "Robert J. Young and Peter A. Lovell", { type: "textbook" }),
+    res("The Physics of Polymers", "Gert R. Strobl", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Polymer Physics", "Michael Rubinstein and Ralph H. Colby", { type: "textbook" }),
+    res("Principles of Polymer Chemistry", "Paul J. Flory", { type: "reference" }),
+    res("Mechanical Properties of Solid Polymers", "Ian M. Ward and John Sweeney", { type: "textbook" }),
+  ],
+});

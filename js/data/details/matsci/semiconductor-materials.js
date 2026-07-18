@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Semiconductor Materials examines the physics, chemistry, and processing of the crystalline solids that underpin modern electronics and optoelectronics. The course begins with the electronic band structure that distinguishes semiconductors from metals and insulators, then develops how doping introduces free carriers and how carrier statistics and transport govern device behavior. Substantial attention is paid to how these materials are actually made: bulk crystal growth by Czochralski and float-zone methods, epitaxial growth by MBE and MOCVD, and thin-film deposition. Students learn how defects, interfaces, and heterostructures control electrical and optical properties, and how band-gap engineering, quantum wells, and two-dimensional electron gases enable tailored devices. The course also surveys wide-band-gap semiconductors such as SiC and GaN for power and high-frequency applications. Throughout, materials characterization techniques connect processing to measurable device-relevant parameters.",
+  topics: [
+    "Semiconductor crystal structures (diamond, zinc-blende, wurtzite)",
+    "Elemental vs compound semiconductors (Si, Ge, GaAs, InP)",
+    "Energy bands and the band gap",
+    "Intrinsic and extrinsic semiconductors",
+    "Doping and dopant activation",
+    "Carrier statistics (Fermi-Dirac, density of states)",
+    "Carrier transport: drift, diffusion, and mobility",
+    "Crystal growth: Czochralski and float-zone",
+    "Epitaxy: molecular-beam epitaxy and MOCVD",
+    "Thin-film deposition techniques",
+    "Point, line, and extended defects and their electrical effects",
+    "Band-gap engineering and heterostructures",
+    "Quantum wells and two-dimensional electron gases",
+    "Wide-band-gap semiconductors (SiC, GaN)",
+    "Materials characterization for devices (Hall, C-V, DLTS)",
+    "Doping profiles and junction formation",
+  ],
+  recommended: [
+    res("Physics of Semiconductor Devices", "Sze & Ng", { type: "textbook" }),
+    res("Semiconductor Material and Device Characterization", "Dieter Schroder", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Fundamentals of Semiconductors", "Yu & Cardona", { type: "textbook" }),
+    res("Semiconductor Physics and Devices", "Donald Neamen", { type: "textbook" }),
+    res("Crystal Growth Technology", "Hans Scheel & Tsuguo Fukuda", { type: "reference" }),
+  ],
+});

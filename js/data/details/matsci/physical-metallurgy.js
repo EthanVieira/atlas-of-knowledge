@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Physical metallurgy relates the structure of metals and alloys to their thermodynamics, phase behavior, and mechanical properties. The course begins with the crystal structure of metals, solid solutions, and intermediate phases, then develops the reading and use of binary and ternary alloy phase diagrams, with special emphasis on the technologically central iron-carbon system. Solidification and casting are examined as the origin of as-cast microstructure, while plastic deformation is explained microscopically through slip and dislocation interactions. Thermally activated restoration processes such as recovery, recrystallization, and grain growth are studied alongside the strengthening mechanisms, including precipitation and age hardening. Heat treatment of steels ties these ideas together through annealing, quenching, and tempering, using TTT and CCT diagrams to predict the phases and hardness that result from a given thermal path. The course concludes with a survey of ferrous and non-ferrous alloys, including aluminum, titanium, and nickel-base superalloys, connecting processing history to service performance.",
+  topics: [
+    "Crystal structure of metals",
+    "Solid solutions and intermediate phases",
+    "Binary and ternary alloy phase diagrams",
+    "The iron-carbon system",
+    "Solidification and casting",
+    "Plastic deformation and slip",
+    "Dislocation interactions",
+    "Recovery, recrystallization, and grain growth",
+    "Precipitation and age hardening",
+    "Strengthening mechanisms",
+    "Heat treatment of steels: annealing, quenching, tempering",
+    "TTT and CCT diagrams",
+    "Martensite and bainite transformations",
+    "Ferrous alloys and steels",
+    "Non-ferrous alloys",
+    "Aluminum, titanium, and superalloys",
+  ],
+  recommended: [
+    res("Physical Metallurgy Principles", "Reza Abbaschian, Lara Abbaschian, and Robert E. Reed-Hill", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Phase Transformations in Metals and Alloys", "David A. Porter, Kenneth E. Easterling, and Mohamed Y. Sherif", { type: "textbook" }),
+    res("Introduction to Dislocations", "Derek Hull and David J. Bacon", { type: "textbook" }),
+    res("Steels: Microstructure and Properties", "Harry Bhadeshia and Robert Honeycombe", { type: "reference" }),
+    res("Mechanical Metallurgy", "George E. Dieter", { type: "textbook" }),
+  ],
+});

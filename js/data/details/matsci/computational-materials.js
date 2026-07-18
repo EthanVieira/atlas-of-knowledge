@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Computational Materials Science surveys the theory, algorithms, and simulation methods used to predict the structure, properties, and evolution of materials across length and time scales. The course opens with the multiscale modeling paradigm, then descends to the electronic scale where density functional theory (DFT), pseudopotentials, and plane-wave methods enable ab initio prediction of energetics, structure, and properties from first principles. At the atomistic scale, interatomic potentials and force fields drive molecular dynamics and Monte Carlo simulations, with kinetic Monte Carlo capturing rare-event, time-evolved kinetics. Mesoscale and continuum tools—phase-field modeling of microstructure and the finite element method—connect atomistic insight to engineering-scale behavior, while CALPHAD provides thermodynamic modeling of phase equilibria. The course emphasizes how these methods are combined and validated, and how their outputs feed materials design. It concludes with modern data-driven approaches: high-throughput computation, materials informatics, and machine learning for accelerated materials discovery.",
+  topics: [
+    "Multiscale modeling paradigm",
+    "Electronic-structure methods and DFT for solids",
+    "Pseudopotentials and plane-wave methods",
+    "Ab initio prediction of properties",
+    "Interatomic potentials and force fields",
+    "Molecular dynamics simulation",
+    "Monte Carlo methods",
+    "Kinetic Monte Carlo",
+    "Phase-field modeling of microstructure",
+    "Finite element method for materials",
+    "CALPHAD and thermodynamic modeling",
+    "Mesoscale simulation methods",
+    "High-throughput computation",
+    "Materials informatics and databases",
+    "Machine learning for materials discovery",
+    "Verification, validation, and uncertainty",
+  ],
+  recommended: [
+    res("Introduction to Computational Materials Science: Fundamentals to Applications", "Richard LeSar", { type: "textbook" }),
+    res("Understanding Molecular Simulation: From Algorithms to Applications", "Daan Frenkel & Berend Smit", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Electronic Structure: Basic Theory and Practical Methods", "Richard M. Martin", { type: "textbook" }),
+    res("Computational Materials Science: An Introduction", "June Gunn Lee", { type: "textbook" }),
+    res("Density Functional Theory: A Practical Introduction", "David S. Sholl & Janice A. Steckel", { type: "reference" }),
+  ],
+});

@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Ceramics and glasses are inorganic, nonmetallic materials whose properties stem from strong ionic and covalent bonding and from characteristic crystalline or amorphous structures. This course develops the crystal chemistry of ceramics, including the common ceramic crystal structures, the rich family of silicate structures, and the point defects and nonstoichiometry that control transport and reactivity. Glass is treated as a distinct state of matter through the concepts of glass structure, the glass transition, glass-forming ability, and the network theory of oxide glasses. Processing is central to the discipline, so powder synthesis and forming, sintering and densification, and grain growth are examined as the means of turning powders into dense engineered bodies. The mechanical behavior of ceramics is dominated by brittle fracture, which motivates the use of Weibull statistics to describe strength distributions and reliability. Thermal properties and thermal shock resistance, together with electrical and dielectric ceramics, refractories and structural ceramics, and bioceramics, illustrate the breadth of ceramic applications.",
+  topics: [
+    "Ionic and covalent bonding in ceramics",
+    "Ceramic crystal structures",
+    "Silicate structures",
+    "Point defects and nonstoichiometry",
+    "Glass structure and the glass transition",
+    "Glass formation and network theory",
+    "Powder processing and forming",
+    "Sintering and densification",
+    "Grain growth and microstructure development",
+    "Mechanical behavior and brittle fracture",
+    "Weibull statistics of strength",
+    "Thermal properties and thermal shock",
+    "Electrical and dielectric ceramics",
+    "Refractories and structural ceramics",
+    "Bioceramics",
+    "Fracture toughness and toughening mechanisms",
+  ],
+  recommended: [
+    res("Introduction to Ceramics", "W. D. Kingery, H. K. Bowen, and D. R. Uhlmann", { type: "textbook" }),
+    res("Ceramic Materials: Science and Engineering", "C. Barry Carter and M. Grant Norton", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Fundamentals of Ceramics", "Michel W. Barsoum", { type: "textbook" }),
+    res("Fundamentals of Inorganic Glasses", "Arun K. Varshneya and John C. Mauro", { type: "reference" }),
+    res("Physical Ceramics: Principles for Ceramic Science and Engineering", "Yet-Ming Chiang, Dunbar Birnie, and W. David Kingery", { type: "textbook" }),
+  ],
+});

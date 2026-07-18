@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Materials for Energy examines the materials that enable the conversion, storage, and efficient use of energy, connecting solid-state chemistry, electrochemistry, and device physics. A major thread covers electrochemical energy storage, especially lithium-ion battery cathodes, anodes, and electrolytes, along with beyond-lithium chemistries and the solid ionic conductors that make them possible. Fuel cells—both proton-exchange-membrane and solid-oxide types—together with their catalysts and electrolytes illustrate direct chemical-to-electrical conversion. The course treats photovoltaic materials from crystalline silicon to thin-film and perovskite absorbers and grounds them in the physics of the solar cell. Thermoelectric materials and the dimensionless figure of merit ZT, hydrogen storage materials, and supercapacitors broaden the survey of conversion and storage routes. It closes with catalysis and photocatalysis for fuels and water splitting, materials for nuclear energy, and the sustainability and critical-materials constraints that shape real-world deployment.",
+  topics: [
+    "Electrochemical energy storage",
+    "Lithium-ion cathodes, anodes, and electrolytes",
+    "Beyond-lithium battery chemistries",
+    "Fuel cells (PEM and SOFC) and catalysts",
+    "Solid electrolytes and ion conductors",
+    "Photovoltaic materials (silicon, thin-film, perovskite)",
+    "Physics of solar cells",
+    "Thermoelectric materials and figure of merit ZT",
+    "Hydrogen storage materials",
+    "Supercapacitors",
+    "Catalysis for energy conversion",
+    "Photocatalysis and water splitting",
+    "Materials for nuclear energy",
+    "Sustainability and critical materials",
+    "Materials characterization for energy devices",
+  ],
+  recommended: [
+    res("Materials for Energy Conversion Devices", "C. C. Sorrell, S. Sugihara & J. Nowotny (eds.)", { type: "textbook" }),
+    res("Materials for Energy Conversion, Harvesting, and Storage", "C. B. Carter & V. Puvvada", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Electrochemical Energy Storage for Renewable Sources and Grid Balancing", "P. T. Moseley & J. Garche (eds.)", { type: "textbook" }),
+    res("The Physics of Solar Cells", "Jenny Nelson", { type: "textbook" }),
+    res("Thermoelectrics Handbook: Macro to Nano", "D. M. Rowe (ed.)", { type: "reference" }),
+    res("Fuel Cell Fundamentals", "Ryan O'Hayre, Suk-Won Cha, Whitney Colella & Fritz B. Prinz", { type: "textbook" }),
+  ],
+});

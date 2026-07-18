@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Corrosion and Degradation studies the electrochemical destruction of materials—chiefly metals—by their environment, and the engineering strategies used to control it. The course grounds corrosion in electrochemistry, treating each corroding surface as a short-circuited galvanic cell with coupled anodic (oxidation) and cathodic (reduction) half-reactions whose rates are governed by thermodynamics and kinetics. Thermodynamic tools such as electrode potentials, the EMF and galvanic series, and Pourbaix potential–pH diagrams predict when corrosion is possible, while polarization, mixed-potential theory, and the concept of passivation quantify how fast it proceeds. Students learn to recognize the distinct forms of attack—uniform, galvanic, pitting, crevice, and intergranular corrosion—as well as environmentally assisted cracking mechanisms including stress-corrosion cracking and hydrogen embrittlement. High-temperature oxidation and the growth of protective and non-protective scales extend the treatment beyond aqueous environments. The course closes with protection methods—coatings, inhibitors, anodic and cathodic protection—and the principles of materials selection and design for corrosion resistance.",
+  topics: [
+    "Electrochemical nature of corrosion",
+    "Anodic and cathodic reactions",
+    "Electrochemical cells and electrode potentials",
+    "EMF and galvanic series",
+    "Pourbaix (potential–pH) diagrams",
+    "Corrosion kinetics and polarization",
+    "Mixed-potential theory",
+    "Passivation and passive films",
+    "Uniform and galvanic corrosion",
+    "Pitting and crevice corrosion",
+    "Intergranular corrosion and sensitization",
+    "Stress-corrosion cracking",
+    "Hydrogen embrittlement",
+    "High-temperature oxidation and scaling",
+    "Coatings, inhibitors, and cathodic protection",
+    "Materials selection for corrosion resistance",
+  ],
+  recommended: [
+    res("Corrosion Engineering", "Mars G. Fontana", { type: "textbook" }),
+    res("An Introduction to Corrosion and Protection of Metals", "Einar Mattsson", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("Corrosion and Corrosion Control", "R. Winston Revie & Herbert H. Uhlig", { type: "textbook" }),
+    res("Principles and Prevention of Corrosion", "Denny A. Jones", { type: "textbook" }),
+    res("Electrochemical Methods: Fundamentals and Applications", "Allen J. Bard & Larry R. Faulkner", { type: "reference" }),
+  ],
+});

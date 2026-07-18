@@ -1,0 +1,30 @@
+registerDetail({
+  long: "Soft Matter studies materials such as polymers, colloids, liquid crystals, gels, surfactants, and biological assemblies whose characteristic energies are comparable to thermal energy kT, making them easily deformed and highly responsive. The course explains why softness arises: large structural units, weak interactions, and thermal fluctuations that drive Brownian motion and self-assembly. Students learn the interplay of entropy and interactions through colloidal stability described by DLVO theory, polymer scaling laws, and the spontaneous organization of amphiphiles into micelles and membranes. Liquid-crystalline phases, gels, and polymer networks illustrate how partial order and connectivity produce distinctive mechanical and optical responses. The rheology and viscoelasticity of these materials connect microscopic structure to flow and deformation behavior. The course closes with active and biological soft matter, where energy input at the microscale drives motion and organization far from equilibrium.",
+  topics: [
+    "What makes matter 'soft'",
+    "Thermal fluctuations and the role of kT",
+    "Colloids and colloidal stability (DLVO theory)",
+    "Brownian motion and diffusion",
+    "Polymer physics and scaling laws",
+    "Self-assembly and amphiphiles",
+    "Micelles and membranes",
+    "Liquid crystals and their phases (nematic, smectic)",
+    "Gels and polymer networks",
+    "Surfactants and interfaces",
+    "Wetting and capillarity",
+    "Rheology of soft materials",
+    "Viscoelasticity",
+    "Active and biological soft matter",
+    "Entropy, free energy, and phase behavior",
+    "Interfacial tension and surface phenomena",
+  ],
+  recommended: [
+    res("Soft Condensed Matter", "Richard A. L. Jones", { type: "textbook" }),
+    res("Soft Matter Physics", "Masao Doi", { type: "textbook" }),
+  ],
+  supplementary: [
+    res("The Physics of Polymers", "Gert Strobl", { type: "textbook" }),
+    res("Intermolecular and Surface Forces", "Jacob Israelachvili", { type: "textbook" }),
+    res("Principles of Condensed Matter Physics", "Chaikin & Lubensky", { type: "reference" }),
+  ],
+});
