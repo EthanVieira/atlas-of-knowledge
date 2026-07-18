@@ -29,6 +29,7 @@ var FIELDS = {
   chemeng:          { label: "Chemical Eng.",         abbr: "CHE",   family: "applied",     hue: 245 },
   nucleng:          { label: "Nuclear Eng.",          abbr: "NUCE",  family: "applied",     hue: 250 },
   aeroeng:          { label: "Aerospace Eng.",        abbr: "AERO",  family: "applied",     hue: 255 },
+  agriculture:      { label: "Agriculture",           abbr: "AGRI",  family: "applied",     hue: 260 },
   bioeng:           { label: "Biomedical Eng.",       abbr: "BME",   family: "applied",     hue: 266 },
   medicine:         { label: "Medicine",              abbr: "MED",   family: "applied",     hue: 269 },
   indeng:           { label: "Industrial Eng.",       abbr: "IE",    family: "applied",     hue: 272 },

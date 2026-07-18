@@ -43,6 +43,16 @@ registerCourses([
   { id: "behavioral-ecology", title: "Behavioral Ecology", field: "biology", detail: true, requires: ["ecology", "evolutionary-biology"] },
   { id: "evo-devo", title: "Evolutionary Developmental Biology", field: "biology", detail: true, requires: ["evolutionary-biology", "developmental-biology"] },
 
+  // --- Organismal biology ---
+  { id: "botany", title: "Botany", field: "biology", detail: true, requires: ["introductory-biology"] },
+  { id: "plant-physiology", title: "Plant Physiology", field: "biology", detail: true, requires: ["botany", "biochemistry"] },
+  { id: "zoology", title: "Zoology", field: "biology", detail: true, requires: ["introductory-biology"] },
+  { id: "comparative-anatomy", title: "Comparative Anatomy", field: "biology", detail: true, requires: ["zoology"] },
+  { id: "animal-behavior", title: "Animal Behavior (Ethology)", field: "biology", detail: true, requires: ["zoology", "evolutionary-biology"] },
+  { id: "mycology", title: "Mycology", field: "biology", detail: true, requires: ["introductory-biology"] },
+  { id: "marine-biology", title: "Marine Biology", field: "biology", detail: true, requires: ["ecology"] },
+  { id: "parasitology", title: "Parasitology", field: "biology", detail: true, requires: ["microbiology"] },
+
   // --- Quantitative & systems ---
   { id: "biophysics", title: "Biophysics", field: "biology", detail: true, requires: ["cell-biology", "thermodynamics"] },
   { id: "systems-biology", title: "Systems Biology", field: "biology", detail: true, requires: ["molecular-biology", "ode"] },
