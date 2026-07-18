@@ -451,6 +451,8 @@ details[open] summary::before { content: "▾ "; }
   border-radius: 12px; padding: 10px 11px; backdrop-filter: blur(5px);
   box-shadow: 0 6px 22px rgba(0,0,0,.4);
 }
+/* The id rule above outweighs the UA [hidden] rule, so respect it explicitly. */
+#goal-panel[hidden] { display: none; }
 .goal-head {
   display: flex; align-items: center; justify-content: space-between;
   cursor: move; user-select: none; touch-action: none;
