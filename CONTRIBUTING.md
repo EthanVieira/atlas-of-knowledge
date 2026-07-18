@@ -6,21 +6,10 @@ comes from people who know their field. You don't need to be a web developer to
 contribute — if you can edit a text file, you can improve the atlas.
 
 > **TL;DR** — All the knowledge lives in plain data files under
-> [`js/data/`](js/data/), one file per field. To add or fix something you edit a
-> field's file (and, for the new rich cards, a small per-course file under
-> [`js/data/details/`](js/data/details/)), run `node scripts/validate.js`, and
-> open a pull request.
-
-> ### 🚧 Migration in progress
-> The atlas is moving to **richer course cards** (a long
-> description, a full topic list, and references split into *recommended* /
-> *supplementary* and tagged by type). This splits a course into two files: a
-> lightweight **node** in the field file, and a lazily-loaded **detail** file.
-> **[Mathematics](js/data/mathematics.js) is fully migrated** and is the
-> reference example. **Every other field is still in the legacy single-file
-> format** and is being converted one field at a time. Both formats are valid and
-> the validator accepts either — edit whichever format the field you're touching
-> currently uses (see [The data model](#the-data-model)).
+> [`js/data/`](js/data/): a lightweight **node** in the field file, and its rich
+> card content in a small per-course **detail** file under
+> [`js/data/details/`](js/data/details/). To add or fix something you edit those
+> files, run `node scripts/validate.js`, and open a pull request.
 
 ---
 
@@ -78,54 +67,20 @@ Just open `index.html` in any browser.
 Everything is in [`js/data/`](js/data/):
 
 ```
-js/data/_config.js               fields (label, abbr, family, hue) + the R() helper
+js/data/_config.js               fields (label, abbr, family, hue) + the registry
 js/data/<field>.js               one file per field — the course nodes you edit
 js/data/details/_detail.js       the detail runtime: registerDetail(), res()
-js/data/details/<field>/<id>.js  rich card content for one migrated course
+js/data/details/<field>/<id>.js  rich card content for one course
 ```
 
-A course's data lives in **one of two formats** depending on whether its field
-has been migrated to the rich cards (see the migration note above).
+A course is split across **two files**: a lightweight **node** in the field file
+(what the graph needs at startup) and a lazily-loaded **detail** file with the
+rich card content. [Mathematics](js/data/mathematics.js) is a good reference
+example.
 
-### Legacy format (most fields today)
+### The field-file node
 
-The field file registers each course with all of its content inline:
-
-```js
-registerCourses([
-
-  {
-    id:       "photosynthesis",             // unique, lowercase-kebab-case
-    title:    "Photosynthesis",             // shown on the node
-    field:    "biology",                    // a key in FIELDS (see _config.js)
-    desc:     "How plants turn light, water and CO₂ into sugar and oxygen.",
-    requires: ["cell-biology", "organic-chemistry"], // prerequisite ids (edges)
-    topics:   ["Light reactions", "The Calvin cycle", "Chloroplasts"],
-    free:     [ R("Photosynthesis", "Khan Academy", "https://www.khanacademy.org/...") ],
-    paid:     [ R("Molecular Biology of the Cell", "Alberts et al.") ],
-  },
-
-]);
-```
-
-`R(title, author, url)` is a small helper for a resource. **`url` is optional** —
-if you don't have a stable link, just cite the title and author.
-
-| key | required | notes |
-|---|---|---|
-| `id` | ✅ | unique across the **whole** atlas, `lowercase-kebab-case` |
-| `title` | ✅ | human-readable name |
-| `field` | ✅ | a key defined in `FIELDS` in `_config.js` |
-| `desc` | ✅ | one or two plain sentences |
-| `requires` | ✅ | array of prerequisite `id`s (may be `[]`; may cross fields) |
-| `topics` | ✅ | array of short topic strings (the collapsible dropdown) |
-| `free` | ✅ | array of `R(...)` resources (may be `[]`) |
-| `paid` | ✅ | array of `R(...)` resources (may be `[]`) |
-
-### Migrated format (Mathematics — the new rich cards)
-
-The course is split in two. The **field file** keeps only the node (what the
-graph needs at startup) and sets `detail: true`:
+The **field file** keeps only the node and sets `detail: true`:
 
 ```js
 registerCourses([
@@ -135,6 +90,8 @@ registerCourses([
 
 ]);
 ```
+
+### The detail file
 
 The **detail file** — `js/data/details/mathematics/real-analysis.js` — holds the
 rich card content. It calls `registerDetail({...})`; **the id is taken from the
@@ -171,7 +128,7 @@ Helpers (defined in `_detail.js`, available in every detail file):
 |---|---|---|
 | field file: `id` / `title` / `field` / `requires` | ✅ | the node + edges |
 | field file: `detail: true` | ✅ | tells the renderer to load the detail file |
-| detail: `long` | ✅ | the full description (replaces `desc`) |
+| detail: `long` | ✅ | the full card description (a paragraph or two) |
 | detail: `topics` | ✅ | comprehensive list, ~12–18 items |
 | detail: `recommended` / `supplementary` | ✅ | arrays of `res(...)` (either may be `[]`) |
 
@@ -201,12 +158,11 @@ node by hand.
 3. Add one `<script src="js/data/<field>.js"></script>` line to
    [`index.html`](index.html), next to the other field files.
 
-New fields are welcome to adopt the **migrated rich-card format** from the start
-(see [The data model](#the-data-model)): give each course `detail: true` and add
-its content under `js/data/details/<field>/<id>.js`. The detail runtime
-(`js/data/details/_detail.js`) is already loaded globally, and detail files load
-lazily — you do **not** add a `<script>` tag for them. The `js/data/details/`
-folder already contains an (empty) subfolder for every field.
+Give each course a `detail: true` node in the field file and add its content
+under `js/data/details/<field>/<id>.js` (see [The data model](#the-data-model)).
+The detail runtime (`js/data/details/_detail.js`) is already loaded globally, and
+detail files load lazily — you do **not** add a `<script>` tag for them. The
+`js/data/details/` folder already contains a subfolder for every field.
 
 ---
 
@@ -223,18 +179,15 @@ folder already contains an (empty) subfolder for every field.
 - Attribute authors correctly.
 
 **Descriptions** — plain and inviting, no marketing; say what the subject *is*,
-not why it's great. Legacy `desc` is one or two sentences; a migrated card's
-`long` is a full paragraph or two.
+not why it's great. A card's `long` description is a full paragraph or two.
 
-**Topics** — name the key ideas someone will learn, not a full syllabus. Legacy
-`topics` is 4–8 items; a migrated card lists the major topics comprehensively
-(~12–18).
+**Topics** — name the key ideas someone will learn, not a full syllabus. List the
+major topics comprehensively (~12–18 items).
 
-**References (migrated cards)** — split them by intent: `recommended` for the few
-canonical, level-appropriate resources someone should actually use, and
-`supplementary` for worthwhile extras (videos, notes, alternative texts). Tag
-each with a `type`, and mark genuinely-free resources with `free: true` **and**
-their real URL.
+**References** — split them by intent: `recommended` for the few canonical,
+level-appropriate resources someone should actually use, and `supplementary` for
+worthwhile extras (videos, notes, alternative texts). Tag each with a `type`, and
+mark genuinely-free resources with `free: true` **and** their real URL.
 
 **Prerequisites** — list the *minimal* set actually needed to begin, not
 everything tangentially related. Fewer, correct edges beat many loose ones. Never
@@ -257,7 +210,7 @@ node scripts/validate.js
 
 It checks the entire catalog for the things that break the atlas:
 
-- missing/malformed course fields (in **either** format)
+- missing/malformed course fields
 - duplicate ids
 - prerequisites pointing at non-existent courses
 - **dependency cycles**
@@ -274,10 +227,9 @@ PR can't be merged with broken data. Please make sure it passes locally first.
 - [ ] New `id`s are unique and `lowercase-kebab-case`.
 - [ ] Resources are accurate, well-attributed, and links (if any) work.
 - [ ] Prerequisites are minimal and correct; no cycles.
-- [ ] I matched the field's current format (legacy inline, or `detail: true` +
-      a detail file) — see [the migration note](#-migration-in-progress).
-- [ ] I opened `index.html` and my subject appears where I'd expect (open a
-      migrated card to check its description, topics and references).
+- [ ] Each new course has both a `detail: true` node and a detail file.
+- [ ] I opened `index.html` and my subject appears where I'd expect (open the
+      card to check its description, topics and references).
 
 ---
 

@@ -6,20 +6,20 @@ horizontal levels by **topological depth** (how deep in the prerequisite chain a
 subject sits), colored by your **completion** status, and expand on click to show
 a description, prerequisites, the topics covered, and curated learning resources.
 
-Course cards are being upgraded to a **richer format** — a longer description, a
-full topic list, and references split into *recommended* / *supplementary* and
-tagged by type. **Mathematics** uses it today; the other fields are being migrated
-over. See [CONTRIBUTING.md](CONTRIBUTING.md) for both data formats.
+Every course card carries a description, a full topic
+list, and references split into *recommended* / *supplementary* and tagged by
+type. See [CONTRIBUTING.md](CONTRIBUTING.md) for the data format.
 
 https://ethanvieira.github.io/atlas-of-knowledge/
 
 ## Contributing
 
 The atlas is meant to be **crowd-sourced** — every course and resource lives in a
-plain data file under [`js/data/`](js/data/) (field files, plus per-course detail
-files under [`js/data/details/`](js/data/details/) for migrated fields), so anyone
-can add to a discipline they know. See **[CONTRIBUTING.md](CONTRIBUTING.md)** for
-the schema and workflow. Before opening a PR, run the validator:
+plain data file under [`js/data/`](js/data/) (a lightweight node in the field
+file, plus a per-course detail file under [`js/data/details/`](js/data/details/)),
+so anyone can add to a discipline they know. See
+**[CONTRIBUTING.md](CONTRIBUTING.md)** for the schema and workflow. Before opening
+a PR, run the validator:
 
 ```bash
 node scripts/validate.js
