@@ -36,6 +36,7 @@ var FIELDS = {
   // --- Social sciences — violets & purples ---
   economics:        { label: "Economics",             abbr: "ECON",  family: "social",      hue: 278 },
   business:         { label: "Business",              abbr: "BUS",   family: "social",      hue: 283 },
+  finance:          { label: "Finance",               abbr: "FIN",   family: "social",      hue: 286 },
   psychology:       { label: "Psychology",            abbr: "PSYC",  family: "social",      hue: 289 },
   sociology:        { label: "Sociology",             abbr: "SOC",   family: "social",      hue: 300 },
   politicalscience: { label: "Political Science",     abbr: "POLS",  family: "social",      hue: 311 },
