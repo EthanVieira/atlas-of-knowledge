@@ -997,12 +997,23 @@ const Graph = (() => {
       resize() { resizeCanvas(); scheduleRender(); },
 
       // Search: return nodes whose title matches (case-insensitive).
+      // Match course titles first, then topics (from the eager KM_TOPICS index).
+      // Returns { node, topic } — topic is the matched topic string, or null for
+      // a title match.
       search(q) {
         q = q.trim().toLowerCase();
         if (!q) return [];
-        return nodeArr
-          .filter(n => n.title.toLowerCase().includes(q))
-          .slice(0, 12);
+        const topicsOf = window.KM_TOPICS || {};
+        const titleHits = [], topicHits = [];
+        for (const n of nodeArr) {
+          if (n.title.toLowerCase().includes(q)) { titleHits.push({ node: n, topic: null }); continue; }
+          const topics = topicsOf[n.id];
+          if (topics) {
+            const m = topics.find(t => t.toLowerCase().includes(q));
+            if (m) topicHits.push({ node: n, topic: m });
+          }
+        }
+        return titleHits.concat(topicHits).slice(0, 12);
       },
     };
 

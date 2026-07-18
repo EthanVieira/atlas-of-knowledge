@@ -458,12 +458,18 @@
     current = list; activeIdx = -1;
     if (!list.length) { results.hidden = true; results.innerHTML = ""; return; }
     results.hidden = false;
-    results.innerHTML = list.map((n, i) =>
+    results.innerHTML = list.map(({ node: n, topic }, i) =>
       `<li data-id="${n.id}" data-i="${i}">
          <span class="dot" style="--field-hue:${FIELDS[n.field]?.hue ?? 44}"></span>
-         <span class="r-title">${n.title}</span>
+         <span class="r-main">
+           <span class="r-title">${n.title}</span>
+           ${topic ? `<span class="r-topic">↳ ${esc(topic)}</span>` : ""}
+         </span>
          <span class="r-field">${FIELDS[n.field]?.label ?? n.field}</span>
        </li>`).join("");
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   }
 
   function goTo(id) {
@@ -483,7 +489,7 @@
     else if (e.key === "Enter") {
       e.preventDefault();
       const pick = current[activeIdx >= 0 ? activeIdx : 0];
-      if (pick) goTo(pick.id);
+      if (pick) goTo(pick.node.id);
     } else if (e.key === "Escape") { results.hidden = true; }
   });
   function markActive() {
@@ -581,13 +587,28 @@
   // ---- Minimap -----------------------------------------------------------
   graph.attachMinimap($("#minimap"));
 
+  // ---- Help / onboarding overlay ----------------------------------------
+  const helpOverlay = $("#help-overlay");
+  function setHelpOpen(open) { helpOverlay.hidden = !open; }
+  $("#help-btn").addEventListener("click", () => setHelpOpen(true));
+  $("#help-close").addEventListener("click", () => setHelpOpen(false));
+  $("#help-dismiss").addEventListener("click", () => setHelpOpen(false));
+  helpOverlay.querySelector(".help-backdrop").addEventListener("click", () => setHelpOpen(false));
+  // Auto-show once on the first visit.
+  const HELP_KEY = "knowledge-map.help.seen";
+  try {
+    if (!localStorage.getItem(HELP_KEY)) { setHelpOpen(true); localStorage.setItem(HELP_KEY, "1"); }
+  } catch {}
+
   // ---- Keyboard shortcuts ------------------------------------------------
   document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !helpOverlay.hidden) { setHelpOpen(false); return; }
     if (e.target.tagName === "INPUT") return;
     if (e.key === "+" || e.key === "=") graph.zoomBy(1.3);
     else if (e.key === "-" || e.key === "_") graph.zoomBy(1 / 1.3);
     else if (e.key === "0" || e.key === "f") { graph.clearHighlight(); graph.fit(); }
     else if (e.key === "/") { e.preventDefault(); searchInput.focus(); }
+    else if (e.key === "?") { e.preventDefault(); setHelpOpen(true); }
   });
 
   // Apply any shareable state from the URL hash, then paint.

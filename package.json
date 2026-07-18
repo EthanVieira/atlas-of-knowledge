@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "validate": "node scripts/validate.js",
+    "build:topics": "node scripts/build-topics.js",
     "serve": "npx --yes serve ."
   },
   "engines": {

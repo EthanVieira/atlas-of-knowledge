@@ -22,7 +22,7 @@
     </div>
 
     <div class="km-search">
-      <input id="search" type="text" placeholder="Search subjects…  ( / )" autocomplete="off" />
+      <input id="search" type="text" placeholder="Search subjects & topics…  ( / )" autocomplete="off" />
       <ul id="search-results" hidden></ul>
     </div>
 
@@ -58,6 +58,7 @@
       <button id="import-progress" class="tool-text" title="Load progress from a file">Import</button>
       <input id="import-file" type="file" accept="application/json,.json" hidden />
       <button id="reset-progress" title="Clear completion progress">Reset</button>
+      <button id="help-btn" title="Help &amp; guide ( ? )">?</button>
     </div>
   </header>
 
@@ -107,10 +108,63 @@
 
   <div id="hint">Drag to pan · scroll to zoom · click a star to open it · click a prerequisite to trace its lineage</div>
 
+  <!-- Onboarding / help overlay (auto-shows on first visit) -->
+  <div id="help-overlay" hidden>
+    <div class="help-backdrop"></div>
+    <div class="help-panel" role="dialog" aria-modal="true" aria-labelledby="help-title">
+      <button id="help-close" class="help-close" aria-label="Close help">✕</button>
+      <h2 id="help-title">✧ Welcome to the Atlas of Knowledge</h2>
+      <p class="help-intro">A star map of human learning. Each star is a course; lines run
+        from a subject to the courses that build on it. Foundations sit near the core,
+        advanced work out at the rim, and each field is its own constellation.</p>
+      <div class="help-cols">
+        <section class="help-sec">
+          <h3>Getting around</h3>
+          <ul>
+            <li><b>Drag</b> to pan, <b>scroll</b> to zoom</li>
+            <li><b>Click a star</b> to open its course card</li>
+            <li><b>Click a prerequisite</b> to trace its lineage</li>
+            <li>Use the <b>minimap</b> to leap across the atlas</li>
+          </ul>
+        </section>
+        <section class="help-sec">
+          <h3>Find &amp; focus</h3>
+          <ul>
+            <li><b>Search</b> by course name <em>or topic</em></li>
+            <li><b>Filter</b> fields to declutter the map</li>
+            <li>Click a <b>legend field</b> to fly to it</li>
+            <li>Rings show <b>depth</b>: foundations → advanced</li>
+          </ul>
+        </section>
+        <section class="help-sec">
+          <h3>Track your journey</h3>
+          <ul>
+            <li>Tick a card's <b>✓</b> to mark it complete (prerequisites first)</li>
+            <li>Set a <b>🎯 goal</b> for an ordered study plan</li>
+            <li><b>Discover</b> suggests what to take next — <b>Smart</b> follows your goal or leverage</li>
+            <li><b>Export / Import</b> to back up or move progress</li>
+          </ul>
+        </section>
+        <section class="help-sec">
+          <h3>Shortcuts</h3>
+          <ul class="help-keys">
+            <li><kbd>/</kbd> search</li>
+            <li><kbd>+</kbd> <kbd>−</kbd> zoom</li>
+            <li><kbd>0</kbd> / <kbd>f</kbd> fit whole atlas</li>
+            <li><kbd>?</kbd> this guide</li>
+          </ul>
+        </section>
+      </div>
+      <button id="help-dismiss" class="help-dismiss">Start exploring ✦</button>
+    </div>
+  </div>
+
   <!-- Data: shared config first, then one file per field (add fields here). -->
   <script src="js/data/_config.js"></script>
   <!-- Lazy detail runtime (per-course detail files load on demand, not here). -->
   <script src="js/data/details/_detail.js"></script>
+  <!-- Topic search index (generated: scripts/build-topics.js) → window.KM_TOPICS -->
+  <script src="js/data/topics-index.js"></script>
   <!-- Natural & formal sciences -->
   <script src="js/data/mathematics.js"></script>
   <script src="js/data/physics.js"></script>
