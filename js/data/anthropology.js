@@ -1,146 +1,42 @@
 /* ============================================================================
  *  ANTHROPOLOGY
+ * ----------------------------------------------------------------------------
+ *  Course nodes: id, title, field and prerequisites — the graph's structure.
+ *  Everything shown on an opened card (description, topics, tagged references)
+ *  is lazy-loaded from js/data/details/anthropology/<id>.js; the `detail: true`
+ *  flag tells the renderer to fetch it.
  * ==========================================================================*/
 registerCourses([
 
-  { id: "anthropology", title: "Introduction to Anthropology", field: "anthropology",
-    desc: "The holistic study of humanity across cultures, biology, language and time.",
-    requires: [],
-    topics: ["The four fields", "Culture concept", "Fieldwork", "Human diversity", "Kinship", "Comparative method"],
-    free: [R("Perspectives: An Open Introduction to Cultural Anthropology", "Society for Anthropology in Community Colleges", "https://perspectives.pressbooks.com/")],
-    paid: [R("Anthropology", "Ember, Ember & Peregrine")] },
+  // --- Core & four fields ------------------------------------------------
+  { id: "anthropology", title: "Introduction to Anthropology", field: "anthropology", detail: true, requires: [] },
 
-  { id: "cultural-anthropology", title: "Cultural Anthropology", field: "anthropology",
-    desc: "The comparative study of human cultures, meaning and social practice.",
-    requires: ["anthropology"],
-    topics: ["Ethnographic method", "Kinship & marriage", "Religion & ritual", "Economic anthropology", "Political organization", "Globalization"],
-    free: [],
-    paid: [R("Cultural Anthropology: Appreciating Cultural Diversity", "Conrad Kottak")] },
+  // --- Cultural anthropology ---------------------------------------------
+  { id: "cultural-anthropology", title: "Cultural Anthropology", field: "anthropology", detail: true, requires: ["anthropology"] },
+  { id: "ethnography", title: "Ethnographic Methods", field: "anthropology", detail: true, requires: ["cultural-anthropology"] },
+  { id: "anthropological-theory", title: "Anthropological Theory", field: "anthropology", detail: true, requires: ["cultural-anthropology"] },
+  { id: "kinship-social-organization", title: "Kinship & Social Organization", field: "anthropology", detail: true, requires: ["cultural-anthropology"] },
+  { id: "anthropology-of-religion", title: "Anthropology of Religion", field: "anthropology", detail: true, requires: ["cultural-anthropology", "religious-studies"] },
+  { id: "economic-anthropology", title: "Economic Anthropology", field: "anthropology", detail: true, requires: ["cultural-anthropology", "microeconomics"] },
+  { id: "political-anthropology", title: "Political Anthropology", field: "anthropology", detail: true, requires: ["cultural-anthropology", "political-science"] },
+  { id: "medical-anthropology", title: "Medical Anthropology", field: "anthropology", detail: true, requires: ["cultural-anthropology"] },
+  { id: "ecological-anthropology", title: "Ecological & Environmental Anthropology", field: "anthropology", detail: true, requires: ["cultural-anthropology"] },
+  { id: "material-culture", title: "Material Culture Studies", field: "anthropology", detail: true, requires: ["archaeology", "cultural-anthropology"] },
+  { id: "visual-anthropology", title: "Visual Anthropology", field: "anthropology", detail: true, requires: ["cultural-anthropology"] },
+  { id: "applied-anthropology", title: "Applied & Development Anthropology", field: "anthropology", detail: true, requires: ["ethnography"] },
 
-  { id: "biological-anthropology", title: "Biological Anthropology", field: "anthropology",
-    desc: "Human evolution, variation and our place among the primates.",
-    requires: ["anthropology", "evolutionary-biology"],
-    topics: ["Primatology", "Human evolution", "The fossil record", "Human variation", "Paleoanthropology", "Evolutionary medicine"],
-    free: [R("Explorations: An Open Invitation to Biological Anthropology", "American Anthropological Association", "https://explorations.americananthro.org/")],
-    paid: [R("Biological Anthropology", "Stanford, Allen & Antón")] },
+  // --- Linguistic anthropology -------------------------------------------
+  { id: "linguistic-anthropology", title: "Linguistic Anthropology", field: "anthropology", detail: true, requires: ["anthropology", "linguistics"] },
 
-  { id: "archaeology", title: "Archaeology", field: "anthropology",
-    desc: "Reconstructing past human societies from their material remains.",
-    requires: ["anthropology"],
-    topics: ["Excavation & survey", "Dating methods", "Stratigraphy", "Material culture", "Bioarchaeology", "Interpreting the past"],
-    free: [],
-    paid: [R("Archaeology: Theories, Methods, and Practice", "Renfrew & Bahn")] },
+  // --- Biological anthropology -------------------------------------------
+  { id: "biological-anthropology", title: "Biological Anthropology", field: "anthropology", detail: true, requires: ["anthropology", "evolutionary-biology"] },
+  { id: "primatology", title: "Primatology", field: "anthropology", detail: true, requires: ["biological-anthropology"] },
+  { id: "paleoanthropology", title: "Paleoanthropology", field: "anthropology", detail: true, requires: ["biological-anthropology"] },
+  { id: "forensic-anthropology", title: "Forensic Anthropology", field: "anthropology", detail: true, requires: ["biological-anthropology"] },
 
-  { id: "linguistic-anthropology", title: "Linguistic Anthropology", field: "anthropology",
-    desc: "How language shapes and reflects culture and social life.",
-    requires: ["anthropology", "linguistics"],
-    topics: ["Language & culture", "Linguistic relativity", "Language socialization", "Discourse & performance", "Language ideology", "Endangered languages"],
-    free: [],
-    paid: [R("Linguistic Anthropology", "Alessandro Duranti")] },
-
-  { id: "ethnography", title: "Ethnographic Methods", field: "anthropology",
-    desc: "The craft of understanding a way of life through immersive fieldwork.",
-    requires: ["cultural-anthropology"],
-    topics: ["Participant observation", "Fieldnotes", "Interviewing", "Reflexivity & ethics", "Thick description", "Writing ethnography"],
-    free: [],
-    paid: [R("Writing Ethnographic Fieldnotes", "Emerson, Fretz & Shaw")] },
-
-  { id: "anthropological-theory", title: "Anthropological Theory", field: "anthropology",
-    desc: "The major theoretical frameworks that have shaped anthropology.",
-    requires: ["cultural-anthropology"],
-    topics: ["Evolutionism & diffusionism", "Functionalism", "Structuralism", "Interpretive anthropology", "Practice & postcolonial theory"],
-    free: [],
-    paid: [R("A History of Anthropological Theory", "Erickson & Murphy")] },
-
-  { id: "kinship-social-organization", title: "Kinship & Social Organization", field: "anthropology",
-    desc: "How societies organize descent, marriage and social relations.",
-    requires: ["cultural-anthropology"],
-    topics: ["Descent systems", "Marriage & alliance", "Kinship terminology", "Household & family", "New kinship studies"],
-    free: [],
-    paid: [R("Kinship and Marriage: An Anthropological Perspective", "Robin Fox")] },
-
-  { id: "anthropology-of-religion", title: "Anthropology of Religion", field: "anthropology",
-    desc: "Religion, ritual and belief across human cultures.",
-    requires: ["cultural-anthropology", "religious-studies"],
-    topics: ["Myth & symbol", "Ritual", "Magic & witchcraft", "Shamanism", "Religion & social order"],
-    free: [],
-    paid: [R("A Reader in the Anthropology of Religion", "Michael Lambek (ed.)")] },
-
-  { id: "economic-anthropology", title: "Economic Anthropology", field: "anthropology",
-    desc: "How different cultures produce, exchange and value things.",
-    requires: ["cultural-anthropology", "microeconomics"],
-    topics: ["Gift & exchange", "Reciprocity & redistribution", "Money", "Markets across cultures", "Value"],
-    free: [],
-    paid: [R("The Gift", "Marcel Mauss")] },
-
-  { id: "political-anthropology", title: "Political Anthropology", field: "anthropology",
-    desc: "Power, order and conflict in human societies of all scales.",
-    requires: ["cultural-anthropology", "political-science"],
-    topics: ["Bands, tribes, chiefdoms, states", "Power & authority", "Law & order without the state", "Colonialism", "The anthropology of the state"],
-    free: [],
-    paid: [R("Political Anthropology: An Introduction", "Ted Lewellen")] },
-
-  { id: "medical-anthropology", title: "Medical Anthropology", field: "anthropology",
-    desc: "Health, illness and healing in cultural and biological context.",
-    requires: ["cultural-anthropology"],
-    topics: ["Ethnomedicine", "Illness narratives", "Global health", "Body & embodiment", "Structural violence & health"],
-    free: [],
-    paid: [R("Exploring Medical Anthropology", "Donald Joralemon")] },
-
-  { id: "primatology", title: "Primatology", field: "anthropology",
-    desc: "The behavior, ecology and evolution of primates.",
-    requires: ["biological-anthropology"],
-    topics: ["Primate taxonomy", "Social behavior", "Primate cognition", "Ecology", "Conservation"],
-    free: [],
-    paid: [R("Primate Behavioral Ecology", "Karen Strier")] },
-
-  { id: "paleoanthropology", title: "Paleoanthropology", field: "anthropology",
-    desc: "The fossil and archaeological record of human evolution.",
-    requires: ["biological-anthropology", "evolutionary-biology"],
-    topics: ["Hominin phylogeny", "Bipedalism", "Brain evolution", "Stone tools", "The origin of Homo sapiens"],
-    free: [],
-    paid: [R("The Human Career: Human Biological and Cultural Origins", "Richard Klein")] },
-
-  { id: "forensic-anthropology", title: "Forensic Anthropology", field: "anthropology",
-    desc: "Identifying human remains for legal and humanitarian purposes.",
-    requires: ["biological-anthropology"],
-    topics: ["Skeletal analysis", "Age, sex & ancestry estimation", "Trauma analysis", "Taphonomy", "Human identification"],
-    free: [],
-    paid: [R("Introduction to Forensic Anthropology", "Steven Byers")] },
-
-  { id: "archaeological-theory", title: "Archaeological Theory & Method", field: "anthropology",
-    desc: "The frameworks and techniques for interpreting the material past.",
-    requires: ["archaeology"],
-    topics: ["Culture history", "Processual archaeology", "Post-processual archaeology", "Dating & typology", "Interpretation"],
-    free: [],
-    paid: [R("Archaeological Theory: An Introduction", "Matthew Johnson")] },
-
-  { id: "bioarchaeology", title: "Bioarchaeology", field: "anthropology",
-    desc: "Studying human skeletons from archaeological sites to reconstruct past lives.",
-    requires: ["archaeology", "biological-anthropology"],
-    topics: ["Paleopathology", "Diet & isotopes", "Demography", "Activity & stress markers", "Ancient DNA"],
-    free: [],
-    paid: [R("Bioarchaeology: Interpreting Behavior from the Human Skeleton", "Clark Spencer Larsen")] },
-
-  { id: "material-culture", title: "Material Culture Studies", field: "anthropology",
-    desc: "How objects carry meaning and shape social life.",
-    requires: ["archaeology", "cultural-anthropology"],
-    topics: ["Objects & meaning", "Consumption", "Technology & society", "Museums & collections", "Heritage"],
-    free: [],
-    paid: [R("The Comfort of Things", "Daniel Miller")] },
-
-  { id: "visual-anthropology", title: "Visual Anthropology", field: "anthropology",
-    desc: "Studying culture through images and representing it visually.",
-    requires: ["cultural-anthropology"],
-    topics: ["Ethnographic film", "Photography & culture", "Visual methods", "Representation & ethics", "Media anthropology"],
-    free: [],
-    paid: [R("Principles of Visual Anthropology", "Paul Hockings (ed.)")] },
-
-  { id: "applied-anthropology", title: "Applied & Development Anthropology", field: "anthropology",
-    desc: "Using anthropological insight to address practical problems.",
-    requires: ["ethnography"],
-    topics: ["Development projects", "Policy", "Design & business anthropology", "Advocacy", "Ethics of application"],
-    free: [],
-    paid: [R("Applied Anthropology: Domains of Application", "Kedia & van Willigen (eds.)")] },
+  // --- Archaeology -------------------------------------------------------
+  { id: "archaeology", title: "Archaeology", field: "anthropology", detail: true, requires: ["anthropology"] },
+  { id: "archaeological-theory", title: "Archaeological Theory & Method", field: "anthropology", detail: true, requires: ["archaeology"] },
+  { id: "bioarchaeology", title: "Bioarchaeology", field: "anthropology", detail: true, requires: ["archaeology", "biological-anthropology"] },
 
 ]);
