@@ -45,4 +45,7 @@ registerCourses([
   { id: "farm-management", title: "Farm Management", field: "agriculture", detail: true, requires: ["agricultural-economics"] },
   { id: "food-policy", title: "Food Policy & Security", field: "agriculture", detail: true, requires: ["agricultural-economics"] },
 
+  { id: "weed-science", title: "Weed Science", field: "agriculture", detail: true, requires: ["agronomy"] },
+  { id: "agricultural-extension", title: "Agricultural Extension & Rural Development", field: "agriculture", detail: true, requires: ["intro-agriculture"] },
+  { id: "rangeland-management", title: "Rangeland & Pasture Management", field: "agriculture", detail: true, requires: ["agroecology"] },
 ]);

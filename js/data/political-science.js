@@ -38,4 +38,8 @@ registerCourses([
   { id: "democratization", title: "Democratization & Regimes", field: "politicalscience", detail: true, requires: ["comparative-politics"] },
   { id: "development-politics", title: "Politics of Development", field: "politicalscience", detail: true, requires: ["comparative-politics", "development-economics"] },
 
+  { id: "political-parties", title: "Political Parties & Interest Groups", field: "politicalscience", detail: true, requires: ["political-behavior"] },
+  { id: "international-organizations", title: "International Organizations & Global Governance", field: "politicalscience", detail: true, requires: ["international-relations"] },
+  { id: "gender-politics", title: "Gender & Politics", field: "politicalscience", detail: true, requires: ["political-science"] },
+  { id: "legislative-politics", title: "Legislative Politics", field: "politicalscience", detail: true, requires: ["american-politics"] },
 ]);

@@ -33,4 +33,5 @@ registerCourses([
   { id: "systems-engineering-ie", title: "Systems Engineering", field: "indeng", detail: true, requires: ["operations-research"] },
   { id: "operations-analytics", title: "Operations Analytics", field: "indeng", detail: true, requires: ["discrete-event-simulation", "machine-learning"] },
 
+  { id: "manufacturing-systems", title: "Manufacturing Systems & Processes", field: "indeng", detail: true, requires: ["production-planning"] },
 ]);

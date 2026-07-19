@@ -45,4 +45,7 @@ registerCourses([
   { id: "business-ethics", title: "Business Ethics & CSR", field: "business", detail: true, requires: ["management-principles", "applied-ethics"] },
   { id: "business-law", title: "Business Law", field: "business", detail: true, requires: ["intro-business"] },
 
+  { id: "project-management", title: "Project Management", field: "business", detail: true, requires: ["management-principles"] },
+  { id: "auditing", title: "Auditing & Assurance", field: "business", detail: true, requires: ["financial-accounting"] },
+  { id: "taxation", title: "Taxation", field: "business", detail: true, requires: ["financial-accounting"] },
 ]);

@@ -13,7 +13,7 @@ registerCourses([
   { id: "biomaterials-bme", title: "Biomedical Materials & Devices", field: "bioeng", detail: true, requires: ["materials-science-intro", "biomechanics"] },
   { id: "biofluid-mechanics", title: "Biofluid Mechanics", field: "bioeng", detail: true, requires: ["fluid-mechanics-eng", "physiology"] },
   { id: "biotransport", title: "Biotransport Phenomena", field: "bioeng", detail: true, requires: ["transport-phenomena", "physiology"] },
-  { id: "cellular-mechanics-bme", title: "Cell & Tissue Mechanics", field: "bioeng", detail: true, requires: ["biomechanics", "cell-biology"] },
+  { id: "cellular-mechanics-bme", title: "Cell & Tissue Mechanics", field: "bioeng", detail: true, requires: ["biomechanics"] },
   { id: "tissue-engineering", title: "Tissue Engineering & Regenerative Medicine", field: "bioeng", detail: true, requires: ["stem-cell-biology", "biomaterials-bme"] },
 
   // --- Signals, imaging, instrumentation & optics ---
@@ -32,4 +32,5 @@ registerCourses([
   { id: "drug-delivery-systems", title: "Drug Delivery Systems", field: "bioeng", detail: true, requires: ["biomaterials-bme", "biotransport"] },
   { id: "medical-device-design", title: "Medical Device Design & Regulation", field: "bioeng", detail: true, requires: ["biomaterials-bme", "biomedical-instrumentation"] },
 
+  { id: "molecular-cellular-bioeng", title: "Molecular & Cellular Bioengineering", field: "bioeng", detail: true, requires: ["cellular-mechanics-bme"] },
 ]);

@@ -22,7 +22,7 @@ registerCourses([
 
   // --- General equilibrium & social choice ------------------------------
   { id: "general-equilibrium", title: "General Equilibrium Theory", field: "economics", detail: true, requires: ["intermediate-microeconomics", "mathematical-economics", "real-analysis"] },
-  { id: "social-choice", title: "Social Choice Theory", field: "economics", detail: true, requires: ["mathematical-economics", "microeconomics"] },
+  { id: "social-choice", title: "Social Choice Theory", field: "economics", detail: true, requires: ["mathematical-economics"] },
 
   // --- Behavioral & experimental ----------------------------------------
   { id: "behavioral-economics", title: "Behavioral Economics", field: "economics", detail: true, requires: ["intermediate-microeconomics", "psychology"] },
@@ -49,4 +49,6 @@ registerCourses([
   { id: "time-series-econometrics", title: "Time Series Econometrics", field: "economics", detail: true, requires: ["econometrics", "stochastic-processes"] },
   { id: "microeconometrics", title: "Microeconometrics", field: "economics", detail: true, requires: ["econometrics"] },
 
+  { id: "history-economic-thought", title: "History of Economic Thought", field: "economics", detail: true, requires: ["macroeconomics"] },
+  { id: "urban-regional-economics", title: "Urban & Regional Economics", field: "economics", detail: true, requires: ["intermediate-microeconomics"] },
 ]);

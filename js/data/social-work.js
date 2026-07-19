@@ -39,4 +39,6 @@ registerCourses([
   { id: "crisis-trauma-intervention", title: "Crisis & Trauma Intervention", field: "socialwork", detail: true, requires: ["clinical-social-work"] },
   { id: "social-work-administration", title: "Human Services Administration", field: "socialwork", detail: true, requires: ["community-organizing"] },
 
+  { id: "field-education", title: "Field Education & Practicum", field: "socialwork", detail: true, requires: ["generalist-practice"] },
+  { id: "international-social-work", title: "International & Global Social Work", field: "socialwork", detail: true, requires: ["intro-social-work"] },
 ]);

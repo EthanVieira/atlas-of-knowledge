@@ -45,4 +45,5 @@ registerCourses([
   { id: "advertising", title: "Advertising", field: "communication", detail: true, requires: ["communication-theory", "marketing"] },
   { id: "strategic-communication", title: "Strategic & Integrated Communication", field: "communication", detail: true, requires: ["public-relations", "advertising"] },
 
+  { id: "health-communication", title: "Health Communication", field: "communication", detail: true, requires: ["communication-theory", "public-health"] },
 ]);

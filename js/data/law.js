@@ -45,4 +45,7 @@ registerCourses([
   { id: "international-law", title: "International Law", field: "law", detail: true, requires: ["intro-law", "international-relations"] },
   { id: "human-rights-law", title: "International Human Rights Law", field: "law", detail: true, requires: ["international-law"] },
 
+  { id: "trusts-estates", title: "Trusts, Wills & Estates", field: "law", detail: true, requires: ["property-law"] },
+  { id: "conflict-of-laws", title: "Conflict of Laws (Private International Law)", field: "law", detail: true, requires: ["civil-procedure"] },
+  { id: "immigration-law", title: "Immigration & Nationality Law", field: "law", detail: true, requires: ["administrative-law"] },
 ]);

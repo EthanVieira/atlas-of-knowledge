@@ -42,4 +42,6 @@ registerCourses([
   { id: "educational-psychology", title: "Educational Psychology", field: "psychology", detail: true, requires: ["developmental-psychology"] },
   { id: "io-psychology", title: "Industrial-Organizational Psychology", field: "psychology", detail: true, requires: ["social-psychology", "research-methods-psych"] },
 
+  { id: "cross-cultural-psychology", title: "Cross-Cultural Psychology", field: "psychology", detail: true, requires: ["social-psychology"] },
+  { id: "history-systems-psychology", title: "History & Systems of Psychology", field: "psychology", detail: true, requires: ["psychology"] },
 ]);

@@ -44,4 +44,7 @@ registerCourses([
   { id: "language-documentation", title: "Language Documentation & Fieldwork", field: "linguistics", detail: true, requires: ["phonetics", "morphology"] },
   { id: "sign-language-linguistics", title: "Sign Language Linguistics", field: "linguistics", detail: true, requires: ["phonology", "syntax"] },
 
+  { id: "applied-linguistics", title: "Applied Linguistics", field: "linguistics", detail: true, requires: ["second-language-acquisition"] },
+  { id: "bilingualism", title: "Bilingualism & Multilingualism", field: "linguistics", detail: true, requires: ["second-language-acquisition"] },
+  { id: "language-contact", title: "Language Contact, Pidgins & Creoles", field: "linguistics", detail: true, requires: ["sociolinguistics", "historical-linguistics"] },
 ]);

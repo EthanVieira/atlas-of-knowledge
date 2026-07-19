@@ -38,4 +38,5 @@ registerCourses([
   { id: "big-data-systems", title: "Big Data Systems", field: "datascience", detail: true, requires: ["intro-data-science", "databases"] },
   { id: "data-ethics", title: "Data Ethics & Privacy", field: "datascience", detail: true, requires: ["intro-data-science"] },
 
+  { id: "survey-sampling", title: "Survey Sampling & Design", field: "datascience", detail: true, requires: ["statistics"] },
 ]);

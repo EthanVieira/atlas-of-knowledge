@@ -38,4 +38,6 @@ registerCourses([
   { id: "dental-public-health", title: "Dental Public Health", field: "dentistry", detail: true, requires: ["intro-dentistry", "public-health"] },
   { id: "forensic-odontology", title: "Forensic Odontology", field: "dentistry", detail: true, requires: ["oral-anatomy-histology", "forensic-science"] },
 
+  { id: "geriatric-dentistry", title: "Geriatric Dentistry", field: "dentistry", detail: true, requires: ["oral-medicine"] },
+  { id: "dental-practice-management", title: "Dental Practice Management", field: "dentistry", detail: true, requires: ["intro-dentistry"] },
 ]);

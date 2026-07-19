@@ -15,13 +15,13 @@ registerCourses([
 
   // --- Petrology & the solid Earth ---
   { id: "igneous-metamorphic-petrology", title: "Igneous & Metamorphic Petrology", field: "earthscience", detail: true, requires: ["mineralogy"] },
-  { id: "sedimentology-stratigraphy", title: "Sedimentology & Stratigraphy", field: "earthscience", detail: true, requires: ["physical-geology", "historical-geology"] },
+  { id: "sedimentology-stratigraphy", title: "Sedimentology & Stratigraphy", field: "earthscience", detail: true, requires: ["historical-geology"] },
   { id: "structural-geology", title: "Structural Geology", field: "earthscience", detail: true, requires: ["physical-geology"] },
   { id: "geomorphology", title: "Geomorphology", field: "earthscience", detail: true, requires: ["physical-geology"] },
 
   // --- Geophysics ---
-  { id: "geophysics", title: "Geophysics", field: "earthscience", detail: true, requires: ["physical-geology", "classical-mechanics", "calculus-3"] },
-  { id: "seismology", title: "Seismology", field: "earthscience", detail: true, requires: ["geophysics", "ode"] },
+  { id: "geophysics", title: "Geophysics", field: "earthscience", detail: true, requires: ["physical-geology", "classical-mechanics"] },
+  { id: "seismology", title: "Seismology", field: "earthscience", detail: true, requires: ["geophysics"] },
   { id: "plate-tectonics", title: "Plate Tectonics & Geodynamics", field: "earthscience", detail: true, requires: ["structural-geology", "geophysics"] },
   { id: "volcanology", title: "Volcanology", field: "earthscience", detail: true, requires: ["igneous-metamorphic-petrology", "geophysics"] },
 
@@ -37,7 +37,7 @@ registerCourses([
   { id: "marine-geology", title: "Marine Geology", field: "earthscience", detail: true, requires: ["oceanography", "sedimentology-stratigraphy"] },
 
   // --- Atmosphere & climate ---
-  { id: "atmospheric-science", title: "Atmospheric Science", field: "earthscience", detail: true, requires: ["thermodynamics", "calculus-3"] },
+  { id: "atmospheric-science", title: "Atmospheric Science", field: "earthscience", detail: true, requires: ["thermodynamics"] },
   { id: "climatology", title: "Climate Science", field: "earthscience", detail: true, requires: ["atmospheric-science", "oceanography"] },
   { id: "paleoclimatology", title: "Paleoclimatology", field: "earthscience", detail: true, requires: ["historical-geology", "climatology"] },
 
@@ -51,4 +51,6 @@ registerCourses([
   { id: "planetary-geology", title: "Planetary Geology", field: "earthscience", detail: true, requires: ["igneous-metamorphic-petrology", "geophysics"] },
   { id: "remote-sensing-gis", title: "Remote Sensing & GIS", field: "earthscience", detail: true, requires: ["physical-geology"] },
 
+  { id: "surface-hydrology", title: "Hydrology", field: "earthscience", detail: true, requires: ["physical-geology"] },
+  { id: "geodesy", title: "Geodesy", field: "earthscience", detail: true, requires: ["geophysics"] },
 ]);

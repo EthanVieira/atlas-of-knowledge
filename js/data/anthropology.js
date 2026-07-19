@@ -39,4 +39,6 @@ registerCourses([
   { id: "archaeological-theory", title: "Archaeological Theory & Method", field: "anthropology", detail: true, requires: ["archaeology"] },
   { id: "bioarchaeology", title: "Bioarchaeology", field: "anthropology", detail: true, requires: ["archaeology", "biological-anthropology"] },
 
+  { id: "anthropology-gender", title: "Anthropology of Gender & Sexuality", field: "anthropology", detail: true, requires: ["cultural-anthropology"] },
+  { id: "psychological-anthropology", title: "Psychological Anthropology", field: "anthropology", detail: true, requires: ["cultural-anthropology", "psychology"] },
 ]);

@@ -40,4 +40,6 @@ registerCourses([
   { id: "african-history", title: "African History", field: "history", detail: true, requires: ["world-history"] },
   { id: "latin-american-history", title: "Latin American History", field: "history", detail: true, requires: ["early-modern-history"] },
 
+  { id: "public-history", title: "Public History", field: "history", detail: true, requires: ["historiography"] },
+  { id: "digital-history", title: "Digital History", field: "history", detail: true, requires: ["historiography", "digital-humanities"] },
 ]);

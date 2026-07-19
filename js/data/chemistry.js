@@ -33,7 +33,7 @@ registerCourses([
   { id: "organic-synthesis", title: "Organic Synthesis", field: "chemistry", detail: true, requires: ["organic-chemistry"] },
   { id: "organometallic-chemistry", title: "Organometallic Chemistry", field: "chemistry", detail: true, requires: ["organic-chemistry", "inorganic-chemistry"] },
   { id: "polymer-chemistry", title: "Polymer Chemistry", field: "chemistry", detail: true, requires: ["organic-chemistry", "physical-chemistry"] },
-  { id: "medicinal-chemistry", title: "Medicinal Chemistry", field: "chemistry", detail: true, requires: ["organic-chemistry", "biochemistry"] },
+  { id: "medicinal-chemistry", title: "Medicinal Chemistry", field: "chemistry", detail: true, requires: ["biochemistry"] },
   { id: "natural-product-synthesis", title: "Natural Product Total Synthesis", field: "chemistry", detail: true, requires: ["organic-synthesis", "physical-organic-chemistry"] },
 
   // --- Inorganic / materials branch ---
@@ -50,8 +50,10 @@ registerCourses([
   { id: "separation-science", title: "Separation Science & Chromatography", field: "chemistry", detail: true, requires: ["analytical-chemistry"] },
 
   // --- Chemical biology bridge ---
-  { id: "biochemistry", title: "Biochemistry", field: "chemistry", detail: true, requires: ["organic-chemistry", "molecular-biology"] },
+  { id: "biochemistry", title: "Biochemistry", field: "chemistry", detail: true, requires: ["molecular-biology"] },
   { id: "enzymology", title: "Enzymology", field: "chemistry", detail: true, requires: ["biochemistry", "chemical-kinetics"] },
-  { id: "chemical-biology", title: "Chemical Biology", field: "chemistry", detail: true, requires: ["biochemistry", "organic-chemistry"] },
+  { id: "chemical-biology", title: "Chemical Biology", field: "chemistry", detail: true, requires: ["biochemistry"] },
 
+  { id: "environmental-chemistry", title: "Environmental Chemistry", field: "chemistry", detail: true, requires: ["analytical-chemistry"] },
+  { id: "nuclear-radiochemistry", title: "Nuclear & Radiochemistry", field: "chemistry", detail: true, requires: ["inorganic-chemistry"] },
 ]);

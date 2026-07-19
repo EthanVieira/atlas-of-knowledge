@@ -16,7 +16,7 @@ registerCourses([
   { id: "biomaterials", title: "Biomaterials", field: "matsci", detail: true, requires: ["materials-science-intro", "biochemistry"] },
   { id: "nanomaterials-eng", title: "Nanomaterials Engineering", field: "matsci", detail: true, requires: ["materials-science-intro", "nanochemistry"] },
   { id: "structure-characterization", title: "Structure & Characterization of Materials", field: "matsci", detail: true, requires: ["materials-science-intro", "crystallography"] },
-  { id: "ceramics", title: "Ceramics & Glasses", field: "matsci", detail: true, requires: ["materials-science-intro", "thermodynamics-of-materials"] },
+  { id: "ceramics", title: "Ceramics & Glasses", field: "matsci", detail: true, requires: ["thermodynamics-of-materials"] },
   { id: "physical-metallurgy", title: "Physical Metallurgy", field: "matsci", detail: true, requires: ["phase-transformations", "mechanical-behavior-materials"] },
   { id: "polymers-mse", title: "Polymeric Materials", field: "matsci", detail: true, requires: ["materials-science-intro", "polymer-chemistry"] },
   { id: "composites", title: "Composite Materials", field: "matsci", detail: true, requires: ["mechanical-behavior-materials", "polymers-mse"] },
@@ -29,4 +29,5 @@ registerCourses([
   { id: "materials-failure", title: "Failure Analysis & Reliability", field: "matsci", detail: true, requires: ["mechanical-behavior-materials"] },
   { id: "surface-engineering-mse", title: "Surface Engineering & Thin Films", field: "matsci", detail: true, requires: ["materials-science-intro", "surface-chemistry"] },
 
+  { id: "materials-selection", title: "Materials Selection & Design", field: "matsci", detail: true, requires: ["mechanical-behavior-materials"] },
 ]);

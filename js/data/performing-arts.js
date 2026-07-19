@@ -49,4 +49,7 @@ registerCourses([
   { id: "screenwriting", title: "Screenwriting", field: "performingarts", detail: true, requires: ["film-studies", "creative-writing"] },
   { id: "film-theory", title: "Film Theory", field: "performingarts", detail: true, requires: ["film-studies", "critical-theory"] },
 
+  { id: "music-education", title: "Music Education & Pedagogy", field: "performingarts", detail: true, requires: ["music-theory", "foundations-of-education"] },
+  { id: "arts-management", title: "Arts Management & Administration", field: "performingarts", detail: true, requires: ["performance-studies", "management-principles"] },
+  { id: "film-editing", title: "Film Editing & Post-Production", field: "performingarts", detail: true, requires: ["cinematography"] },
 ]);

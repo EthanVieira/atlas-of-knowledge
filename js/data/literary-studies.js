@@ -46,4 +46,5 @@ registerCourses([
   { id: "textual-criticism", title: "Textual Criticism & Book History", field: "litstudies", detail: true, requires: ["literature"] },
   { id: "digital-humanities", title: "Digital Humanities", field: "litstudies", detail: true, requires: ["literature", "programming-fundamentals"] },
 
+  { id: "ethnic-literatures", title: "Ethnic American Literatures", field: "litstudies", detail: true, requires: ["literature"] },
 ]);

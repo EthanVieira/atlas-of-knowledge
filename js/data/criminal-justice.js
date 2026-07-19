@@ -42,4 +42,7 @@ registerCourses([
   { id: "criminal-justice-policy", title: "Criminal Justice Policy & Reform", field: "criminaljustice", detail: true, requires: ["criminology", "public-policy"] },
   { id: "critical-criminology", title: "Critical Criminology", field: "criminaljustice", detail: true, requires: ["criminological-theory"] },
 
+  { id: "comparative-criminology", title: "Comparative & International Criminology", field: "criminaljustice", detail: true, requires: ["criminological-theory"] },
+  { id: "race-ethnicity-crime", title: "Race, Ethnicity & Crime", field: "criminaljustice", detail: true, requires: ["criminological-theory", "race-ethnicity-studies"] },
+  { id: "restorative-justice", title: "Restorative Justice", field: "criminaljustice", detail: true, requires: ["penology-corrections-theory"] },
 ]);

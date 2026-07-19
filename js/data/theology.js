@@ -39,4 +39,5 @@ registerCourses([
   { id: "theology-and-science", title: "Theology & Science", field: "theology", detail: true, requires: ["systematic-theology", "philosophy-of-science"] },
   { id: "feminist-theology", title: "Feminist & Liberation Theology", field: "theology", detail: true, requires: ["systematic-theology", "critical-theory"] },
 
+  { id: "ritual-studies", title: "Ritual Studies", field: "theology", detail: true, requires: ["comparative-religion", "anthropology-of-religion"] },
 ]);

@@ -11,7 +11,7 @@ registerCourses([
   // --- Circuits, signals & control ---
   { id: "circuit-analysis", title: "Circuit Analysis", field: "eleceng", detail: true, requires: ["ode"] },
   { id: "electronics", title: "Electronics", field: "eleceng", detail: true, requires: ["circuit-analysis"] },
-  { id: "signals-and-systems", title: "Signals & Systems", field: "eleceng", detail: true, requires: ["ode", "linear-algebra"] },
+  { id: "signals-and-systems", title: "Signals & Systems", field: "eleceng", detail: true, requires: ["ode"] },
   { id: "control-systems", title: "Control Systems", field: "eleceng", detail: true, requires: ["signals-and-systems"] },
   { id: "advanced-control", title: "Advanced & Optimal Control", field: "eleceng", detail: true, requires: ["control-systems"] },
   { id: "estimation-filtering", title: "Estimation & Filtering", field: "eleceng", detail: true, requires: ["signals-and-systems", "probability"] },
@@ -33,7 +33,7 @@ registerCourses([
   { id: "instrumentation-measurement", title: "Instrumentation & Measurement", field: "eleceng", detail: true, requires: ["electronics"] },
 
   // --- Communications & power conversion ---
-  { id: "communication-systems", title: "Communication Systems", field: "eleceng", detail: true, requires: ["signals-and-systems", "probability", "information-theory"] },
+  { id: "communication-systems", title: "Communication Systems", field: "eleceng", detail: true, requires: ["signals-and-systems", "information-theory"] },
   { id: "wireless-communications", title: "Wireless Communications", field: "eleceng", detail: true, requires: ["communication-systems"] },
   { id: "power-electronics", title: "Power Electronics", field: "eleceng", detail: true, requires: ["electronics", "control-systems"] },
   { id: "renewable-energy-systems", title: "Renewable Energy Systems", field: "eleceng", detail: true, requires: ["power-systems", "power-electronics"] },

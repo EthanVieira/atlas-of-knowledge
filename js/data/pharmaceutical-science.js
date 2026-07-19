@@ -44,4 +44,5 @@ registerCourses([
   { id: "pharmacoepidemiology", title: "Pharmacoepidemiology", field: "pharmascience", detail: true, requires: ["pharmacology-principles", "epidemiology"] },
   { id: "pharmacoeconomics", title: "Pharmacoeconomics & Outcomes", field: "pharmascience", detail: true, requires: ["pharmacy-administration", "microeconomics"] },
 
+  { id: "pharmaceutical-microbiology", title: "Pharmaceutical Microbiology", field: "pharmascience", detail: true, requires: ["intro-pharmaceutical-sciences", "microbiology"] },
 ]);

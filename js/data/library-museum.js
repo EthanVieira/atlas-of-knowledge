@@ -48,4 +48,6 @@ registerCourses([
   // --- Information policy & society ---------------------------------------
   { id: "information-policy", title: "Information Policy, Ethics & Society", field: "librarymuseum", detail: true, requires: ["intro-library-information-science", "intellectual-property-law"] },
 
+  { id: "rare-books-special-collections", title: "Rare Books & Special Collections", field: "librarymuseum", detail: true, requires: ["collection-development", "archival-science"] },
+  { id: "scholarly-communication", title: "Scholarly Communication & Bibliometrics", field: "librarymuseum", detail: true, requires: ["intro-library-information-science"] },
 ]);

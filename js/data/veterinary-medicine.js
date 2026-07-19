@@ -40,4 +40,6 @@ registerCourses([
   { id: "veterinary-public-health", title: "Veterinary Public Health & One Health", field: "vetmedicine", detail: true, requires: ["intro-veterinary-medicine", "public-health"] },
   { id: "animal-welfare-ethics", title: "Animal Welfare & Ethics", field: "vetmedicine", detail: true, requires: ["intro-veterinary-medicine", "animal-behavior"] },
 
+  { id: "veterinary-toxicology", title: "Veterinary Toxicology", field: "vetmedicine", detail: true, requires: ["veterinary-pharmacology"] },
+  { id: "avian-poultry-medicine", title: "Avian & Poultry Medicine", field: "vetmedicine", detail: true, requires: ["veterinary-internal-medicine"] },
 ]);

@@ -43,4 +43,6 @@ registerCourses([
   { id: "phenomenology", title: "Phenomenology & Existentialism", field: "philosophy", detail: true, requires: ["continental-philosophy"] },
   { id: "chinese-philosophy", title: "Chinese Philosophy", field: "philosophy", detail: true, requires: ["intro-philosophy"] },
 
+  { id: "indian-philosophy", title: "Indian Philosophy", field: "philosophy", detail: true, requires: ["intro-philosophy"] },
+  { id: "pragmatism", title: "Pragmatism", field: "philosophy", detail: true, requires: ["nineteenth-century-philosophy"] },
 ]);

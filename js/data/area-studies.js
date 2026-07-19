@@ -38,4 +38,6 @@ registerCourses([
   { id: "area-studies-religion", title: "Religion & Region", field: "areastudies", detail: true, requires: ["intro-area-studies", "comparative-religion"] },
   { id: "area-studies-development", title: "Development in Regional Context", field: "areastudies", detail: true, requires: ["intro-area-studies", "development-politics"] },
 
+  { id: "pacific-oceania-studies", title: "Pacific & Oceania Studies", field: "areastudies", detail: true, requires: ["intro-area-studies"] },
+  { id: "north-american-studies", title: "North American Studies", field: "areastudies", detail: true, requires: ["intro-area-studies"] },
 ]);

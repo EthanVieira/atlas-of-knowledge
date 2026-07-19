@@ -39,4 +39,5 @@ registerCourses([
   { id: "sport-technology", title: "Sport Technology & Wearables", field: "sportsscience", detail: true, requires: ["performance-analysis"] },
   { id: "sport-sociology", title: "Sociology of Sport", field: "sportsscience", detail: true, requires: ["intro-sports-science", "sociology"] },
 
+  { id: "sport-management", title: "Sport Management & Business", field: "sportsscience", detail: true, requires: ["intro-sports-science", "management-principles"] },
 ]);
