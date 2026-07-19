@@ -18,7 +18,8 @@ const Layout = (() => {
   // RADIAL "GALAXY" LAYOUT --------------------------------------------------
   //   radius = depth  → foundations near the core, capstones at the rim.
   //   angle  = field  → each field is an angular wedge; families are contiguous
-  //                     arcs (sciences → engineering → social → humanities),
+  //                     arcs (sciences → engineering → health & life → social →
+  //                     humanities → arts & design),
   //                     so the whole atlas reads as a round sky of constellations
   //                     instead of one endless horizontal strip.
   const R0          = 2000; // core radius: the empty hub the depth-0 ring sits on

@@ -6,11 +6,12 @@
  *  index.html. To add a subject: edit the relevant js/data/<field>.js file.
  * ==========================================================================*/
 
-// Fields belong to families (natural sciences, applied sciences, social sciences,
-// humanities). Their order here sets the left to right lane order in the graph, so
-// related disciplines sit next to each other, and each family is given its own
-// hue arc so members look visually related. Each field needs a label, a short 
-// `abbr` for the node badge, an HSL `hue`, and its `family`.
+// Fields belong to families (natural & formal sciences, engineering & technology,
+// health & life sciences, social sciences, humanities, arts & design). Their order
+// here sets the left to right lane order in the graph, so related disciplines sit
+// next to each other, and each family is given its own hue arc so members look
+// visually related. Each field needs a label, a short `abbr` for the node badge,
+// an HSL `hue`, and its `family`.
 var FIELDS = {
   // --- Natural & formal sciences — greens & teals ---
   mathematics:      { label: "Mathematics",           abbr: "MATH",  family: "sciences",    hue: 96  },
@@ -18,23 +19,26 @@ var FIELDS = {
   chemistry:        { label: "Chemistry",             abbr: "CHEM",  family: "sciences",    hue: 150 },
   earthscience:     { label: "Earth Science",         abbr: "EASC",  family: "sciences",    hue: 161 },
   biology:          { label: "Biology",               abbr: "BIO",   family: "sciences",    hue: 172 },
+  datascience:      { label: "Statistics & Data Science", abbr: "STAT", family: "sciences",  hue: 181 },
   cs:               { label: "Computer Science",      abbr: "CS",    family: "sciences",    hue: 190 },
 
-  // --- Applied sciences (engineering & medicine) — blues & indigo ---
-  matsci:           { label: "Materials Science",     abbr: "MATSE", family: "applied",     hue: 205 },
-  mecheng:          { label: "Mechanical Eng.",       abbr: "MECH",  family: "applied",     hue: 215 },
-  eleceng:          { label: "Electrical Eng.",       abbr: "EE",    family: "applied",     hue: 225 },
-  civileng:         { label: "Civil Eng.",            abbr: "CIVE",  family: "applied",     hue: 235 },
-  architecture:     { label: "Architecture",          abbr: "ARCH",  family: "applied",     hue: 240 },
-  chemeng:          { label: "Chemical Eng.",         abbr: "CHE",   family: "applied",     hue: 245 },
-  nucleng:          { label: "Nuclear Eng.",          abbr: "NUCE",  family: "applied",     hue: 250 },
-  aeroeng:          { label: "Aerospace Eng.",        abbr: "AERO",  family: "applied",     hue: 255 },
-  agriculture:      { label: "Agriculture",           abbr: "AGRI",  family: "applied",     hue: 260 },
-  bioeng:           { label: "Biomedical Eng.",       abbr: "BME",   family: "applied",     hue: 266 },
-  medicine:         { label: "Medicine",              abbr: "MED",   family: "applied",     hue: 269 },
-  sportsscience:    { label: "Sports Science",        abbr: "SPRT",  family: "applied",     hue: 271 },
-  indeng:           { label: "Industrial Eng.",       abbr: "IE",    family: "applied",     hue: 273 },
-  militaryscience:  { label: "Military Science",      abbr: "MIL",   family: "applied",     hue: 275 },
+  // --- Engineering & technology — blues & indigo ---
+  matsci:           { label: "Materials Science",     abbr: "MATSE", family: "engineering", hue: 205 },
+  mecheng:          { label: "Mechanical Eng.",       abbr: "MECH",  family: "engineering", hue: 211 },
+  eleceng:          { label: "Electrical Eng.",       abbr: "EE",    family: "engineering", hue: 217 },
+  civileng:         { label: "Civil Eng.",            abbr: "CIVE",  family: "engineering", hue: 223 },
+  architecture:     { label: "Architecture",          abbr: "ARCH",  family: "engineering", hue: 228 },
+  chemeng:          { label: "Chemical Eng.",         abbr: "CHE",   family: "engineering", hue: 233 },
+  nucleng:          { label: "Nuclear Eng.",          abbr: "NUCE",  family: "engineering", hue: 238 },
+  aeroeng:          { label: "Aerospace Eng.",        abbr: "AERO",  family: "engineering", hue: 244 },
+  bioeng:           { label: "Biomedical Eng.",       abbr: "BME",   family: "engineering", hue: 249 },
+  indeng:           { label: "Industrial Eng.",       abbr: "IE",    family: "engineering", hue: 253 },
+  militaryscience:  { label: "Military Science",      abbr: "MIL",   family: "engineering", hue: 257 },
+
+  // --- Health & life sciences — indigo → blue-violet ---
+  agriculture:      { label: "Agriculture",           abbr: "AGRI",  family: "healthlife",  hue: 262 },
+  medicine:         { label: "Medicine",              abbr: "MED",   family: "healthlife",  hue: 268 },
+  sportsscience:    { label: "Sports Science",        abbr: "SPRT",  family: "healthlife",  hue: 273 },
 
   // --- Social sciences — violets & purples ---
   economics:        { label: "Economics",             abbr: "ECON",  family: "social",      hue: 278 },
@@ -50,24 +54,28 @@ var FIELDS = {
   linguistics:      { label: "Linguistics",           abbr: "LING",  family: "social",      hue: 331 },
   geography:        { label: "Geography",              abbr: "GEOG",  family: "social",      hue: 337 },
 
-  // --- Humanities — warm rose → red → orange ---
+  // --- Humanities — warm rose → red ---
   philosophy:       { label: "Philosophy",            abbr: "PHIL",  family: "humanities",  hue: 343 },
   history:          { label: "History",               abbr: "HIST",  family: "humanities",  hue: 351 },
   librarymuseum:    { label: "Library & Museum Studies", abbr: "LMS", family: "humanities",  hue: 355 },
   litstudies:       { label: "Literary Studies",      abbr: "LIT",   family: "humanities",  hue: 359 },
   theology:         { label: "Theology & Religion",   abbr: "THEO",  family: "humanities",  hue: 7   },
   law:              { label: "Law",                   abbr: "LAW",   family: "humanities",  hue: 15  },
-  performingarts:   { label: "Performing Arts",       abbr: "PERF",  family: "humanities",  hue: 23  },
-  visualarts:       { label: "Visual Arts",           abbr: "ART",   family: "humanities",  hue: 31  },
-  culinary:         { label: "Culinary Arts",         abbr: "CULA",  family: "humanities",  hue: 37  },
+
+  // --- Arts & design — orange ---
+  performingarts:   { label: "Performing Arts",       abbr: "PERF",  family: "artsdesign",  hue: 23  },
+  visualarts:       { label: "Visual Arts",           abbr: "ART",   family: "artsdesign",  hue: 31  },
+  culinary:         { label: "Culinary Arts",         abbr: "CULA",  family: "artsdesign",  hue: 37  },
 };
 
 // Family display order & labels for the legend sections.
 var FAMILIES = [
   { key: "sciences",    label: "Natural & Formal Sciences" },
-  { key: "applied",     label: "Applied Sciences" },
+  { key: "engineering", label: "Engineering & Technology" },
+  { key: "healthlife",  label: "Health & Life Sciences" },
   { key: "social",      label: "Social Sciences" },
   { key: "humanities",  label: "Humanities" },
+  { key: "artsdesign",  label: "Arts & Design" },
 ];
 
 // Depth zones for the radial layout: distance from the core = how far into a

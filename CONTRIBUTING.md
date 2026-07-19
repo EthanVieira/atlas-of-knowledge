@@ -148,13 +148,16 @@ node by hand.
    geography: { label: "Geography", abbr: "GEO", family: "social", hue: 300 },
    ```
    - `abbr` is the short badge shown on the node (≤ 5 chars).
-   - `family` is one of `sciences`, `applied`, `social`, `humanities`
-     (see `FAMILIES` in the same file). The `applied` family — labelled "Applied
-     Sciences" — covers the engineering fields and medicine.
+   - `family` is one of `sciences`, `engineering`, `healthlife`, `social`,
+     `humanities`, `artsdesign` (see `FAMILIES` in the same file). `engineering`
+     ("Engineering & Technology") covers the engineering fields; `healthlife`
+     ("Health & Life Sciences") covers medicine, agriculture and the health
+     disciplines; `artsdesign` ("Arts & Design") covers the visual, performing
+     and culinary arts.
    - `hue` is an HSL hue (0–360). Pick one **inside your family's arc** so the
-     field looks related to its neighbors — sciences ≈ 96–190, applied ≈
-     205–272, social ≈ 278–337, humanities ≈ 340–37. Avoid ~40–55 (reserved for
-     the "completed" gold).
+     field looks related to its neighbors — sciences ≈ 96–190, engineering ≈
+     205–257, health & life ≈ 262–273, social ≈ 278–337, humanities ≈ 343–15,
+     arts & design ≈ 23–37. Avoid ~40–55 (reserved for the "completed" gold).
 2. Create `js/data/<field>.js` following the pattern of the existing files.
 3. Add one `<script src="js/data/<field>.js"></script>` line to
    [`index.html`](index.html), next to the other field files.
