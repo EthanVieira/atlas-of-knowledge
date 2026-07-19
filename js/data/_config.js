@@ -38,6 +38,7 @@ var FIELDS = {
   // --- Health & life sciences — indigo → blue-violet ---
   agriculture:      { label: "Agriculture",           abbr: "AGRI",  family: "healthlife",  hue: 262 },
   medicine:         { label: "Medicine",              abbr: "MED",   family: "healthlife",  hue: 268 },
+  publichealth:     { label: "Public Health",         abbr: "PUBH",  family: "healthlife",  hue: 270 },
   sportsscience:    { label: "Sports Science",        abbr: "SPRT",  family: "healthlife",  hue: 273 },
 
   // --- Social sciences — violets & purples ---
