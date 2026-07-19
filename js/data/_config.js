@@ -51,6 +51,7 @@ var FIELDS = {
   education:        { label: "Education",              abbr: "EDUC",  family: "social",      hue: 295 },
   socialwork:       { label: "Social Work",           abbr: "SOCW",  family: "social",      hue: 298 },
   sociology:        { label: "Sociology",             abbr: "SOC",   family: "social",      hue: 300 },
+  criminaljustice:  { label: "Criminology & Justice", abbr: "CRIM",  family: "social",      hue: 303 },
   communication:    { label: "Media & Communication", abbr: "COMM",  family: "social",      hue: 305 },
   politicalscience: { label: "Political Science",     abbr: "POLS",  family: "social",      hue: 311 },
   publicpolicy:     { label: "Public Policy & Admin.", abbr: "PPA",   family: "social",     hue: 316 },
@@ -60,6 +61,7 @@ var FIELDS = {
 
   // --- Humanities — warm rose → red ---
   philosophy:       { label: "Philosophy",            abbr: "PHIL",  family: "humanities",  hue: 343 },
+  classics:         { label: "Classics",              abbr: "CLAS",  family: "humanities",  hue: 347 },
   history:          { label: "History",               abbr: "HIST",  family: "humanities",  hue: 351 },
   librarymuseum:    { label: "Library & Museum Studies", abbr: "LMS", family: "humanities",  hue: 355 },
   litstudies:       { label: "Literary Studies",      abbr: "LIT",   family: "humanities",  hue: 359 },
