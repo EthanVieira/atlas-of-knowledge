@@ -74,6 +74,7 @@ var FIELDS = {
   // --- Arts & design — orange ---
   performingarts:   { label: "Performing Arts",       abbr: "PERF",  family: "artsdesign",  hue: 23  },
   visualarts:       { label: "Visual Arts",           abbr: "ART",   family: "artsdesign",  hue: 31  },
+  design:           { label: "Design",                abbr: "DSGN",  family: "artsdesign",  hue: 34  },
   culinary:         { label: "Culinary Arts",         abbr: "CULA",  family: "artsdesign",  hue: 37  },
 };
 
