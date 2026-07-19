@@ -51,6 +51,7 @@ var FIELDS = {
   // --- Humanities — warm rose → red → orange ---
   philosophy:       { label: "Philosophy",            abbr: "PHIL",  family: "humanities",  hue: 343 },
   history:          { label: "History",               abbr: "HIST",  family: "humanities",  hue: 351 },
+  librarymuseum:    { label: "Library & Museum Studies", abbr: "LMS", family: "humanities",  hue: 355 },
   litstudies:       { label: "Literary Studies",      abbr: "LIT",   family: "humanities",  hue: 359 },
   theology:         { label: "Theology & Religion",   abbr: "THEO",  family: "humanities",  hue: 7   },
   law:              { label: "Law",                   abbr: "LAW",   family: "humanities",  hue: 15  },
