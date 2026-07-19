@@ -42,6 +42,7 @@ var FIELDS = {
   psychology:       { label: "Psychology",            abbr: "PSYC",  family: "social",      hue: 289 },
   education:        { label: "Education",              abbr: "EDUC",  family: "social",      hue: 295 },
   sociology:        { label: "Sociology",             abbr: "SOC",   family: "social",      hue: 300 },
+  communication:    { label: "Media & Communication", abbr: "COMM",  family: "social",      hue: 305 },
   politicalscience: { label: "Political Science",     abbr: "POLS",  family: "social",      hue: 311 },
   anthropology:     { label: "Anthropology",          abbr: "ANTH",  family: "social",      hue: 322 },
   linguistics:      { label: "Linguistics",           abbr: "LING",  family: "social",      hue: 331 },
