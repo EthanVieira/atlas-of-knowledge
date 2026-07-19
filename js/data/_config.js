@@ -32,7 +32,8 @@ var FIELDS = {
   agriculture:      { label: "Agriculture",           abbr: "AGRI",  family: "applied",     hue: 260 },
   bioeng:           { label: "Biomedical Eng.",       abbr: "BME",   family: "applied",     hue: 266 },
   medicine:         { label: "Medicine",              abbr: "MED",   family: "applied",     hue: 269 },
-  indeng:           { label: "Industrial Eng.",       abbr: "IE",    family: "applied",     hue: 272 },
+  sportsscience:    { label: "Sports Science",        abbr: "SPRT",  family: "applied",     hue: 271 },
+  indeng:           { label: "Industrial Eng.",       abbr: "IE",    family: "applied",     hue: 273 },
 
   // --- Social sciences — violets & purples ---
   economics:        { label: "Economics",             abbr: "ECON",  family: "social",      hue: 278 },
