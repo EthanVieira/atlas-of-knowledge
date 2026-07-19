@@ -19,6 +19,7 @@ var FIELDS = {
   chemistry:        { label: "Chemistry",             abbr: "CHEM",  family: "sciences",    hue: 150 },
   earthscience:     { label: "Earth Science",         abbr: "EASC",  family: "sciences",    hue: 161 },
   biology:          { label: "Biology",               abbr: "BIO",   family: "sciences",    hue: 172 },
+  neuroscience:     { label: "Neuroscience",          abbr: "NEUR",  family: "sciences",    hue: 177 },
   datascience:      { label: "Statistics & Data Science", abbr: "STAT", family: "sciences",  hue: 181 },
   cs:               { label: "Computer Science",      abbr: "CS",    family: "sciences",    hue: 190 },
 
