@@ -37,10 +37,11 @@ var FIELDS = {
 
   // --- Health & life sciences — indigo → blue-violet ---
   agriculture:      { label: "Agriculture",           abbr: "AGRI",  family: "healthlife",  hue: 262 },
-  medicine:         { label: "Medicine",              abbr: "MED",   family: "healthlife",  hue: 266 },
-  nursing:          { label: "Nursing",               abbr: "NURS",  family: "healthlife",  hue: 269 },
-  publichealth:     { label: "Public Health",         abbr: "PUBH",  family: "healthlife",  hue: 271 },
-  sportsscience:    { label: "Sports Science",        abbr: "SPRT",  family: "healthlife",  hue: 274 },
+  medicine:         { label: "Medicine",              abbr: "MED",   family: "healthlife",  hue: 265 },
+  pharmascience:    { label: "Pharmaceutical Sci.",   abbr: "PHAR",  family: "healthlife",  hue: 268 },
+  nursing:          { label: "Nursing",               abbr: "NURS",  family: "healthlife",  hue: 270 },
+  publichealth:     { label: "Public Health",         abbr: "PUBH",  family: "healthlife",  hue: 272 },
+  sportsscience:    { label: "Sports Science",        abbr: "SPRT",  family: "healthlife",  hue: 275 },
 
   // --- Social sciences — violets & purples ---
   economics:        { label: "Economics",             abbr: "ECON",  family: "social",      hue: 278 },
