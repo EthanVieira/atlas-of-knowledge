@@ -34,6 +34,7 @@ var FIELDS = {
   medicine:         { label: "Medicine",              abbr: "MED",   family: "applied",     hue: 269 },
   sportsscience:    { label: "Sports Science",        abbr: "SPRT",  family: "applied",     hue: 271 },
   indeng:           { label: "Industrial Eng.",       abbr: "IE",    family: "applied",     hue: 273 },
+  militaryscience:  { label: "Military Science",      abbr: "MIL",   family: "applied",     hue: 275 },
 
   // --- Social sciences — violets & purples ---
   economics:        { label: "Economics",             abbr: "ECON",  family: "social",      hue: 278 },
