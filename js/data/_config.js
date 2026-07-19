@@ -47,6 +47,7 @@ var FIELDS = {
   finance:          { label: "Finance",               abbr: "FIN",   family: "social",      hue: 286 },
   psychology:       { label: "Psychology",            abbr: "PSYC",  family: "social",      hue: 289 },
   education:        { label: "Education",              abbr: "EDUC",  family: "social",      hue: 295 },
+  socialwork:       { label: "Social Work",           abbr: "SOCW",  family: "social",      hue: 298 },
   sociology:        { label: "Sociology",             abbr: "SOC",   family: "social",      hue: 300 },
   communication:    { label: "Media & Communication", abbr: "COMM",  family: "social",      hue: 305 },
   politicalscience: { label: "Political Science",     abbr: "POLS",  family: "social",      hue: 311 },
