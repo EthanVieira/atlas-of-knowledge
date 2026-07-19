@@ -36,8 +36,10 @@ var FIELDS = {
   militaryscience:  { label: "Military Science",      abbr: "MIL",   family: "engineering", hue: 257 },
 
   // --- Health & life sciences — indigo → blue-violet ---
-  agriculture:      { label: "Agriculture",           abbr: "AGRI",  family: "healthlife",  hue: 262 },
-  medicine:         { label: "Medicine",              abbr: "MED",   family: "healthlife",  hue: 265 },
+  agriculture:      { label: "Agriculture",           abbr: "AGRI",  family: "healthlife",  hue: 260 },
+  vetmedicine:      { label: "Veterinary Medicine",   abbr: "VET",   family: "healthlife",  hue: 262 },
+  medicine:         { label: "Medicine",              abbr: "MED",   family: "healthlife",  hue: 264 },
+  dentistry:        { label: "Dentistry",             abbr: "DENT",  family: "healthlife",  hue: 266 },
   pharmascience:    { label: "Pharmaceutical Sci.",   abbr: "PHAR",  family: "healthlife",  hue: 268 },
   nursing:          { label: "Nursing",               abbr: "NURS",  family: "healthlife",  hue: 270 },
   publichealth:     { label: "Public Health",         abbr: "PUBH",  family: "healthlife",  hue: 272 },
