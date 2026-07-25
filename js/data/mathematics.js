@@ -15,7 +15,7 @@ registerCourses([
   { id: "trigonometry", title: "Trigonometry", field: "mathematics", detail: true, requires: ["elementary-algebra", "euclidean-geometry"] },
   { id: "precalculus", title: "Precalculus", field: "mathematics", detail: true, requires: ["trigonometry"] },
   { id: "discrete-math", title: "Discrete Mathematics", field: "mathematics", detail: true, requires: ["elementary-algebra"] },
-  { id: "proof-writing", title: "Mathematical Proof", field: "mathematics", detail: true, requires: ["discrete-math"] },
+  { id: "proof-writing", title: "Mathematical Proof", field: "mathematics", detail: true, requires: ["elementary-algebra"] },
   { id: "mathematical-logic", title: "Mathematical Logic", field: "mathematics", detail: true, requires: ["discrete-math"] },
   { id: "set-theory", title: "Naive Set Theory", field: "mathematics", detail: true, requires: ["mathematical-logic"] },
 
